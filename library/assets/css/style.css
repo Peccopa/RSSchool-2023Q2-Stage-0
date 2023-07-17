@@ -223,6 +223,7 @@ body {
     align-items: center;
     width: 26px;
     height: 26px;
+    cursor: pointer;
     border-radius: 50%;
 }
 
@@ -235,4 +236,151 @@ body {
 
 .about__btn__inner__active {
     background-color: #BB945F;
+}
+
+/*Favorites*/
+.section__favorites {
+    height: 1439px;
+}
+
+.season__block__title {
+    width: 234px;
+    height: 24px;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: auto;
+    letter-spacing: auto;
+    margin-left: 20px;
+}
+
+.season__block {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    height: 24px;
+    margin: 40px 0 40px 20px;
+}
+
+.season__block label {
+    display: block;
+    padding: 5px;
+}
+
+.season__block input {
+    margin: 0 20px 0 0;
+    width: 17px;
+    height: 17px;
+    vertical-align: middle;
+}
+
+.season__input {
+    accent-color: #000;
+}
+
+.season__input:checked + .season__span {
+    font-weight: bold;
+}
+
+.favorites__content {
+    display: grid;
+    grid-template-columns: 590px 590px;
+    row-gap: 40px;
+    column-gap: 220px;
+    justify-content: center;
+    /* margin: 10px 14px 26px 14px; */
+}
+
+.favorite__book {
+    position: relative;
+    width: 550px;
+    height: 555px;
+    border: #000 1px solid;
+    padding: 15px 20px;
+}
+
+.favorite__book h3 {
+    height: 40px;
+    font-family: 'Forum', cursive;
+    font-size: 2rem;
+    color: #000;
+    line-height: 2;
+    letter-spacing: 2px;
+}
+
+.favorite__book h3::after {
+    content: "";
+    display: block;
+    background-color: #BB945F;
+    width: 60px;
+    height: 1px;
+}
+
+.favorite__book h4,
+.favorite__book h5 {
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 2;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.favorite__book h5 {
+    margin: 0 0 20px;
+    text-transform: capitalize;
+}
+
+.favorite__book p {
+    width: 355px;
+    height: 320px;
+    font-size: 15px;
+    line-height: 2.8;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.btn__buy {
+    position: absolute;
+    width: 75px;
+    height: 30px;
+    bottom: 15px;
+    left: 20px;
+    border: #0C0C0E 1px solid;
+    border-radius: 2px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: auto;
+    letter-spacing: 1px;
+    color: #0C0C0E;
+    background-color: #fff;
+    transition: background .1s;
+}
+
+.btn__buy:hover {
+    background-color: #BB945F;
+    border: 0;
+}
+
+.btn__own {
+    position: absolute;
+    width: 75px;
+    height: 30px;
+    bottom: 15px;
+    left: 20px;
+    border: #BB945F 1px solid;
+    border-radius: 2px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: auto;
+    letter-spacing: 1px;
+    color: #BB945F;
+    background-color: #fff;
+}
+
+.favorite__book img {
+    position: absolute;
+    bottom: -1px;
+    right: -40px;
 }
