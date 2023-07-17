@@ -40,7 +40,7 @@ body {
     font-family: 'Forum', cursive;
     font-size: 3rem;
     letter-spacing: .02rem;
-    line-height: 1.5;
+    line-height: 2;
     color: #fff;
     text-decoration: none;
     cursor: pointer;
@@ -71,7 +71,7 @@ body {
 .nav__link a{
     display: block;
     margin-right: 30px;
-    line-height: 1.5;
+    line-height: 2;
     color: #fff;
     list-style-type: none;
     text-decoration: none;
@@ -131,7 +131,7 @@ body {
 
 /*Welcome*/
 
-.welcome {
+.section__welcome {
     height: 600px;
     background: url(../images/welcome-bg.jpg);
     position: relative;
@@ -161,4 +161,78 @@ body {
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 3px;
+}
+
+/*Section Title*/
+
+.section__title {
+    font-family: 'Forum', cursive;
+    font-size: 4rem;
+    color: #0C0C0E;
+    height: 61px;
+    line-height: 1.4;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: 20px 0 40px;
+}
+
+.section__title::after {
+    content: "";
+    display: block;
+    background-color: #0C0C0E;
+    width: 50px;
+    height: 1px;
+    margin: 10px auto;
+}
+
+/*About*/
+
+.section__about {
+    height: 837px;
+}
+
+.section__about p{
+    height: 40px;
+    color: #000;
+    line-height: 2;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.about__photos {
+    display: flex;
+}
+
+.about__photos img {
+    display: block;
+    margin: 0 20px 35px;
+}
+
+.about__photos img:nth-child(2) {
+    margin: 0 5px 35px;
+}
+
+.about__btns {
+    display: flex;
+    justify-content: center;
+}
+
+.about__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+}
+
+.about__btn__inner {
+    width: 16px;
+    height: 16px;
+    background-color: #0C0C0E;
+    border-radius: 50%;
+}
+
+.about__btn__inner__active {
+    background-color: #BB945F;
 }
