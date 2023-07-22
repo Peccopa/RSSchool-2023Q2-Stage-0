@@ -447,7 +447,6 @@ body {
 
 .menu__item-text {
     letter-spacing: 2px;
-    /* margin-right: 60px; */
 }
 
 .menu__item-text__right {
@@ -463,23 +462,59 @@ body {
     align-items: center;
 }
 
-.line__price__right {
-    /* width: 180px; */
-    /* margin-left: 60px; */
-    /* margin-right: 3px; */
-}
-
 .menu__line {
     width: 100px;
     height: 1px;
     background-color: #BB945F;
-    /* margin-right: 53px; */
 }
 
 .menu__price {
     letter-spacing: 2px;
-    /* margin-left: 40px; */
 }
 
 /*Contacts*/
+
+.section__contacts {
+    margin-bottom: 53px;
+}
+
+.section__contacts .section__title {
+    margin-top: 0px;
+    margin-bottom: 47px;
+}
+
+.contacts__content {
+    margin: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contacts h3{
+    font-size: 2rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin: 8px 0 55px 0;
+}
+
+.contacts p {
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+.contacts span {
+    font-weight: 700;
+}
+
+.map__link img {
+    display: block;
+}
+
+.contact__text {
+    margin-bottom: 36px;
+}
+
+.contact__text__bold {
+    margin-top: 57px;
+    margin-bottom: 36px;
+}
 
