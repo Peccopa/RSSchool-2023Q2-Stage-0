@@ -155,13 +155,15 @@ body {
 }
 
 .welcome__title {
+    height: auto;
     font-family: 'Forum', cursive;
     font-size: 4rem;
     color: #fff;
     line-height: 1.25;
     text-transform: uppercase;
     text-align: center;
-    letter-spacing: 3px;
+    letter-spacing: 2.9px;
+    align-self: center;
 }
 
 /*Section Title*/
@@ -241,7 +243,7 @@ body {
 
 /*Favorites*/
 .section__favorites {
-    height: 1439px;
+    height: 1427px;
 }
 
 .season__block__title {
@@ -257,7 +259,7 @@ body {
 .season__block {
     display: flex;
     justify-content: space-between;
-    width: 700px;
+    width: 705px;
     height: 24px;
     margin: 36px 0 44px 20px;
 }
@@ -390,3 +392,94 @@ body {
 .hidden__book {
     display: none;
 }
+
+/*Coffee Shop*/
+
+.section__coffee {
+    height: 841px;
+}
+
+.coffee__text {
+    margin: 0 21px 37px;
+    height: auto;
+    line-height: 2;
+    letter-spacing: 2px;
+    text-align: center;
+    align-self: top;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.menu__left {
+    width: 441px;
+}
+
+.menu__right {
+    width: 462px;
+}
+
+.menu__title {
+    font-family: 'Forum', cursive;
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: #BB945F;
+    margin-bottom: 46px;
+}
+
+.menu__title__right {
+    text-align: end;
+}
+
+.menu__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 56px;
+}
+
+.menu__item__right {
+    justify-content: end;
+}
+
+.menu__item-text {
+    letter-spacing: 2px;
+    /* margin-right: 60px; */
+}
+
+.menu__item-text__right {
+    margin-right: 59px;
+}
+
+.line__price {
+    font-family: 'Forum', cursive;
+    letter-spacing: 2px;
+    width: 190px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.line__price__right {
+    /* width: 180px; */
+    /* margin-left: 60px; */
+    /* margin-right: 3px; */
+}
+
+.menu__line {
+    width: 100px;
+    height: 1px;
+    background-color: #BB945F;
+    /* margin-right: 53px; */
+}
+
+.menu__price {
+    letter-spacing: 2px;
+    /* margin-left: 40px; */
+}
+
+/*Contacts*/
+
