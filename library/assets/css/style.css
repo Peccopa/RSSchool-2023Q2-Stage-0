@@ -53,6 +53,7 @@ body {
 }
 
 .header__menu {
+    width: 672px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -155,15 +156,14 @@ body {
 }
 
 .welcome__title {
-    height: auto;
     font-family: 'Forum', cursive;
     font-size: 4rem;
     color: #fff;
     line-height: 1.25;
     text-transform: uppercase;
     text-align: center;
-    letter-spacing: 2.9px;
-    align-self: center;
+    letter-spacing: 3px;
+    margin-left: -3px;
 }
 
 /*Section Title*/
@@ -499,6 +499,11 @@ body {
 .contacts p {
     font-size: 2rem;
     letter-spacing: 2px;
+}
+
+.contacts p a{
+    text-decoration: none;
+    color: #000;
 }
 
 .contacts span {
