@@ -12,6 +12,7 @@ h1, h2, h3, h4, h5, h6, ul, li, a, p {
 
 html {
     font-size: 10px;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -159,6 +160,10 @@ body {
     justify-content: center;
 }
 
+.welcome__logo a {
+    text-decoration: none;
+}
+
 .welcome__title {
     font-family: 'Forum', cursive;
     font-size: 4rem;
@@ -168,6 +173,11 @@ body {
     text-align: center;
     letter-spacing: 3px;
     margin-left: -3px;
+    transition: .2s linear;
+}
+
+.welcome__title:hover {
+    color: #ccc;
 }
 
 /*Section Title*/
@@ -196,6 +206,8 @@ body {
 
 .section__about {
     height: 823px;
+    /* overflow-y: scroll; */
+    /* scroll-behavior: smooth; */
 }
 
 .section__about p{
@@ -602,6 +614,12 @@ body {
     margin-top: 4px;
     background-color: #fff;
     border: 1px #0C0C0E solid;
+    transition: .2s linear;
+}
+
+.check__btn:hover {
+    background-color: #BB945F;
+    border: transparent 1px solid;
 }
 
 .login {
@@ -659,6 +677,10 @@ body {
     padding: 20px;
 }
 
+.footer__contacts {
+    margin-bottom: 30px;
+}
+
 .line__up {
     display: flex;
     justify-content: space-between;
@@ -696,7 +718,8 @@ body {
 .footer__rss {
     display: flex;
     justify-content: space-between;
-    margin-top: 75px;
+    padding-top: 44px;
+    border-top: 1px solid #fff;
 }
 
 .footer__rss a{
