@@ -258,14 +258,14 @@ body {
 
 .season__block {
     display: flex;
-    justify-content: space-between;
-    width: 705px;
+    justify-content: start;
     height: 24px;
-    margin: 36px 0 44px 20px;
+    margin: 36px 0 44px 15px;
 }
 
 .season__block label {
     display: block;
+    margin-right: 81px;
     padding: 5px;
 }
 
@@ -358,12 +358,12 @@ body {
     letter-spacing: 1px;
     color: #0C0C0E;
     background-color: #fff;
-    transition: background .1s;
+    transition: .2s linear;
 }
 
 .btn__buy:hover {
     background-color: #BB945F;
-    border: 0;
+    border: transparent 1px solid;
 }
 
 .btn__own {
@@ -523,3 +523,94 @@ body {
     margin-bottom: 36px;
 }
 
+/*Cards*/
+
+.cards__content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    width: 600px;
+    height: 453px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.card__header {
+    font-size: 3rem;
+    text-align: center;
+    letter-spacing: .7px;
+    margin-bottom: 32px;
+}
+
+.card__title {
+    text-align: center;
+}
+
+.card__form {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 387px;
+    border: 3px solid #BB945F;
+    padding: 20px;
+
+}
+
+.card__input {
+    background-color: #BB945F;
+}
+
+.card__input input {
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+.login {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.login__title {
+    font-family: 'Forum', cursive;
+    font-size: 3rem;
+    letter-spacing: 0.6px;
+    text-align: end;
+    margin-bottom: 44px;
+}
+
+.login__text p {
+    text-align: end;
+    margin-bottom: 15px;
+    letter-spacing: 0.4px;
+}
+
+.login__btns {
+    display: flex;
+    justify-content: end;
+}
+
+.login__btn {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 30px 0 0 21px;
+    width: 75px;
+    height: 30px;
+    background-color: #fff;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #0C0C0E;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    transition: .2s linear;
+}
+
+.login__btn:hover {
+    background-color: #BB945F;
+    border: transparent 1px solid;
+}
