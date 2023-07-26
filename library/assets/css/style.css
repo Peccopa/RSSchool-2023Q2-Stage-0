@@ -614,6 +614,7 @@ body {
     margin-top: 4px;
     background-color: #fff;
     border: 1px #0C0C0E solid;
+    border-radius: 2px;
     transition: .2s linear;
 }
 
@@ -691,6 +692,11 @@ body {
     font-size: 1.5rem;
     color: #fff;
     text-decoration: none;
+    transition: .2s;
+}
+
+.footer__adress:hover {
+    color: #ccc;
 }
 
 .opening__week,
@@ -710,9 +716,9 @@ body {
     display: flex;
 }
 
-.footer__socials a{
+.footer__socials img{
     display: block;
-    margin: 9px 20px 0 0;
+    margin: 9px 15px 0 0;
 }
 
 .footer__rss {
@@ -729,6 +735,11 @@ body {
     color: #fff;
     letter-spacing: 2px;
     text-decoration: none;
+    transition: .2s;
+}
+
+.footer__rss a:hover {
+    color: #ccc;
 }
 
 .footer__year {
