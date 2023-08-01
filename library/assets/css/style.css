@@ -279,6 +279,10 @@ body {
     margin: 36px 0 44px 15px;
 }
 
+.season__label {
+    cursor: pointer;
+}
+
 .season__block label {
     display: block;
     margin-right: 81px;
@@ -375,6 +379,7 @@ body {
     color: #0C0C0E;
     background-color: #fff;
     transition: .2s linear;
+    cursor: pointer;
 }
 
 .btn__buy:hover {
