@@ -770,4 +770,56 @@ body {
         .nav__list {
             display: none;
         }
+
+        /*About*/
+
+        .section__about {
+            height: 100%;
+        }
+
+        .about__photos {
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+
+        /*Favorites*/
+
+        .section__favorites {
+            height: 100%;
+        }
+
+        .favorites__content {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /*Coffee Shop*/
+
+        .section__coffee {
+            height: 100%;
+        }
+
+        .menu {
+            flex-wrap: wrap;
+        }
+
+        /*Contacts*/
+
+        .contacts__content {
+            flex-wrap: wrap;
+        }
+
+        /*Cards*/
+
+        .cards__content {
+            flex-wrap: wrap;
+        }
+
+
+        /*Footer*/
+
+        .footer {
+            width: 100%
+        }
 }
