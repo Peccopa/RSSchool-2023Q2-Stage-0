@@ -362,7 +362,7 @@ body {
     height: 320px;
     font-size: 15px;
     line-height: 2.65;
-    letter-spacing: 2px;
+    letter-spacing: 1.9px;
     text-transform: capitalize;
 }
 
@@ -424,7 +424,7 @@ body {
 }
 
 .coffee__text {
-    margin: 0 21px 37px;
+    margin: 0 18px 37px;
     height: auto;
     line-height: 2;
     letter-spacing: 2px;
@@ -849,12 +849,30 @@ body {
 
         .section__favorites {
             height: 100%;
+            margin-top: 39px;
         }
 
         .favorites__content {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+        }
+
+        .season__block {
+            justify-content: space-between;
+        }
+        
+        .season__block {
+            margin-bottom: 43px;
+        }
+
+        .season__block label {
+            margin-right: 45px;
+        }
+
+        .favorites__content {
+            padding-right: 40px;
+            margin-bottom: 53px;
         }
 
         /*Coffee Shop*/
@@ -864,13 +882,30 @@ body {
         }
 
         .menu {
-            flex-wrap: wrap;
+            display: block;
+        }
+
+        .menu__right {
+            margin: 0 0 0 auto;
+        }
+
+        .menu__title__right {
+            text-align: end;
+            line-height: 1;
         }
 
         /*Contacts*/
 
         .contacts__content {
             flex-wrap: wrap;
+        }
+
+        .contacts {
+            margin-bottom: 108px;
+        }
+
+        .map {
+            margin: 0 auto;
         }
 
         /*Cards*/
