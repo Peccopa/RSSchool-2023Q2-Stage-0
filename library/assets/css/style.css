@@ -754,3 +754,20 @@ body {
 .footer__author {
     text-align: right;
 }
+
+
+
+
+
+
+/*Media*/
+
+@media (max-width: 768px) {
+        body {
+            width: 100%;
+        }
+
+        .nav__list {
+            display: none;
+        }
+}
