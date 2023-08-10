@@ -206,8 +206,6 @@ body {
 
 .section__about {
     height: 823px;
-    /* overflow-y: scroll; */
-    /* scroll-behavior: smooth; */
 }
 
 .section__about p{
@@ -244,6 +242,11 @@ body {
     height: 26px;
     cursor: pointer;
     border-radius: 50%;
+}
+
+.about__btns a:nth-child(4),
+.about__btns a:nth-child(5){
+    display: none;
 }
 
 .about__btn__inner {
@@ -771,15 +774,75 @@ body {
             display: none;
         }
 
-        /*About*/
+        /*Header*/
 
-        .section__about {
-            height: 100%;
+        .header__menu {
+            width: 164px;
         }
 
-        .about__photos {
-            flex-wrap: wrap;
-            margin: 0 auto;
+        .burger__lines {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .burger__line {
+            width: 45px;
+            height: 2px;
+            background-color: #fff;
+            margin: 3px 20px 5px 0px;
+        }
+
+        /*Welcome*/
+
+        .section__welcome {
+            background: url(../images/welcome-bg-768.jpg);
+        }
+
+        /*About*/
+
+        .section__about img{
+            margin: 40px auto 20px;
+        }
+
+        .about__photos img:nth-child(2),
+        .about__photos img:nth-child(3) {
+            display: none;
+        }
+
+        .section__about p{
+            height: 40px;
+            color: #000;
+            line-height: 2;
+            text-align: center;
+            margin: 0 20px 20px 20px;
+        }
+
+        .about__frame {
+            position: relative;
+        }
+
+        .carrets {
+            position: absolute;
+            display: flex;
+            top: 328px;
+        }
+
+        .carret__left,
+        .carret__right {
+            width: 24px;
+            height: 24px;
+            background: url(../images/icons/Vector.svg) no-repeat center;
+            margin-left: 78px;
+        }
+        .carret__right {
+            margin-top: 1px;
+            margin-left: 566px;
+            transform: rotate(180deg);
+        }
+
+        .about__btns a:nth-child(4),
+        .about__btns a:nth-child(5) {
+        display: flex;
         }
 
         /*Favorites*/
