@@ -782,6 +782,8 @@ body {
 
         .section__about img {
             margin: 40px auto 20px;
+            /* margin: 40px auto 35px; */
+            
         }
 
         .about__photos img:nth-child(2),
@@ -1073,7 +1075,7 @@ body {
         }
 
         .footer__rss a:nth-child(2) {
-            width: 50%;
+            width: 47%;
         }
 
         .footer__rss a:nth-child(3) {
