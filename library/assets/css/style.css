@@ -22,10 +22,11 @@ body {
 }
 
 .page {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
     max-width: 1440px;
     margin: 0px auto;
-    font-family: 'Inter', sans-serif;
-    font-size: 2rem;
 }
 
 .main {
@@ -103,6 +104,7 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
+    z-index: 2;
 }
 
 .profile__icon {
@@ -142,6 +144,10 @@ body {
     margin: 0 auto;
 }
 
+.burger__menu {
+    display: none;
+}
+
 /*Welcome*/
 
 .section__welcome {
@@ -153,6 +159,7 @@ body {
 .welcome__gradient {
     height: 100%;
     background: linear-gradient(#0E0C0C, transparent);
+    z-index: 100;
 }
 
 .welcome__logo {
@@ -765,7 +772,10 @@ body {
     text-align: right;
 }
 
-/*Media*/
+
+
+
+        /*Media*/
 
 @media (max-width: 1430px) {
         /*About*/
@@ -889,8 +899,50 @@ body {
 
 @media (max-width: 1024px) {
 
+        /*Burger menu*/
+        .nav {
+            position: absolute;
+            right: -332px;
+            top: 0;
+            width: 332px;
+            height: 570px;
+            background-color: #0C0C0E;
+            z-index: 1;
+            visibility: hidden;
+            transition: transform .5s, visibility .5s;
+            will-change: transform, visibility;
+        }
+
+        .header__menu.opened .nav {
+            transform: translateX(-100%);
+            visibility: visible;
+        }
+
         .nav__list {
-            display: none;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin-top: 90px;
+            margin-bottom: 90px;
+        }
+
+        .nav__list li {
+            display: block;
+            width: 100%;
+        }
+
+        .nav__list a {
+            width: 100%;
+            height: 78px;
+            line-height: 4;
+            display: inline-block;
+            text-align: center;
+            margin-right: 0;
+        }
+
+        .profile {
+            margin: 0 25px 0 29px;
         }
 
         /*Header*/
@@ -899,16 +951,59 @@ body {
             width: 164px;
         }
 
+        .burger__menu {
+            display: block;
+            z-index: 2;
+            margin-right: 20px;
+        }
+
         .burger__lines {
-            display: flex;
-            flex-direction: column;
+            position: relative;
+            width: 45px;
+            height: 45px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
         }
 
         .burger__line {
+            position: absolute;
+            display: block;
             width: 45px;
             height: 2px;
+            left: 0;
             background-color: #fff;
-            margin: 3px 20px 5px 0px;
+            transition: opacity .2s, transform .5s;
+            will-change: transform;
+        }
+
+        /*Three lines*/
+
+        .burger__lines span:nth-child(1){
+            transform: translateY(-10px);
+        }
+
+        .burger__lines span:nth-child(2) {
+            transform: translateY(0px);
+        }
+
+        .burger__lines span:nth-child(3) {
+            transform: translateY(10px);
+        }
+
+        /*Crossburger button*/
+
+        .header__menu.opened .burger__lines span:nth-child(1){
+            transform: translateY(0px) rotate(45deg);
+        }
+
+        .header__menu.opened .burger__lines span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .header__menu.opened .burger__lines span:nth-child(3) {
+            transform: translateY(0px) rotate(-45deg);
         }
 
         /*Coffee Shop*/
@@ -949,7 +1044,6 @@ body {
             width: 100%;
             max-width: 100%;
         }
-
 }
 
 @media (max-width: 768px) {

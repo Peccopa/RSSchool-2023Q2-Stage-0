@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/images/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script defer src="./assets/js/menu.js"></script>
     <title>Brooklyn Public Library</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
             <h1 class="header__title"><a href="./index.html">Brooklyn Public Library</a></h1>
         </div>
         <div class="header__menu">
-            <nav class="nav">
+            <nav class="nav" id="nav">
                 <ul class="nav__list">
                     <li class="nav__link"><a href="#about">About</a></li>
                     <li class="nav__link"><a href="#favorites">Favorites</a></li>
@@ -36,12 +37,12 @@
                     </div>
                 </div>
             </a>
-            <div class="burger__menu">
-                <div class="burger__lines">
-                    <div class="burger__line"></div>
-                    <div class="burger__line"></div>
-                    <div class="burger__line"></div>
-                </div>
+            <div class="burger__menu" id="burger">
+                <button class="burger__lines">
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                </button>
             </div>
         </div>
     </header>
