@@ -15,6 +15,11 @@ btn1.addEventListener('click', function(){
         (el) => el.classList.remove('about__btn__active')
     );
     this.classList.add('about__btn__active');
+    if(offset === 0) {
+        carretRight.classList.add('carret__opacity');
+    }
+    carretLeft.classList.remove('carret__opacity');
+    i=1;
 });
 
 let btn2 = document.getElementById('btn2');
@@ -41,6 +46,9 @@ btn2.addEventListener('click', function(){
             (el) => el.classList.remove('about__btn__active')
         );
         this.classList.add('about__btn__active');
+        carretLeft.classList.remove('carret__opacity');
+        carretRight.classList.remove('carret__opacity');
+        i=2;
     }
 });
 
@@ -68,6 +76,9 @@ btn3.addEventListener('click', function(){
             (el) => el.classList.remove('about__btn__active')
         );
         this.classList.add('about__btn__active');
+        ('carret__opacity');
+        carretRight.classList.remove('carret__opacity');
+        i=3;
     }
 });
 
@@ -95,6 +106,9 @@ btn4.addEventListener('click', function(){
             (el) => el.classList.remove('about__btn__active')
         );
         this.classList.add('about__btn__active');
+        ('carret__opacity');
+        carretRight.classList.remove('carret__opacity');
+        i=4;
     }
 });
 
@@ -110,6 +124,11 @@ btn5.addEventListener('click', function(){
         (el) => el.classList.remove('about__btn__active')
     );
     this.classList.add('about__btn__active');
+    if(offset === -1900) {
+        carretLeft.classList.add('carret__opacity');
+    }
+    carretRight.classList.remove('carret__opacity');
+    i=5;
 });
 
 
@@ -123,7 +142,7 @@ if(document.documentElement.clientWidth < 1430) {
 btn1.classList.add('about__btn__active');
     }
 
-
+let i = 1;
 
 let carretLeft = document.getElementById('carret__left');
 carretLeft.addEventListener('click', function(){
@@ -135,11 +154,13 @@ carretLeft.addEventListener('click', function(){
         );
     carretRight.classList.remove('carret__opacity');
     offset += -475;
+    i++;
     aboutPhotos.style.left = offset + 'px';
     }
     if(offset === -1900) {
         this.classList.add('carret__opacity');
     }
+    document.getElementById(`btn${i}`).classList.add('about__btn__active');
 });
 
 let carretRight = document.getElementById('carret__right');
@@ -152,11 +173,14 @@ carretRight.addEventListener('click', function(){
         );
         carretLeft.classList.remove('carret__opacity');
     offset += 475;
+    i--;
     aboutPhotos.style.left = offset + 'px';
     }
     if(offset === 0) {
         this.classList.add('carret__opacity');
     }
+    document.getElementById(`btn${i}`).classList.add('about__btn__active');
+    // console.log((`btn${i}`));
 });
 
 

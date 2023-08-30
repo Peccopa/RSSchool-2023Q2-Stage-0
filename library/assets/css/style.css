@@ -284,6 +284,7 @@ body {
 }
 
 .about__btn__active {
+    transition: .2s;
     cursor: auto;
 }
 
@@ -856,19 +857,21 @@ body {
             height: 24px;
             background: url(../images/icons/Vector.svg) no-repeat center;
             margin-top: 60px;
+            cursor: pointer;
         }
 
         .carret__left {
-            margin-right: 60px;
+            margin-left: 75px;
         }
 
         .carret__right {
-            margin-left: 60px;
+            margin-right: 75px;
             transform: rotate(180deg);
         }
 
         .carret__opacity {
             opacity: .2;
+            cursor: auto;
         }
 
         /* .about__btns div:nth-child(4),
