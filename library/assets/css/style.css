@@ -406,6 +406,7 @@ body {
 
 .season__span {
     display: block;
+    /* letter-spacing: 4.4; */
 }
 
 .season__input:checked + .season__span {
@@ -420,13 +421,40 @@ body {
 
 
 
-
 .favorites__content {
+    /* display: grid; */
+    /* grid-template-columns: 590px 590px; */
+    /* row-gap: 40px; */
+    /* column-gap: 220px; */
+    /* justify-content: center; */
+}
+
+.all__books {
+    /* position: relative; */
     display: grid;
     grid-template-columns: 590px 590px;
     row-gap: 40px;
     column-gap: 220px;
     justify-content: center;
+    /* display: none; */
+}
+
+.winter__books {
+    /* position: relative; */
+    /* left: 18px; */
+    /* display: none; */
+}
+
+.spring__books {
+    
+}
+
+.summer__books {
+    
+}
+
+.autumn__books {
+    
 }
 
 .favorite__book {
@@ -435,6 +463,8 @@ body {
     height: 555px;
     border: #000 1px solid;
     padding: 15px 20px;
+    opacity: .1;
+    transition: 1s;
 }
 
 .favorite__book h3 {
@@ -527,7 +557,9 @@ body {
 }
 
 .hidden__book {
+    opacity: 1;
     display: none;
+    transition: 1s;
 }
 
 /*Coffee Shop*/
@@ -954,10 +986,22 @@ body {
             margin-top: 39px;
         }
 
-        .favorites__content {
+        /* .favorites__content {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+        } */
+        .favorites__content {
+            /* padding-right: 40px; */
+            margin-bottom: 53px;
+        }
+
+        .all__books {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding-right: 40px;
+            /* margin-bottom: 13px; */
         }
 
         .season__block {
@@ -972,10 +1016,7 @@ body {
             /* margin-right: 65px; */
         }
 
-        .favorites__content {
-            padding-right: 40px;
-            margin-bottom: 53px;
-        }
+        
 }
 
 @media (max-width: 1100px) {
