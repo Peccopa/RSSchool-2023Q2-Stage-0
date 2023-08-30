@@ -220,6 +220,11 @@ body {
 
 .section__about {
     height: 823px;
+    /* overflow: hidden; */
+}
+
+.about__slider {
+    overflow: hidden;
 }
 
 .section__about p{
@@ -231,21 +236,36 @@ body {
 }
 
 .about__photos {
+    position: relative;
     display: flex;
+    margin: 0px 10px 35px 20px;
+    transition: 1s;
+    left: 0px;
+    /* transform: translate(50%); */
+    /* transform: translateX(53vw); */
 }
 
 .about__photos img {
     display: block;
-    margin: 0 20px 35px;
+    /* margin: 0 20px 35px; */
+    /* margin: 0 14px 35px; */
+    /* margin-left: 20px; */
+    margin-right: 25px;
 }
 
 .about__photos img:nth-child(2) {
-    margin: 0 5px 35px;
+    /* margin: 0 5px 35px; */
+}
+
+.about__slider {
+    /* position: relative; */
 }
 
 .about__btns {
+    /* position: relative; */
     display: flex;
     justify-content: center;
+    /* left: -1001px; */
 }
 
 .about__btn {
@@ -258,10 +278,25 @@ body {
     border-radius: 50%;
 }
 
-.about__btns a:nth-child(4),
-.about__btns a:nth-child(5){
+.about__btn:hover div{
+    background-color: #BB945F;
+    transition: .2s;
+}
+
+.about__btn__active {
+    cursor: auto;
+}
+
+/* .about__btns div:nth-child(1),
+.about__btns div:nth-child(5){
+    display: none;
+} */
+
+#btn1,
+#btn5 {
     display: none;
 }
+
 
 .about__btn__inner {
     width: 16px;
@@ -270,7 +305,7 @@ body {
     border-radius: 50%;
 }
 
-.about__btn__inner__active {
+.about__btn__active div {
     background-color: #BB945F;
 }
 
@@ -779,16 +814,26 @@ body {
 
 @media (max-width: 1430px) {
         /*About*/
+        .about__slider {
+            width: 490px;
+            margin: 40px auto -15px;
+        }
+
+        .about__photos {
+            /* left: -477px; */
+        }
 
         .section__about img {
-            margin: 40px auto 20px;
+            /* overflow: hidden; */
+            /* margin: 40px auto 20px; */
             /* margin: 40px auto 35px; */
-            
         }
 
         .about__photos img:nth-child(2),
-        .about__photos img:nth-child(3) {
-            display: none;
+        .about__photos img:nth-child(3),
+        .about__photos img:nth-child(4),
+        .about__photos img:nth-child(5) {
+            /* display: none; */
         }
 
         .section__about p{
@@ -822,8 +867,12 @@ body {
             transform: rotate(180deg);
         }
 
-        .about__btns a:nth-child(4),
-        .about__btns a:nth-child(5) {
+        /* .about__btns div:nth-child(4),
+        .about__btns div:nth-child(5) {
+        display: flex;
+        } */
+        #btn1,
+        #btn5 {
         display: flex;
         }
 
