@@ -122,3 +122,43 @@ if(document.documentElement.clientWidth < 1430) {
 );
 btn1.classList.add('about__btn__active');
     }
+
+
+
+let carretLeft = document.getElementById('carret__left');
+carretLeft.addEventListener('click', function(){
+    if(offset === -1900) {
+        return;
+    } else {
+        Array.from(document.querySelectorAll('.about__btn')).forEach(
+            (el) => el.classList.remove('about__btn__active')
+        );
+    carretRight.classList.remove('carret__opacity');
+    offset += -475;
+    aboutPhotos.style.left = offset + 'px';
+    }
+    if(offset === -1900) {
+        this.classList.add('carret__opacity');
+    }
+});
+
+let carretRight = document.getElementById('carret__right');
+carretRight.addEventListener('click', function(){
+    if(offset === 0) {
+        return;
+    } else {
+        Array.from(document.querySelectorAll('.about__btn')).forEach(
+            (el) => el.classList.remove('about__btn__active')
+        );
+        carretLeft.classList.remove('carret__opacity');
+    offset += 475;
+    aboutPhotos.style.left = offset + 'px';
+    }
+    if(offset === 0) {
+        this.classList.add('carret__opacity');
+    }
+});
+
+
+
+

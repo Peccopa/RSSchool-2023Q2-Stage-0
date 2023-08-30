@@ -867,6 +867,10 @@ body {
             transform: rotate(180deg);
         }
 
+        .carret__opacity {
+            opacity: .2;
+        }
+
         /* .about__btns div:nth-child(4),
         .about__btns div:nth-child(5) {
         display: flex;
