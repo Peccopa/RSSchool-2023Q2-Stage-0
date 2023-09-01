@@ -42,6 +42,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* position: sticky; */
+    /* top: 0; */
 }
 
 .header__logo {
@@ -322,7 +324,7 @@ body {
     font-size: 2rem;
     line-height: auto;
     letter-spacing: auto;
-    margin-left: 20px;
+    margin: 0 0 40px 20px;
 }
 
 
@@ -334,13 +336,14 @@ body {
 
 
 .season__block {
+    position: absolute;
     /* background-color: #f2f513; */
     /* width: 700px; */
     /* height: 24px; */
     /* display: flex; */
     /* justify-content: start; */
     /* height: 24px; */
-    margin: 40px 0 40px 0px;
+    /* margin: 0 0 0 0; */
     margin-left: 20px;
 }
 
@@ -351,21 +354,34 @@ body {
 
 .season__winter {
     width: 192px;
-    /* background-color: #a38383; */
+    background-color: rgba(255, 255, 255, 0.5);
+    /* opacity: .5; */
 }
 
 .season__spring {
     width: 189px;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    /* background-color: #ffffff; */
+
     /* background-color: #b72d2d; */
     /* padding-left: 50px; */
 }
 
 .season__summer {
+    background-color: rgba(255, 255, 255, 0.5);
+
     width: 206px;
+    /* background-color: #ffffff; */
+
     /* background-color: #0bb46b; */
 }
 
 .season__autumn {
+    background-color: rgba(255, 255, 255, 0.5);
+
+    /* background-color: #ffffff; */
+
     /* background-color: #5f2b8c; */
     width: 116px;
 }
@@ -422,6 +438,7 @@ body {
 
 
 .favorites__content {
+    margin-top: 40px;
     /* display: grid; */
     /* grid-template-columns: 590px 590px; */
     /* row-gap: 40px; */
@@ -463,8 +480,9 @@ body {
     height: 555px;
     border: #000 1px solid;
     padding: 15px 20px;
-    opacity: .1;
-    transition: 1s;
+    /* opacity: .1; */
+    transition: .2s;
+    display: none;
 }
 
 .favorite__book h3 {
@@ -507,6 +525,7 @@ body {
     line-height: 2.65;
     letter-spacing: 1.9px;
     text-transform: capitalize;
+    /* display: none; */
 }
 
 .btn__buy {
@@ -526,6 +545,7 @@ body {
     background-color: #fff;
     transition: .2s linear;
     cursor: pointer;
+    /* visibility: visible; */
 }
 
 .btn__buy:hover {
@@ -557,9 +577,9 @@ body {
 }
 
 .hidden__book {
-    opacity: 1;
-    display: none;
-    transition: 1s;
+    /* opacity: 1; */
+    display: block;
+    /* transition: 1s; */
 }
 
 /*Coffee Shop*/
@@ -1003,13 +1023,39 @@ body {
             padding-right: 40px;
             /* margin-bottom: 13px; */
         }
+        .section__favorites {
+            /* position: relative; */
+        }
+        .fixed__season {
+            /* width: 100%; */
+            /* background-color: #d41111; */
+            /* position: fixed; */
+            /* top: 0; */
+            /* z-index: 100; */
+        }
 
-        .season__block {
-            /* justify-content: space-between; */
+        .sticky {
+            position: fixed;
+            top: 10px;
+            background-color: #ffffff;
+            z-index: 100;
+            /* border: #000 solid 1px; */
+
+        }
+
+        .section__title {
+            /* position: sticky; */
+            /* top: 0; */
         }
         
         .season__block {
+            /* padding: 10px; */
             /* margin-bottom: 43px; */
+            /* background-color: #ff0000; */
+            /* opacity: 1; */
+            /* width: 100%; */
+            /* z-index: 101; */
+            /* border: #000 solid 1px; */
         }
 
         .season__block label {

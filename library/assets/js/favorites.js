@@ -1,67 +1,112 @@
 const books = document.querySelectorAll('.favorite__book');
 
+function smoothScroll(){
+    document.querySelector('.section__favorites').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
+
 
 let winter = document.getElementById('winter');
 winter.addEventListener('click', function(){
+    smoothScroll();
     Array.from(document.querySelectorAll('.favorite__book')).forEach(
-        (el) => el.classList.add('hidden__book')
-    );
-    books[0].classList.remove('hidden__book');
-    books[1].classList.remove('hidden__book');
-    books[2].classList.remove('hidden__book');
-    books[3].classList.remove('hidden__book');
-    books[0].style.opacity = 1;
-    books[1].style.opacity = 1;
-    books[2].style.opacity = 1;
-    books[3].style.opacity = 1;
+        (el) => el.style.opacity = 0
+        );
+    Array.from(document.querySelectorAll('.favorite__book')).forEach(
+        (el) => el.classList.remove('hidden__book'));
+    books[0].classList.add('hidden__book');
+    books[1].classList.add('hidden__book');
+    books[2].classList.add('hidden__book');
+    books[3].classList.add('hidden__book');
+    Array.from(document.querySelectorAll('.favorite__book')).forEach(
+        (el) => setTimeout(() => el.style.opacity = 1, 200)
+        );
 });
 
 let spring = document.getElementById('spring');
 spring.addEventListener('click', function(){
+    smoothScroll();
     Array.from(document.querySelectorAll('.favorite__book')).forEach(
-        (el) => el.classList.add('hidden__book')
-    );
-    books[4].classList.remove('hidden__book');
-    books[5].classList.remove('hidden__book');
-    books[6].classList.remove('hidden__book');
-    books[7].classList.remove('hidden__book');
-    books[4].style.opacity = 1;
-    books[5].style.opacity = 1;
-    books[6].style.opacity = 1;
-    books[7].style.opacity = 1;
+        (el) => el.style.opacity = 0
+        );
+    Array.from(document.querySelectorAll('.favorite__book')).forEach(
+        (el) => el.classList.remove('hidden__book'));
+    books[4].classList.add('hidden__book');
+    books[5].classList.add('hidden__book');
+    books[6].classList.add('hidden__book');
+    books[7].classList.add('hidden__book');
+    Array.from(document.querySelectorAll('.favorite__book')).forEach(
+        (el) => setTimeout(() => el.style.opacity = 1, 200)
+        );
 });
 
 let summer = document.getElementById('summer');
 summer.addEventListener('click', function(){
+    smoothScroll();
     Array.from(document.querySelectorAll('.favorite__book')).forEach(
-        (el) => el.classList.add('hidden__book')
-    );
-    books[8].classList.remove('hidden__book');
-    books[9].classList.remove('hidden__book');
-    books[10].classList.remove('hidden__book');
-    books[11].classList.remove('hidden__book');
-    books[8].style.opacity = 1;
-    books[9].style.opacity = 1;
-    books[10].style.opacity = 1;
-    books[11].style.opacity = 1;
+        (el) => el.style.opacity = 0
+        );
+    Array.from(document.querySelectorAll('.favorite__book')).forEach(
+        (el) => el.classList.remove('hidden__book'));
+    books[8].classList.add('hidden__book');
+    books[9].classList.add('hidden__book');
+    books[10].classList.add('hidden__book');
+    books[11].classList.add('hidden__book');
+    Array.from(document.querySelectorAll('.favorite__book')).forEach(
+        (el) => setTimeout(() => el.style.opacity = 1, 200)
+        );
 });
 
 let autumn = document.getElementById('autumn');
 autumn.addEventListener('click', function(){
+    smoothScroll();
     Array.from(document.querySelectorAll('.favorite__book')).forEach(
-        (el) => el.classList.add('hidden__book')
-    );
-    books[12].classList.remove('hidden__book');
-    books[13].classList.remove('hidden__book');
-    books[14].classList.remove('hidden__book');
-    books[15].classList.remove('hidden__book');
-    books[12].style.opacity = 1;
-    books[13].style.opacity = 1;
-    books[14].style.opacity = 1;
-    books[15].style.opacity = 1;
+        (el) => el.style.opacity = 0
+        );
+    Array.from(document.querySelectorAll('.favorite__book')).forEach(
+        (el) => el.classList.remove('hidden__book'));
+    books[12].classList.add('hidden__book');
+    books[13].classList.add('hidden__book');
+    books[14].classList.add('hidden__book');
+    books[15].classList.add('hidden__book');
+    Array.from(document.querySelectorAll('.favorite__book')).forEach(
+        (el) => setTimeout(() => el.style.opacity = 1, 200)
+        );
 });
 
 
 
-// books[0].classList.add('carret__opacity');
-console.log(books[0]);
+
+
+
+let timVine = document.getElementById("section__favorites"); //блок ниже
+let navbar = document.getElementById("fixed__season");// навигация
+let favoritesContent = document.getElementById('favorites__content');
+// let navPos = navbar.getBoundingClientRect().top;
+// console.log(navPos);
+console.log(favoritesContent);
+favoritesContent.style.marginTop = "103" + 'px';
+// favoritesContent.style.paddingTop = "10" + 'px';
+
+
+window.addEventListener("scroll", e => {
+  let scrollPos = window.scrollY;
+  console.log(scrollPos);
+  if (scrollPos > 1730 && scrollPos < 4110) {
+    navbar.classList.add('sticky');
+    favoritesContent.style.margin = "160";
+    // header.classList.add('navbarOffsetMargin');
+  } else {
+    navbar.classList.remove('sticky');
+    // header.classList.remove('navbarOffsetMargin');
+  }
+});
+
+
+console.log(navbar);
+
+
+
+

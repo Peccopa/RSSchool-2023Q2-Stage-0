@@ -89,34 +89,36 @@
                 </div>
             </div>
         </section>
-        <section class="section__favorites">
+        <section class="section__favorites" id="section__favorites">
             <h2 class="section__title" id="favorites">Favorites</h2>
             <p class="season__block__title">Pick favorites of season</p>
-            <form class="season__block">
-                <div class="season season__winter">
-                    <label class="season__label" for="winter">
-                        <input class="season__input" type="radio" name="season" id="winter" value="winter" checked><span class="season__span">Winter</span>
-                    </label>
-                </div>
-                <div class="season season__spring">
-                    <label class="season__label" for="spring">
-                        <input class="season__input" type="radio" name="season" id="spring" value="spring"><span class="season__span">Spring</span>
-                    </label>
-                </div>
-                <div class="season season__summer">
-                    <label class="season__label" for="summer">
-                        <input class="season__input" type="radio" name="season" id="summer" value="summer"><span class="season__span">Summer</span>
-                    </label>
-                </div>
-                <div class="season season__autumn">
-                    <label class="season__label" for="autumn">
-                        <input class="season__input" type="radio" name="season" id="autumn" value="autumn"><span class="season__span">Autumn</span>
-                    </label>
-                </div>
-            </form>
-            <div class="favorites__content">
+            <div class="fixed__season" id="fixed__season">
+                <form class="season__block">
+                    <div class="season season__winter">
+                        <label class="season__label" for="winter">
+                            <input class="season__input" type="radio" name="season" id="winter" value="winter" checked><span class="season__span">Winter</span>
+                        </label>
+                    </div>
+                    <div class="season season__spring">
+                        <label class="season__label" for="spring">
+                            <input class="season__input" type="radio" name="season" id="spring" value="spring"><span class="season__span">Spring</span>
+                        </label>
+                    </div>
+                    <div class="season season__summer">
+                        <label class="season__label" for="summer">
+                            <input class="season__input" type="radio" name="season" id="summer" value="summer"><span class="season__span">Summer</span>
+                        </label>
+                    </div>
+                    <div class="season season__autumn">
+                        <label class="season__label" for="autumn">
+                            <input class="season__input" type="radio" name="season" id="autumn" value="autumn"><span class="season__span">Autumn</span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="favorites__content" id="favorites__content">
                 <div class="all__books winter__books">
-                    <div class="favorite__book">
+                    <div class="favorite__book hidden__book">
                         <h3>Staff Picks</h3>
                         <h4>The Book Eaters</h4>
                         <h5>By Sunyi Dean</h5>
@@ -124,7 +126,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(0).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book">
+                    <div class="favorite__book hidden__book">
                         <h3>Staff Picks</h3>
                         <h4>Cackle</h4>
                         <h5>By Rachel Harrison</h5>
@@ -132,7 +134,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(1).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book">
+                    <div class="favorite__book hidden__book">
                         <h3>Staff Picks</h3>
                         <h4>Dante: Poet of the Secular World</h4>
                         <h5>By Erich Auerbach</h5>
@@ -140,17 +142,18 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(2).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book">
+                    <div class="favorite__book hidden__book">
                         <h3>Staff Picks</h3>
                         <h4>The Last Queen</h4>
                         <h5>By Clive Irving</h5>
                         <p class="favorites__text">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
-                        <button class="btn__own" disabled>Own</button>
+                        <button class="btn__buy">Buy</button>
+                        <!-- <button class="btn__own" disabled>Own</button> -->
                         <img src="./assets/images/favorites/book(3).png" alt="Book photo">
                     </div>
                 </div>
                 <div class="all__books spring__books">
-                    <div class="favorite__book hidden__book">
+                    <div class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>The Body</h4>
                         <h5>By Stephen King</h5>
@@ -158,7 +161,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(4).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book hidden__book">
+                    <div class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Carry: A Memoir of Survival on Stolen Land</h4>
                         <h5>By Toni Jenson</h5>
@@ -166,7 +169,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(5).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book hidden__book">
+                    <div class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Days of Distraction</h4>
                         <h5>By Alexandra Chang</h5>
@@ -174,17 +177,18 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(6).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book hidden__book">
+                    <div class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Dominicana</h4>
                         <h5>By Angie Cruz</h5>
                         <p class="favorites__text">A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</p>
-                        <button class="btn__own" disabled>Own</button>
+                        <button class="btn__buy">Buy</button>
+                        <!-- <button class="btn__own" disabled>Own</button> -->
                         <img src="./assets/images/favorites/book(7).png" alt="Book photo">
                     </div>
                 </div>
                 <div class="all__books summer__books">
-                    <div class="favorite__book hidden__book">
+                    <div class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Crude: A Memoir</h4>
                         <h5>By Pablo Fajardo & ​​Sophie Tardy-Joubert</h5>
@@ -192,7 +196,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(8).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book hidden__book">
+                    <div class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Let My People Go Surfing</h4>
                         <h5>By Yvon Chouinard</h5>
@@ -200,7 +204,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(9).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book hidden__book">
+                    <div class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>The Octopus Museum: Poems</h4>
                         <h5>By Brenda Shaughnessy</h5>
@@ -208,7 +212,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(10).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book hidden__book">
+                    <div class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Shark Dialogues: A Novel</h4>
                         <h5>By Kiana Davenport</h5>
@@ -218,7 +222,7 @@
                     </div>
                 </div>
                 <div class="all__books autumn__books">
-                    <div class="favorite__book hidden__book">
+                    <div class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Casual Conversation</h4>
                         <h5>By Renia White</h5>
@@ -226,7 +230,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(12).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book hidden__book">
+                    <div class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>The Great Fire</h4>
                         <h5>By Lou Ureneck</h5>
@@ -234,7 +238,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(13).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book hidden__book">
+                    <div class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Rickey: The Life and Legend</h4>
                         <h5>By Howard Bryant</h5>
@@ -242,7 +246,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(14).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book hidden__book">
+                    <div class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Slug: And Other Stories</h4>
                         <h5>By Megan Milks</h5>
