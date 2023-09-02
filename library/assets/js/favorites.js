@@ -15,13 +15,16 @@ winter.addEventListener('click', function(){
         (el) => el.style.opacity = 0
         );
     Array.from(document.querySelectorAll('.favorite__book')).forEach(
-        (el) => el.classList.remove('hidden__book'));
+        (el) => setTimeout(() => el.classList.remove('hidden__book'), 200)
+        );
+        setTimeout(() => {
     books[0].classList.add('hidden__book');
     books[1].classList.add('hidden__book');
     books[2].classList.add('hidden__book');
     books[3].classList.add('hidden__book');
+        }, 200);
     Array.from(document.querySelectorAll('.favorite__book')).forEach(
-        (el) => setTimeout(() => el.style.opacity = 1, 200)
+        (el) => setTimeout(() => el.style.opacity = 1, 300)
         );
 });
 
@@ -32,13 +35,16 @@ spring.addEventListener('click', function(){
         (el) => el.style.opacity = 0
         );
     Array.from(document.querySelectorAll('.favorite__book')).forEach(
-        (el) => el.classList.remove('hidden__book'));
+        (el) => setTimeout(() => el.classList.remove('hidden__book'), 200)
+        );
+        setTimeout(() => {
     books[4].classList.add('hidden__book');
     books[5].classList.add('hidden__book');
     books[6].classList.add('hidden__book');
     books[7].classList.add('hidden__book');
+        }, 200);
     Array.from(document.querySelectorAll('.favorite__book')).forEach(
-        (el) => setTimeout(() => el.style.opacity = 1, 200)
+        (el) => setTimeout(() => el.style.opacity = 1, 300)
         );
 });
 
@@ -49,13 +55,16 @@ summer.addEventListener('click', function(){
         (el) => el.style.opacity = 0
         );
     Array.from(document.querySelectorAll('.favorite__book')).forEach(
-        (el) => el.classList.remove('hidden__book'));
+        (el) => setTimeout(() => el.classList.remove('hidden__book'), 200)
+        );
+        setTimeout(() => {
     books[8].classList.add('hidden__book');
     books[9].classList.add('hidden__book');
     books[10].classList.add('hidden__book');
     books[11].classList.add('hidden__book');
+        }, 200);
     Array.from(document.querySelectorAll('.favorite__book')).forEach(
-        (el) => setTimeout(() => el.style.opacity = 1, 200)
+        (el) => setTimeout(() => el.style.opacity = 1, 300)
         );
 });
 
@@ -66,13 +75,16 @@ autumn.addEventListener('click', function(){
         (el) => el.style.opacity = 0
         );
     Array.from(document.querySelectorAll('.favorite__book')).forEach(
-        (el) => el.classList.remove('hidden__book'));
+        (el) => setTimeout(() => el.classList.remove('hidden__book'), 200)
+        );
+        setTimeout(() => {
     books[12].classList.add('hidden__book');
     books[13].classList.add('hidden__book');
     books[14].classList.add('hidden__book');
     books[15].classList.add('hidden__book');
+        }, 200);
     Array.from(document.querySelectorAll('.favorite__book')).forEach(
-        (el) => setTimeout(() => el.style.opacity = 1, 200)
+        (el) => setTimeout(() => el.style.opacity = 1, 300)
         );
 });
 
