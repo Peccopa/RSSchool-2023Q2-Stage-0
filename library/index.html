@@ -11,7 +11,8 @@
     <script defer src="./assets/js/menu.js"></script>
     <title>Brooklyn Public Library</title>
 </head>
-<body>
+<body class="body">
+<div class="overlay" id="overlay"></div>
 <div class="page">
     <header class="header">
         <div class="header__logo">
@@ -54,8 +55,32 @@
             <div class="profile__login__menu">
                 <div class="profile__login__login">Log In
                 </div>
-                <div class="profile__login__register">Register
+                <div class="profile__login__register" id="profile__login__register">Register
                 </div>
+            </div>
+        </div>
+        <div class="register" id="register">
+            <h3 class="register__title">REGISTER</h3>
+            <div class="register__form">
+                <form class="register__form" action="/" method="post">
+                    <p>First name</p>
+                    <input class="register__input" type="text" name="firstname" placeholder="" pattern="[a-zA-Z]{2,}" title="Minimum two letters." required>
+                    <p>Last name</p>
+                    <input class="register__input" type="text" name="lastname" placeholder="" pattern="[a-zA-Z]{2,}" title="Minimum two letters." required>
+                    <p>E-mail</p>
+                    <input class="register__input" type="email" name="email" placeholder="" required>
+                    <p>Password</p>
+                    <input class="register__input" type="password" name="email" placeholder="" minlength="8" required>
+                    <button class="register__btn">Sign Up</button>
+                </form>
+                <div class="register__question">
+                    <p>Already have an account?</p>
+                    <p>Login</p>
+                </div>
+            </div>
+            <div class="register__cross" id="register__cross">
+                <div class="crossline__one"></div>
+                <div class="crossline__two"></div>
             </div>
         </div>
     </header>
@@ -402,7 +427,7 @@
                         <p>You will be able to see a reader card after logging into account or you can register a new account</p>
                     </div>
                     <div class="login__btns">
-                        <button class="login__btn">Sign Up</button>
+                        <button class="login__btn" id="sign__up__btn">Sign Up</button>
                         <button class="login__btn">Log in</button>
                     </div>
                 </div>
