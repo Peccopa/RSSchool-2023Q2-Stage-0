@@ -35,6 +35,29 @@ profileIcon.addEventListener('click', function(){
     document.querySelector('.header__menu').classList.remove('opened');
 });
 
+//profile name
+
+
+
+
+
+// This handler will be executed every time the cursor
+// is moved over a different list item
+// profileIcon.addEventListener(
+//     "mouseover",
+//     (event) => {
+//       // highlight the mouseover target
+//       event.target.style.backgroundColor = "orange";
+  
+//       // reset the color after a short delay
+//     //   setTimeout(() => {
+//     //     event.target.style.color = "";
+//     //   }, 500);
+//     // },
+//     // false,
+//     });
+
+
 // document.getElementById('profile__login').addEventListener('click', event => {
 //     event.isClickOnMenu = true;
 // });

@@ -105,7 +105,7 @@ favoritesContent.style.marginTop = "103" + 'px';
 
 window.addEventListener("scroll", e => {
   let scrollPos = window.scrollY;
-  console.log(scrollPos);
+//   console.log(scrollPos);
   if (scrollPos > 1730 && scrollPos < 4110) {
     navbar.classList.add('sticky');
     favoritesContent.style.margin = "160";
@@ -117,7 +117,7 @@ window.addEventListener("scroll", e => {
 });
 
 
-console.log(navbar);
+// console.log(navbar);
 
 
 

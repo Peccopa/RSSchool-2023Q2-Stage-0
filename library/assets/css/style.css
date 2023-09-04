@@ -1166,11 +1166,17 @@ body {
     border: 1px #0C0C0E solid;
     border-radius: 2px;
     transition: .2s linear;
+    cursor: pointer;
 }
 
 .check__btn:hover {
     background-color: #BB945F;
     border: transparent 1px solid;
+}
+
+.check__btn:active {
+    background-color: #dfb272;
+    /* border: transparent 1px solid; */
 }
 
 .login {
@@ -1221,6 +1227,193 @@ body {
     background-color: #BB945F;
     border: transparent 1px solid;
 }
+
+
+
+/*Cards__LOGIN*/
+
+.section__cards__login {
+    display: none;
+}
+
+.cards__content__login {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__login {
+    width: 600px;
+    height: 453px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.card__header__login {
+    font-size: 3rem;
+    text-align: center;
+    letter-spacing: .7px;
+    margin-bottom: 32px;
+}
+
+.card__title__login {
+    font-family: 'Forum', cursive;
+    font-size: 3rem;
+    letter-spacing: .6px;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.card__form__login {
+    width: 600px;
+    height: 386px;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 387px;
+    border: 3px solid #BB945F;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, .25);
+}
+
+.card__input__login {
+    width: 560px;
+    height: 272px;
+    background-color: #BB945F;
+    margin: 16px auto;
+}
+
+.card__input__login input {
+    display: block;
+    width: 520px;
+    height: 66px;
+    margin: 0 auto 26px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Forum', cursive;
+    font-size: 3rem;
+    letter-spacing: .6px;
+    padding: 0 0 0 20px;
+    line-height: 1.6;
+    outline: none;
+    cursor: inherit;
+}
+
+.input__login::placeholder {
+    color: #BB945F;
+}
+
+/* .check__btn__login {
+    font-family: 'Inter', sans-serif;
+    color: #0C0C0E;
+    width: 242px;
+    height: 44px;
+    margin: 0 auto;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 4px;
+    background-color: #fff;
+    border: 1px #0C0C0E solid;
+    border-radius: 2px;
+    transition: .2s linear;
+    cursor: pointer;
+}
+
+.check__btn__login:hover {
+    background-color: #BB945F;
+    border: transparent 1px solid;
+}
+
+.check__btn__login:active {
+    background-color: #dfb272;
+    border: transparent 1px solid;
+} */
+
+.login__login {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.login__title__login {
+    font-family: 'Forum', cursive;
+    font-size: 3rem;
+    letter-spacing: 0.6px;
+    text-align: end;
+    margin-bottom: 37px;
+}
+
+.login__text__login p {
+    width: 456px;
+    height: 120px;
+    text-align: end;
+    line-height: 2;
+    margin-bottom: 5px;
+    letter-spacing: 0.4px;
+}
+
+.login__btns__login {
+    display: flex;
+    justify-content: end;
+}
+
+.profile__btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 70px 0 0 21px;
+    width: 75px;
+    height: 30px;
+    background-color: #fff;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #0C0C0E;
+    border-radius: 2px;
+    border: 1px solid #0C0C0E;
+    transition: .2s linear;
+}
+
+.profile__btn:hover {
+    background-color: #BB945F;
+    border: transparent 1px solid;
+}
+
+.card__items {
+    /* vertical-align: middle; */
+    margin: 0 auto;
+    width: 169px;
+    height: 63px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    display: none;
+}
+
+.card__item {
+    height: 63px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 12px; */
+}
+
+.card__item__title {
+    font-size: 1rem;
+}
+
+.card__item__img {
+    margin-top: 5px;
+}
+
+.card__item__count {
+    font-size: 1rem;
+}
+
+
+
+
 
 /*Footer*/
 

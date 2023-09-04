@@ -443,10 +443,45 @@
                     <div class="card__form">
                         <form class="card__input" action="/" method="post">
                             <h4 class="card__title">Brooklyn Public Library</h4>
-                            <input class="input" type="text" name="username" placeholder="Reader's name">
-                            <input class="input" type="text" name="usercard" placeholder="Card number">
+                            <input class="input" id="cardusername" type="text" name="username" placeholder="Reader's name">
+                            <input class="input" id="cardnumber" type="text" name="usercard" placeholder="Card number">
                         </form>
                         <button class="check__btn">Check the card</button>
+                        <div class="card__items">
+                            <div class="card__item">
+                                <div class="card__item__title">
+                                    <p>Visits</p>
+                                </div>
+                                <div class="card__item__img">
+                                    <img src="./assets/images/icons/Union.svg" alt="icon">
+                                </div>
+                                <div class="card__item__count">
+                                    <p>23</p>
+                                </div>
+                            </div>
+                            <div class="card__item">
+                                <div class="card__item__title">
+                                    <p>Bonuses</p>
+                                </div>
+                                <div class="card__item__img">
+                                    <img src="./assets/images/icons/Star 1.png" alt="icon">
+                                </div>
+                                <div class="card__item__count">
+                                    <p>1240</p>
+                                </div>
+                            </div>
+                            <div class="card__item">
+                                <div class="card__item__title">
+                                    <p>Books</p>
+                                </div>
+                                <div class="card__item__img">
+                                    <img src="./assets/images/icons/book.svg" alt="icon">
+                                </div>
+                                <div class="card__item__count">
+                                    <p>2</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="login">
@@ -461,6 +496,77 @@
                 </div>
             </div>
         </section>
+
+
+
+
+
+        <section class="section__cards__login">
+            <h2 class="section__title" id="librarycard">Digital Library Cards</h2>
+            <div class="cards__content__login">
+                <div class="card__login">
+                    <h3 class="card__header__login">Your Library card</h3>
+                    <div class="card__form__login">
+                        <form class="card__input__login" action="/" method="post">
+                            <h4 class="card__title__login">Brooklyn Public Library</h4>
+                            <input class="input__login" id="cardusername__login" type="text" name="username" placeholder="" readonly="readonly">
+                            <input class="input__login" id="cardnumber__login" type="text" name="usercard" placeholder="" readonly="readonly">
+                        </form>
+                        <div class="card__items">
+                            <div class="card__item">
+                                <div class="card__item__title">
+                                    <p>Visits</p>
+                                </div>
+                                <div class="card__item__img">
+                                    <img src="./assets/images/icons/Union.svg" alt="icon">
+                                </div>
+                                <div class="card__item__count">
+                                    <p>23</p>
+                                </div>
+                            </div>
+                            <div class="card__item">
+                                <div class="card__item__title">
+                                    <p>Bonuses</p>
+                                </div>
+                                <div class="card__item__img">
+                                    <img src="./assets/images/icons/Star 1.png" alt="icon">
+                                </div>
+                                <div class="card__item__count">
+                                    <p>1240</p>
+                                </div>
+                            </div>
+                            <div class="card__item">
+                                <div class="card__item__title">
+                                    <p>Books</p>
+                                </div>
+                                <div class="card__item__img">
+                                    <img src="./assets/images/icons/book.svg" alt="icon">
+                                </div>
+                                <div class="card__item__count">
+                                    <p>2</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <button class="check__btn__login">Check the card</button> -->
+                    </div>
+                </div>
+                <div class="login__login">
+                    <h4 class="login__title__login">Visit your profile</h4>
+                    <div class="login__text__login">
+                        <p>With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.</p>
+                    </div>
+                    <div class="login__btns__login">
+                        <!-- <button class="login__btn__login" id="sign__up__btn">Sign Up</button> -->
+                        <button class="profile__btn" id="profile__btn">Profile</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
     </main>
     <footer class="footer">
         <div class="footer__contacts">
