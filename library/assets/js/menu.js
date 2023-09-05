@@ -10,10 +10,13 @@ document.getElementById('burger').addEventListener('click', event => {
     event.isClickOnMenu = true;
 });
 
-document.body.addEventListener('click', event => {
-    if(event.isClickOnMenu) return;
-    document.querySelector('.header__menu').classList.remove('opened');
-})
+
+
+
+
+
+
+//Esc close menues
 
 window.addEventListener('keydown', event => {
     // if(event.key === 'Escape' || event.key === 'Backspace') {
@@ -74,10 +77,7 @@ document.getElementById('profile').addEventListener('click', event => {
     event.isClickOnMenu = true;
 });
 
-document.body.addEventListener('click', event => {
-    if(event.isClickOnMenu) return;
-    document.querySelector('.profile__login').classList.remove('hidden__menu');
-});
+
 
 
 
@@ -144,13 +144,7 @@ document.getElementById('login__btn').addEventListener('click', event => {
     event.isClickOnMenu = true;
 });
 
-document.body.addEventListener('click', event => {
-    if(event.isClickOnMenu) return;
-    // alert('123');
-    document.querySelector('.register').
-    classList.remove('show__register');
-    document.getElementById('overlay').classList.remove('overlayed');
-});
+
 
 //cross
 
@@ -185,12 +179,7 @@ document.getElementById('login__menu').addEventListener('click', event => {
 });
 
 
-document.body.addEventListener('click', event => {
-    if(event.isClickOnMenu) return;
-    document.querySelector('.login__menu').
-    classList.remove('show__login__menu');
-    document.getElementById('overlay').classList.remove('overlayed');
-});
+
 
 //cross
 
@@ -233,3 +222,17 @@ elem.addEventListener('click', event => {
 });
 }
 
+//bodyclick
+
+document.body.addEventListener('click', event => {
+    if(event.isClickOnMenu) return;
+    document.querySelector('.header__menu').classList.remove('opened');
+    document.querySelector('.profile__login').classList.remove('hidden__menu');
+    document.querySelector('.login__menu').
+    classList.remove('show__login__menu');
+    document.getElementById('overlay').classList.remove('overlayed');
+    document.querySelector('.register').
+    classList.remove('show__register');
+    document.getElementById('overlay').classList.remove('overlayed');
+    document.querySelector('.logout__menu').classList.remove('hidden__menu');
+})
