@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('lastname', document.getElementById("lastname").value);
         localStorage.setItem('email', document.getElementById("email").value);
         localStorage.setItem('password', document.getElementById("password").value);
+        localStorage.setItem('visits', 0);
 
         // const generateRandomHex = [...Array(9)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
         localStorage.setItem('cardnumber', [...Array(9)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''));
@@ -55,6 +56,9 @@ const loginCondition = function () {
         if(document.querySelector('.profile').classList.contains('logged')) {
             // alert('logged');
         }
+    //visits count
+        localStorage.setItem('visits', Number(localStorage.getItem('visits')) + 1);
+        document.querySelector('#visits__card').textContent = localStorage.getItem('visits');
     //icon change
         document.querySelector('.human__head').classList.add('hide');
         document.querySelector('.human__body').classList.add('hide');
