@@ -19,15 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.querySelector('.register').classList.toggle('show__register');
         document.getElementById('overlay').classList.remove('overlayed');
+        loginCondition();
 
 //reg end !!!!!!
 
-        // document.getElementById('human__head').style.display = 'none';
-        // document.getElementById('human__body').style.display = 'none';
-        // document.querySelector('.icon__ellipse').classList.add('icon__letters');
-        // document.querySelector('.icon__ellipse').textContent = localStorage.getItem('firstname')[0] + localStorage.getItem('lastname')[0];
-        
-        // document.querySelector('#profile').title = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
     };
 
 
@@ -38,11 +33,71 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function formCheck(event) {
         event.preventDefault();
-        alert('Check!');
+        // alert('Check!');
 
+        if((localStorage.getItem('email') === document.getElementById("emailcard").value || localStorage.getItem('cardnumber') === document.getElementById("emailcard").value) && localStorage.getItem('password') === document.getElementById("loginpassword").value) {
+            document.querySelector('.login__menu').classList.toggle('show__login__menu');
+            document.getElementById('overlay').classList.remove('overlayed');
+            loginCondition();
+        } else {
+        alert('Wrong Password, E-mail or a Card Number');
         document.querySelector('.login__menu').classList.toggle('show__login__menu');
         document.getElementById('overlay').classList.remove('overlayed');
+        }
     };
+
+
+
+
+const loginCondition = function () {
+    //logged
+        document.querySelector('.profile').classList.add('logged');
+        if(document.querySelector('.profile').classList.contains('logged')) {
+            // alert('logged');
+        }
+    //icon change
+        document.getElementById('human__head').style.display = 'none';
+        document.getElementById('human__body').style.display = 'none';
+        document.querySelector('.icon__ellipse').classList.add('icon__letters');
+        document.querySelector('.icon__ellipse').textContent = localStorage.getItem('firstname')[0] + localStorage.getItem('lastname')[0];
+    //title icon
+        document.querySelector('#profile').title = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
+    //change card block
+        document.querySelector('.section__cards__login').style.display = 'block';
+        document.querySelector('.section__cards').style.display = 'none';
+    //add placeholder
+        document.querySelector('#cardusername__login').placeholder = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
+        document.querySelector('#cardnumber__login').placeholder = localStorage.getItem('cardnumber');
+
+
+
+}
+
+
+
+
+
+//!!!!!!!!!!!!!!!
+loginCondition();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Check the card
 

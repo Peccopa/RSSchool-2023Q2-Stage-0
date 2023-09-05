@@ -175,6 +175,8 @@ body {
     display: none;
 }
 
+/*profile menu*/
+
 .profile__login {
     position: absolute;
     top: 60px;
@@ -183,8 +185,6 @@ body {
     justify-content: space-between;
     align-items: center;
     right: -100px;
-    /* transform: translateX(-200px); */
-    /* right: -400px; */
     width: 80px;
     height: 115px;
     background-color: #fff;
@@ -193,14 +193,10 @@ body {
     text-align: center;
     opacity: 0;
     transition: .5s;
-
-    /* margin: 5px 0 10px 0; */
 }
 
 .profile__login__title{
-    /* font-weight: 700; */
     height: 30px;
-    /* border-bottom: 1px solid #BB945F; */
     margin-top: 5px;
 }
 .profile__login__line{
@@ -211,10 +207,7 @@ body {
 }
 
 .profile__login__title p{
-    /* text-align: center; */
     font-weight: 700;
-    /* font-size: 1.5rem; */
-    /* cursor: auto; */
 }
 
 .profile__login__menu {
@@ -229,29 +222,83 @@ body {
 .profile__login__login {
     height: 50%;
     width: 100%;
-    /* margin-top: 10px; */
     padding-top: 5px;
 }
 
 .profile__login__register {
     height: 50%;
-    /* padding-bottom: 15px; */
     margin-bottom: 5px;
 }
 
 .hidden__menu {
-    /* position: absolute; */
-    /* display: none; */
     opacity: 1;
-    /* display: block; */
-    /* transition: opacity .1s; */
     transition: .5s;
-    /* left: -157px; */
-    /* right: 20px; */
     transform: translateX(-120px);
-    /* visibility: hidden; */
-    /* background-color: transparent; */
 }
+
+
+/*logout menu*/
+
+.logout__menu {
+    position: absolute;
+    top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    right: -100px;
+    width: 80px;
+    height: 115px;
+    background-color: #fff;
+    z-index: 11;
+    font-size: 1.5rem;
+    text-align: center;
+    opacity: 0;
+    transition: .5s;
+}
+
+.logout__menu__title{
+    height: 30px;
+    margin-top: 5px;
+}
+.logout__menu__line{
+    width: 40px;
+    height: 1px;
+    background-color: #BB945F;
+    margin-bottom: 10px;
+}
+
+.logout__menu__title p{
+    font-weight: 700;
+}
+
+.logout__menu__menu {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logout__menu__profile {
+    height: 50%;
+    width: 100%;
+    padding-top: 5px;
+}
+
+.logout__menu__logout {
+    height: 50%;
+    margin-bottom: 5px;
+}
+
+.hidden__menu {
+    opacity: 1;
+    transition: .5s;
+    transform: translateX(-120px);
+}
+
+
 
 /*Register menu*/
 
@@ -525,6 +572,14 @@ body {
     right: 20px;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
 
 /*Welcome*/
 
@@ -1239,6 +1294,7 @@ body {
 .cards__content__login {
     display: flex;
     justify-content: space-between;
+    /* flex-wrap: wrap; */
 }
 
 .card__login {
@@ -1269,6 +1325,7 @@ body {
     height: 386px;
     display: flex;
     flex-direction: column;
+    /* flex-wrap: wrap; */
     width: 600px;
     height: 387px;
     border: 3px solid #BB945F;
@@ -1378,7 +1435,8 @@ body {
     border: transparent 1px solid;
 }
 
-.card__items {
+.card__items,
+.card__items__login {
     /* vertical-align: middle; */
     margin: 0 auto;
     width: 169px;
@@ -1389,6 +1447,11 @@ body {
 
     display: none;
 }
+
+.card__items__login {
+    display: flex;
+}
+
 
 .card__item {
     height: 63px;
@@ -1679,6 +1742,46 @@ body {
         .login__btn:last-child {
             margin: 30px 0 0 0;
         }
+
+
+
+        .cards__content__login {
+            display: block;
+        }
+
+        .card__login {
+            margin: 0 auto 20px;
+        }
+
+        .login__login {
+            margin-right: 0px;
+        }
+        
+        .login__title__login {
+            text-align: center;
+        }
+        
+        .login__text__login p {
+            width: 600px;
+            height: 80px;
+            text-align: center;
+            margin: 2px auto 12px;
+        }
+        
+        .login__btns__login {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .login__btn__login:first-child {
+            margin: 30px 21px 0 0;
+        }
+
+        .login__btn__login:last-child {
+            margin: 30px 0 0 0;
+        }
+
+
 }
 
 @media (max-width: 1024px) {

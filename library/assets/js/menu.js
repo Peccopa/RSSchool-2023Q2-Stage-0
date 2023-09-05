@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('burger').addEventListener('click', () => {
         document.querySelector('.header__menu').classList.toggle('opened');
         document.querySelector('.profile__login').classList.remove('hidden__menu');
+        document.querySelector('.logout__menu').classList.remove('hidden__menu');
     })
 });
 
@@ -24,15 +25,22 @@ window.addEventListener('keydown', event => {
         document.querySelector('.login__menu').
         classList.remove('show__login__menu');
         document.getElementById('overlay').classList.remove('overlayed');
+        document.querySelector('.logout__menu').classList.remove('hidden__menu');
     }
 });
 
 //Profile menu
 
 let profileIcon = document.getElementById('profile');
+
 profileIcon.addEventListener('click', function(){
-    document.querySelector('.profile__login').classList.toggle('hidden__menu');
-    document.querySelector('.header__menu').classList.remove('opened');
+    if(document.querySelector('.profile').classList.contains('logged')) {
+        document.querySelector('.logout__menu').classList.toggle('hidden__menu');
+        document.querySelector('.header__menu').classList.remove('opened');
+    } else {
+        document.querySelector('.profile__login').classList.toggle('hidden__menu');
+        document.querySelector('.header__menu').classList.remove('opened');
+    }
 });
 
 //profile name
@@ -177,12 +185,7 @@ document.getElementById('login__menu').addEventListener('click', event => {
 });
 
 
-document.body.addEventListener('click', event => {
-    if(event.isClickOnMenu) return;
-    document.querySelector('.login__menu').
-    classList.remove('show__login__menu');
-    document.getElementById('overlay').classList.remove('overlayed');
-});
+
 
 //cross
 
