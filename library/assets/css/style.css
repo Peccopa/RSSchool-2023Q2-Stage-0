@@ -29,6 +29,11 @@ body {
     margin: 0px auto;
 }
 
+
+.hide {
+    display: none;
+}
+
 .overlay {
     /* opacity: 0; */
 }
@@ -137,12 +142,10 @@ body {
 }
 
 .icon__letters {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: #BB945F;
     font-size: 1.5rem;
-    /* line-height: 20; */
+    text-align: center;
+    line-height: 1.5;
 }
 
 .icon__ellipse:hover {
@@ -159,7 +162,6 @@ body {
     background-color: #0C0C0E;
     border-radius: 50%;
     margin: 0 auto 2px;
-    /* display: none; */
 }
 
 .human__body{
@@ -270,6 +272,7 @@ body {
 
 .logout__menu__title p{
     font-weight: 700;
+    font-size: 1.2rem;
 }
 
 .logout__menu__menu {

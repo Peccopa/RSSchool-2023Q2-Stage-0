@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
 
-//login
+//LOGIN
 
     const formLogin = document.getElementById('login__menu__form');
     formLogin.addEventListener('submit', formCheck);
@@ -56,10 +56,9 @@ const loginCondition = function () {
             // alert('logged');
         }
     //icon change
-        document.getElementById('human__head').style.display = 'none';
-        document.getElementById('human__body').style.display = 'none';
-        document.querySelector('.icon__ellipse').classList.add('icon__letters');
-        document.querySelector('.icon__ellipse').textContent = localStorage.getItem('firstname')[0] + localStorage.getItem('lastname')[0];
+        document.querySelector('.human__head').classList.add('hide');
+        document.querySelector('.human__body').classList.add('hide');
+        document.querySelector('.icon__letters').textContent = localStorage.getItem('firstname')[0] + localStorage.getItem('lastname')[0];
     //title icon
         document.querySelector('#profile').title = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
     //change card block
@@ -67,18 +66,43 @@ const loginCondition = function () {
         document.querySelector('.section__cards').style.display = 'none';
     //add placeholder
         document.querySelector('#cardusername__login').placeholder = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
-        document.querySelector('#cardnumber__login').placeholder = localStorage.getItem('cardnumber');
-
-
-
+        document.querySelector('#cardnumber__login').placeholder = localStorage.getItem('cardnumber').toUpperCase();
+    //profile__card__number
+        document.querySelector('#profile__card__number').textContent = localStorage.getItem('cardnumber').toUpperCase();
 }
 
 
+//LOGOUT
 
+const logoutCondition = function () {
+//unlog
+    document.querySelector('.profile').classList.remove('logged');
+//icon change
+    document.querySelector('.human__head').classList.remove('hide');
+    document.querySelector('.human__body').classList.remove('hide');
+    document.querySelector('.icon__letters').textContent = '';
+//title icon
+    document.querySelector('#profile').title = '';
+//change card block
+    document.querySelector('.section__cards__login').style.display = 'none';
+    document.querySelector('.section__cards').style.display = 'block';
+//add placeholder
+    document.querySelector('#cardusername__login').placeholder = '';
+    document.querySelector('#cardnumber__login').placeholder = '';
+//profile__card__number
+    document.querySelector('#profile__card__number').textContent = '';
+
+
+
+    }
+
+//LOGOUT BTN
+
+document.querySelector('#logout__menu__logout').addEventListener('click', logoutCondition);
 
 
 //!!!!!!!!!!!!!!!
-loginCondition();
+// loginCondition();
 
 
 

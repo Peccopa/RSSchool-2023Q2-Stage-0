@@ -6,13 +6,43 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 });
 
+//click on menu check
+
 document.getElementById('burger').addEventListener('click', event => {
     event.isClickOnMenu = true;
 });
 
+document.getElementById('profile').addEventListener('click', event => {
+    event.isClickOnMenu = true;
+});
 
+document.getElementById('profile__login__register').addEventListener('click', event => {
+    event.isClickOnMenu = true;
+});
 
+document.getElementById('profile__login__login').addEventListener('click', event => {
+    event.isClickOnMenu = true;
+});
 
+document.getElementById('register').addEventListener('click', event => {
+    event.isClickOnMenu = true;
+});
+
+document.getElementById('sign__up__btn').addEventListener('click', event => {
+    event.isClickOnMenu = true;
+});
+
+document.getElementById('login__btn').addEventListener('click', event => {
+    event.isClickOnMenu = true;
+});
+
+document.getElementById('profile__login__login').addEventListener('click', event => {
+    event.isClickOnMenu = true;
+});
+
+document.getElementById('login__menu').addEventListener('click', event => {
+    event.isClickOnMenu = true;
+});
 
 
 
@@ -46,52 +76,9 @@ profileIcon.addEventListener('click', function(){
     }
 });
 
-//profile name
 
 
-
-
-
-// This handler will be executed every time the cursor
-// is moved over a different list item
-// profileIcon.addEventListener(
-//     "mouseover",
-//     (event) => {
-//       // highlight the mouseover target
-//       event.target.style.backgroundColor = "orange";
-  
-//       // reset the color after a short delay
-//     //   setTimeout(() => {
-//     //     event.target.style.color = "";
-//     //   }, 500);
-//     // },
-//     // false,
-//     });
-
-
-// document.getElementById('profile__login').addEventListener('click', event => {
-//     event.isClickOnMenu = true;
-// });
-
-document.getElementById('profile').addEventListener('click', event => {
-    event.isClickOnMenu = true;
-});
-
-
-
-
-
-
-
-
-// let profileLoginRegister = document.getElementById('profile__login__register');
-// profileLoginRegister.addEventListener('click', function(){
-//     document.querySelector('.register').classList.add('show__register');
-//     document.querySelector('.profile__login').classList.remove('hidden__menu');
-//     document.getElementById('overlay').classList.add('overlayed');
-// });
-
-
+//open modal
 
 const openRegisterMenu = function (){
     // alert('111');
@@ -117,35 +104,6 @@ signUpBtn.addEventListener('click',openRegisterMenu);
 loginBtn.addEventListener('click',openLoginMenu);
 
 
-
-
-
-
-
-//close register menu
-
-document.getElementById('profile__login__register').addEventListener('click', event => {
-    event.isClickOnMenu = true;
-});
-
-document.getElementById('profile__login__login').addEventListener('click', event => {
-    event.isClickOnMenu = true;
-});
-
-document.getElementById('register').addEventListener('click', event => {
-    event.isClickOnMenu = true;
-});
-
-document.getElementById('sign__up__btn').addEventListener('click', event => {
-    event.isClickOnMenu = true;
-});
-
-document.getElementById('login__btn').addEventListener('click', event => {
-    event.isClickOnMenu = true;
-});
-
-
-
 //cross
 
 document.getElementById('register__cross').addEventListener('click', function(){
@@ -155,28 +113,12 @@ document.getElementById('register__cross').addEventListener('click', function(){
 
 
 
-
-
-
 //open login menu
-
 
 
 let profileLoginLoginMenu = document.getElementById('profile__login__login');
 
 profileLoginLoginMenu.addEventListener('click', openLoginMenu);
-
-
-//close login menu
-
-
-document.getElementById('profile__login__login').addEventListener('click', event => {
-    event.isClickOnMenu = true;
-});
-
-document.getElementById('login__menu').addEventListener('click', event => {
-    event.isClickOnMenu = true;
-});
 
 
 
@@ -221,6 +163,19 @@ elem.addEventListener('click', event => {
     event.isClickOnMenu = true;
 });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //bodyclick
 
