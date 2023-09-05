@@ -185,7 +185,12 @@ document.getElementById('login__menu').addEventListener('click', event => {
 });
 
 
-
+document.body.addEventListener('click', event => {
+    if(event.isClickOnMenu) return;
+    document.querySelector('.login__menu').
+    classList.remove('show__login__menu');
+    document.getElementById('overlay').classList.remove('overlayed');
+});
 
 //cross
 
