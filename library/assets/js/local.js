@@ -73,6 +73,17 @@ const loginCondition = function () {
         document.querySelector('#cardnumber__login').placeholder = localStorage.getItem('cardnumber').toUpperCase();
     //profile__card__number
         document.querySelector('#profile__card__number').textContent = localStorage.getItem('cardnumber').toUpperCase();
+    //modal register
+        document.querySelector('.modal__profile__fullname').textContent = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
+        document.querySelector('.modal__profile__initials').textContent = localStorage.getItem('firstname')[0] + localStorage.getItem('lastname')[0];
+        document.querySelector('.modal__profile__item__count').textContent = localStorage.getItem('visits');
+
+        
+
+        document.querySelector('.modal__profile__cardnumber').textContent = localStorage.getItem('cardnumber').toUpperCase();
+        document.querySelector('.modal__profile__copyicon').addEventListener('click', function () {
+            navigator.clipboard.writeText(document.querySelector('.modal__profile__cardnumber').textContent);
+        });
 }
 
 
@@ -106,7 +117,7 @@ document.querySelector('#logout__menu__logout').addEventListener('click', logout
 
 
 //!!!!!!!!!!!!!!!
-// loginCondition();
+loginCondition();
 
 
 
@@ -147,6 +158,8 @@ document.querySelector('.check__btn').addEventListener('click', function () {
 
     } else {
         alert('Wrong Name or Card Number');
+        document.getElementById("cardusername").value = '';
+        document.getElementById("cardnumber").value = '';
     }
 });
 

@@ -44,6 +44,17 @@ document.getElementById('login__menu').addEventListener('click', event => {
     event.isClickOnMenu = true;
 });
 
+document.querySelector('.modal__profile').addEventListener('click', event => {
+    event.isClickOnMenu = true;
+});
+
+document.querySelector('#logout__menu__profile').addEventListener('click', event => {
+    event.isClickOnMenu = true;
+});
+
+document.querySelector('#profile__btn').addEventListener('click', event => {
+    event.isClickOnMenu = true;
+});
 
 
 //Esc close menues
@@ -59,6 +70,7 @@ window.addEventListener('keydown', event => {
         classList.remove('show__login__menu');
         document.getElementById('overlay').classList.remove('overlayed');
         document.querySelector('.logout__menu').classList.remove('hidden__menu');
+        document.querySelector('.modal__profile').classList.add('hide');
     }
 });
 
@@ -93,6 +105,12 @@ const openLoginMenu = function (){
     document.getElementById('overlay').classList.add('overlayed');
 }
 
+const openProfileMenu = function (){
+    document.querySelector('.modal__profile').classList.remove('hide');
+    document.querySelector('.logout__menu').classList.remove('hidden__menu');
+    document.getElementById('overlay').classList.add('overlayed');
+}
+
 //open register menu
 
 let profileLoginRegister = document.getElementById('profile__login__register');
@@ -102,6 +120,7 @@ let loginBtn = document.getElementById('login__btn');
 profileLoginRegister.addEventListener('click', openRegisterMenu);
 signUpBtn.addEventListener('click',openRegisterMenu);
 loginBtn.addEventListener('click',openLoginMenu);
+document.querySelector('#profile__btn').addEventListener('click',openProfileMenu);
 
 
 //cross
@@ -129,6 +148,19 @@ document.getElementById('login__menu__cross').addEventListener('click', function
     document.querySelector('.login__menu').classList.toggle('show__login__menu');
     document.getElementById('overlay').classList.remove('overlayed');
 });
+
+//open profile modal menu
+
+
+document.querySelector('#logout__menu__profile').addEventListener('click', openProfileMenu);
+
+//cross
+
+document.querySelector('.modal__profile__cross').addEventListener('click', function(){
+    document.querySelector('.modal__profile').classList.add('hide');
+    document.getElementById('overlay').classList.remove('overlayed');
+});
+
 
 
 //register link
@@ -190,4 +222,5 @@ document.body.addEventListener('click', event => {
     classList.remove('show__register');
     document.getElementById('overlay').classList.remove('overlayed');
     document.querySelector('.logout__menu').classList.remove('hidden__menu');
+    document.querySelector('.modal__profile').classList.add('hide');
 })

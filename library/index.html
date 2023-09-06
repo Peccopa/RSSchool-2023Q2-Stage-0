@@ -47,7 +47,6 @@
                 </button>
             </div>
         </div>
-
         <div class="profile__login" id="profile__login">
             <div class="profile__login__title">
                 <p>Profile</p>
@@ -61,7 +60,6 @@
                 </div>
             </div>
         </div>
-
         <div class="logout__menu" id="logout__menu">
             <div class="logout__menu__title">
                 <p id="profile__card__number">Number</p>
@@ -75,7 +73,6 @@
                 </div>
             </div>
         </div>
-
         <div class="register" id="register">
             <h3 class="register__title">REGISTER</h3>
             <div class="register__form">
@@ -100,7 +97,6 @@
                 <div class="crossline__two"></div>
             </div>
         </div>
-
         <div class="login__menu" id="login__menu">
             <h3 class="login__menu__title">LOGIN</h3>
             <div class="login__menu__form">
@@ -121,15 +117,7 @@
                 <div class="crossline__two"></div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-        <div class="modal__profile">
+        <div class="modal__profile hide">
             <div class="modal__profile__left">
                 <div class="modal__profile__left__content">
                     <div class="modal__profile__avatar">
@@ -142,7 +130,6 @@
             </div>
             <div class="modal__profile__right">
                 <h3 class="modal__profile__title">MY PROFILE</h3>
-
                 <div class="modal__profile__items">
                     <div class="modal__profile__item">
                         <p class="modal__profile__item__title">Visits</p>
@@ -160,7 +147,6 @@
                         <p class="modal__profile__item__count">2</p>
                     </div>
                 </div>
-
                 <div class="modal__profile__rentedblock">
                     <h4 class="modal__profile__subtitle">Rented books</h4>
                     <ul class="modal__profile__booklist">
@@ -172,17 +158,59 @@
                         </li>
                     </ul>
                 </div>
-
                 <div class="modal__profile__cardblock">
                     <h5 class="modal__profile__cardtitle">Card number</h5>
                     <p class="modal__profile__cardnumber">F00234030</p>
                     <img class="modal__profile__copyicon" src="./assets/images/icons/icon copy.svg" alt="icon" >
                 </div>
             </div>
-
             <div class="modal__profile__cross">
                 <div class="crossline__one"></div>
                 <div class="crossline__two"></div>
+            </div>
+        </div>
+
+        <!-- <input id="buy__card__number" type="text" pattern="[0-9]{16,16}" title="Must contain sixteen digits." required> -->
+
+        <div class="buy__card">
+            <h3 class="buy__card__title">BUY A LIBRARY CARD</h3>
+            <div class="buy__card__content">
+                <form class="buy__card__form" action="#" method="post">
+
+                    <label for="buy__card__number">Bank card number</label>
+                    <input id="buy__card__number" type="text" pattern="[0-9,]{16,16}" title="Must contain sixteen digits." required>
+
+                    <label id="card__date">Expiration code</label>
+                    <div class="buy__card__double">
+                        <input id="buy__card__month" aria-labelledby="card__date" type="text" pattern="[0-9,]{2,2}" title="Must contain two digits." required>
+                        <input id="buy__card__year" aria-labelledby="card__date" type="text" pattern="[0-9,]{2,2}" title="Must contain two digits." required>
+                    </div>
+
+                    <label for="buy__card__cvc">CVC</label>
+                    <input id="buy__card__cvc" type="text" pattern="[0-9,]{3,3}" title="Must contain three digits." required>
+
+                    <label for="buy__card__name">Cardholder name</label>
+                    <input id="buy__card__name" type="text" required>
+
+                    <label for="buy__card__code">Postal code</label>
+                    <input id="buy__card__code" type="text" required>
+
+                    <label for="buy__card__city">City / Town</label>
+                    <input id="buy__card__city" type="text" required>
+
+                    <div class="buy__card__btnblock">
+                        <button id="buy__card__btn" type="submit">Buy</button>
+                        <p class="buy__card__cost">$ 25.00</p>
+                    </div>
+
+                </form>
+                <p class="buy__card__text">
+                    If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.
+                </p>
+            </div>
+            <div class="buy__card__cross">
+                <div class="crossline__one__white"></div>
+                <div class="crossline__two__white"></div>
             </div>
         </div>
 
