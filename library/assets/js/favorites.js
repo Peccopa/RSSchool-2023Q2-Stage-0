@@ -98,7 +98,7 @@ let navbar = document.getElementById("fixed__season");// навигация
 let favoritesContent = document.getElementById('favorites__content');
 // let navPos = navbar.getBoundingClientRect().top;
 // console.log(navPos);
-console.log(favoritesContent);
+// console.log(favoritesContent);
 favoritesContent.style.marginTop = "103" + 'px';
 // favoritesContent.style.paddingTop = "10" + 'px';
 

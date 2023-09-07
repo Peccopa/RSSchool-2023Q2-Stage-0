@@ -303,14 +303,15 @@ body {
 
 .register {
     position: fixed;
-    left: 125%;
-    top: 50%;
+    left: 50%;
+    top: 125%;
     transform: translate(-50%, -50%);
     width: 250px;
     height: 382px;
     background-color: #fff;
     z-index: 102;
-    opacity: .5;
+    transition: .4s;
+    opacity: 0;
 }
 
 .show__register {
@@ -318,7 +319,7 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     opacity: 1;
-    transition: opacity .2s;
+    transition: .4s;
 }
 
 .register__title {
@@ -453,14 +454,16 @@ body {
 
 .login__menu {
     position: fixed;
-    left: 125%;
-    top: 50%;
+    left: 50%;
+    top: 125%;
     transform: translate(-50%, -50%);
     width: 250px;
     height: 262px;
     background-color: #fff;
     z-index: 102;
-    opacity: .5;
+    opacity: 0;
+    transition: .4s;
+
 }
 
 .show__login__menu {
@@ -468,7 +471,7 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     opacity: 1;
-    transition: opacity .2s;
+    transition: .4s;
 }
 
 .login__menu__title {
@@ -1904,6 +1907,12 @@ body {
     opacity: 0;
     transition: .4s;
     /* display: none !important; */
+}
+
+.hide__display {
+    /* display: none !important; */
+    display: none;
+    /* display: block; */
 }
 
         /*Media*/

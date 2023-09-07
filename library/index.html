@@ -144,7 +144,7 @@
                     <div class="modal__profile__item">
                         <p class="modal__profile__item__title">Books</p>
                         <img class="modal__profile__item__img" src="./assets/images/icons/book.svg" alt="icon">
-                        <p class="modal__profile__item__count">2</p>
+                        <p id="modal__profile__item__count" class="modal__profile__item__count">2</p>
                     </div>
                 </div>
                 <div class="modal__profile__rentedblock">
@@ -172,13 +172,13 @@
 
         <!-- <input id="buy__card__number" type="text" pattern="[0-9]{16,16}" title="Must contain sixteen digits." required> -->
 
-        <div class="buy__card">
+        <div class="buy__card hide">
             <h3 class="buy__card__title">BUY A LIBRARY CARD</h3>
             <div class="buy__card__content">
                 <form class="buy__card__form" action="#" method="post">
 
                     <label for="buy__card__number">Bank card number</label>
-                    <input id="buy__card__number" type="text" pattern="[0-9,]{16,16}" title="Must contain sixteen digits." required>
+                    <input id="buy__card__number" type="text" pattern="[0-9, ' ']{16,19}" title="Must contain sixteen digits." required>
 
                     <label id="card__date">Expiration code</label>
                     <div class="buy__card__double">
@@ -293,7 +293,7 @@
             </div>
             <div class="favorites__content" id="favorites__content">
                 <div class="all__books winter__books">
-                    <div class="favorite__book hidden__book">
+                    <div id="book-1" class="favorite__book hidden__book">
                         <h3>Staff Picks</h3>
                         <h4>The Book Eaters</h4>
                         <h5>By Sunyi Dean</h5>
@@ -301,7 +301,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(0).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book hidden__book">
+                    <div id="book-2" class="favorite__book hidden__book">
                         <h3>Staff Picks</h3>
                         <h4>Cackle</h4>
                         <h5>By Rachel Harrison</h5>
@@ -309,7 +309,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(1).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book hidden__book">
+                    <div id="book-3" class="favorite__book hidden__book">
                         <h3>Staff Picks</h3>
                         <h4>Dante: Poet of the Secular World</h4>
                         <h5>By Erich Auerbach</h5>
@@ -317,7 +317,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(2).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book hidden__book">
+                    <div id="book-4" class="favorite__book hidden__book">
                         <h3>Staff Picks</h3>
                         <h4>The Last Queen</h4>
                         <h5>By Clive Irving</h5>
@@ -328,7 +328,7 @@
                     </div>
                 </div>
                 <div class="all__books spring__books">
-                    <div class="favorite__book">
+                    <div id="book-5" class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>The Body</h4>
                         <h5>By Stephen King</h5>
@@ -336,7 +336,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(4).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book">
+                    <div id="book-6" class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Carry: A Memoir of Survival on Stolen Land</h4>
                         <h5>By Toni Jenson</h5>
@@ -344,7 +344,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(5).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book">
+                    <div id="book-7" class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Days of Distraction</h4>
                         <h5>By Alexandra Chang</h5>
@@ -352,7 +352,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(6).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book">
+                    <div id="book-8" class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Dominicana</h4>
                         <h5>By Angie Cruz</h5>
@@ -363,7 +363,7 @@
                     </div>
                 </div>
                 <div class="all__books summer__books">
-                    <div class="favorite__book">
+                    <div id="book-9" class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Crude: A Memoir</h4>
                         <h5>By Pablo Fajardo & ​​Sophie Tardy-Joubert</h5>
@@ -371,7 +371,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(8).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book">
+                    <div id="book-10" class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Let My People Go Surfing</h4>
                         <h5>By Yvon Chouinard</h5>
@@ -379,7 +379,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(9).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book">
+                    <div id="book-11" class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>The Octopus Museum: Poems</h4>
                         <h5>By Brenda Shaughnessy</h5>
@@ -387,7 +387,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(10).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book">
+                    <div id="book-12" class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Shark Dialogues: A Novel</h4>
                         <h5>By Kiana Davenport</h5>
@@ -397,7 +397,7 @@
                     </div>
                 </div>
                 <div class="all__books autumn__books">
-                    <div class="favorite__book">
+                    <div id="book-13" class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Casual Conversation</h4>
                         <h5>By Renia White</h5>
@@ -405,7 +405,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(12).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book">
+                    <div id="book-14" class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>The Great Fire</h4>
                         <h5>By Lou Ureneck</h5>
@@ -413,7 +413,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(13).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book">
+                    <div id="book-15" class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Rickey: The Life and Legend</h4>
                         <h5>By Howard Bryant</h5>
@@ -421,7 +421,7 @@
                         <button class="btn__buy">Buy</button>
                         <img src="./assets/images/favorites/book(14).png" alt="Book photo">
                     </div>
-                    <div class="favorite__book">
+                    <div id="book-16" class="favorite__book">
                         <h3>Staff Picks</h3>
                         <h4>Slug: And Other Stories</h4>
                         <h5>By Megan Milks</h5>
@@ -566,7 +566,7 @@
                                     <img src="./assets/images/icons/Union.svg" alt="icon">
                                 </div>
                                 <div class="card__item__count">
-                                    <p>23</p>
+                                    <p id="card__item__count__checkvisits">23</p>
                                 </div>
                             </div>
                             <div class="card__item">
@@ -577,7 +577,7 @@
                                     <img src="./assets/images/icons/Star 1.png" alt="icon">
                                 </div>
                                 <div class="card__item__count">
-                                    <p>1240</p>
+                                    <p id="card__item__count__checkbonus">1240</p>
                                 </div>
                             </div>
                             <div class="card__item">
@@ -588,7 +588,7 @@
                                     <img src="./assets/images/icons/book.svg" alt="icon">
                                 </div>
                                 <div class="card__item__count">
-                                    <p>2</p>
+                                    <p id="card__item__count__checkbooks">2</p>
                                 </div>
                             </div>
                         </div>
@@ -653,7 +653,7 @@
                                     <img src="./assets/images/icons/book.svg" alt="icon">
                                 </div>
                                 <div class="card__item__count">
-                                    <p>2</p>
+                                    <p id="card__item__count">2</p>
                                 </div>
                             </div>
                         </div>

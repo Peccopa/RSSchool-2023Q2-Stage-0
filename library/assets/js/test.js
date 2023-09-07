@@ -3,3 +3,5 @@
 // );
 // console.log(Array.from(document.querySelectorAll('.about__btn')));
 // console.log(document.querySelectorAll('.about__btn'));
+// console.log(document.querySelector('.profile'));
+// console.log(document.querySelector('.profile').classList.contains('logged'));

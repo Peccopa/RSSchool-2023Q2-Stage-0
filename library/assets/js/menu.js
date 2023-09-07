@@ -56,6 +56,9 @@ document.querySelector('#profile__btn').addEventListener('click', event => {
     event.isClickOnMenu = true;
 });
 
+document.querySelector('.buy__card').addEventListener('click', event => {
+    event.isClickOnMenu = true;
+});
 
 //Esc close menues
 
@@ -71,6 +74,7 @@ window.addEventListener('keydown', event => {
         document.getElementById('overlay').classList.remove('overlayed');
         document.querySelector('.logout__menu').classList.remove('hidden__menu');
         document.querySelector('.modal__profile').classList.add('hide');
+        document.querySelector('.buy__card').classList.add('hide');
     }
 });
 
@@ -108,6 +112,16 @@ const openLoginMenu = function (){
 const openProfileMenu = function (){
     document.querySelector('.modal__profile').classList.remove('hide');
     document.querySelector('.logout__menu').classList.remove('hidden__menu');
+    document.getElementById('overlay').classList.add('overlayed');
+    //add books text
+    let books = localStorage.getItem('ownedbooks').split(',');
+    console.log(books[1]);
+    // alert('!');
+}
+
+const openBuyCard = function (){
+    document.querySelector('.buy__card').classList.remove('hide');
+    // document.querySelector('.logout__menu').classList.remove('hidden__menu');
     document.getElementById('overlay').classList.add('overlayed');
 }
 
@@ -161,6 +175,12 @@ document.querySelector('.modal__profile__cross').addEventListener('click', funct
     document.getElementById('overlay').classList.remove('overlayed');
 });
 
+// cross buy a card
+
+document.querySelector('.buy__card__cross').addEventListener('click', function(){
+    document.querySelector('.buy__card').classList.add('hide');
+    document.getElementById('overlay').classList.remove('overlayed');
+});
 
 
 //register link
@@ -184,13 +204,53 @@ document.getElementById('login__link').addEventListener('click', function(){
 });
 
 
+
+//books count
+const booksCount = function () {
+    document.querySelector('#card__item__count').textContent = (localStorage.getItem('ownedbooks').split(',')).length - 1;
+    document.querySelector('#modal__profile__item__count').textContent = (localStorage.getItem('ownedbooks').split(',')).length - 1;
+}
+
+if (localStorage.getItem('ownedbooks')) {
+    booksCount();
+    }
+
+
 //btn__buy
 
-const btnBuy = document.querySelectorAll('.btn__buy');
-for (let elem of btnBuy) {
-    elem.addEventListener('click', openLoginMenu);
-  }
-for (let elem of btnBuy) {
+// if(localStorage.getItem('ownedbooks')) {
+// let ownedbooks = localStorage.getItem('ownedbooks').split(',');
+// }
+
+for (let elem of document.querySelectorAll('.btn__buy')) {
+    elem.addEventListener('click', function () {
+        if(document.querySelector('.profile').classList.contains('logged')) {
+            if (document.querySelector('.profile').classList.contains('purchased')) {
+                if (this.classList.contains('btn__buy')) {
+                    let ownedbooks = localStorage.getItem('ownedbooks').split(',');
+                    ownedbooks.push(this.parentNode.id);
+                    localStorage.setItem('ownedbooks', ownedbooks);
+                    this.textContent = 'Own';
+                    this.classList.add('btn__own');
+                    this.classList.remove('btn__buy');
+                    booksCount();
+                } else {
+                        return;
+                    }
+            } else {
+                    openBuyCard();
+                }
+        } else {
+                openLoginMenu();
+            }
+    });
+}
+
+
+
+// openLoginMenu
+
+for (let elem of document.querySelectorAll('.btn__buy')) {
 elem.addEventListener('click', event => {
     event.isClickOnMenu = true;
 });
@@ -223,4 +283,5 @@ document.body.addEventListener('click', event => {
     document.getElementById('overlay').classList.remove('overlayed');
     document.querySelector('.logout__menu').classList.remove('hidden__menu');
     document.querySelector('.modal__profile').classList.add('hide');
+    document.querySelector('.buy__card').classList.add('hide');
 })

@@ -1,8 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // console.log((localStorage.getItem('firstname')[0]));
-
-
-
 
     const form = document.getElementById('register__form');
     form.addEventListener('submit', formSend);
@@ -14,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('email', document.getElementById("email").value);
         localStorage.setItem('password', document.getElementById("password").value);
         localStorage.setItem('visits', 0);
+        localStorage.setItem('ownedbooks', '');
 
         // const generateRandomHex = [...Array(9)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
         localStorage.setItem('cardnumber', [...Array(9)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''));
@@ -21,17 +18,14 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.register').classList.toggle('show__register');
         document.getElementById('overlay').classList.remove('overlayed');
         loginCondition();
-
-//reg end !!!!!!
-
-    };
+};
 
 
 //LOGIN
 
     const formLogin = document.getElementById('login__menu__form');
     formLogin.addEventListener('submit', formCheck);
-
+    
     function formCheck(event) {
         event.preventDefault();
         // alert('Check!');
@@ -48,20 +42,35 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
 
-
-
 const loginCondition = function () {
     //logged
         document.querySelector('.profile').classList.add('logged');
+        localStorage.setItem('status', 'login');
         if(document.querySelector('.profile').classList.contains('logged')) {
             // alert('logged');
+        }
+    //check libcard
+        if(localStorage.getItem('libcard') === 'purchased') {
+            document.querySelector('.profile').classList.add('purchased');
+        }
+    //check owned books
+        if (localStorage.getItem('ownedbooks')) {
+            for (let elem of document.querySelectorAll('.btn__buy')) {
+                if (localStorage.getItem('ownedbooks').includes(elem.parentNode.id)) {
+                    elem.textContent = 'Own';
+                    elem.classList.add('btn__own')
+                    elem.classList.remove('btn__buy');
+                    ;
+                }
+            }
         }
     //visits count
         localStorage.setItem('visits', Number(localStorage.getItem('visits')) + 1);
         document.querySelector('#visits__card').textContent = localStorage.getItem('visits');
+        document.querySelector('#card__item__count').textContent = (localStorage.getItem('ownedbooks').split(',')).length - 1;
     //icon change
-        document.querySelector('.human__head').classList.add('hide');
-        document.querySelector('.human__body').classList.add('hide');
+        document.querySelector('.human__head').classList.add('hide__display');
+        document.querySelector('.human__body').classList.add('hide__display');
         document.querySelector('.icon__letters').textContent = localStorage.getItem('firstname')[0] + localStorage.getItem('lastname')[0];
     //title icon
         document.querySelector('#profile').title = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
@@ -77,8 +86,18 @@ const loginCondition = function () {
         document.querySelector('.modal__profile__fullname').textContent = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
         document.querySelector('.modal__profile__initials').textContent = localStorage.getItem('firstname')[0] + localStorage.getItem('lastname')[0];
         document.querySelector('.modal__profile__item__count').textContent = localStorage.getItem('visits');
+        document.querySelector('#modal__profile__item__count').textContent = (localStorage.getItem('ownedbooks').split(',')).length - 1;
+        
+        
+        //test
+        let array = Array.from(document.querySelectorAll('.btn__own')).length;
+        console.log(array);
+
+
 
         
+
+
 
         document.querySelector('.modal__profile__cardnumber').textContent = localStorage.getItem('cardnumber').toUpperCase();
         document.querySelector('.modal__profile__copyicon').addEventListener('click', function () {
@@ -86,15 +105,43 @@ const loginCondition = function () {
         });
 }
 
+if(localStorage.getItem('status')) {
+    if(localStorage.getItem('status') === 'login') {
+        loginCondition ();
+    }
+}
+
+
+//purchase
+
+document.querySelector('.buy__card__form').addEventListener('submit', formPurchase);
+
+function formPurchase(event) {
+    event.preventDefault();
+//purchased
+    document.querySelector('.profile').classList.add('purchased');
+    localStorage.setItem('libcard', 'purchased');
+    if(document.querySelector('.profile').classList.contains('purchased')) {
+        // alert('purchased');
+    }
+    document.querySelector('.buy__card').classList.add('hide');
+    document.getElementById('overlay').classList.remove('overlayed');
+
+
+
+
+
+}
 
 //LOGOUT
 
 const logoutCondition = function () {
 //unlog
     document.querySelector('.profile').classList.remove('logged');
+    localStorage.setItem('status', 'logout');
 //icon change
-    document.querySelector('.human__head').classList.remove('hide');
-    document.querySelector('.human__body').classList.remove('hide');
+    document.querySelector('.human__head').classList.remove('hide__display');
+    document.querySelector('.human__body').classList.remove('hide__display');
     document.querySelector('.icon__letters').textContent = '';
 //title icon
     document.querySelector('#profile').title = '';
@@ -106,6 +153,15 @@ const logoutCondition = function () {
     document.querySelector('#cardnumber__login').placeholder = '';
 //profile__card__number
     document.querySelector('#profile__card__number').textContent = '';
+//clear libcard info
+    document.querySelector('.profile').classList.remove('purchased');
+//clear ownrd books
+    for (let elem of document.querySelectorAll('.btn__own')) {
+            elem.classList.remove('btn__own');
+            elem.classList.add('btn__buy');
+            elem.classList.textContent = 'Buy';
+    }
+
 
 
 
@@ -117,7 +173,9 @@ document.querySelector('#logout__menu__logout').addEventListener('click', logout
 
 
 //!!!!!!!!!!!!!!!
-loginCondition();
+// loginCondition();
+// document.querySelector('.profile').classList.add('purchased');
+//!!!!!!!
 
 
 
@@ -144,22 +202,26 @@ loginCondition();
 document.querySelector('.check__btn').addEventListener('click', function () {
     let cardUserName = document.getElementById("cardusername").value;
     let cardNumber = document.getElementById("cardnumber").value;
-    if ((cardUserName.replace(/\s/g, '')).toLowerCase() === (localStorage.getItem('firstname') + localStorage.getItem('lastname')).toLowerCase() && (cardNumber.replace(/\s/g, '')).toLowerCase() === (localStorage.getItem('cardnumber'))) {
-        document.querySelector('#cardusername__login').placeholder = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
-        document.querySelector('#cardnumber__login').placeholder = localStorage.getItem('cardnumber');
-        document.querySelector('.check__btn').style.display = 'none';
-        document.querySelector('.card__items').style.display = 'flex';
-        setTimeout(() => {
-            document.querySelector('.check__btn').style.display = 'block';
-            document.querySelector('.card__items').style.display = 'none';
+    if(localStorage.getItem('status')){
+        if ((cardUserName.replace(/\s/g, '')).toLowerCase() === (localStorage.getItem('firstname') + localStorage.getItem('lastname')).toLowerCase() && (cardNumber.replace(/\s/g, '')).toLowerCase() === (localStorage.getItem('cardnumber'))) {
+            document.querySelector('#cardusername__login').placeholder = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
+            document.querySelector('#cardnumber__login').placeholder = localStorage.getItem('cardnumber');
+            document.querySelector('.check__btn').style.display = 'none';
+            document.querySelector('.card__items').style.display = 'flex';
+            setTimeout(() => {
+                document.querySelector('.check__btn').style.display = 'block';
+                document.querySelector('.card__items').style.display = 'none';
+                document.getElementById("cardusername").value = '';
+                document.getElementById("cardnumber").value = '';
+            }, 10000);
+            document.querySelector('#card__item__count__checkbooks').textContent = (localStorage.getItem('ownedbooks').split(',')).length - 1;
+            document.querySelector('#card__item__count__checkvisits').textContent = localStorage.getItem('visits');
+
+        } else {
+            alert('Wrong Name or Card Number');
             document.getElementById("cardusername").value = '';
             document.getElementById("cardnumber").value = '';
-        }, 10000);
-
-    } else {
-        alert('Wrong Name or Card Number');
-        document.getElementById("cardusername").value = '';
-        document.getElementById("cardnumber").value = '';
+        }
     }
 });
 
