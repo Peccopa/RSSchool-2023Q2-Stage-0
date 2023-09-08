@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    const overlayOut = function () {
+        document.getElementById('overlay').style.opacity = 0;
+        setTimeout(() => {
+            document.getElementById('overlay').classList.remove('overlayed');
+            document.getElementById('overlay').style.opacity = .5;
+        }, 500);
+    }
+
     const form = document.getElementById('register__form');
     form.addEventListener('submit', formSend);
 
@@ -13,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('ownedbooks', '');
         localStorage.setItem('cardnumber', [...Array(9)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''));
         document.querySelector('.register').classList.toggle('show__register');
-        document.getElementById('overlay').classList.remove('overlayed');
+        overlayOut();
         loginCondition();
 };
 
@@ -25,14 +33,14 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         if((localStorage.getItem('email') === document.getElementById("emailcard").value || localStorage.getItem('cardnumber') === document.getElementById("emailcard").value) && localStorage.getItem('password') === document.getElementById("loginpassword").value) {
             document.querySelector('.login__menu').classList.toggle('show__login__menu');
-            document.getElementById('overlay').classList.remove('overlayed');
+            overlayOut();
 
             localStorage.setItem('visits', Number(localStorage.getItem('visits')) + 1);
             loginCondition();
         } else {
         alert('Wrong Password, E-mail or a Card Number');
         document.querySelector('.login__menu').classList.toggle('show__login__menu');
-        document.getElementById('overlay').classList.remove('overlayed');
+        overlayOut();
         }
     };
 
@@ -126,7 +134,7 @@ function formPurchase(event) {
         // alert('purchased');
     }
     document.querySelector('.buy__card').classList.add('hide');
-    document.getElementById('overlay').classList.remove('overlayed');
+    overlayOut();
 }
 
 //LOGOUT

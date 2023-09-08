@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 });
 
+const overlayOut = function () {
+    document.getElementById('overlay').style.opacity = 0;
+    setTimeout(() => {
+        document.getElementById('overlay').classList.remove('overlayed');
+        document.getElementById('overlay').style.opacity = .5;
+    }, 500);
+}
+
 //click on menu check
 
 document.getElementById('burger').addEventListener('click', event => {
@@ -60,6 +68,7 @@ document.querySelector('.buy__card').addEventListener('click', event => {
     event.isClickOnMenu = true;
 });
 
+
 //Esc close menues
 
 window.addEventListener('keydown', event => {
@@ -70,7 +79,7 @@ window.addEventListener('keydown', event => {
         classList.remove('show__register');
         document.querySelector('.login__menu').
         classList.remove('show__login__menu');
-        document.getElementById('overlay').classList.remove('overlayed');
+        overlayOut();
         document.querySelector('.logout__menu').classList.remove('hidden__menu');
         document.querySelector('.modal__profile').classList.add('hide');
         document.querySelector('.buy__card').classList.add('hide');
@@ -131,7 +140,7 @@ document.querySelector('#profile__btn').addEventListener('click',openProfileMenu
 
 document.getElementById('register__cross').addEventListener('click', function(){
     document.querySelector('.register').classList.toggle('show__register');
-    document.getElementById('overlay').classList.remove('overlayed');
+    overlayOut();
 });
 
 
@@ -145,7 +154,7 @@ profileLoginLoginMenu.addEventListener('click', openLoginMenu);
 
 document.getElementById('login__menu__cross').addEventListener('click', function(){
     document.querySelector('.login__menu').classList.toggle('show__login__menu');
-    document.getElementById('overlay').classList.remove('overlayed');
+    overlayOut();
 });
 
 //open profile modal menu
@@ -157,21 +166,21 @@ document.querySelector('#logout__menu__profile').addEventListener('click', openP
 
 document.querySelector('.modal__profile__cross').addEventListener('click', function(){
     document.querySelector('.modal__profile').classList.add('hide');
-    document.getElementById('overlay').classList.remove('overlayed');
+    overlayOut();
 });
 
 // cross buy a card
 
 document.querySelector('.buy__card__cross').addEventListener('click', function(){
     document.querySelector('.buy__card').classList.add('hide');
-    document.getElementById('overlay').classList.remove('overlayed');
+    overlayOut();
 });
 
 //register link
 
 document.getElementById('register__link').addEventListener('click', function(){
     document.querySelector('.login__menu').classList.toggle('show__login__menu');
-    document.getElementById('overlay').classList.remove('overlayed');
+    overlayOut();
     openRegisterMenu();
 
 });
@@ -180,7 +189,7 @@ document.getElementById('register__link').addEventListener('click', function(){
 
 document.getElementById('login__link').addEventListener('click', function(){
     document.querySelector('.register').classList.toggle('show__register');
-    document.getElementById('overlay').classList.remove('overlayed');
+    overlayOut();
     openLoginMenu();
 
 });
@@ -248,10 +257,10 @@ document.body.addEventListener('click', event => {
     document.querySelector('.profile__login').classList.remove('hidden__menu');
     document.querySelector('.login__menu').
     classList.remove('show__login__menu');
-    document.getElementById('overlay').classList.remove('overlayed');
+    overlayOut();
     document.querySelector('.register').
     classList.remove('show__register');
-    document.getElementById('overlay').classList.remove('overlayed');
+    // document.getElementById('overlay').classList.remove('overlayed');
     document.querySelector('.logout__menu').classList.remove('hidden__menu');
     document.querySelector('.modal__profile').classList.add('hide');
     document.querySelector('.buy__card').classList.add('hide');
