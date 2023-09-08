@@ -6,8 +6,6 @@ function smoothScroll(){
     });
 }
 
-
-
 let winter = document.getElementById('winter');
 winter.addEventListener('click', function(){
     smoothScroll();
@@ -88,37 +86,18 @@ autumn.addEventListener('click', function(){
         );
 });
 
-
-
-
-
-
 let timVine = document.getElementById("section__favorites"); //блок ниже
 let navbar = document.getElementById("fixed__season");// навигация
 let favoritesContent = document.getElementById('favorites__content');
-// let navPos = navbar.getBoundingClientRect().top;
-// console.log(navPos);
-// console.log(favoritesContent);
 favoritesContent.style.marginTop = "103" + 'px';
-// favoritesContent.style.paddingTop = "10" + 'px';
 
 
 window.addEventListener("scroll", e => {
   let scrollPos = window.scrollY;
-//   console.log(scrollPos);
   if (scrollPos > 1730 && scrollPos < 4110) {
     navbar.classList.add('sticky');
     favoritesContent.style.margin = "160";
-    // header.classList.add('navbarOffsetMargin');
   } else {
     navbar.classList.remove('sticky');
-    // header.classList.remove('navbarOffsetMargin');
   }
 });
-
-
-// console.log(navbar);
-
-
-
-

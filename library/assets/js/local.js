@@ -9,30 +9,25 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('lastname', document.getElementById("lastname").value);
         localStorage.setItem('email', document.getElementById("email").value);
         localStorage.setItem('password', document.getElementById("password").value);
-        localStorage.setItem('visits', 0);
+        localStorage.setItem('visits', 1);
         localStorage.setItem('ownedbooks', '');
-
-        // const generateRandomHex = [...Array(9)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
         localStorage.setItem('cardnumber', [...Array(9)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''));
-
         document.querySelector('.register').classList.toggle('show__register');
         document.getElementById('overlay').classList.remove('overlayed');
         loginCondition();
 };
 
-
 //LOGIN
 
     const formLogin = document.getElementById('login__menu__form');
     formLogin.addEventListener('submit', formCheck);
-    
     function formCheck(event) {
         event.preventDefault();
-        // alert('Check!');
-
         if((localStorage.getItem('email') === document.getElementById("emailcard").value || localStorage.getItem('cardnumber') === document.getElementById("emailcard").value) && localStorage.getItem('password') === document.getElementById("loginpassword").value) {
             document.querySelector('.login__menu').classList.toggle('show__login__menu');
             document.getElementById('overlay').classList.remove('overlayed');
+
+            localStorage.setItem('visits', Number(localStorage.getItem('visits')) + 1);
             loginCondition();
         } else {
         alert('Wrong Password, E-mail or a Card Number');
@@ -47,7 +42,6 @@ const loginCondition = function () {
         document.querySelector('.profile').classList.add('logged');
         localStorage.setItem('status', 'login');
         if(document.querySelector('.profile').classList.contains('logged')) {
-            // alert('logged');
         }
     //check libcard
         if(localStorage.getItem('libcard') === 'purchased') {
@@ -80,7 +74,7 @@ const loginCondition = function () {
     }
 
     //visits count
-        localStorage.setItem('visits', Number(localStorage.getItem('visits')) + 1);
+        
         document.querySelector('#visits__card').textContent = localStorage.getItem('visits');
         document.querySelector('#card__item__count').textContent = (localStorage.getItem('ownedbooks').split(',')).length - 1;
     //icon change
@@ -102,9 +96,6 @@ const loginCondition = function () {
         document.querySelector('.modal__profile__initials').textContent = localStorage.getItem('firstname')[0] + localStorage.getItem('lastname')[0];
         document.querySelector('.modal__profile__item__count').textContent = localStorage.getItem('visits');
         document.querySelector('#modal__profile__item__count').textContent = (localStorage.getItem('ownedbooks').split(',')).length - 1;
-
-
-
         document.querySelector('.modal__profile__cardnumber').textContent = localStorage.getItem('cardnumber').toUpperCase();
         document.querySelector('.modal__profile__copyicon').addEventListener('click', function () {
             navigator.clipboard.writeText(document.querySelector('.modal__profile__cardnumber').textContent);
@@ -116,7 +107,6 @@ if(localStorage.getItem('status')) {
         loginCondition ();
     }
 }
-
 
 //purchase
 
@@ -137,11 +127,6 @@ function formPurchase(event) {
     }
     document.querySelector('.buy__card').classList.add('hide');
     document.getElementById('overlay').classList.remove('overlayed');
-
-
-
-
-
 }
 
 //LOGOUT
@@ -172,43 +157,13 @@ const logoutCondition = function () {
             elem.classList.add('btn__buy');
             elem.classList.textContent = 'Buy';
     }
-
-
-
-
-    }
+}
 
 //LOGOUT BTN
 
 document.querySelector('#logout__menu__logout').addEventListener('click', logoutCondition);
 
-
-//!!!!!!!!!!!!!!!
-// loginCondition();
-// document.querySelector('.profile').classList.add('purchased');
-//!!!!!!!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Check the card
-
 
 document.querySelector('.check__btn').addEventListener('click', function () {
     let cardUserName = document.getElementById("cardusername").value;
@@ -227,7 +182,6 @@ document.querySelector('.check__btn').addEventListener('click', function () {
             }, 10000);
             document.querySelector('#card__item__count__checkbooks').textContent = (localStorage.getItem('ownedbooks').split(',')).length - 1;
             document.querySelector('#card__item__count__checkvisits').textContent = localStorage.getItem('visits');
-
         } else {
             alert('Wrong Name or Card Number');
             document.getElementById("cardusername").value = '';
@@ -235,10 +189,4 @@ document.querySelector('.check__btn').addEventListener('click', function () {
         }
     }
 });
-
-
-
-
 });
-
-

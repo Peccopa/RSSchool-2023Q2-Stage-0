@@ -1,6 +1,4 @@
 let offset = 0;
-// let aboutBtnClass = document.querySelectorAll('.about__btn');
-// console.log(aboutBtnClass);
 const aboutPhotos = document.querySelector('.about__photos');
 
 let btn1 = document.getElementById('btn1');
@@ -131,9 +129,6 @@ btn5.addEventListener('click', function(){
     i=5;
 });
 
-
-
-
 if(document.documentElement.clientWidth < 1430) {
 
     Array.from(document.querySelectorAll('.about__btn')).forEach(
@@ -180,7 +175,6 @@ carretRight.addEventListener('click', function(){
         this.classList.add('carret__opacity');
     }
     document.getElementById(`btn${i}`).classList.add('about__btn__active');
-    // console.log((`btn${i}`));
 });
 
 

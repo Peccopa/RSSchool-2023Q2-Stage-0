@@ -63,7 +63,6 @@ document.querySelector('.buy__card').addEventListener('click', event => {
 //Esc close menues
 
 window.addEventListener('keydown', event => {
-    // if(event.key === 'Escape' || event.key === 'Backspace') {
     if(event.key === 'Escape') {
         document.querySelector('.header__menu').classList.remove('opened');
         document.querySelector('.profile__login').classList.remove('hidden__menu');
@@ -81,7 +80,6 @@ window.addEventListener('keydown', event => {
 //Profile menu
 
 let profileIcon = document.getElementById('profile');
-
 profileIcon.addEventListener('click', function(){
     if(document.querySelector('.profile').classList.contains('logged')) {
         document.querySelector('.logout__menu').classList.toggle('hidden__menu');
@@ -91,8 +89,6 @@ profileIcon.addEventListener('click', function(){
         document.querySelector('.header__menu').classList.remove('opened');
     }
 });
-
-
 
 //open modal
 
@@ -113,8 +109,6 @@ const openProfileMenu = function (){
     document.querySelector('.modal__profile').classList.remove('hide');
     document.querySelector('.logout__menu').classList.remove('hidden__menu');
     document.getElementById('overlay').classList.add('overlayed');
-
-
 }
 
 const openBuyCard = function (){
@@ -128,12 +122,10 @@ const openBuyCard = function (){
 let profileLoginRegister = document.getElementById('profile__login__register');
 let signUpBtn = document.getElementById('sign__up__btn');
 let loginBtn = document.getElementById('login__btn');
-
 profileLoginRegister.addEventListener('click', openRegisterMenu);
 signUpBtn.addEventListener('click',openRegisterMenu);
 loginBtn.addEventListener('click',openLoginMenu);
 document.querySelector('#profile__btn').addEventListener('click',openProfileMenu);
-
 
 //cross
 
@@ -143,15 +135,10 @@ document.getElementById('register__cross').addEventListener('click', function(){
 });
 
 
-
 //open login menu
 
-
 let profileLoginLoginMenu = document.getElementById('profile__login__login');
-
 profileLoginLoginMenu.addEventListener('click', openLoginMenu);
-
-
 
 
 //cross
@@ -180,13 +167,11 @@ document.querySelector('.buy__card__cross').addEventListener('click', function()
     document.getElementById('overlay').classList.remove('overlayed');
 });
 
-
 //register link
 
 document.getElementById('register__link').addEventListener('click', function(){
     document.querySelector('.login__menu').classList.toggle('show__login__menu');
     document.getElementById('overlay').classList.remove('overlayed');
-    
     openRegisterMenu();
 
 });
@@ -196,14 +181,12 @@ document.getElementById('register__link').addEventListener('click', function(){
 document.getElementById('login__link').addEventListener('click', function(){
     document.querySelector('.register').classList.toggle('show__register');
     document.getElementById('overlay').classList.remove('overlayed');
-    
     openLoginMenu();
 
 });
 
-
-
 //books count
+
 const booksCount = function () {
     document.querySelector('#card__item__count').textContent = (localStorage.getItem('ownedbooks').split(',')).length - 1;
     document.querySelector('#modal__profile__item__count').textContent = (localStorage.getItem('ownedbooks').split(',')).length - 1;
@@ -213,12 +196,7 @@ if (localStorage.getItem('ownedbooks')) {
     booksCount();
     }
 
-
 //btn__buy
-
-// if(localStorage.getItem('ownedbooks')) {
-// let ownedbooks = localStorage.getItem('ownedbooks').split(',');
-// }
 
 for (let elem of document.querySelectorAll('.btn__buy')) {
     elem.addEventListener('click', function () {
@@ -254,8 +232,6 @@ for (let elem of document.querySelectorAll('.btn__buy')) {
     });
 }
 
-
-
 // openLoginMenu
 
 for (let elem of document.querySelectorAll('.btn__buy')) {
@@ -263,19 +239,6 @@ elem.addEventListener('click', event => {
     event.isClickOnMenu = true;
 });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //bodyclick
 
@@ -292,5 +255,4 @@ document.body.addEventListener('click', event => {
     document.querySelector('.logout__menu').classList.remove('hidden__menu');
     document.querySelector('.modal__profile').classList.add('hide');
     document.querySelector('.buy__card').classList.add('hide');
-})
-
+});

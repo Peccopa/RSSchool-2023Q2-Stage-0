@@ -397,16 +397,18 @@ body {
 }
 
 .register__cross {
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 12.5px;
+    right: 12.5px;
     cursor: pointer;
 }
 
 .crossline__one {
-    position: absolute;
+    position: relative;
+    top: 11px;
+    left: 2px;
     width: 21.11px;
     height: 3px;
     background-color: #0C0C0E;
@@ -414,7 +416,9 @@ body {
 }
 
 .crossline__two {
-    position: absolute;
+    position: relative;
+    top: 8px;
+    left: 2px;
     width: 21.11px;
     height: 3px;
     background-color: #0C0C0E;
@@ -533,11 +537,11 @@ body {
 }
 
 .login__menu__cross {
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 12.5px;
+    right: 11px;
     cursor: pointer;
 }
 
@@ -699,10 +703,10 @@ body {
 
 .modal__profile__cross {
     position: relative;
-    top: 30px;
-    right: 10px;
-    width: 15px;
-    height: 15px;
+    top: 20px;
+    right: 20px;
+    width: 25px;
+    height: 25px;
     cursor: pointer;
 }
 
@@ -826,16 +830,18 @@ body {
 }
 
 .buy__card__cross {
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 19px;
+    right: 22px;
     cursor: pointer;
 }
 
 .crossline__one__white {
-    position: absolute;
+    position: relative;
+    top: 11px;
+    right: -1px;
     width: 21.11px;
     height: 3px;
     background-color: #ffffff;
@@ -843,7 +849,9 @@ body {
 }
 
 .crossline__two__white {
-    position: absolute;
+    position: relative;
+    top: 8px;
+    right: -1px;
     width: 21.11px;
     height: 3px;
     background-color: #ffffff;
@@ -1787,7 +1795,8 @@ body {
 
 @media (max-width: 1100px) {
         .section__favorites {
-            height: 2575px;
+            height: 100%;
+            /* height: 2575px; */
         }
         /*Cards*/
 
