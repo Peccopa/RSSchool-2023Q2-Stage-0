@@ -64,6 +64,21 @@ const loginCondition = function () {
                 }
             }
         }
+
+    //add book text
+    let i = 0;
+    let books = localStorage.getItem('ownedbooks').split(',');
+    books.shift();
+
+    for (i; i < books.length; i++) {
+        let title = document.querySelector(`#${books[i]} h4`).textContent;
+        let author = document.querySelector(`#${books[i]} h5`).textContent.slice(3);
+        let li = document.createElement('li');
+        li.className = 'modal__profile__book';
+        li.textContent = title + ', ' + author;
+        document.querySelector('.modal__profile__booklist').append(li);
+    }
+
     //visits count
         localStorage.setItem('visits', Number(localStorage.getItem('visits')) + 1);
         document.querySelector('#visits__card').textContent = localStorage.getItem('visits');
@@ -87,15 +102,6 @@ const loginCondition = function () {
         document.querySelector('.modal__profile__initials').textContent = localStorage.getItem('firstname')[0] + localStorage.getItem('lastname')[0];
         document.querySelector('.modal__profile__item__count').textContent = localStorage.getItem('visits');
         document.querySelector('#modal__profile__item__count').textContent = (localStorage.getItem('ownedbooks').split(',')).length - 1;
-        
-        
-        //test
-        let array = Array.from(document.querySelectorAll('.btn__own')).length;
-        console.log(array);
-
-
-
-        
 
 
 
@@ -118,6 +124,11 @@ document.querySelector('.buy__card__form').addEventListener('submit', formPurcha
 
 function formPurchase(event) {
     event.preventDefault();
+    if(document.querySelector('#buy__card__number').value.replace(/\s/g, '').length === 16) {
+    } else {
+        alert ('Card number must contain sixteen digits.');
+        return;
+    }
 //purchased
     document.querySelector('.profile').classList.add('purchased');
     localStorage.setItem('libcard', 'purchased');

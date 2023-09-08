@@ -78,13 +78,13 @@
             <div class="register__form">
                 <form class="register__form" id="register__form" action="#" method="post">
                     <label for="firstname">First name</label>
-                    <input class="register__input" id="firstname" type="text" name="firstname" placeholder="" pattern="[a-zA-Z]{2,}" title="Minimum two letters." required>
+                    <input class="register__input" id="firstname" type="text" name="firstname" placeholder="" pattern="[a-zA-Z]{2,}" title="Minimum two letters." maxlength="128" required>
                     <label for="lastname">Last name</label>
-                    <input class="register__input" id="lastname" type="text" name="lastname" placeholder="" pattern="[a-zA-Z]{2,}" title="Minimum two letters." required>
+                    <input class="register__input" id="lastname" type="text" name="lastname" placeholder="" pattern="[a-zA-Z]{2,}" title="Minimum two letters." maxlength="128" required>
                     <label for="email">E-mail</label>
-                    <input class="register__input" id="email" type="email" name="email" placeholder="" required>
+                    <input class="register__input" id="email" type="email" name="email" placeholder="" maxlength="128" required>
                     <label for="password">Password</label>
-                    <input class="register__input" id="password" type="password" name="password" placeholder="" minlength="8" required>
+                    <input class="register__input" id="password" type="password" name="password" placeholder="" minlength="8" maxlength="128" required>
                     <button class="register__btn" id="register__btn" type="submit">Sign Up</button>
                 </form>
                 <div class="register__question">
@@ -102,9 +102,9 @@
             <div class="login__menu__form">
                 <form class="login__menu__form" id="login__menu__form" action="#" method="post">
                     <label for="firstname">E-mail or readers card</label>
-                    <input class="login__menu__input" id="emailcard" type="text" name="loginemail" placeholder="" title="Minimum nine symbols." required>
+                    <input class="login__menu__input" id="emailcard" type="text" name="loginemail" placeholder="" title="Minimum nine symbols." maxlength="128" required>
                     <label for="password">Password</label>
-                    <input class="login__menu__input" id="loginpassword" type="password" name="loginpassword" placeholder="" minlength="8" required>
+                    <input class="login__menu__input" id="loginpassword" type="password" name="loginpassword" placeholder="" minlength="8" maxlength="128" required>
                     <button class="login__menu__btn" id="login__menu__btn" type="submit">Log In</button>
                 </form>
                 <div class="login__menu__question">
@@ -138,7 +138,7 @@
                     </div>
                     <div class="modal__profile__item">
                         <p class="modal__profile__item__title">Bonuses</p>
-                        <img class="modal__profile__item__img" src="./assets/images/icons/Star 1.png" alt="icon">
+                        <img class="modal__profile__item__img" src="./assets/images/icons/Star.png" alt="icon">
                         <p class="modal__profile__item__count">1240</p>
                     </div>
                     <div class="modal__profile__item">
@@ -149,19 +149,12 @@
                 </div>
                 <div class="modal__profile__rentedblock">
                     <h4 class="modal__profile__subtitle">Rented books</h4>
-                    <ul class="modal__profile__booklist">
-                        <li class="modal__profile__book">
-                            The Last Queen, Clive Irving
-                        </li>
-                        <li class="modal__profile__book">
-                            Dominicana, Angie Cruz
-                        </li>
-                    </ul>
+                    <ul class="modal__profile__booklist"></ul>
                 </div>
                 <div class="modal__profile__cardblock">
                     <h5 class="modal__profile__cardtitle">Card number</h5>
                     <p class="modal__profile__cardnumber">F00234030</p>
-                    <img class="modal__profile__copyicon" src="./assets/images/icons/icon copy.svg" alt="icon" >
+                    <img class="modal__profile__copyicon" src="./assets/images/icons/iconcopy.svg" alt="icon" >
                 </div>
             </div>
             <div class="modal__profile__cross">
@@ -169,40 +162,29 @@
                 <div class="crossline__two"></div>
             </div>
         </div>
-
-        <!-- <input id="buy__card__number" type="text" pattern="[0-9]{16,16}" title="Must contain sixteen digits." required> -->
-
         <div class="buy__card hide">
             <h3 class="buy__card__title">BUY A LIBRARY CARD</h3>
             <div class="buy__card__content">
                 <form class="buy__card__form" action="#" method="post">
-
                     <label for="buy__card__number">Bank card number</label>
-                    <input id="buy__card__number" type="text" pattern="[0-9, ' ']{16,19}" title="Must contain sixteen digits." required>
-
+                    <input id="buy__card__number" type="text" name="creditcardnum" pattern="[0-9, ' ']{16,19}" title="Must contain sixteen digits." required>
                     <label id="card__date">Expiration code</label>
                     <div class="buy__card__double">
-                        <input id="buy__card__month" aria-labelledby="card__date" type="text" pattern="[0-9,]{2,2}" title="Must contain two digits." required>
-                        <input id="buy__card__year" aria-labelledby="card__date" type="text" pattern="[0-9,]{2,2}" title="Must contain two digits." required>
+                        <input id="buy__card__month" aria-labelledby="card__date" type="text" name="creditcardcode1" pattern="[0-9,]{2,2}" title="Must contain two digits." required>
+                        <input id="buy__card__year" aria-labelledby="card__date" type="text" name="creditcardcode2" pattern="[0-9,]{2,2}" title="Must contain two digits." required>
                     </div>
-
                     <label for="buy__card__cvc">CVC</label>
-                    <input id="buy__card__cvc" type="text" pattern="[0-9,]{3,3}" title="Must contain three digits." required>
-
+                    <input id="buy__card__cvc" type="text" name="creditcardcvc" pattern="[0-9,]{3,3}" title="Must contain three digits." maxlength="128" required>
                     <label for="buy__card__name">Cardholder name</label>
-                    <input id="buy__card__name" type="text" required>
-
+                    <input id="buy__card__name" type="text" name="creditcardname" maxlength="128" required>
                     <label for="buy__card__code">Postal code</label>
-                    <input id="buy__card__code" type="text" required>
-
+                    <input id="buy__card__code" type="text" name="creditcardpostal" maxlength="128" required>
                     <label for="buy__card__city">City / Town</label>
-                    <input id="buy__card__city" type="text" required>
-
+                    <input id="buy__card__city" type="text" name="creditcardcity" maxlength="128" required>
                     <div class="buy__card__btnblock">
                         <button id="buy__card__btn" type="submit">Buy</button>
                         <p class="buy__card__cost">$ 25.00</p>
                     </div>
-
                 </form>
                 <p class="buy__card__text">
                     If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.
@@ -213,13 +195,6 @@
                 <div class="crossline__two__white"></div>
             </div>
         </div>
-
-
-
-
-
-
-
     </header>
     <main class="main">
         <section class="section__welcome">
@@ -553,8 +528,8 @@
                     <div class="card__form">
                         <form class="card__input" action="/" method="post">
                             <h4 class="card__title">Brooklyn Public Library</h4>
-                            <input class="input" id="cardusername" type="text" name="username" placeholder="Reader's name">
-                            <input class="input" id="cardnumber" type="text" name="usercard" placeholder="Card number">
+                            <input class="input" id="cardusername" type="text" name="username" placeholder="Reader's name" maxlength="128" required>
+                            <input class="input" id="cardnumber" type="text" name="usercard" placeholder="Card number" maxlength="128" required>
                         </form>
                         <button class="check__btn">Check the card</button>
                         <div class="card__items">
@@ -574,7 +549,7 @@
                                     <p>Bonuses</p>
                                 </div>
                                 <div class="card__item__img">
-                                    <img src="./assets/images/icons/Star 1.png" alt="icon">
+                                    <img src="./assets/images/icons/Star.png" alt="icon">
                                 </div>
                                 <div class="card__item__count">
                                     <p id="card__item__count__checkbonus">1240</p>
@@ -606,11 +581,6 @@
                 </div>
             </div>
         </section>
-
-
-
-
-
         <section class="section__cards__login">
             <h2 class="section__title">Digital Library Cards</h2>
             <div class="cards__content__login">
@@ -639,7 +609,7 @@
                                     <p>Bonuses</p>
                                 </div>
                                 <div class="card__item__img">
-                                    <img src="./assets/images/icons/Star 1.png" alt="icon">
+                                    <img src="./assets/images/icons/Star.png" alt="icon">
                                 </div>
                                 <div class="card__item__count">
                                     <p>1240</p>
@@ -657,7 +627,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <button class="check__btn__login">Check the card</button> -->
                     </div>
                 </div>
                 <div class="login__login">
@@ -666,17 +635,11 @@
                         <p>With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.</p>
                     </div>
                     <div class="login__btns__login">
-                        <!-- <button class="login__btn__login" id="sign__up__btn">Sign Up</button> -->
                         <button class="profile__btn" id="profile__btn">Profile</button>
                     </div>
                 </div>
             </div>
         </section>
-
-
-
-
-
     </main>
     <footer class="footer">
         <div class="footer__contacts">
@@ -721,6 +684,5 @@
 <script src="./assets/js/about.js"></script>
 <script src="./assets/js/favorites.js"></script>
 <script src="./assets/js/local.js"></script>
-<script src="./assets/js/test.js"></script>
 </body>
 </html>

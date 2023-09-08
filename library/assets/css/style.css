@@ -29,13 +29,6 @@ body {
     margin: 0px auto;
 }
 
-
-
-
-.overlay {
-    /* opacity: 0; */
-}
-
 .overlayed {
     position: fixed;
     width: 100vw;
@@ -60,7 +53,6 @@ body {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    /* top: 0; */
 }
 
 .header__logo {
@@ -78,9 +70,6 @@ body {
     cursor: pointer;
     transition: color .2s;
 }
-
-
-/*CHANGEEER!!!*/
 
 .header__title a:hover {
     color: #8E8E8E;
@@ -147,7 +136,6 @@ body {
     font-size: 1.4rem;
     text-align: center;
     line-height: 1.6;
-    /* letter-spacing: 0.1px; */
 }
 
 .icon__ellipse:hover {
@@ -172,7 +160,6 @@ body {
     background-color: #0C0C0E;
     border-radius: 50% 50% 0 0 / 100% 100% 0 0;
     margin: 0 auto;
-    /* display: none; */
 }
 
 .burger__menu {
@@ -328,7 +315,6 @@ body {
     text-align: center;
     margin-top: 20px;
     letter-spacing: .02rem;
-    /* line-height: 2; */
 }
 
 .register__form {
@@ -349,9 +335,7 @@ body {
 
 .register__form input {
     text-align: center;
-    /* font-size: 1.3rem; */
     color: #333;
-    /* border: none; */
     outline: none;
     width: 200px;
     height: 20px;
@@ -382,14 +366,12 @@ body {
 .register__btn:hover {
     background-color: #BB945F;
     border: transparent 1px solid;
-    /* transition: .2s; */
 }
 
 .register__btn:focus {
     background-color: #BB945F;
     border: transparent 1px solid;
     outline: 1px solid #333;
-    /* transition: .2s; */
 }
 
 .register__btn:active {
@@ -397,23 +379,16 @@ body {
 }
 
 .register__question {
-    /* padding: 1px; */
-    /* padding-left: 8px; */
     margin-top: 10px;
     display: flex;
-    /* justify-content: space-around; */
 }
 
 .register__question p:first-child {
     font-size: 1rem;
     margin-left: 14px;
     margin-right: 7px;
-    /* letter-spacing: .1; */
 }
 .register__question p:last-child {
-    /* padding: 5px; */
-    /* margin-left: 10px; */
-    /* padding-left: 20px; */
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 1px;
@@ -446,10 +421,6 @@ body {
     transform: rotate(-45deg);
 }
 
-
-
-
-
 /*Login menu*/
 
 .login__menu {
@@ -480,7 +451,6 @@ body {
     text-align: center;
     margin-top: 20px;
     letter-spacing: .02rem;
-    /* line-height: 2; */
 }
 
 .login__menu__form {
@@ -501,9 +471,7 @@ body {
 
 .login__menu__form input {
     text-align: center;
-    /* font-size: 1.3rem; */
     color: #333;
-    /* border: none; */
     outline: none;
     width: 200px;
     height: 20px;
@@ -534,14 +502,12 @@ body {
 .login__menu__btn:hover {
     background-color: #BB945F;
     border: transparent 1px solid;
-    /* transition: .2s; */
 }
 
 .login__menu__btn:focus {
     background-color: #BB945F;
     border: transparent 1px solid;
     outline: 1px solid #333;
-    /* transition: .2s; */
 }
 
 .login__menu__btn:active {
@@ -631,7 +597,6 @@ body {
     justify-content: center;
     min-width: 120px;
     min-height: 30px;
-    /* white-space: ; */
     background-color: #fff;
 }
 
@@ -643,12 +608,9 @@ body {
 }
 
 .modal__profile__right {
-    /* padding: 30px 20px 30px 20px; */
     padding-left: 20px;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
-
 }
 
 .modal__profile__title {
@@ -672,7 +634,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    /* height: 81px; */
 }
 
 .modal__profile__item__title {
@@ -684,18 +645,15 @@ body {
 .modal__profile__item__img {
     width: 20px;
     height: 21px;
-    /* margin-top: 10px; */
 }
 
 .modal__profile__item__count {
     font-size: 1rem;
     color: #000000;
-    /* margin-top: 24px; */
 }
 
 .modal__profile__rentedblock {
     width: 380px;
-    /* max-height: 125px; */
     margin: 20px 0 10px 0;
 }
 
@@ -746,13 +704,7 @@ body {
     width: 15px;
     height: 15px;
     cursor: pointer;
-    /* background-color: #fff; */
 }
-
-
-
-
-
 
 /*Buy Card*/
 
@@ -772,7 +724,6 @@ body {
 .buy__card__title {
     width: 100%;
     height: 60px;
-    /* margin-bottom: 30px; */
     text-align: center;
     font-family: 'Forum', cursive;
     font-size: 4rem;
@@ -785,8 +736,6 @@ body {
 .buy__card__content {
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
-    /* vertical-align: middle; */
     padding: 30px 40px 40px 40px;
 }
 
@@ -795,7 +744,6 @@ body {
     min-height: 410px;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-around; */
 }
 
 .buy__card__form label {
@@ -818,7 +766,6 @@ body {
 
 .buy__card__double {
     display: flex;
-    /* margin-bottom: 10px; */
 }
 
 #buy__card__month,
@@ -827,7 +774,6 @@ body {
     width: 45px;
     height: 20px;
     margin-right: 10px;
-    /* background-color: #ff0000; */
 }
 
 #buy__card__cvc {
@@ -839,7 +785,6 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
-    /* padding-top: 10px; */
 }
 
 .buy__card__text {
@@ -849,7 +794,6 @@ body {
     color: #8E8E8E;
     line-height: 20px;
     letter-spacing: 2.5px;
-    /* padding: 30px 50px 0 0; */
 }
 
 #buy__card__btn {
@@ -875,14 +819,10 @@ body {
 }
 
 .buy__card__cost {
-    /* width: 88px; */
     font-size: 20px;
     font-weight: 900;
-    /* line-height: 2; */
     letter-spacing: 2px;
-    /* text-align: center; */
     padding: 8px 10px 0 0;
-    /* background-color: #ff1010; */
 }
 
 .buy__card__cross {
@@ -909,13 +849,6 @@ body {
     background-color: #ffffff;
     transform: rotate(-45deg);
 }
-
-
-
-
-
-
-
 
 
 /*Welcome*/
@@ -990,7 +923,6 @@ body {
 
 .section__about {
     height: 823px;
-    /* overflow: hidden; */
 }
 
 .about__slider {
@@ -1011,31 +943,16 @@ body {
     margin: 0px 10px 35px 20px;
     transition: 1s;
     left: 0px;
-    /* transform: translate(50%); */
-    /* transform: translateX(53vw); */
 }
 
 .about__photos img {
     display: block;
-    /* margin: 0 20px 35px; */
-    /* margin: 0 14px 35px; */
-    /* margin-left: 20px; */
     margin-right: 25px;
 }
 
-.about__photos img:nth-child(2) {
-    /* margin: 0 5px 35px; */
-}
-
-.about__slider {
-    /* position: relative; */
-}
-
 .about__btns {
-    /* position: relative; */
     display: flex;
     justify-content: center;
-    /* left: -1001px; */
 }
 
 .about__btn {
@@ -1058,10 +975,6 @@ body {
     cursor: auto;
 }
 
-/* .about__btns div:nth-child(1),
-.about__btns div:nth-child(5){
-    display: none;
-} */
 
 #btn1,
 #btn5 {
@@ -1095,152 +1008,67 @@ body {
     margin: 0 0 40px 20px;
 }
 
-
-
-
-
-
-
-
-
 .season__block {
     position: absolute;
-    /* background-color: #f2f513; */
-    /* width: 700px; */
-    /* height: 24px; */
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    /* justify-content: start; */
-    /* height: 24px; */
-    /* margin: 0 0 0 0; */
     margin-left: 20px;
-}
-
-.season {
-    /* background-color: red; */
-    /* width: 25%; */
 }
 
 .season__winter {
     width: 192px;
     background-color: rgba(255, 255, 255, 0.75);
-    /* opacity: .5; */
 }
 
 .season__spring {
     width: 189px;
     background-color: rgba(255, 255, 255, 0.75);
-
-    /* background-color: #ffffff; */
-
-    /* background-color: #b72d2d; */
-    /* padding-left: 50px; */
 }
 
 .season__summer {
     background-color: rgba(255, 255, 255, 0.75);
-
     width: 206px;
-    /* background-color: #ffffff; */
-
-    /* background-color: #0bb46b; */
 }
 
 .season__autumn {
     background-color: rgba(255, 255, 255, 0.75);
-
-    /* background-color: #ffffff; */
-
-    /* background-color: #5f2b8c; */
     width: 116px;
 }
 
 .season__label {
     display: flex;
     align-items: center;
-    /* justify-content: center; */
-    /* width: 100%; */
-    /* background-color: aqua; */
     cursor: pointer;
 }
 
 .season__block {
     display: flex;
-    /* justify-content: start; */
-    /* align-items: center; */
-    
-    /* margin-right: 81px; */
-    /* padding: 5px; */
-    /* margin-left: 20px; */
-}
-
-.season__block input {
-    /* margin: 0 20px 0 0; */
-    /* width: 17px; */
-    /* height: 17px; */
-    /* vertical-align: middle; */
 }
 
 .season__input {
     width: 17px;
     height: 17px;
     margin-right: 20px;
-    /* display: block; */
     accent-color: #000;
 }
 
 .season__span {
     display: block;
-    /* letter-spacing: 4.4; */
 }
 
 .season__input:checked + .season__span {
     font-weight: bold;
 }
 
-
-
-
-
-
-
-
-
 .favorites__content {
     margin-top: 40px;
-    /* display: grid; */
-    /* grid-template-columns: 590px 590px; */
-    /* row-gap: 40px; */
-    /* column-gap: 220px; */
-    /* justify-content: center; */
 }
 
 .all__books {
-    /* position: relative; */
     display: grid;
     grid-template-columns: 590px 590px;
     row-gap: 40px;
     column-gap: 220px;
     justify-content: center;
-    /* display: none; */
-}
 
-.winter__books {
-    /* position: relative; */
-    /* left: 18px; */
-    /* display: none; */
-}
-
-.spring__books {
-    
-}
-
-.summer__books {
-    
-}
-
-.autumn__books {
-    
 }
 
 .favorite__book {
@@ -1250,7 +1078,6 @@ body {
     border: #000 1px solid;
     padding: 15px 20px;
     opacity: 1;
-    /* transition: .5s; */
     display: none;
 }
 
@@ -1294,7 +1121,6 @@ body {
     line-height: 2.65;
     letter-spacing: 1.9px;
     text-transform: capitalize;
-    /* display: none; */
 }
 
 .btn__buy {
@@ -1314,7 +1140,6 @@ body {
     background-color: #fff;
     transition: .2s linear;
     cursor: pointer;
-    /* visibility: visible; */
 }
 
 .btn__buy:hover {
@@ -1353,7 +1178,6 @@ body {
     opacity: 1;
     display: block;
     transition: .2s;
-    /* transition: 1s; */
 }
 
 /*Coffee Shop*/
@@ -1572,7 +1396,6 @@ body {
 
 .check__btn:active {
     background-color: #dfb272;
-    /* border: transparent 1px solid; */
 }
 
 .login {
@@ -1635,7 +1458,6 @@ body {
 .cards__content__login {
     display: flex;
     justify-content: space-between;
-    /* flex-wrap: wrap; */
 }
 
 .card__login {
@@ -1700,33 +1522,6 @@ body {
     color: #BB945F;
 }
 
-/* .check__btn__login {
-    font-family: 'Inter', sans-serif;
-    color: #0C0C0E;
-    width: 242px;
-    height: 44px;
-    margin: 0 auto;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-top: 4px;
-    background-color: #fff;
-    border: 1px #0C0C0E solid;
-    border-radius: 2px;
-    transition: .2s linear;
-    cursor: pointer;
-}
-
-.check__btn__login:hover {
-    background-color: #BB945F;
-    border: transparent 1px solid;
-}
-
-.check__btn__login:active {
-    background-color: #dfb272;
-    border: transparent 1px solid;
-} */
-
 .login__login {
     display: flex;
     flex-direction: column;
@@ -1778,7 +1573,6 @@ body {
 
 .card__items,
 .card__items__login {
-    /* vertical-align: middle; */
     margin: 0 auto;
     width: 169px;
     height: 63px;
@@ -1793,14 +1587,12 @@ body {
     display: flex;
 }
 
-
 .card__item {
     height: 63px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* margin-bottom: 12px; */
 }
 
 .card__item__title {
@@ -1814,10 +1606,6 @@ body {
 .card__item__count {
     font-size: 1rem;
 }
-
-
-
-
 
 /*Footer*/
 
@@ -1906,39 +1694,25 @@ body {
     top: 125%;
     opacity: 0;
     transition: .4s;
-    /* display: none !important; */
 }
 
 .hide__display {
-    /* display: none !important; */
     display: none;
-    /* display: block; */
 }
+
+
+
+
 
         /*Media*/
 
 @media (max-width: 1430px) {
+
         /*About*/
+
         .about__slider {
             width: 490px;
             margin: 40px auto -15px;
-        }
-
-        .about__photos {
-            /* left: -477px; */
-        }
-
-        .section__about img {
-            /* overflow: hidden; */
-            /* margin: 40px auto 20px; */
-            /* margin: 40px auto 35px; */
-        }
-
-        .about__photos img:nth-child(2),
-        .about__photos img:nth-child(3),
-        .about__photos img:nth-child(4),
-        .about__photos img:nth-child(5) {
-            /* display: none; */
         }
 
         .section__about p{
@@ -1978,10 +1752,6 @@ body {
             cursor: auto;
         }
 
-        /* .about__btns div:nth-child(4),
-        .about__btns div:nth-child(5) {
-        display: flex;
-        } */
         #btn1,
         #btn5 {
         display: flex;
@@ -1995,13 +1765,7 @@ body {
             margin-top: 39px;
         }
 
-        /* .favorites__content {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        } */
         .favorites__content {
-            /* padding-right: 40px; */
             margin-bottom: 53px;
         }
 
@@ -2010,17 +1774,6 @@ body {
             justify-content: center;
             flex-wrap: wrap;
             padding-right: 40px;
-            /* margin-bottom: 13px; */
-        }
-        .section__favorites {
-            /* position: relative; */
-        }
-        .fixed__season {
-            /* width: 100%; */
-            /* background-color: #d41111; */
-            /* position: fixed; */
-            /* top: 0; */
-            /* z-index: 100; */
         }
 
         .sticky {
@@ -2028,35 +1781,12 @@ body {
             top: 10px;
             background-color: #ffffff;
             z-index: 10;
-            /* border: #000 solid 1px; */
-
         }
 
-        .section__title {
-            /* position: sticky; */
-            /* top: 0; */
-        }
-        
-        .season__block {
-            /* padding: 10px; */
-            /* margin-bottom: 43px; */
-            /* background-color: #ff0000; */
-            /* opacity: 1; */
-            /* width: 100%; */
-            /* z-index: 101; */
-            /* border: #000 solid 1px; */
-        }
-
-        .season__block label {
-            /* margin-right: 65px; */
-        }
-
-        
 }
 
 @media (max-width: 1100px) {
         .section__favorites {
-        /* height: 100%; */
             height: 2575px;
         }
         /*Cards*/
@@ -2072,23 +1802,23 @@ body {
         .login {
             margin-right: 0px;
         }
-        
+
         .login__title {
             text-align: center;
         }
-        
+
         .login__text p {
             width: 600px;
             height: 80px;
             text-align: center;
             margin: 2px auto 12px;
         }
-        
+
         .login__btns {
             display: flex;
             justify-content: center;
         }
-        
+
         .login__btn:first-child {
             margin: 30px 21px 0 0;
         }
@@ -2096,8 +1826,6 @@ body {
         .login__btn:last-child {
             margin: 30px 0 0 0;
         }
-
-
 
         .cards__content__login {
             display: block;
@@ -2110,23 +1838,23 @@ body {
         .login__login {
             margin-right: 0px;
         }
-        
+
         .login__title__login {
             text-align: center;
         }
-        
+
         .login__text__login p {
             width: 600px;
             height: 80px;
             text-align: center;
             margin: 2px auto 12px;
         }
-        
+
         .login__btns__login {
             display: flex;
             justify-content: center;
         }
-        
+
         .login__btn__login:first-child {
             margin: 30px 21px 0 0;
         }
@@ -2134,15 +1862,12 @@ body {
         .login__btn__login:last-child {
             margin: 30px 0 0 0;
         }
-
-
 }
-
-
 
 @media (max-width: 1024px) {
 
         /*Burger menu*/
+
         .nav {
             position: absolute;
             right: -332px;
@@ -2186,12 +1911,6 @@ body {
 
         .profile {
             margin: 0 25px 0 29px;
-        }
-
-        .profile__login {
-            /* top: 60px; */
-            /* right: 107px; */
-
         }
 
         .hidden__menu {
@@ -2332,4 +2051,13 @@ body {
         .footer__rss a:nth-child(3) {
             width: 30%;
         }
+
+}
+
+@media (max-width: 750px) {
+
+        .season__block {
+            flex-wrap: wrap;
+        }
+
 }

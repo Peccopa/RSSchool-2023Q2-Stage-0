@@ -113,10 +113,8 @@ const openProfileMenu = function (){
     document.querySelector('.modal__profile').classList.remove('hide');
     document.querySelector('.logout__menu').classList.remove('hidden__menu');
     document.getElementById('overlay').classList.add('overlayed');
-    //add books text
-    let books = localStorage.getItem('ownedbooks').split(',');
-    console.log(books[1]);
-    // alert('!');
+
+
 }
 
 const openBuyCard = function (){
@@ -234,6 +232,16 @@ for (let elem of document.querySelectorAll('.btn__buy')) {
                     this.classList.add('btn__own');
                     this.classList.remove('btn__buy');
                     booksCount();
+                    //add book text
+                    ownedbooks = localStorage.getItem('ownedbooks').split(',');
+                    ownedbooks.shift();
+                    let i = ownedbooks.length - 1;
+                    let title = document.querySelector(`#${ownedbooks[i]} h4`).textContent;
+                    let author = document.querySelector(`#${ownedbooks[i]} h5`).textContent.slice(3);
+                    let li = document.createElement('li');
+                    li.className = 'modal__profile__book';
+                    li.textContent = title + ', ' + author;
+                    document.querySelector('.modal__profile__booklist').append(li);
                 } else {
                         return;
                     }
@@ -285,3 +293,4 @@ document.body.addEventListener('click', event => {
     document.querySelector('.modal__profile').classList.add('hide');
     document.querySelector('.buy__card').classList.add('hide');
 })
+
