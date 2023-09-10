@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('visits', 1);
         localStorage.setItem('ownedbooks', '');
         localStorage.setItem('cardnumber', [...Array(9)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''));
+        localStorage.setItem('libcard', 'none');
         document.querySelector('.register').classList.toggle('show__register');
         overlayOut();
         loginCondition();
