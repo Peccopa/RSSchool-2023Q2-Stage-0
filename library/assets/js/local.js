@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function formSend(event) {
         event.preventDefault();
-        localStorage.setItem('firstname', document.getElementById("firstname").value);
-        localStorage.setItem('lastname', document.getElementById("lastname").value);
-        localStorage.setItem('email', document.getElementById("email").value);
+        localStorage.setItem('firstname', document.getElementById("firstname").value.toLowerCase());
+        localStorage.setItem('lastname', document.getElementById("lastname").value.toLowerCase());
+        localStorage.setItem('email', document.getElementById("email").value.toLowerCase());
         localStorage.setItem('password', document.getElementById("password").value);
         localStorage.setItem('visits', 1);
         localStorage.setItem('ownedbooks', '');
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     formLogin.addEventListener('submit', formCheck);
     function formCheck(event) {
         event.preventDefault();
-        if((localStorage.getItem('email') === document.getElementById("emailcard").value || localStorage.getItem('cardnumber') === document.getElementById("emailcard").value) && localStorage.getItem('password') === document.getElementById("loginpassword").value) {
+        if((localStorage.getItem('email') === document.getElementById("emailcard").value.toLowerCase() || localStorage.getItem('cardnumber').toLowerCase() === document.getElementById("emailcard").value.toLowerCase()) && localStorage.getItem('password') === document.getElementById("loginpassword").value) {
             document.querySelector('.login__menu').classList.toggle('show__login__menu');
             overlayOut();
 
@@ -82,26 +82,25 @@ const loginCondition = function () {
     }
 
     //visits count
-        
         document.querySelector('#visits__card').textContent = localStorage.getItem('visits');
         document.querySelector('#card__item__count').textContent = (localStorage.getItem('ownedbooks').split(',')).length - 1;
     //icon change
         document.querySelector('.human__head').classList.add('hide__display');
         document.querySelector('.human__body').classList.add('hide__display');
-        document.querySelector('.icon__letters').textContent = localStorage.getItem('firstname')[0] + localStorage.getItem('lastname')[0];
+        document.querySelector('.icon__letters').textContent = localStorage.getItem('firstname')[0].toUpperCase() + localStorage.getItem('lastname')[0].toUpperCase();
     //title icon
-        document.querySelector('#profile').title = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
+        document.querySelector('#profile').title = localStorage.getItem('firstname').charAt(0).toUpperCase() + localStorage.getItem('firstname').slice(1) + ' ' + localStorage.getItem('lastname').charAt(0).toUpperCase() + localStorage.getItem('lastname').slice(1);
     //change card block
         document.querySelector('.section__cards__login').style.display = 'block';
         document.querySelector('.section__cards').style.display = 'none';
     //add placeholder
-        document.querySelector('#cardusername__login').placeholder = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
+        document.querySelector('#cardusername__login').placeholder = localStorage.getItem('firstname').charAt(0).toUpperCase() + localStorage.getItem('firstname').slice(1) + ' ' + localStorage.getItem('lastname').charAt(0).toUpperCase() + localStorage.getItem('lastname').slice(1);
         document.querySelector('#cardnumber__login').placeholder = localStorage.getItem('cardnumber').toUpperCase();
     //profile__card__number
         document.querySelector('#profile__card__number').textContent = localStorage.getItem('cardnumber').toUpperCase();
     //modal register
-        document.querySelector('.modal__profile__fullname').textContent = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
-        document.querySelector('.modal__profile__initials').textContent = localStorage.getItem('firstname')[0] + localStorage.getItem('lastname')[0];
+        document.querySelector('.modal__profile__fullname').textContent = localStorage.getItem('firstname').charAt(0).toUpperCase() + localStorage.getItem('firstname').slice(1) + ' ' + localStorage.getItem('lastname').charAt(0).toUpperCase() + localStorage.getItem('lastname').slice(1);
+        document.querySelector('.modal__profile__initials').textContent = localStorage.getItem('firstname')[0].toUpperCase() + localStorage.getItem('lastname')[0].toUpperCase();
         document.querySelector('.modal__profile__item__count').textContent = localStorage.getItem('visits');
         document.querySelector('#modal__profile__item__count').textContent = (localStorage.getItem('ownedbooks').split(',')).length - 1;
         document.querySelector('.modal__profile__cardnumber').textContent = localStorage.getItem('cardnumber').toUpperCase();
@@ -174,10 +173,10 @@ document.querySelector('#logout__menu__logout').addEventListener('click', logout
 // Check the card
 
 document.querySelector('.check__btn').addEventListener('click', function () {
-    let cardUserName = document.getElementById("cardusername").value;
-    let cardNumber = document.getElementById("cardnumber").value;
+    let cardUserName = document.getElementById("cardusername").value.toLowerCase();
+    let cardNumber = document.getElementById("cardnumber").value.toLowerCase();
     if(localStorage.getItem('status')){
-        if ((cardUserName.replace(/\s/g, '')).toLowerCase() === (localStorage.getItem('firstname') + localStorage.getItem('lastname')).toLowerCase() && (cardNumber.replace(/\s/g, '')).toLowerCase() === (localStorage.getItem('cardnumber'))) {
+        if (((cardUserName.replace(/\s/g, '')).toLowerCase() === localStorage.getItem('firstname').toLowerCase() || (cardUserName.replace(/\s/g, '')).toLowerCase() === localStorage.getItem('firstname').toLowerCase() + localStorage.getItem('lastname').toLowerCase()) && (cardNumber.replace(/\s/g, '')).toLowerCase() === (localStorage.getItem('cardnumber').toLowerCase())) {
             document.querySelector('#cardusername__login').placeholder = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
             document.querySelector('#cardnumber__login').placeholder = localStorage.getItem('cardnumber');
             document.querySelector('.check__btn').style.display = 'none';
