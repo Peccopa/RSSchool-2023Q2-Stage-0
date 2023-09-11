@@ -720,7 +720,7 @@ body {
     transform: translate(-50%, -50%);
     opacity: 1;
     transition: .4s;
-    width: 650px;
+    width: 640px;
     height: 540px;
     background-color: #fff;
 }
