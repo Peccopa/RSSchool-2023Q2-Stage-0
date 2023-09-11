@@ -161,10 +161,16 @@ const logoutCondition = function () {
     document.querySelector('.profile').classList.remove('purchased');
 //clear ownrd books
     for (let elem of document.querySelectorAll('.btn__own')) {
+            elem.textContent = 'Buy';
             elem.classList.remove('btn__own');
             elem.classList.add('btn__buy');
-            elem.classList.textContent = 'Buy';
     }
+//delete books
+
+    const parent = document.querySelector('.modal__profile__booklist');
+    while (parent.firstChild) {
+    parent.firstChild.remove();
+    };
 }
 
 //LOGOUT BTN
@@ -182,7 +188,11 @@ document.querySelector('.check__btn').addEventListener('click', function () {
             document.querySelector('#cardnumber__login').placeholder = localStorage.getItem('cardnumber');
             document.querySelector('.check__btn').style.display = 'none';
             document.querySelector('.card__items').style.display = 'flex';
+            document.getElementById('cardusername').setAttribute('disabled', 'disabled');
+            document.getElementById('cardnumber').setAttribute('disabled', 'disabled');
             setTimeout(() => {
+                document.getElementById('cardusername').removeAttribute("disabled");
+                document.getElementById('cardnumber').removeAttribute("disabled");
                 document.querySelector('.check__btn').style.display = 'block';
                 document.querySelector('.card__items').style.display = 'none';
                 document.getElementById("cardusername").value = '';
