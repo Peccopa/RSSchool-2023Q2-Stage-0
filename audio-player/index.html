@@ -9,43 +9,38 @@
     <title>Audio Player</title>
 </head>
 <body>
-    <div class="player">
-        <div class="top-bar">
-            <span class="material-symbols-outlined" id="volume_off">volume_off</span>
-            <div class="volume-bar"><input
-                min="0"
-                max="1"
-                step="0.1"
-                type="range"
-                name="volume"
-                value="0.5">
+    <div class="page">
+        <div class="player">
+            <div class="top-bar">
+                <span class="material-symbols-outlined" id="volume_off">volume_off</span>
+                <div class="volume-area">
+                    <div class="volume-bar"></div>
+                </div>
+                <span class="material-symbols-outlined" id="volume_on">volume_up</span>
             </div>
-            <span class="material-symbols-outlined" id="volume_on">volume_up</span>
-        </div>
-        <div class="slider">
-            <img src="#" alt="image">
-        </div>
-        <div class="song-info">
-            <p class="name"> -- // -- </p>
-            <p class="artist"> -- // -- </p>
-        </div>
-        <div class="progress-area">
-            <div class="progress-bar">
-                <span></span>
+            <div class="slider">
+                <img src="./assets/playlist/img/2.png" alt="image">
             </div>
-            <div class="timer">
-                <span class="current">12:12</span>
-                <span class="current">12:22</span>
+            <div class="song-info">
+                <p class="name"> Sad Lorem Ipsum Song </p>
+                <p class="artist"> DJ Lorem Ipsum </p>
             </div>
-        </div>
-        <div class="controls">
-            <span class="material-symbols-outlined" id="repeat-list">repeat</span>
-            <span class="material-symbols-outlined" id="prev">skip_previous</span>
-            <div class="play-pause">
-                <span class="material-symbols-outlined" id="prev">play_arrow</span>
+            <div class="progress-area">
+                <div class="progress-bar"></div>
+                <div class="timer">
+                    <span class="current">12:12</span>
+                    <span class="current">12:22</span>
+                </div>
             </div>
-            <span class="material-symbols-outlined" id="next">skip_next</span>
-            <span class="material-symbols-outlined" id="open-list">queue_music</span>
+            <div class="controls">
+                <span class="material-symbols-outlined" id="repeat-list">repeat</span>
+                <span class="material-symbols-outlined" id="prev">skip_previous</span>
+                <div class="play-pause">
+                    <span class="material-symbols-outlined" id="prev">play_arrow</span>
+                </div>
+                <span class="material-symbols-outlined" id="next">skip_next</span>
+                <span class="material-symbols-outlined" id="open-list">queue_music</span>
+            </div>
         </div>
     </div>
 </body>
