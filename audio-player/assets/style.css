@@ -15,9 +15,9 @@
 :root {
     --main-color: #ffffff;
     --main-shadow: rgb(0, 0, 0, 0.15);
-    --btn-color: #4c00ff;
+    --btn-color: #d900ff;
     --text-color: #333;
-    --bar-color: #ff0000;
+    --bar-color: #0800ff;
     --inactive: #e3e3e3;
 }
 
@@ -30,16 +30,13 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: url(./images/iphone.jpg) no-repeat cover;
 }
 
-.player {
-    width: 38rem;
-    border-radius: 1.5rem;
-    padding: 2.5rem 3rem;
-    background: var(--main-color);
-    box-shadow: 0 0.5rem 1.5rem var(--main-shadow);
-}
+/*flex center between*/
 
+li,
+.pl-head,
 .top-bar,
 .timer,
 .controls {
@@ -48,12 +45,24 @@ html {
     justify-content: space-between;
 }
 
+/*player*/
+
+.player {
+    overflow: hidden;
+    width: 32rem;
+    position: relative;
+    border-radius: 1.5rem;
+    padding: 2.5rem 3rem;
+    background: var(--main-color);
+    box-shadow: 0 0.5rem 1.5rem var(--main-shadow);
+}
+
 /*volume*/
 
 .volume-area {
     width: 100%;
     margin: 0 3rem;
-    height: 0.6rem;
+    height: 1rem;
     background-color: var(--inactive);
     border-radius: 5rem;
     cursor: pointer;
@@ -70,8 +79,8 @@ html {
 .volume-bar::before {
     content: "";
     position: absolute;
-    height: 1rem;
-    width: 1rem;
+    height: 1.5rem;
+    width: 1.5rem;
     background: var(--bar-color);
     border-radius: inherit;
     top: 50%;
@@ -88,18 +97,24 @@ html {
 /*slider*/
 
 .slider {
-    width: 100%;
+    max-width: 25.6rem;
     height: 25.6rem;
     overflow: hidden;
     margin-top: 2.5rem;
     border-radius: 1.5rem;
     box-shadow: 0 0.5rem 1.5rem var(--main-shadow);
+    transition: all .2s linear;
+    cursor: pointer;
 }
 
 .slider img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.slider:hover {
+    box-shadow: 0 0.8rem 1.8rem var(--main-shadow);
 }
 
 /*song info*/
@@ -123,7 +138,7 @@ html {
 
 .progress-area {
     width: 100%;
-    height: 0.6rem;
+    height: 1rem;
     background-color: var(--inactive);
     border-radius: 5rem;
     cursor: pointer;
@@ -140,8 +155,8 @@ html {
 .progress-bar::before {
     content: "";
     position: absolute;
-    height: 1rem;
-    width: 1rem;
+    height: 1.5rem;
+    width: 1.5rem;
     background: var(--bar-color);
     border-radius: inherit;
     top: 50%;
@@ -156,11 +171,12 @@ html {
 }
 
 .timer {
-    margin-top: .2rem;
+    margin-top: .5rem;
+    cursor: auto;
 }
 
 .timer span {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: var(--text-color);
 }
 
@@ -208,6 +224,11 @@ html {
     height: 4.3rem;
     background: linear-gradient(var(--btn-color) 0%, var(--bar-color) 100%);
     border-radius: inherit;
+
+}
+
+.play-pause:hover:before {
+    background: linear-gradient(var(--bar-color) 0%, var(--btn-color) 100%);
 }
 
 .play-pause span {
@@ -223,13 +244,84 @@ html {
     -webkit-text-fill-color: transparent;
 }
 
+.playlist {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: inherit;
+    border-radius: inherit;
+    background: inherit;
+    box-shadow: inherit;
+    bottom: -55%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .2s ease-out;
+}
 
+.playlist.show {
+    bottom: 0;
+    opacity: 1;
+    pointer-events: auto;
+}
 
+.pl-head .pl-row {
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 1.9rem;
+}
 
+.pl-head .pl-row span{
+    cursor: auto;
+}
 
+.pl-head .pl-row p{
+    margin-left: .5rem;
+}
 
+#close {
+    color: var(--text-color);
+    font-size: 2.4rem;
+}
 
+ul {
+    overflow-y: auto;
+    margin: 1rem 0;
+    max-height: 41rem;
+}
 
+ul::-webkit-scrollbar {
+    width: 0;
+}
+
+ul li {
+    list-style: none;
+    border-bottom: .1rem solid var(--inactive);
+    color: var(--text-color);
+    padding-bottom: 1rem;
+    margin-bottom: .5rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+ul li .pl-row span {
+    font-size: 1.6rem;
+    /* margin-bottom: 1.3rem; */
+}
+
+ul li .pl-row p {
+    font-size: 1.5rem;
+    opacity: .8;
+}
+
+.duration {
+    font-size: 1.4rem;
+    opacity: .8;
+}
 
 
 
@@ -242,5 +334,5 @@ html {
     /* display: flex; */
     /* justify-content: center; */
     /* align-items: center; */
-    /* cursor: pointer; */
+    cursor: pointer;
 }
