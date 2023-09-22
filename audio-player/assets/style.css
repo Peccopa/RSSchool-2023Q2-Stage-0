@@ -15,9 +15,9 @@
 :root {
     --main-color: #ffffff;
     --main-shadow: rgb(0, 0, 0, 0.15);
-    --btn-color: #d900ff;
+    --btn-color: orange;
     --text-color: #333;
-    --bar-color: #0800ff;
+    --bar-color: brown;
     --inactive: #e3e3e3;
 }
 
@@ -71,7 +71,7 @@ li,
 .volume-bar {
     position: relative;
     height: inherit;
-    width: 50%;
+    width: 100%;
     border-radius: inherit;
     background: linear-gradient(90deg, var(--btn-color) 0%, var(--bar-color) 100%);
 }
@@ -111,6 +111,7 @@ li,
     width: 100%;
     height: 100%;
     object-fit: cover;
+    background: linear-gradient(90deg, var(--btn-color) 0%, var(--bar-color) 100%);
 }
 
 .slider:hover {
@@ -147,9 +148,10 @@ li,
 .progress-bar {
     position: relative;
     height: inherit;
-    width: 50%;
+    width: 0%;
     border-radius: inherit;
     background: linear-gradient(90deg, var(--btn-color) 0%, var(--bar-color) 100%);
+    /* transition: all .4s ease-out; */
 }
 
 .progress-bar::before {
