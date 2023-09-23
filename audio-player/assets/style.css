@@ -13,16 +13,19 @@
 }
 
 :root {
+    /* --player-color: linear-gradient(180deg, rgb(234, 234, 234) 0%, rgb(255, 255, 255) 100%); */
     --main-color: #ffffff;
     --main-shadow: rgb(0, 0, 0, 0.15);
     --btn-color: orange;
     --text-color: #333;
     --bar-color: brown;
     --inactive: #e3e3e3;
+    --inactive-hover: #bcbcbc;
 }
 
 html {
     font-size: 10px;
+    user-select: none;
 }
 
 .page {
@@ -66,6 +69,11 @@ li,
     background-color: var(--inactive);
     border-radius: 5rem;
     cursor: pointer;
+    transition: all .2s linear;
+}
+
+.volume-area:hover {
+    background-color: var(--inactive-hover);
 }
 
 .volume-bar {
@@ -74,6 +82,7 @@ li,
     width: 100%;
     border-radius: inherit;
     background: linear-gradient(90deg, var(--btn-color) 0%, var(--bar-color) 100%);
+    transition: all .5s ease-out;
 }
 
 .volume-bar::before {
@@ -97,6 +106,7 @@ li,
 /*slider*/
 
 .slider {
+    position: relative;
     max-width: 25.6rem;
     height: 25.6rem;
     overflow: hidden;
@@ -105,17 +115,39 @@ li,
     box-shadow: 0 0.5rem 1.5rem var(--main-shadow);
     transition: all .2s linear;
     cursor: pointer;
+    background-color: var(--inactive);
+}
+
+
+.slider:hover {
+    background-color: var(--inactive-hover);
+    transition: all .5s ease-out;
 }
 
 .slider img {
+    position: relative;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background: linear-gradient(90deg, var(--btn-color) 0%, var(--bar-color) 100%);
+    /* opacity: .1; */
+    /* background: linear-gradient(90deg, var(--btn-color) 0%, var(--bar-color) 100%); */
+    transition: all .5s ease-out;
+    background: transparent;
+    /* z-index: 2; */
 }
 
 .slider:hover {
     box-shadow: 0 0.8rem 1.8rem var(--main-shadow);
+}
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: linear-gradient(90deg, var(--btn-color) 0%, var(--bar-color) 100%);
+    transition: all .5s ease-out;
+    opacity: 0;
+    /* z-index: 1; */
 }
 
 /*song info*/
@@ -140,18 +172,27 @@ li,
 .progress-area {
     width: 100%;
     height: 1rem;
+    /* overflow: hidden; */
+    /* border: .25rem solid transparent; */
     background-color: var(--inactive);
     border-radius: 5rem;
     cursor: pointer;
+    transition: all .2s linear;
+}
+
+.progress-area:hover {
+    background-color: var(--inactive-hover);
 }
 
 .progress-bar {
     position: relative;
     height: inherit;
     width: 0%;
+    /* top: -.25rem; */
     border-radius: inherit;
     background: linear-gradient(90deg, var(--btn-color) 0%, var(--bar-color) 100%);
-    /* transition: all .4s ease-out; */
+    transition: all .5s ease-out;
+    /* z-index: 999; */
 }
 
 .progress-bar::before {
@@ -166,6 +207,7 @@ li,
     right: -.5rem;
     opacity: 0;
     transition: opacity .2s ease;
+    /* padding: .25rem 0; */
 }
 
 .progress-area:hover .progress-bar::before {
@@ -173,8 +215,8 @@ li,
 }
 
 .timer {
-    margin-top: .5rem;
-    cursor: auto;
+    padding-top: .5rem;
+    /* cursor: auto; */
 }
 
 .timer span {
@@ -185,7 +227,7 @@ li,
 /*controls*/
 
 .controls {
-    margin: 4rem 0 .5rem;
+    margin: 2rem 0 .5rem;
 }
 
 .controls span,
@@ -254,15 +296,16 @@ li,
     border-radius: inherit;
     background: inherit;
     box-shadow: inherit;
-    bottom: -55%;
-    opacity: 0;
+    bottom: -90%;
+    /* opacity: 0; */
     pointer-events: none;
-    transition: all .2s ease-out;
+    transition: all .5s ease-out;
 }
 
-.playlist.show {
-    bottom: 0;
-    opacity: 1;
+.playlist.open {
+    bottom: 0%;
+    /* height: 60rem; */
+    /* opacity: 1; */
     pointer-events: auto;
 }
 
@@ -273,11 +316,20 @@ li,
     font-size: 1.9rem;
 }
 
+.icons{
+    width: 2rem;
+    height: 2rem;
+    cursor: auto;
+}
+
 .pl-head .pl-row span{
+    color: var(--bar-color);
+
     cursor: auto;
 }
 
 .pl-head .pl-row p{
+    color: var(--bar-color);
     margin-left: .5rem;
 }
 
@@ -300,6 +352,7 @@ ul li {
     list-style: none;
     border-bottom: .1rem solid var(--inactive);
     color: var(--text-color);
+    /* color: linear-gradient(var(--btn-color) 0%, var(--bar-color) 100%); */
     padding-bottom: 1rem;
     margin-bottom: .5rem;
     font-size: 1.6rem;
@@ -312,17 +365,20 @@ ul li:last-child {
 
 ul li .pl-row span {
     font-size: 1.6rem;
+    /* color: linear-gradient(var(--btn-color) 0%, var(--bar-color) 100%); */
+    color: var(--btn-color);
+
     /* margin-bottom: 1.3rem; */
 }
 
 ul li .pl-row p {
     font-size: 1.5rem;
-    opacity: .8;
+    opacity: .5;
 }
 
 .duration {
     font-size: 1.4rem;
-    opacity: .8;
+    opacity: .5;
 }
 
 
@@ -336,5 +392,6 @@ ul li .pl-row p {
     /* display: flex; */
     /* justify-content: center; */
     /* align-items: center; */
+    transition: all .5s ease-out;
     cursor: pointer;
 }
