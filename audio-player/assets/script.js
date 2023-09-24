@@ -16,11 +16,12 @@ nextBtn = player.querySelector('#next'),
 volumeOffBtn = player.querySelector('#volume_off'),
 volumeOnBtn = player.querySelector('#volume_on'),
 volumeBar = player.querySelector('.volume-bar'),
+// volumeBarBtn = player.querySelector('.volume-bar-btn'),
 volumeArea = player.querySelector('.volume-area'),
 progressBar = player.querySelector('.progress-bar'),
 progressArea = player.querySelector('.progress-area'),
 repeatBtn = player.querySelector('#repeat_list');
-console.log(trackList);
+// console.log(trackList);
 //trackindex
 let trackIndex = 0;
 // let progressWidth = 0;
@@ -136,6 +137,12 @@ volumeArea.addEventListener('click', (mouseClick) => {
     volumeOffBtn.style.opacity = '1';
     volumeOnBtn.style.opacity = '1';
 });
+// volumeArea.addEventListener('mouseup', (mouseClick) => {
+//     trackAudio.volume = (Math.ceil((mouseClick.offsetX / volumeArea.clientWidth) * 10) / 10);
+//     volumeBar.style.width = mouseClick.offsetX + 'px';
+//     volumeOffBtn.style.opacity = '1';
+//     volumeOnBtn.style.opacity = '1';
+// });
 //click on image
 trackImage.addEventListener('click', () => {
     const isTrackPaused = player.classList.contains('paused');
@@ -198,7 +205,77 @@ for (let i = 0; i < playlist.length; i++) {
                         <span>${playlist[i].name}</span>
                         <p>${playlist[i].artist}</p>
                     </div>
-                    <span class="duration">2:45</span>
+                    <audio class="${playlist[i].src}" src="./assets/playlist/audio/${playlist[i].src}.mp3"></audio>
+                    <span class="duration" id="${playlist[i].src}">00:00</span>
                 </li>`;
     tagUl.insertAdjacentHTML('beforeend', tagLi);
+//get duration
+    let trackLiTag = tagUl.querySelector(`.${playlist[i].src}`);
+    // console.log(trackLiTag);
+    let trackLiDuration = tagUl.querySelector(`#${playlist[i].src}`);
+    // console.log(trackLiDuration);
+    trackLiTag.addEventListener('loadeddata', () => {
+        let totalMin = Math.floor((trackLiTag.duration) / 60);
+        let totalSec = Math.floor((trackLiTag.duration) % 60);
+        totalSec < 10 ? totalSec = `0${totalSec}` : false;
+        trackLiDuration.textContent = `${totalMin}:${totalSec}`;
+    });
 }
+//add acvive playlist
+const allTagLi = tagUl.querySelectorAll('li');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//drag & drop slider
+// volumeBarBtn.onmousedown = function(e) {
+//     e.preventDefault();
+//     let shiftX = e.clientX - volumeBarBtn.getBoundingClientRect().left;
+//     player.addEventListener('mousemove', onMouseMove);
+//     player.addEventListener('mouseup', onMouseUp);
+
+//     function onMouseMove(e) {
+//         let newLeft = e.clientX - shiftX - volumeArea.getBoundingClientRect().left;
+//         if(newLeft < 0)
+//             newLeft = 0;
+//         let rightEdge = volumeArea.offsetWidth - volumeBarBtn.offsetWidth;
+//         if(newLeft > rightEdge)
+//             newLeft = rightEdge;
+//         volumeBarBtn.style.left = newLeft + 'px';
+//     }
+
+//     function onMouseUp(e) {
+//         player.removeEventListener('mouseup', onMouseUp);
+//         player.removeEventListener('mousemove', onMouseMove);
+//     }
+
+//     volumeBarBtn.ondragstart = function () {
+//         return false;
+//     }
+// }

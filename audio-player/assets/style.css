@@ -5,6 +5,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    text-decoration: none;
 }
 
 *::after, *::before {
@@ -13,7 +14,7 @@
 }
 
 :root {
-    /* --player-color: linear-gradient(180deg, rgb(234, 234, 234) 0%, rgb(255, 255, 255) 100%); */
+    --player-color: linear-gradient(180deg, rgb(234, 234, 234) 0%, rgb(255, 255, 255) 100%);
     --main-color: #ffffff;
     --main-shadow: rgb(0, 0, 0, 0.15);
     --btn-color: orange;
@@ -37,7 +38,7 @@ html {
 }
 
 /*flex center between*/
-
+footer,
 li,
 .pl-head,
 .top-bar,
@@ -63,6 +64,8 @@ li,
 /*volume*/
 
 .volume-area {
+    display: flex;
+
     width: 100%;
     margin: 0 3rem;
     height: 1rem;
@@ -84,6 +87,12 @@ li,
     background: linear-gradient(90deg, var(--btn-color) 0%, var(--bar-color) 100%);
     transition: all .5s ease-out;
 }
+
+/* .volume-bar-btn {
+    width: 10px;
+    height: 10px;
+    background-color: #000000;
+} */
 
 .volume-bar::before {
     content: "";
@@ -120,6 +129,7 @@ li,
 
 
 .slider:hover {
+    box-shadow: 0 0.8rem 1.8rem var(--main-shadow);
     background-color: var(--inactive-hover);
     transition: all .5s ease-out;
 }
@@ -136,9 +146,6 @@ li,
     /* z-index: 2; */
 }
 
-.slider:hover {
-    box-shadow: 0 0.8rem 1.8rem var(--main-shadow);
-}
 .layer {
     position: absolute;
     width: 100%;
@@ -300,6 +307,7 @@ li,
     /* opacity: 0; */
     pointer-events: none;
     transition: all .5s ease-out;
+    z-index: 1;
 }
 
 .playlist.open {
@@ -373,12 +381,12 @@ ul li .pl-row span {
 
 ul li .pl-row p {
     font-size: 1.5rem;
-    opacity: .5;
+    opacity: .6;
 }
 
 .duration {
     font-size: 1.4rem;
-    opacity: .5;
+    opacity: .6;
 }
 
 
@@ -394,4 +402,49 @@ ul li .pl-row p {
     /* align-items: center; */
     transition: all .5s ease-out;
     cursor: pointer;
+}
+
+
+/*footer*/
+
+footer {
+    margin-top: 3rem;
+    /* border-bottom: .1rem solid var(--inactive-hover); */
+    /* padding-bottom: 1rem; */
+    opacity: .75;
+
+}
+
+
+
+.svg-git {
+    width: 4rem;
+    height: 2rem;
+    fill: var(--inactive-hover);
+    transition: all .2s linear;
+    /* border: 1px solid var(--inactive-hover); */
+    /* border-radius: .3rem; */
+}
+
+.text-footer {
+    text-decoration: none;
+    color: var(--inactive-hover);
+    transition: all .2s linear;
+
+}
+
+.svg-rss {
+    width: 4rem;
+    height: 2rem;
+    fill: var(--inactive-hover);
+    transition: all .2s linear;
+    /* border: 1px solid var(--inactive-hover); */
+    /* border-radius: .3rem; */
+}
+
+.svg-git:hover,
+.svg-rss:hover,
+.text-footer:hover {
+    color: var(--text-color);
+    fill: var(--text-color);
 }
