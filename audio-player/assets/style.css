@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+*::after, *::before {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --main-color: #ffffff;
+    --main-shadow: rgb(0, 0, 0, 0.15);
+    --btn-color: orange;
+    --text-color: #333;
+    --bar-color: brown;
+    --inactive: #e3e3e3;
+    --inactive-hover: #bcbcbc;
+}
+
+html {
+    font-size: 10px;
+    user-select: none;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url(./images/iphone.jpg) no-repeat cover;
+}
+
+/*flex center between*/
+footer,
+li,
+.pl-head,
+.top-bar,
+.timer,
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*player*/
+
+.player {
+    overflow: hidden;
+    width: 32rem;
+    position: relative;
+    border-radius: 1.5rem;
+    padding: 2.5rem 3rem;
+    background: var(--main-color);
+    box-shadow: 0 0.5rem 1.5rem var(--main-shadow);
+}
+
+/*volume*/
+
+.volume-area {
+    display: flex;
+    width: 100%;
+    margin: 0 3rem;
+    height: 1rem;
+    background-color: var(--inactive);
+    border-radius: 5rem;
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.volume-area:hover {
+    background-color: var(--inactive-hover);
+}
+
+.volume-bar {
+    position: relative;
+    height: inherit;
+    width: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--btn-color) 0%, var(--bar-color) 100%);
+    transition: all .5s ease-out;
+}
+
+#volume_on {
+    opacity: .3;
+}
+
+.volume-bar::before {
+    content: "";
+    position: absolute;
+    height: 1.5rem;
+    width: 1.5rem;
+    background: var(--bar-color);
+    border-radius: inherit;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -.5rem;
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+
+.volume-area:hover .volume-bar::before {
+    opacity: 1;
+}
+
+/*slider*/
+
+.slider {
+    position: relative;
+    max-width: 25.6rem;
+    height: 25.6rem;
+    overflow: hidden;
+    margin-top: 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.5rem 1.5rem var(--main-shadow);
+    transition: all .2s linear;
+    cursor: pointer;
+    background-color: var(--inactive);
+}
+
+
+.slider:hover {
+    box-shadow: 0 0.8rem 1.8rem var(--main-shadow);
+    background-color: var(--inactive-hover);
+    transition: all .5s ease-out;
+}
+
+.slider img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 1rem;
+    border-radius: 2rem;
+    transition: all .5s ease-out;
+    background: transparent;
+}
+
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: linear-gradient(90deg, var(--btn-color) 0%, var(--bar-color) 100%);
+    transition: all .5s ease-out;
+    opacity: 0;
+}
+
+/*song info*/
+
+.song-info {
+    text-align: center;
+    margin: 3rem 0;
+    color: var(--text-color);
+}
+
+.name {
+    font-size: 2.1rem;
+}
+
+.artist {
+    font-size: 1.8rem;
+    opacity: 0.9;
+}
+
+/*progress bar*/
+
+.progress-area {
+    width: 100%;
+    height: 1rem;
+    background-color: var(--inactive);
+    border-radius: 5rem;
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.progress-area:hover {
+    background-color: var(--inactive-hover);
+}
+
+.progress-bar {
+    position: relative;
+    height: inherit;
+    width: 0%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--btn-color) 0%, var(--bar-color) 100%);
+    transition: all .5s ease-out;
+}
+
+.progress-bar::before {
+    content: "";
+    position: absolute;
+    height: 1.5rem;
+    width: 1.5rem;
+    background: var(--bar-color);
+    border-radius: inherit;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -.5rem;
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+
+.progress-area:hover .progress-bar::before {
+    opacity: 1;
+}
+
+.timer {
+    padding-top: .5rem;
+}
+
+.timer span {
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+/*controls*/
+
+.controls {
+    margin: 2rem 0 .5rem;
+}
+
+#close,
+.pl-head .pl-row span,
+.controls span,
+.top-bar span {
+    font-size: 3rem;
+    user-select: none;
+    background: linear-gradient(var(--btn-color) 0%, var(--bar-color) 100%);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.controls span:nth-child(2) {
+    font-size: 4.3rem;
+    margin-right: -1.3rem;
+}
+
+.controls span:nth-child(4) {
+    font-size: 4.3rem;
+    margin-left: -1.3rem;
+}
+
+.play-pause {
+    width: 5.4rem;
+    height: 5.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 0 .5rem var(--btn-color);
+    background: linear-gradient(var(--main-color) 0%, var(--inactive) 100%);
+}
+
+.play-pause::before {
+    content: "";
+    position: absolute;
+    width: 4.3rem;
+    height: 4.3rem;
+    background: linear-gradient(var(--btn-color) 0%, var(--bar-color) 100%);
+    border-radius: inherit;
+}
+
+.play-pause:hover:before {
+    background: linear-gradient(var(--bar-color) 0%, var(--btn-color) 100%);
+}
+
+.play-pause span {
+    position: relative;
+    width: 4.3rem;
+    height: 4.3rem;
+    line-height: 4.3rem;
+    text-align: center;
+    background: inherit;
+    border-radius: inherit;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.playlist {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50rem;
+    padding: inherit;
+    border-radius: inherit;
+    background: inherit;
+    box-shadow: inherit;
+    bottom: -90%;
+    pointer-events: none;
+    transition: all .5s ease-out;
+    z-index: 1;
+}
+
+.playlist.open {
+    bottom: 0%;
+    pointer-events: auto;
+}
+
+.pl-head .pl-row {
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 1.9rem;
+}
+
+.icons{
+    width: 2rem;
+    height: 2rem;
+    cursor: auto;
+}
+
+.pl-head .pl-row span{
+    cursor: auto;
+}
+
+.pl-head .pl-row p{
+    color: var(--bar-color);
+    margin-left: .5rem;
+}
+
+#playlist_add {
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+#playlist_add:hover {
+    color: var(--inactive-hover);
+}
+
+ul {
+    overflow-y: auto;
+    margin: 1rem 0;
+    max-height: 41rem;
+}
+
+ul::-webkit-scrollbar {
+    width: 0;
+}
+
+ul li {
+    list-style: none;
+    font-weight: 500;
+    padding-bottom: 1rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    opacity: .5;
+}
+
+.pl-border {
+    border-bottom: .1rem solid var(--inactive);
+}
+
+ul div:last-child {
+    border-bottom: none;
+}
+
+.pl-name {
+    color: var(--inactive-hover);
+}
+
+.pl-artist {
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+
+ul li .pl-row p {
+    font-size: 1.5rem;
+    opacity: .6;
+}
+
+.duration {
+    font-size: 1.4rem;
+    opacity: .6;
+}
+
+ul li.playing {
+    opacity: 1;
+    pointer-events: none;
+}
+
+.material-symbols-outlined {
+    transition: all .5s ease-out;
+    cursor: pointer;
+}
+
+/*footer*/
+
+footer {
+    width: 32rem;
+    justify-content: space-between;
+    margin-top: 3rem;
+    opacity: .75;
+}
+
+.svg-git {
+    display: flex;
+    flex-direction: column;
+    height: 4.3rem;
+    fill: var(--inactive-hover);
+    transition: all .2s linear;
+}
+.svg-git span{
+    margin: auto;
+    color: var(--inactive-hover);
+    font-size: 1.4rem;
+    width: 6rem;
+    height: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.svg-git svg{
+    margin: auto;
+    width: 3rem;
+    height: 2rem;
+}
+
+.text-footer {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--inactive-hover);
+    transition: all .2s linear;
+}
+
+.svg-rss {
+    width: 6rem;
+    height: 4rem;
+    fill: var(--inactive-hover);
+    transition: all .2s linear;
+}
