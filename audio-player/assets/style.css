@@ -32,6 +32,7 @@ html {
 .page {
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: url(./images/iphone.jpg) no-repeat cover;
@@ -88,11 +89,9 @@ li,
     transition: all .5s ease-out;
 }
 
-/* .volume-bar-btn {
-    width: 10px;
-    height: 10px;
-    background-color: #000000;
-} */
+#volume_on {
+    opacity: .3;
+}
 
 .volume-bar::before {
     content: "";
@@ -139,6 +138,8 @@ li,
     width: 100%;
     height: 100%;
     object-fit: cover;
+    padding: 1rem;
+    border-radius: 2rem;
     /* opacity: .1; */
     /* background: linear-gradient(90deg, var(--btn-color) 0%, var(--bar-color) 100%); */
     transition: all .5s ease-out;
@@ -299,6 +300,7 @@ li,
     position: absolute;
     left: 0;
     width: 100%;
+    height: 50rem;
     padding: inherit;
     border-radius: inherit;
     background: inherit;
@@ -344,6 +346,15 @@ li,
 #close {
     color: var(--text-color);
     font-size: 2.4rem;
+}
+
+#playlist_add {
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+#playlist_add:hover {
+    color: var(--inactive-hover);
 }
 
 ul {
@@ -408,6 +419,9 @@ ul li .pl-row p {
 /*footer*/
 
 footer {
+    width: 32rem;
+    /* display: flex; */
+    justify-content: space-between;
     margin-top: 3rem;
     /* border-bottom: .1rem solid var(--inactive-hover); */
     /* padding-bottom: 1rem; */
@@ -418,15 +432,39 @@ footer {
 
 
 .svg-git {
-    width: 4rem;
-    height: 2rem;
+    display: flex;
+    flex-direction: column;
+    /* line-height: 1; */
+    /* width: 3rem; */
+    height: 4.3rem;
     fill: var(--inactive-hover);
     transition: all .2s linear;
     /* border: 1px solid var(--inactive-hover); */
     /* border-radius: .3rem; */
 }
+.svg-git span{
+    margin: auto;
+    color: var(--inactive-hover);
+    font-size: 1.4rem;
+    width: 6rem;
+    height: 2rem;
+    font-weight: 700;
+    /* display: block; */
+    text-align: center;
+    /* vertical-align: middle; */
+    /* line-height: 1; */
+}
+
+.svg-git svg{
+    margin: auto;
+    width: 3rem;
+    height: 2rem;
+}
+
 
 .text-footer {
+    font-size: 1.4rem;
+    font-weight: 700;
     text-decoration: none;
     color: var(--inactive-hover);
     transition: all .2s linear;
@@ -434,17 +472,10 @@ footer {
 }
 
 .svg-rss {
-    width: 4rem;
-    height: 2rem;
+    width: 6rem;
+    height: 4rem;
     fill: var(--inactive-hover);
     transition: all .2s linear;
     /* border: 1px solid var(--inactive-hover); */
     /* border-radius: .3rem; */
-}
-
-.svg-git:hover,
-.svg-rss:hover,
-.text-footer:hover {
-    color: var(--text-color);
-    fill: var(--text-color);
 }
