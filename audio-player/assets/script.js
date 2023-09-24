@@ -36,7 +36,6 @@ function loadTracks(indexNumber) {
 };
 //play track
 function playTrack () {
-    progressBar.style.width = 0;
     layer.style.opacity = 1;
     playPauseView.innerText = 'pause';
     player.classList.add('paused');
@@ -51,6 +50,7 @@ function pauseTrack () {
 }
 //next track
 function nextTrack () {
+    progressBar.style.width = 0;
     trackIndex++;
     trackIndex > playlist.length - 1 ? trackIndex = 0 : true;
     loadTracks(trackIndex);
@@ -58,6 +58,7 @@ function nextTrack () {
 };
 //prev track
 function prevTrack () {
+    progressBar.style.width = 0;
     trackIndex--;
     trackIndex < 0 ? trackIndex = playlist.length - 1 : true;
     loadTracks(trackIndex);
@@ -85,9 +86,8 @@ trackAudio.addEventListener('timeupdate', (e) => {
     const duration = (e.target.duration);
     let progressWidth = ((currentTime)/ duration) * 100;
     progressBar.style.width = `${progressWidth}%`;
-    if (duration < 10) {
+    if (duration < 10 && progressWidth < 100) {
         progressBar.style.width = `${progressWidth + 7.5}%`;
-
     };
     trackAudio.addEventListener('loadeddata', () => {
         //total time
