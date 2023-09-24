@@ -28,13 +28,14 @@ let trackIndex = 0;
 //load track
 window.addEventListener('load', () => {
     loadTracks(trackIndex);
+    playingNow();
 });
 
-function loadTracks(trackIndex) {
-    trackArtist.textContent = playlist[trackIndex].artist;
-    trackName.textContent = playlist[trackIndex].name;
-    trackAudio.src = `./assets/playlist/audio/${playlist[trackIndex].img}.mp3`;
-    trackImage.src = `./assets/playlist/img/${playlist[trackIndex].img}.png`;
+function loadTracks(indexNumber) {
+    trackArtist.textContent = playlist[indexNumber].artist;
+    trackName.textContent = playlist[indexNumber].name;
+    trackAudio.src = `./assets/playlist/audio/${playlist[indexNumber].img}.mp3`;
+    trackImage.src = `./assets/playlist/img/${playlist[indexNumber].img}.png`;
 };
 //play track
 function playTrack () {
@@ -74,16 +75,19 @@ function prevTrack () {
 playPauseBtn.addEventListener('click', () => {
     const isTrackPaused = player.classList.contains('paused');
     isTrackPaused ? pauseTrack() : playTrack();
+    playingNow();
 });
 //next track
 nextBtn.addEventListener('click', () => {
     // setTimeout(nextTrack, 5000);
     // document.documentElement.style.cssText = "--bar-color: blue";
+    playingNow();
     nextTrack();
 });
 //prev track
 prevBtn.addEventListener('click', () => {
     // document.documentElement.style.cssText = "--btn-color: red";
+    playingNow();
     prevTrack();
 });
 //progress bar
@@ -186,6 +190,7 @@ trackAudio.addEventListener('ended', () => {
             trackIndex = random;
             loadTracks(trackIndex);
             playTrack();
+            playingNow();
             break;
     };
 });
@@ -200,14 +205,15 @@ trackListClose.addEventListener('click', () => {
 });
 //create playlist
 for (let i = 0; i < playlist.length; i++) {
-    let tagLi = `<li>
+    let tagLi = `<li li-index="${i}">
                     <div class="pl-row">
-                        <span>${playlist[i].name}</span>
-                        <p>${playlist[i].artist}</p>
+                        <p class="pl-artist">${playlist[i].name}</p>
+                        <p class="pl-name">${playlist[i].artist}</p>
                     </div>
                     <audio class="${playlist[i].src}" src="./assets/playlist/audio/${playlist[i].src}.mp3"></audio>
                     <span class="duration" id="${playlist[i].src}">00:00</span>
-                </li>`;
+                </li>
+                <div class="pl-border"></div>`;
     tagUl.insertAdjacentHTML('beforeend', tagLi);
 //get duration
     let trackLiTag = tagUl.querySelector(`.${playlist[i].src}`);
@@ -219,11 +225,35 @@ for (let i = 0; i < playlist.length; i++) {
         let totalSec = Math.floor((trackLiTag.duration) % 60);
         totalSec < 10 ? totalSec = `0${totalSec}` : false;
         trackLiDuration.textContent = `${totalMin}:${totalSec}`;
+        trackLiDuration.setAttribute('t-duration', `${totalMin}:${totalSec}`);
     });
 }
-//add acvive playlist
-const allTagLi = tagUl.querySelectorAll('li');
+//add active playlist
+const allTagsLi = tagUl.querySelectorAll('li');
+function playingNow () {
+    for (let i = 0; i < allTagsLi.length; i++) {
+        let audioTag = allTagsLi[i].querySelector('.duration');
+        if(allTagsLi[i].classList.contains('playing')) {
+            allTagsLi[i].classList.remove('playing');
+            let addDuration = audioTag.getAttribute('t-duration');
+            audioTag.textContent = addDuration;
+        }
+        if(allTagsLi[i].getAttribute('li-index') == trackIndex) {
+            allTagsLi[i].classList.add('playing');
+            audioTag.textContent = 'Playing';
+        }
+        allTagsLi[i].setAttribute('onclick', 'clicked(this)');
+    }
+}
 
+
+function clicked(e) {
+    let getLiIndex = e.getAttribute('li-index');
+    trackIndex = getLiIndex;
+    loadTracks(trackIndex);
+    playTrack();
+    playingNow();
+}
 
 
 
