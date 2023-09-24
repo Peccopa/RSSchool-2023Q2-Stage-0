@@ -16,15 +16,12 @@ nextBtn = player.querySelector('#next'),
 volumeOffBtn = player.querySelector('#volume_off'),
 volumeOnBtn = player.querySelector('#volume_on'),
 volumeBar = player.querySelector('.volume-bar'),
-// volumeBarBtn = player.querySelector('.volume-bar-btn'),
 volumeArea = player.querySelector('.volume-area'),
 progressBar = player.querySelector('.progress-bar'),
 progressArea = player.querySelector('.progress-area'),
 repeatBtn = player.querySelector('#repeat_list');
-// console.log(trackList);
 //trackindex
 let trackIndex = 0;
-// let progressWidth = 0;
 //load track
 window.addEventListener('load', () => {
     loadTracks(trackIndex);
@@ -39,7 +36,6 @@ function loadTracks(indexNumber) {
 };
 //play track
 function playTrack () {
-    // progressBar.style.transition = 'all .5s linear';
     progressBar.style.width = 0;
     layer.style.opacity = 1;
     playPauseView.innerText = 'pause';
@@ -55,8 +51,6 @@ function pauseTrack () {
 }
 //next track
 function nextTrack () {
-    // progressBar.style.transition = '0s';
-    // progressBar.style.width = 0;
     trackIndex++;
     trackIndex > playlist.length - 1 ? trackIndex = 0 : true;
     loadTracks(trackIndex);
@@ -64,8 +58,6 @@ function nextTrack () {
 };
 //prev track
 function prevTrack () {
-    // progressBar.style.transition = '0s';
-    // progressBar.style.width = 0;
     trackIndex--;
     trackIndex < 0 ? trackIndex = playlist.length - 1 : true;
     loadTracks(trackIndex);
@@ -79,14 +71,11 @@ playPauseBtn.addEventListener('click', () => {
 });
 //next track
 nextBtn.addEventListener('click', () => {
-    // setTimeout(nextTrack, 5000);
-    // document.documentElement.style.cssText = "--bar-color: blue";
     playingNow();
     nextTrack();
 });
 //prev track
 prevBtn.addEventListener('click', () => {
-    // document.documentElement.style.cssText = "--btn-color: red";
     playingNow();
     prevTrack();
 });
@@ -100,9 +89,6 @@ trackAudio.addEventListener('timeupdate', (e) => {
         progressBar.style.width = `${progressWidth + 7.5}%`;
 
     };
-    // console.log(progressWidth);
-
-
     trackAudio.addEventListener('loadeddata', () => {
         //total time
         let totalMin = Math.floor((trackAudio.duration) / 60);
@@ -141,12 +127,6 @@ volumeArea.addEventListener('click', (mouseClick) => {
     volumeOffBtn.style.opacity = '1';
     volumeOnBtn.style.opacity = '1';
 });
-// volumeArea.addEventListener('mouseup', (mouseClick) => {
-//     trackAudio.volume = (Math.ceil((mouseClick.offsetX / volumeArea.clientWidth) * 10) / 10);
-//     volumeBar.style.width = mouseClick.offsetX + 'px';
-//     volumeOffBtn.style.opacity = '1';
-//     volumeOnBtn.style.opacity = '1';
-// });
 //click on image
 trackImage.addEventListener('click', () => {
     const isTrackPaused = player.classList.contains('paused');
@@ -194,8 +174,6 @@ trackAudio.addEventListener('ended', () => {
             break;
     };
 });
-// console.log(Math.floor(Math.random() * playlist.length))
-// console.log(playlist.length);
 //open tracklist
 trackListOpen.addEventListener('click', () => {
     trackList.classList.toggle('open');
@@ -217,9 +195,7 @@ for (let i = 0; i < playlist.length; i++) {
     tagUl.insertAdjacentHTML('beforeend', tagLi);
 //get duration
     let trackLiTag = tagUl.querySelector(`.${playlist[i].src}`);
-    // console.log(trackLiTag);
     let trackLiDuration = tagUl.querySelector(`#${playlist[i].src}`);
-    // console.log(trackLiDuration);
     trackLiTag.addEventListener('loadeddata', () => {
         let totalMin = Math.floor((trackLiTag.duration) / 60);
         let totalSec = Math.floor((trackLiTag.duration) % 60);
@@ -246,7 +222,6 @@ function playingNow () {
     }
 }
 
-
 function clicked(e) {
     let getLiIndex = e.getAttribute('li-index');
     trackIndex = getLiIndex;
@@ -255,57 +230,18 @@ function clicked(e) {
     playingNow();
 }
 
+console.log(`
+**Требования:**
 
+- вёрстка аудиоплеера: есть кнопка Play/Pause, кнопки "Вперёд" и "Назад" для пролистывания аудиотреков, прогресс-бар, отображается название и автор трека **+5**
+- в футере приложения есть ссылка на гитхаб автора приложения, год создания приложения, логотип курса со ссылкой на курс **+5**
+- есть кнопка Play/Pause, при клике по которой можно запустить или остановить проигрывание аудиотрека **+5**
+- внешний вид и функционал кнопки Play/Pause изменяется в зависимости от того, проигрывается ли в данный момент аудиотрек **+5**
+- При кликах по кнопкам "Вперёд" и "Назад" переключается проигрываемый аудиотрек. Аудиотреки пролистываются по кругу - после последнего идёт первый **+10**
+- При смене аудиотрека меняется изображение - обложка аудиотрека **+10**
+- Прогресс-бар отображает прогресс проигрывания текущего аудиотрека. При перемещении ползунка вручную меняется текущее время проигрывания аудиотрека **+10**
+- Отображается продолжительность аудиотрека и его текущее время проигрывания **+10**
+- Очень высокое качество оформления приложения и/или дополнительный не предусмотренный в задании функционал, улучшающий качество приложения **+10** (высокое качество оформления приложения предполагает собственное оригинальное оформление равное или отличающееся в лучшую сторону по сравнению с демо)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//drag & drop slider
-// volumeBarBtn.onmousedown = function(e) {
-//     e.preventDefault();
-//     let shiftX = e.clientX - volumeBarBtn.getBoundingClientRect().left;
-//     player.addEventListener('mousemove', onMouseMove);
-//     player.addEventListener('mouseup', onMouseUp);
-
-//     function onMouseMove(e) {
-//         let newLeft = e.clientX - shiftX - volumeArea.getBoundingClientRect().left;
-//         if(newLeft < 0)
-//             newLeft = 0;
-//         let rightEdge = volumeArea.offsetWidth - volumeBarBtn.offsetWidth;
-//         if(newLeft > rightEdge)
-//             newLeft = rightEdge;
-//         volumeBarBtn.style.left = newLeft + 'px';
-//     }
-
-//     function onMouseUp(e) {
-//         player.removeEventListener('mouseup', onMouseUp);
-//         player.removeEventListener('mousemove', onMouseMove);
-//     }
-
-//     volumeBarBtn.ondragstart = function () {
-//         return false;
-//     }
-// }
+**Оценка за задание - 70 баллов**
+`);
