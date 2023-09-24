@@ -40,6 +40,7 @@ function playTrack () {
     playPauseView.innerText = 'pause';
     player.classList.add('paused');
     trackAudio.play();
+    playingNow();
 }
 //pause track
 function pauseTrack () {
@@ -68,17 +69,17 @@ function prevTrack () {
 playPauseBtn.addEventListener('click', () => {
     const isTrackPaused = player.classList.contains('paused');
     isTrackPaused ? pauseTrack() : playTrack();
-    playingNow();
+    // playingNow();
 });
 //next track
 nextBtn.addEventListener('click', () => {
-    playingNow();
     nextTrack();
+    // playingNow();
 });
 //prev track
 prevBtn.addEventListener('click', () => {
-    playingNow();
     prevTrack();
+    // playingNow();
 });
 //progress bar
 trackAudio.addEventListener('timeupdate', (e) => {
