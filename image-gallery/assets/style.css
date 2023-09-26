@@ -10,6 +10,7 @@
 :root {
     --main-color-1: #8346ff;
     --main-color-2: #3f00bc;
+    --main-color-3: #ffc800;
     --text-color-1: #ffffff;
     --text-color-2: #000000;
 }
@@ -37,6 +38,7 @@ html {
 }
 
 .header-icon {
+    color: var(--main-color-3);
     margin: auto 0;
     display: block;
     font-size: 6.1rem;
@@ -68,16 +70,113 @@ html {
 .search-input {
     padding-left: 4rem;
     width: 60vw;
-    height: 4rem;
+    height: 4.2rem;
     color: var(--text-color-2);
-    border-radius: 1rem;
+    border-radius: .5rem;
     border: none;
     outline: none;
 }
 
+.main-block {
+    padding: 0 1rem 0 1rem;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.columns {
+    width: 24.65%;
+    display: flex;
+    flex-direction: column;
+}
+
+.columns img {
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+.columns:last-child {
+    margin: 0 0 1rem 0;
+}
+
+
+
+
+
+
+
+
+
+/*Footer*/
+
+.footer {
+    position: sticky;
+    padding: 0 1rem 1rem;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    /* background: linear-gradient(270deg, var(--main-color-1) 0%, var(--main-color-2) 100%); */
+}
+
+.footer-inner img {
+    /* background-color: var(--main-color-3); */
+    /* border-radius: 1rem; */
+    width: 5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*Media*/
 
-@media (max-width: 890px) {
+@media (max-width: 1439px) {
+    .column-3 {
+        display: none;
+    }
+
+    .columns {
+        width: 32.9%;
+    }
+}
+
+@media (max-width: 1023px) {
+    .column-2 {
+        display: none;
+    }
+
+    .columns {
+        width: 49.5%;
+    }
+}
+
+@media (max-width: 920px) {
     .header-inner {
         flex-direction: column;
         align-items: center;
@@ -108,4 +207,14 @@ html {
     width: 87vw;
     }
 
+}
+
+@media (max-width: 639px) {
+    .column-1 {
+        display: none;
+    }
+
+    .columns {
+        width: 100%;
+    }
 }
