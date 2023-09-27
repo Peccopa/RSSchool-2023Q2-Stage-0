@@ -5,10 +5,10 @@ const modalBlock = document.querySelector('.modal-block');
 const modalClose = document.querySelector('.mw-close');
 const modalDownload = document.querySelector('.mw-download');
 const apiKey = '3IDd65DtUkHcD7WW4Aj4kQbHDiLF6bAie9aDTHhDT1Q';
-const perPage = 15;
+const perPage = 30;
 let currentPage = 1;
-let inputValue = null;
-const url = `https://api.unsplash.com/search/photos?query=pictures&page=${currentPage}&per_page=${perPage}&client_id=${apiKey}`;
+let inputValue = 'purple';
+const url = `https://api.unsplash.com/search/photos?query=${inputValue}&page=${currentPage}&per_page=${perPage}&client_id=${apiKey}`;
 let state = [];
 //get images
 const getImages = async (url) => {
@@ -58,6 +58,8 @@ const loadMore = () => {
     currentPage++;
     let url = `https://api.unsplash.com/search/photos?query=${inputValue}&page=${currentPage}&per_page=${perPage}&client_id=${apiKey}`;
     getImages(url);
+    console.log(url);
+    console.log(currentPage);
 }
 // download
 const download = async (urlImg) => {
