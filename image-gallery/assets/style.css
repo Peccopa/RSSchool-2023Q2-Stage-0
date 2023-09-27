@@ -166,15 +166,24 @@ html {
     color: var(--text-color-1);
     font-size: 2rem;
     font-weight: 500;
-    margin-top: 4rem;
+    margin: 4rem 0;
     padding: 1rem;
     /* opacity: .75; */
     transition: all .2s linear;
 }
 
 .load-more:hover {
-    color: var(--main-color-3);
+    /* box-shadow: 1 1 1 1; */
+    opacity: .75;
+    /* color: var(--main-color-3); */
 
+}
+
+.disabled {
+    /* background-color: red; */
+    /* background: linear-gradient(270deg, var(--main-color-1) 0%, var(--main-color-2) 100%); */
+    opacity: .4;
+    pointer-events: none;
 }
 
 /*Modal window*/
