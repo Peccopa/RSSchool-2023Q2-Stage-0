@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="shortcut icon" href="./assets/images/icons/favicon.png" type="image/x-icon">
+    <script src="./assets/script.js" defer></script>
+    <title>Image Gallery</title>
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <div class="header-inner">
+                <a href="./index.html" class="header-link">
+                    <div class="header-logo">
+                        <span class="material-symbols-outlined header-icon">image_search</span>
+                        <div class="header-title-block">
+                            <h1 class="header-title">Image Gallery</h1>
+                            <p class="header-subtitle">Find your image</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="search-block">
+                    <span class="material-symbols-outlined search-icon">search</span>
+                    <input class="search-input" id="search_input" type="search" placeholder="Search" autofocus autocomplete="off">
+                </div>
+            </div>
+        </header>
+        <main class="main-block">
+            <ul class="images"></ul>
+            <div class="gradient"></div>
+            <button class="load-more">Show me more</button>
+        </main>
+        <footer class="footer">
+            <a href="https://github.com/Peccopa" target="_blank">
+                <p>GitHub</p>
+            </a>
+            <a href="https://calendar.google.com/calendar/" target="_blank">
+                2023
+            </a>
+            <a href="https://rs.school/js-stage0/" target="_blank">
+                <p>RSSchool</p>
+            </a>
+        </footer>
+        <div class="modal-block">
+            <div class="modal-layer">
+                <div class="modal-window">
+                    <div class="modal-top">
+                        <div class="author">
+                            <span class="material-symbols-outlined mw-camera">photo_camera</span>
+                            <p class="mw-author">Author Name</p>
+                        </div>
+                        <span class="material-symbols-outlined mw-close">close</span>
+                    </div>
+                    <div class="preview-img">
+                        <img src="./assets/images/icons/favicon.png" alt="preview">
+                    </div>
+                    <div class="modal-floor">
+                        <a class="rss-school" href="https://rs.school/js-stage0/" target="_blank">
+                            <span class="material-symbols-outlined">school</span>
+                            <p>RSSchool</p>
+                        </a>
+                        <span class="material-symbols-outlined mw-download">download</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
