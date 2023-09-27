@@ -22,6 +22,10 @@ html {
 
 /*Header*/
 .header {
+    /* position: fixed; */
+    /* z-index: 2; */
+    /* width: 100%; */
+
     padding: 1rem;
 }
 .header-inner {
@@ -83,12 +87,12 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 3rem;
+    /* margin-top: 3rem; */
     padding: 0 1rem 1rem;
 }
 
 .images {
-    gap: 1.5rem;
+    gap: 1rem;
     columns: 5 34rem;
 }
 
@@ -164,12 +168,13 @@ html {
     font-weight: 500;
     margin-top: 4rem;
     padding: 1rem;
-    opacity: .75;
+    /* opacity: .75; */
     transition: all .2s linear;
 }
 
 .load-more:hover {
-    opacity: 1;
+    color: var(--main-color-3);
+
 }
 
 /*Modal window*/
