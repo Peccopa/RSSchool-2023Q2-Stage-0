@@ -7,7 +7,7 @@ const modalDownload = document.querySelector('.mw-download');
 const apiKey = '3IDd65DtUkHcD7WW4Aj4kQbHDiLF6bAie9aDTHhDT1Q';
 const perPage = 30;
 let currentPage = 1;
-let inputValue = 'purple';
+let inputValue = 'purple lights';
 const url = `https://api.unsplash.com/search/photos?query=${inputValue}&page=${currentPage}&per_page=${perPage}&client_id=${apiKey}`;
 let state = [];
 //get images
