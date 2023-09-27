@@ -20,11 +20,6 @@ html {
     user-select: none;
 }
 
-
-.page {
-    /* background-color: #000000; */
-}
-
 /*Header*/
 .header {
     /* position: fixed; */
@@ -200,6 +195,11 @@ html {
 .modal-block {
     /* position: relative; */
     display: none;
+    /* transition: all 5s ease; */
+}
+
+.show {
+    display: block;
 }
 
 .modal-layer {
@@ -258,6 +258,11 @@ html {
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+}
+
+.mw-download,
+.mw-close {
+    cursor: pointer;
 }
 
 
