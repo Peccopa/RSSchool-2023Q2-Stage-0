@@ -1,6 +1,7 @@
 const imagesBlock = document.querySelector('.images');
 const loadMoreBtn = document.querySelector('.load-more');
 const searchInput = document.querySelector('.search-input');
+const searchIcon = document.querySelector('.search-icon');
 const modalBlock = document.querySelector('.modal-block');
 const modalClose = document.querySelector('.mw-close');
 const modalDownload = document.querySelector('.mw-download');
@@ -44,7 +45,16 @@ const setImages = (images) => {
         </li>`
     ).join('');
 };
-// search images
+// search mouse click
+const searchMouseClick = () => {
+    if(searchInput.value !== '') {
+        currentPage = 1;
+        inputValue = searchInput.value;
+        imagesBlock.innerHTML = '';
+        getImages(`https://api.unsplash.com/search/photos?query=${inputValue}&page=${currentPage}&per_page=${perPage}&client_id=${apiKey}`);
+    }
+};
+//search images
 const searchImages = (e) => {
     if(e.key === 'Enter' && e.target.value !== '') {
         currentPage = 1;
@@ -92,6 +102,7 @@ getImages(url);
 //load btns event
 loadMoreBtn.addEventListener('click', loadMore);
 searchInput.addEventListener('keyup', searchImages);
+searchIcon.addEventListener('click', searchMouseClick);
 document.addEventListener('keyup', (e) => {
     if(e.key === 'Escape') {
         closeModalWindow();

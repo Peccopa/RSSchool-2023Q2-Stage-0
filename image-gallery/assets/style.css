@@ -66,6 +66,7 @@ html {
     position: absolute;
     padding-left: 1rem;
     color: var(--text-color-2);
+    cursor: pointer;
 }
 
 .search-input {
@@ -78,8 +79,13 @@ html {
     border: none;
     outline: none;
     font-size: 2rem;
-    cursor: pointer;
 }
+
+input[type="search"]::-webkit-search-cancel-button {
+    background-color: #fff;
+    padding: .1rem;
+    cursor: pointer;
+  }
 
 /*Main-block*/
 
