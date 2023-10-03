@@ -51,7 +51,7 @@ main {
 .board {
     overflow: hidden;
     height: 100%;
-    background-color: #fb7171;
+    background-color: #000000;
 }
 
 .space {
@@ -64,7 +64,15 @@ main {
     left: 50%;
     top: 0;
     transform: translateX(-50%);
-    width: 5vh;
+    width: 40px;
+    height: 30px;
+    background: url(./images/rock.png);
+    animation: rock 2s linear infinite;
+}
+
+@keyframes rock {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
 }
 
 .ship {
@@ -73,6 +81,7 @@ main {
     bottom: 0;
     transform: translateX(-50%);
     width: 15vh;
+    transition: all 2s ease-out;
 }
 
 .planet {

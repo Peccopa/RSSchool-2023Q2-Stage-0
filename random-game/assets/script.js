@@ -1,3 +1,27 @@
+const ship = document.querySelector('.ship');
+const space = document.querySelector('.space');
+
+window.addEventListener('keydown', (e) => {
+    let left = parseInt(window.getComputedStyle(ship).getPropertyValue('left'));
+    if(e.key == 'ArrowLeft' && left >= 0) {
+        // ship.style.left = left - 50 + 'px';
+        ship.style.left = 36 + 'px';
+    } else if(e.key == 'ArrowRight' && left <= 450) {
+        // ship.style.left = left + 50 + 'px';
+        ship.style.left = 446 + 'px';
+    }
+})
+
+const generateRocks = setInterval(() => {
+    let rock = document.createElement('div');
+    rock.classList.add('rock');
+    let rockLeft = parseInt(window.getComputedStyle(rock).getPropertyValue('left'));
+    rock.style.left = Math.floor(Math.random() * 446) + 'px';
+    space.appendChild(rock);
+}, 1500);
+
+
+
 console.log(`
 **Требования:**
 
