@@ -1,6 +1,8 @@
 const ship = document.querySelector('.ship');
 const space = document.querySelector('.space');
 
+const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+
 window.addEventListener('keydown', (e) => {
     let left = parseInt(window.getComputedStyle(ship).getPropertyValue('left'));
     if(e.key == 'ArrowLeft' && left >= 0) {
@@ -12,15 +14,36 @@ window.addEventListener('keydown', (e) => {
     }
 })
 
+let i = 0;
+
 const generateRocks = setInterval(() => {
+    i++;
     let rock = document.createElement('div');
     rock.classList.add('rock');
     let rockLeft = parseInt(window.getComputedStyle(rock).getPropertyValue('left'));
     rock.style.left = Math.floor(Math.random() * 446) + 'px';
     space.appendChild(rock);
-}, 1500);
 
+    rock.classList.add(`roll${i}`);
 
+    let roll = document.querySelector(`.roll${i}`);
+    roll.style.height = randomInt(10, 40) + 'px';
+    roll.style.width = randomInt(10, 40) + 'px';
+    roll.style.animation = `rock ${randomInt(1, 10)}s linear infinite`;
+    console.log(roll);
+}, 3500);
+
+const moveRocks = setInterval(() => {
+    let rocks = document.getElementsByClassName('rock');
+    // console.log(rocks);
+    if(rocks) {
+        for (let i = 0; i < rocks.length; i++) {
+            let rock = rocks[i];
+            let rockFall = parseInt(window.getComputedStyle(rock).getPropertyValue('top'));
+            rock.style.top = rockFall + 20 + 'px';
+        }
+    }
+}, 500);
 
 console.log(`
 **Требования:**
