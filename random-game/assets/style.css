@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-* {
+*, img {
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
     padding: 0;
@@ -20,4 +20,75 @@
 html {
     font-size: 10px;
     user-select: none;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #ff0000;
+}
+
+h1 {
+    background-color: #00ff4c;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 48rem;
+    height: 100%;
+    margin: auto 0;
+    background-color: #fff200;
+}
+
+main {
+    flex-grow: 2;
+    width: 100%;
+}
+
+.board {
+    overflow: hidden;
+    height: 100%;
+    background-color: #fb7171;
+}
+
+.space {
+    position: relative;
+    height: 80%;
+}
+
+.rock {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 5vh;
+}
+
+.ship {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 15vh;
+}
+
+.planet {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #ff00ea;
 }
