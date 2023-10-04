@@ -1,49 +1,69 @@
+const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 const ship = document.querySelector('.ship');
 const space = document.querySelector('.space');
+const audioShot = new Audio('./assets/sounds/shot.mp3');
+let rocksCount = 0;
 
-const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+const generateRocks = () => {
+    setInterval(() => {
+        let rock = document.createElement('div');
+        rock.classList.add('rock');
+        rock.classList.add(`rock-${rocksCount}`);
+        rock.style.left = randomInt(30, 450) + 'px';
+        rock.style.height = randomInt(20, 60) + 'px';
+        rock.style.width = randomInt(20, 60) + 'px';
+        rock.style.animation = `rock ${randomInt(1, 10)}s linear infinite`;
+        rock.style.backgroundImage = `url(assets/images/rock-${randomInt(1,3)}.png)`;
+        space.appendChild(rock);
+        rocksCount++;
+    }, 3500);
+}
 
-window.addEventListener('keydown', (e) => {
-    let left = parseInt(window.getComputedStyle(ship).getPropertyValue('left'));
-    if(e.key == 'ArrowLeft' && left >= 0) {
-        // ship.style.left = left - 50 + 'px';
-        ship.style.left = 36 + 'px';
-    } else if(e.key == 'ArrowRight' && left <= 450) {
-        // ship.style.left = left + 50 + 'px';
-        ship.style.left = 446 + 'px';
-    }
-})
+generateRocks();
 
-let i = 0;
-
-const generateRocks = setInterval(() => {
-    i++;
-    let rock = document.createElement('div');
-    rock.classList.add('rock');
-    let rockLeft = parseInt(window.getComputedStyle(rock).getPropertyValue('left'));
-    rock.style.left = Math.floor(Math.random() * 446) + 'px';
-    space.appendChild(rock);
-
-    rock.classList.add(`roll${i}`);
-
-    let roll = document.querySelector(`.roll${i}`);
-    roll.style.height = randomInt(10, 40) + 'px';
-    roll.style.width = randomInt(10, 40) + 'px';
-    roll.style.animation = `rock ${randomInt(1, 10)}s linear infinite`;
-    console.log(roll);
-}, 3500);
-
-const moveRocks = setInterval(() => {
-    let rocks = document.getElementsByClassName('rock');
-    // console.log(rocks);
-    if(rocks) {
-        for (let i = 0; i < rocks.length; i++) {
-            let rock = rocks[i];
-            let rockFall = parseInt(window.getComputedStyle(rock).getPropertyValue('top'));
-            rock.style.top = rockFall + 20 + 'px';
+const moveRocks = () => {
+    setInterval(() => {
+        let rocks = document.getElementsByClassName('rock');
+        if(rocks) {
+            for (let i = 0; i < rocks.length; i++) {
+                let rock = rocks[i];
+                let rockFall = parseInt(window.getComputedStyle(rock).getPropertyValue('top'));
+                rock.style.top = rockFall + 20 + 'px';
+            }
         }
-    }
-}, 500);
+    }, 500);
+}
+// window.addEventListener('keydown', (e) => {
+//     let left = parseInt(window.getComputedStyle(ship).getPropertyValue('left'));
+//     if(e.key == 'ArrowLeft' && left >= 0) {
+//         ship.style.left = 36 + 'px';
+//     } else if(e.key == 'ArrowRight' && left <= 450) {
+//         ship.style.left = 446 + 'px';
+//     } else if(e.key == ' ') {
+//         let rocket = document.createElement('div');
+//         rocket.classList.add('rocket');
+//         space.appendChild(rocket);
+//         audioShot.play();
+//         let launchRocket = setInterval(() => {
+//             let rocks = document.getElementsByClassName('rock');
+//             for(let i = 0; i < rocks.length; i++) {
+//                 let rock = rocks[i];
+//                 let rockBound = rock.getBoundingClientRect();
+//                 let rocketBound = rocket.getBoundingClientRect();
+//                 if (rocketBound.left >= rockBound.left &&
+//                     rocketBound.right <= rockBound.right &&
+//                     rocketBound.top <= rockBound.top &&
+//                     rocketBound.bottom <= rockBound.bottom
+//                     ) {
+//                         rock.parentElement.removeChild(rock);
+//                     }
+//             }
+//             let rocketStart = parseInt(window.getComputedStyle(rocket).getPropertyValue('bottom'));
+//             rocket.style.left = left + 'px';
+//             rocket.style.bottom = rocketStart + 1 + 'rem';
+//         }, 50);
+//     }
+// })
 
 console.log(`
 **Требования:**

@@ -15,6 +15,9 @@
     --text-color-1: #ffffff;
     --text-color-2: #000000;
     --text-color-3: #000000;
+    --rock-style-1: url(./images/rock-1.png);
+    --rock-style-2: url(./images/rock-2.png);
+    --rock-style-3: url(./images/rock-3.png);
 }
 
 html {
@@ -64,14 +67,12 @@ main {
     position: absolute;
     left: 50%;
     top: 0;
-    /* transform: translateX(-50%); */
     width: 30px;
     height: 30px;
-    /* border-radius: 50%; */
-    background-color: #00ff4c;
-    background: url(./images/rock.png);
-    /* background: no-repeat; */
-    /* background-size: contain; */
+    background-image: url(./images/rock-1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
     animation: rock 5s linear infinite;
     transition: all 2s ease-out;
 }
@@ -79,6 +80,24 @@ main {
 @keyframes rock {
     0% { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
+}
+
+.rocket {
+    position: absolute;
+    /* left: 50%; */
+    bottom: 2rem;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    /* border-radius: 50%; */
+    background-color: #00ff4c;
+    background: url(./images/rocket.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    /* background: center; */
+    /* animation: rock 5s linear infinite; */
+    transition: all 2s ease-out;
 }
 
 .ship {
