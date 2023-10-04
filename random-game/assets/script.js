@@ -1,12 +1,15 @@
 const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 const ship = document.querySelector('.ship');
 const space = document.querySelector('.space');
-const audioShot = new Audio('./assets/sounds/shot.mp3');
+const audioShot = new Audio('assets/sounds/shot.mp3');
 let rocksCount = 0;
+let speedFall = 20;
+
 
 const generateRocks = () => {
     setInterval(() => {
         let rock = document.createElement('div');
+        space.appendChild(rock);
         rock.classList.add('rock');
         rock.classList.add(`rock-${rocksCount}`);
         rock.style.left = randomInt(30, 450) + 'px';
@@ -14,10 +17,9 @@ const generateRocks = () => {
         rock.style.width = randomInt(20, 60) + 'px';
         rock.style.animation = `rock ${randomInt(1, 10)}s linear infinite`;
         rock.style.backgroundImage = `url(assets/images/rock-${randomInt(1,3)}.png)`;
-        space.appendChild(rock);
         rocksCount++;
     }, 3500);
-}
+};
 
 generateRocks();
 
@@ -26,44 +28,93 @@ const moveRocks = () => {
         let rocks = document.getElementsByClassName('rock');
         if(rocks) {
             for (let i = 0; i < rocks.length; i++) {
-                let rock = rocks[i];
-                let rockFall = parseInt(window.getComputedStyle(rock).getPropertyValue('top'));
-                rock.style.top = rockFall + 20 + 'px';
-            }
-        }
+                let rockFall = parseInt(window.getComputedStyle(rocks[i]).getPropertyValue('top'));
+                rocks[i].style.top = rockFall + speedFall + 'px'; //20
+            };
+        };
+        // speedFall++;
     }, 500);
+};
+
+moveRocks();
+
+const moveShip = () => {
+    window.addEventListener('keydown', (e) => {
+        let shipPosition = parseInt(window.getComputedStyle(ship).getPropertyValue('left'));
+        if(e.key == 'ArrowLeft' && shipPosition >= 0) {
+            ship.style.left = 36 + 'px';
+        } else if(e.key == 'ArrowRight' && shipPosition <= 450) {
+            ship.style.left = 446 + 'px';
+        };
+    });
+};
+
+moveShip();
+
+const rocketLaunch = () => {
+    window.addEventListener('keydown', (e) => {
+        let rocket = document.querySelector('.rocket');
+        if(e.key == ' ' && !rocket) {
+            let rocket = document.createElement('div');
+            space.appendChild(rocket);
+            rocket.classList.add('rocket');
+            audioShot.play();
+            setInterval(() => {
+                let shipPosition = parseInt(window.getComputedStyle(ship).getPropertyValue('left'));
+                rocket.style.left = shipPosition + 'px';
+                let rocketPosition = parseInt(window.getComputedStyle(rocket).getPropertyValue('bottom'));
+                rocket.style.bottom = rocketPosition + 1 + 'rem';
+            }, 50);
+            setTimeout(() => {
+                rocket ? rocket.parentElement.removeChild(rocket): true;
+            }, 2500);
+        };
+    });
+};
+
+rocketLaunch();
+
+const rocketHit = () => {
+    setInterval(() => {
+        let rocket = document.querySelector('.rocket');
+        if(rocket) {
+            let rocks = document.getElementsByClassName('rock');
+            for(let i = 0; i < rocks.length; i++) {
+                let rockBound = rocks[i].getBoundingClientRect();
+                let rocketBound = rocket.getBoundingClientRect();
+                if (rocketBound.left + 9 >= rockBound.left &&
+                    rocketBound.right - 9 <= rockBound.right &&
+                    rocketBound.top + 29 >= rockBound.top &&
+                    rocketBound.bottom - 29<= rockBound.bottom) {
+                        let blast = document.createElement('div');
+                        space.appendChild(blast);
+                        blast.style.left = rocks[i].style.left;
+                        blast.style.right = rocks[i].style.right;
+                        blast.style.top = rocks[i].style.top;
+                        blast.style.bottom = rocks[i].style.bottom;
+                        console.log(blast.style.top);
+                        blast.classList.add('blast');
+                        const audioBlast = new Audio(`assets/sounds/exp-${randomInt(1,3)}.mp3`);
+                        audioBlast.play();
+                        rocks[i].parentElement.removeChild(rocks[i]);
+                        setTimeout(() => {
+                            blast.parentElement.removeChild(blast);
+                        }, 1000);
+                        // rocket ? rocket.parentElement.removeChild(rocket): true;
+                    };
+                };
+            };
+    }, 0);
 }
-// window.addEventListener('keydown', (e) => {
-//     let left = parseInt(window.getComputedStyle(ship).getPropertyValue('left'));
-//     if(e.key == 'ArrowLeft' && left >= 0) {
-//         ship.style.left = 36 + 'px';
-//     } else if(e.key == 'ArrowRight' && left <= 450) {
-//         ship.style.left = 446 + 'px';
-//     } else if(e.key == ' ') {
-//         let rocket = document.createElement('div');
-//         rocket.classList.add('rocket');
-//         space.appendChild(rocket);
-//         audioShot.play();
-//         let launchRocket = setInterval(() => {
-//             let rocks = document.getElementsByClassName('rock');
-//             for(let i = 0; i < rocks.length; i++) {
-//                 let rock = rocks[i];
-//                 let rockBound = rock.getBoundingClientRect();
-//                 let rocketBound = rocket.getBoundingClientRect();
-//                 if (rocketBound.left >= rockBound.left &&
-//                     rocketBound.right <= rockBound.right &&
-//                     rocketBound.top <= rockBound.top &&
-//                     rocketBound.bottom <= rockBound.bottom
-//                     ) {
-//                         rock.parentElement.removeChild(rock);
-//                     }
-//             }
-//             let rocketStart = parseInt(window.getComputedStyle(rocket).getPropertyValue('bottom'));
-//             rocket.style.left = left + 'px';
-//             rocket.style.bottom = rocketStart + 1 + 'rem';
-//         }, 50);
-//     }
-// })
+
+rocketHit();
+
+
+
+
+
+
+
 
 console.log(`
 **Требования:**
