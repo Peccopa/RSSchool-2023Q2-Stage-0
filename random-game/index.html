@@ -11,17 +11,27 @@
 </head>
 <body>
     <div class="page">
-        <header>
+        <header class="header">
+            <p>count</p>
             <h1>Random Game</h1>
+            <p>lives</p>
+            <div class="curtain">
+                
+                <div class="curtain-layer"></div>
+            </div>
         </header>
         <main>
+            <!-- <div class="stars" id="stars"></div> -->
             <div class="board" id="board">
                 <div class="space">
-                    <div class="shot" id="shot"></div>
-                    <img class="ship" id="ship" src="./assets/images/ship.gif" alt="ship">
-                    <!-- <div class="rock" id="rock"></div> -->
+                    <img class="dead-planet dead-planet-menu" id="dead-planet" src="./assets/images/sun.gif" alt="dead-planet">
+                    <img class="asteroids asteroids-menu" id="asteroids" src="./assets/images/asteroids.png" alt="asteroids">
+                    <img class="ship ship-menu" id="ship" src="./assets/images/ship.gif" alt="ship">
+                    <!-- <video class="ship" id="ship" src="./assets/images/ship.gif" alt="ship"></video> -->
                 </div>
-                <img class="planet" id="planet" src="./assets/images/planet.gif" alt="planet">
+                <div class="system">
+                    <img class="planet planet-menu" id="planet" src="./assets/images/planet.gif" alt="planet">
+                </div>
             </div>
         </main>
         <footer class="footer">

@@ -1,10 +1,13 @@
 const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 const ship = document.querySelector('.ship');
 const space = document.querySelector('.space');
-const audioShot = new Audio('assets/sounds/shot.mp3');
 let rocksCount = 0;
 let speedFall = 20;
+let rockInterval = 3500;
 
+document.addEventListener("DOMContentLoaded", function() {
+    // alert("Menu");
+  });
 
 const generateRocks = () => {
     setInterval(() => {
@@ -16,12 +19,13 @@ const generateRocks = () => {
         rock.style.height = randomInt(20, 60) + 'px';
         rock.style.width = randomInt(20, 60) + 'px';
         rock.style.animation = `rock ${randomInt(1, 10)}s linear infinite`;
-        rock.style.backgroundImage = `url(assets/images/rock-${randomInt(1,3)}.png)`;
+        rock.style.backgroundImage = `url(assets/images/rock-${randomInt(1,5)}.png)`;
+        rockInterval > 500 ? rockInterval -= 100 : false;
         rocksCount++;
-    }, 3500);
+    }, rockInterval);
 };
 
-generateRocks();
+// generateRocks();
 
 const moveRocks = () => {
     setInterval(() => {
@@ -33,10 +37,10 @@ const moveRocks = () => {
             };
         };
         // speedFall++;
-    }, 500);
+    }, 300);
 };
 
-moveRocks();
+// moveRocks();
 
 const moveShip = () => {
     window.addEventListener('keydown', (e) => {
@@ -49,7 +53,13 @@ const moveShip = () => {
     });
 };
 
-moveShip();
+// moveShip();
+
+const menuShip = () => {
+    ship.src = 'assets/images/ship-menu.png';
+};
+
+menuShip();
 
 const rocketLaunch = () => {
     window.addEventListener('keydown', (e) => {
@@ -58,6 +68,7 @@ const rocketLaunch = () => {
             let rocket = document.createElement('div');
             space.appendChild(rocket);
             rocket.classList.add('rocket');
+            const audioShot = new Audio(`assets/sounds/shot-${randomInt(1,3)}.mp3`);
             audioShot.play();
             setInterval(() => {
                 let shipPosition = parseInt(window.getComputedStyle(ship).getPropertyValue('left'));
@@ -72,7 +83,7 @@ const rocketLaunch = () => {
     });
 };
 
-rocketLaunch();
+// rocketLaunch();
 
 const rocketHit = () => {
     setInterval(() => {
@@ -91,8 +102,9 @@ const rocketHit = () => {
                         blast.style.left = rocks[i].style.left;
                         blast.style.right = rocks[i].style.right;
                         blast.style.top = rocks[i].style.top;
+                        // blast.style.top = Number(rocks[i].style.top.substring(0, rocks[i].style.top.length - 2)) - speedFall + 'px';
                         blast.style.bottom = rocks[i].style.bottom;
-                        console.log(blast.style.top);
+                        console.log(Number(rocks[i].style.top.substring(0, rocks[i].style.top.length - 2)) + speedFall + 'px');
                         blast.classList.add('blast');
                         const audioBlast = new Audio(`assets/sounds/exp-${randomInt(1,3)}.mp3`);
                         audioBlast.play();
@@ -107,9 +119,15 @@ const rocketHit = () => {
     }, 0);
 }
 
-rocketHit();
+// rocketHit();
 
+// const moveEarth = () => {
+//     setInterval(() => {
+//         document.querySelector('.planet').style.width = (200 - rocksCount) + '%';
+//     }, 1000);
+// };
 
+// // moveEarth();
 
 
 
