@@ -46,6 +46,7 @@ body {
 }
 
 main {
+    position: relative;
     flex-grow: 2;
     width: 100%;
 }
@@ -104,6 +105,7 @@ main {
 }
 
 .input-block {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,14 +126,18 @@ main {
 }
 
 .input-block span {
-    color: #ffffff;
-    opacity: .5;
+    position: absolute;
+    right: 2rem;
+    color: #333;
+    font-size: 1.5rem;
+    /* opacity: 0; */
     transition: .3s;
     cursor: pointer;
 }
 
 .input-block span:hover {
-    opacity: .8;
+    /* opacity: .1; */
+    color: #999;
 }
 
 .curtain-layer {
@@ -167,6 +173,85 @@ main {
     margin-top: 2rem;
     color: #ffffff;
 }
+
+.game-menu {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    width: 30rem;
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-image: url(./images/curtaine.jpg);
+    /* background-color: #ff0000; */
+    z-index: 3;
+    font-size: 2rem;
+    transition: 2s ease-out;
+
+    
+    /* display: none; */
+}
+
+.game-menu-opened {
+    /* display: flex; */
+    /* transform: translate(-50%, -40%); */
+}
+
+.game-menu-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* font-weight: 600; */
+}
+
+.game-menu-header span {
+    margin: 0;
+}
+
+.game-menu-header img {
+    margin-top: 1rem;
+    margin-bottom: -20rem;
+    width: 30%;
+    opacity: .7;
+}
+
+.gm-items span {
+    /* margin-bottom: 1rem; */
+    margin-right: 1rem;
+    font-size: 3.5rem;
+    /* opacity: .8; */
+}
+
+.gm-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    /* font-weight: 600; */
+    cursor: pointer;
+
+    
+}
+
+.gm-item:hover {
+    background-image: url(./images/sun-2.gif);
+    /* background-size: cover; */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.game-menu-footer {
+    width: 100%;
+    padding: 1rem;
+    border-top: #000000 1px solid;
+}
+
 
 .board {
     overflow: hidden;
@@ -227,8 +312,8 @@ main {
 }
 
 .ship-menu {
-    transform: translate(-50%, 50%);
-    width: 300%;
+    transform: translate(-50%,0%);
+    width: 100%;
     transition: all 2s ease-out;
 }
 
@@ -281,6 +366,8 @@ main {
 }
 
 .asteroids-menu {
+    /* -webkit-transform: rotate(90deg); */
+    /* width: 100%; */
     /* height: 6rem; */
 }
 
@@ -296,8 +383,8 @@ main {
 }
 
 .planet-menu {
-    width: 100%;
-    transform: translate(-0%, 50%);
+    width: 200%;
+    transform: translate(-0%, -0%);
 }
 
 

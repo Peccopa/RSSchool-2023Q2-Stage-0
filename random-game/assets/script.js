@@ -1,9 +1,15 @@
 const audioIntro = new Audio(`assets/sounds/intro.mp3`);
+const audioOpenCurtain = new Audio(`assets/sounds/open-curtain.mp3`);
 const audioClick = new Audio(`assets/sounds/click.mp3`);
 const loadBody = document.querySelector('.body');
 const loginBtn = document.querySelector('.login-btn');
 const menuInput = document.querySelector('.menu-input');
 const curtain = document.querySelector('.curtain');
+const gameMenu = document.querySelector('.game-menu');
+const menuItems = document.querySelectorAll('.gm-item');
+const menuLaunch = document.querySelector('.game-menu-launch');
+const menuResults = document.querySelector('.game-menu-results');
+const menuLeave = document.querySelector('.game-menu-exit');
 const currentUser = {};
 const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 const ship = document.querySelector('.ship');
@@ -48,9 +54,33 @@ menuLoginEnter(menuInput);
 
 menuInput.addEventListener('keyup', menuLoginEnter);
 
+//GAME MENU
+
+const gameMenuOpened = () => {
+    menuItems.forEach(element => {
+        element.addEventListener('mouseover', () => {
+            let menuClick = new Audio(`assets/sounds/menu-click.mp3`);
+            menuClick.volume = 0.5;
+            menuClick.play();
+        });
+    });
+    menuLeave.addEventListener('click', () => {
+        // audioOpenCurtain.volume = 0.5;
+        audioIntro.play();
+        audioOpenCurtain.play();
+        menuInput.style.background = '#ccc';
+        loginBtn.style.color = '#333';
+        menuInput.readOnly = false;
+        setTimeout(() => {
+            curtain.classList.remove('curtain-opened');
+        }, 300);
+    });
+};
+
+gameMenuOpened();
+
 const menuLoginInput = () => {
     if(menuInput.value) {
-        const audioOpenCurtain = new Audio(`assets/sounds/open-curtain.mp3`);
         audioOpenCurtain.volume = 0.5;
         audioOpenCurtain.play();
         setLocalStorage();
@@ -69,8 +99,16 @@ const setLocalStorage = () => {
     currentUser['userScore'] = 0;
     results.push(currentUser);
     localStorage.setItem('results', JSON.stringify(results));
-    console.log(results);
+    // console.log(results);
+    openGameMenu();
 };
+
+const openGameMenu = () => {
+    setTimeout(() => {
+        gameMenu.classList.add('game-menu-opened');
+    }, 3000);
+
+}
 
 const generateRocks = () => {
     setInterval(() => {
