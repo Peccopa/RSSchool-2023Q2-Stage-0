@@ -27,10 +27,7 @@ body {
     display: flex;
     justify-content: center;
     background-color: #191919;
-}
-
-h1 {
-    background-color: #00ff4c;
+    transition: .75s ease-in-out;
 }
 
 .page {
@@ -38,10 +35,13 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* max-width: 48rem; */
     width: 48rem;
     height: 100%;
     margin: auto 0;
-    background-color: #fff200;
+    /* background-color: #fff200; */
+    background-image: url(/random-game/assets/images/curtaine.jpg);
+    background-size: contain;
     border-radius: 1rem;
 }
 
@@ -60,15 +60,78 @@ main {
 
 .curtain {
     position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
     top: 0;
     width: 100%;
     height: 100vh;
     border-radius: 1rem;
-    /* background-color: #ff0000; */
     background-image: url(/random-game/assets/images/curtaine.jpg);
     background-size: contain;
+    /* background-repeat: no-repeat; */
     /* border: 10px solid #777; */
+    transition: 3s ease-in;
     z-index: 4;
+}
+
+.curtain-title h1{
+    padding-top: 3rem;
+    font-size: 4rem;
+}
+
+.curtain-title h2{
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1rem;
+    margin-bottom: 1rem;
+}
+
+.logo-block {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 2;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    width: 75%;
+    opacity: .7;
+    /* margin-bottom: 5rem; */
+}
+
+.input-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30rem;
+}
+
+.input-block input {
+    height: 2.4rem;
+    width: 20rem;
+    outline: none;
+    padding: 1rem;
+    background-color: #ccc;
+    /* color: #000000; */
+    border-radius: 1rem;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    transition: .3s;
+}
+
+.input-block span {
+    color: #ffffff;
+    opacity: .5;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.input-block span:hover {
+    opacity: .8;
 }
 
 .curtain-layer {
@@ -77,10 +140,32 @@ main {
     width: 100%;
     height: 100%;
     background: linear-gradient(45deg, rgb(0, 0, 0) 0%, transparent 100%);
+    z-index: -1;
 }
 
 .curtain-opened {
-    transform: translate(-100%, 0%);
+    transform: translate(0%, 100%);
+}
+
+.curtain-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* margin: 1rem; */
+    /* padding: 1rem; */
+    /* width: 48rem; */
+    border-top: #ffffff 1px solid;
+    opacity: .3;
+
+}
+
+.curtain-footer a{
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-top: 2rem;
+    color: #ffffff;
 }
 
 .board {
@@ -166,7 +251,7 @@ main {
 
 .dead-planet {
     position: absolute;
-    top: -40%;
+    top: -30%;
     left: -10%;
     transform: translate(-0%, -60%);
     width: 100%;
@@ -224,7 +309,7 @@ main {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    background-color: #ff00ea;
+    background-color: transparent;
 }
 
 
@@ -434,4 +519,15 @@ main {
     1335px 872px #fff, 1647px 1298px #fff, 1233px 1387px #fff, 698px 1036px #fff,
     659px 1860px #fff, 388px 1412px #fff, 1212px 458px #fff, 755px 1468px #fff,
     696px 1654px #fff, 1144px 60px #fff;
+}
+
+
+@media (max-width: 400px) {
+    .curtain-title h1{
+        font-size: 3.5rem;
+    }
+    
+    .curtain-title h2{
+        font-size: 1.5rem;
+    }
 }

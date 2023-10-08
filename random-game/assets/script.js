@@ -1,13 +1,76 @@
+const audioIntro = new Audio(`assets/sounds/intro.mp3`);
+const audioClick = new Audio(`assets/sounds/click.mp3`);
+const loadBody = document.querySelector('.body');
+const loginBtn = document.querySelector('.login-btn');
+const menuInput = document.querySelector('.menu-input');
+const curtain = document.querySelector('.curtain');
+const currentUser = {};
 const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 const ship = document.querySelector('.ship');
 const space = document.querySelector('.space');
+let results = [];
 let rocksCount = 0;
 let speedFall = 20;
 let rockInterval = 3500;
 
 document.addEventListener("DOMContentLoaded", function() {
-    // alert("Menu");
-  });
+    ship.src = 'assets/images/ship-menu.png';
+    setTimeout(() => {
+        loadBody.style.opacity = 1;
+        // audioIntro.play();
+    }, 1000);
+});
+
+//login
+
+const menuLoginBtn = () => {
+    setInterval(() => {
+    menuInput.value ? loginBtn.style.opacity = .8 : loginBtn.style.opacity = .5;
+    }, 100);
+    loginBtn.addEventListener('click', () => {
+        menuLoginInput();
+    });
+};
+
+menuLoginBtn();
+
+
+const menuLoginEnter = (e) => {
+    if(e.key === 'Enter' && e.target.value !== '') {
+        menuInput.style.background = '#999999';
+        loginBtn.style.color = '#999999';
+        menuInput.readOnly = true;
+        menuLoginInput();
+    };
+};
+
+menuLoginEnter(menuInput);
+
+menuInput.addEventListener('keyup', menuLoginEnter);
+
+const menuLoginInput = () => {
+    if(menuInput.value) {
+        const audioOpenCurtain = new Audio(`assets/sounds/open-curtain.mp3`);
+        audioOpenCurtain.volume = 0.5;
+        audioOpenCurtain.play();
+        setLocalStorage();
+        setTimeout(() => {
+            curtain.classList.add('curtain-opened');
+        }, 300);
+    } else {
+        audioClick.volume = 0.5;
+        audioClick.play();
+    };
+};
+
+const setLocalStorage = () => {
+    localStorage.getItem('results') ? results = JSON.parse(localStorage.getItem('results')) : false;
+    currentUser['userName'] = String(menuInput.value);
+    currentUser['userScore'] = 0;
+    results.push(currentUser);
+    localStorage.setItem('results', JSON.stringify(results));
+    console.log(results);
+};
 
 const generateRocks = () => {
     setInterval(() => {
@@ -54,12 +117,6 @@ const moveShip = () => {
 };
 
 // moveShip();
-
-const menuShip = () => {
-    ship.src = 'assets/images/ship-menu.png';
-};
-
-menuShip();
 
 const rocketLaunch = () => {
     window.addEventListener('keydown', (e) => {
