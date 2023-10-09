@@ -1,6 +1,8 @@
 const audioIntro = new Audio(`assets/sounds/intro.mp3`);
 const audioOpenCurtain = new Audio(`assets/sounds/open-curtain.mp3`);
 const audioClick = new Audio(`assets/sounds/click.mp3`);
+const menuClick = new Audio(`assets/sounds/menu-click.mp3`);
+const userName = document.querySelector('.user-name');
 const loadBody = document.querySelector('.body');
 const loginBtn = document.querySelector('.login-btn');
 const menuInput = document.querySelector('.menu-input');
@@ -23,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
     ship.src = 'assets/images/ship-menu.png';
     setTimeout(() => {
         loadBody.style.opacity = 1;
-        // audioIntro.play();
     }, 1000);
 });
 
@@ -81,12 +82,16 @@ gameMenuOpened();
 
 const menuLoginInput = () => {
     if(menuInput.value) {
-        audioOpenCurtain.volume = 0.5;
-        audioOpenCurtain.play();
+        userName.textContent = menuInput.value;
+        menuClick.volume = 0.3;
+        menuClick.play();
+        audioIntro.play();
         setLocalStorage();
         setTimeout(() => {
+            audioOpenCurtain.volume = 0.3;
+            audioOpenCurtain.play();
             curtain.classList.add('curtain-opened');
-        }, 300);
+        }, 550);
     } else {
         audioClick.volume = 0.5;
         audioClick.play();

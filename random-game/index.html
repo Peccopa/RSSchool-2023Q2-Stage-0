@@ -24,7 +24,7 @@
                 <div class="logo-block">
                     <img class="logo" src="./assets/images/w4.png" alt="logo">
                     <div class="input-block">
-                        <input class="menu-input" type="text" placeholder="Commander ID" autofocus>
+                        <input class="menu-input" type="text" placeholder="Commander ID" autofocus maxlength="24">
                         <span class="material-symbols-outlined login-btn">exit_to_app</span>
                     </div>
                 </div>
@@ -42,38 +42,99 @@
             </div>
         </header>
         <main>
-            <div class="game-menu">
-                <div class="game-menu-header">
-                    <p>Welcome Commander</p>
-                    <span>Wagner</span>
-                    <img src="./assets/images/w4.png" alt="logo">
+            <div class="game-card">
+                <div class="game-menu">
+                    <div class="game-menu-header">
+                        <p>Welcome Commander</p>
+                        <span class="user-name">Bonza</span>
+                        <img src="./assets/images/w4.png" alt="logo">
+                    </div>
+                    <div class="gm-items">
+                        <div class="game-menu-launch gm-item">
+                            <span class="material-symbols-outlined gm-launch">captive_portal</span>
+                            <p>LAUNCH</p>
+                        </div>
+                        <div class="game-menu-results gm-item">
+                            <span class="material-symbols-outlined gm-results">monitoring</span>
+                            <p>RESULTS</p>
+                        </div>
+                        <div class="game-menu-exit gm-item">
+                            <span class="material-symbols-outlined gm-exit">logout</span>
+                            <p>LEAVE</p>
+                        </div>
+                    </div>
+                    <div class="game-menu-footer"></div>
                 </div>
-                <div class="gm-items">
-                    <div class="game-menu-launch gm-item">
-                        <span class="material-symbols-outlined gm-launch">captive_portal</span>
-                        <p>LAUNCH</p>
+                <div class="results-menu">
+                    <div class="results-header">
+                        <span class="material-symbols-outlined results-exit">logout</span>
+                        <span class="results-title">RESULTS</span>
+                        <div class="results-empty"></div>
                     </div>
-                    <div class="game-menu-results gm-item">
-                        <span class="material-symbols-outlined gm-results">monitoring</span>
-                        <p>RESULTS</p>
-                    </div>
-                    <div class="game-menu-exit gm-item">
-                        <span class="material-symbols-outlined gm-exit">logout</span>
-                        <p>LEAVE</p>
-                    </div>
+                    <ul>
+                        <li>
+                            <p class="pilot-name">Bonza</p>
+                            <p class="pilot-score">360</p>
+                        </li>
+                        <li>
+                            <p class="pilot-name">Bonza</p>
+                            <p class="pilot-score">350</p>
+                        </li>
+                        <li>
+                            <p class="pilot-name">Bonza</p>
+                            <p class="pilot-score">340</p>
+                        </li>
+                        <li>
+                            <p class="pilot-name">Bonza</p>
+                            <p class="pilot-score">330</p>
+                        </li>
+                        <li>
+                            <p class="pilot-name">Bonza</p>
+                            <p class="pilot-score">320</p>
+                        </li>
+                        <li>
+                            <p class="pilot-name">Bonza</p>
+                            <p class="pilot-score">310</p>
+                        </li>
+                        <li>
+                            <p class="pilot-name">Bonza</p>
+                            <p class="pilot-score">360</p>
+                        </li>
+                        <li>
+                            <p class="pilot-name">Bonza</p>
+                            <p class="pilot-score">360</p>
+                        </li>
+                        <li>
+                            <p class="pilot-name">Bonza</p>
+                            <p class="pilot-score">360</p>
+                        </li>
+                        <li>
+                            <p class="pilot-name">Bonza</p>
+                            <p class="pilot-score">360</p>
+                        </li>
+                        <li>
+                            <p class="pilot-name">Bonza</p>
+                            <p class="pilot-score">360</p>
+                        </li>
+                        <li>
+                            <p class="pilot-name">Bonza</p>
+                            <p class="pilot-score">360</p>
+                        </li>
+                    </ul>
                 </div>
-                <div class="game-menu-footer"></div>
             </div>
             <!-- <div class="stars" id="stars"></div> -->
             <div class="board" id="board">
                 <div class="space">
                     <img class="dead-planet dead-planet-menu" id="dead-planet" src="./assets/images/sun.gif" alt="dead-planet">
-                    <img class="asteroids asteroids-menu" id="asteroids" src="./assets/images/asteroids.png" alt="asteroids">
+                    <img class="asteroids asteroids-top" src="./assets/images/asteroids.png" alt="asteroids">
                     <img class="ship ship-menu" id="ship" src="./assets/images/ship.gif" alt="ship">
                     <!-- <video class="ship" id="ship" src="./assets/images/ship.gif" alt="ship"></video> -->
                 </div>
                 <div class="system">
-                    <img class="planet planet-menu" id="planet" src="./assets/images/planet.gif" alt="planet">
+                    <!-- <img class="planet planet-menu" id="planet" src="./assets/images/planet.gif" alt="planet"> -->
+                    <!-- <img class="asteroids asteroids-menu" id="asteroids" src="./assets/images/fog.png" alt="asteroids"> -->
+                    <img class="asteroids asteroids-floor" src="./assets/images/asteroids.png" alt="asteroids">
                 </div>
             </div>
         </main>
