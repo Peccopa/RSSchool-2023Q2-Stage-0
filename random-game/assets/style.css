@@ -42,7 +42,7 @@ body {
     /* background-color: #fff200; */
     background-image: url(/random-game/assets/images/curtaine.jpg);
     background-size: contain;
-    border-radius: 1rem;
+    border-radius: 1rem 1rem 0rem 0rem;
     /* border: slategrey 3px solid; */
     /* border-image: url(./images/curtaine.jpg); */
 }
@@ -88,9 +88,6 @@ main {
 .curtain-title h1{
     padding-top: 3rem;
     font-size: 4rem;
-
-    
-
 }
 
 .curtain-title h2{
@@ -98,8 +95,6 @@ main {
     font-weight: 400;
     letter-spacing: 1rem;
     margin-bottom: 1rem;
-
-    
 }
 
 .logo-block {
@@ -186,6 +181,10 @@ main {
     color: #ffffff;
 }
 
+.curtain-footer a:hover{
+    opacity: .5;
+}
+
 /*INGAME*/
 
 .game-card {
@@ -197,6 +196,13 @@ main {
     transform: translate(-50%, -50%);
     z-index: 3;
     background-color: #000000;
+    box-shadow: 0rem -1rem 1rem 0rem rgba(0, 0, 0, 0.5);
+    transition: 1s ease-in;
+}
+
+.game-card-hide {
+    top: 140%;
+    /* z-index: 3; */
 }
 
 .game-menu {
@@ -222,8 +228,8 @@ main {
 
     overflow: hidden;
     backface-visibility: hidden;
-    transition: transform .6s linear;
-    transform: perspective(60rem) rotateY(180deg); /*0*/
+    transition: transform 1.2s ease-in-out;
+    transform: perspective(60rem) rotateY(0deg); /*0*/
 
 
     /* text-shadow: #000 10px 5px 5px; */
@@ -231,7 +237,7 @@ main {
 
 
 .game-card:hover > .game-menu {
-    transform: perspective(60rem) rotateY(0deg); /*-180*/
+    /* transform: perspective(60rem) rotateY(-180deg); */
 }
 
 .game-menu-opened {
@@ -262,8 +268,12 @@ main {
     background-size: cover;
     overflow: hidden;
     backface-visibility: hidden;
-    transform: perspective(60rem) rotateY(0deg); /*180*/
-    transition: transform .6s linear;
+    transform: perspective(60rem) rotateY(180deg); /*180*/
+    transition: transform 1.2s ease-in-out;
+}
+
+.game-card:hover > .results-menu {
+    /* transform: perspective(60rem) rotateY(0deg); */
 }
 
 .results-header {
@@ -279,6 +289,17 @@ main {
     -webkit-transform: rotate(180deg);
     font-size: 3rem;
     opacity: .7;
+    cursor: pointer;
+}
+
+.results-exit:hover {
+    background-image: url(./images/active-sun.gif);
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: .7;
+
 }
 
 .results-title {
@@ -339,9 +360,7 @@ main {
 
 
 
-.game-card:hover > .results-menu {
-    transform: perspective(60rem) rotateY(-180deg); /*0*/
-}
+
 
 .game-menu-header {
     display: flex;
@@ -458,7 +477,7 @@ main {
     background-size: contain;
     background-position: center center;
     transition: all 2s ease-out;
-    z-index: 1;
+    z-index: 2;
 }
 
 .ship {
@@ -469,13 +488,20 @@ main {
     transform: translateX(-50%);
     width: 15vh;
     /* animation: rock 5s linear; */
-    transition: all 2s ease-out;
+    /* transition: all 2s ease-out; */
+    transition: all 2s ease-in-out;
 }
 
 .ship-menu {
-    transform: translate(-40%, -20%);
+    transform: translate(-50%, -50%);
     width: 100%;
-    transition: all 2s ease-out;
+    transition: all 2s ease-in-out;
+}
+
+.ship-launch {
+    transform: translate(-50%, -0%);
+    width: 170%;
+    transition: all 2s ease-in-out;
 }
 
 .blast {
@@ -488,7 +514,7 @@ main {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
-    z-index: 1;
+    z-index: 3;
 }
 
 .system {
@@ -514,22 +540,33 @@ main {
     z-index: 2;
 }
 
-.asteroids {
+.asteroids-top {
     position: absolute;
     top: 0;
-    /* transform: translate(-0%, -60%); */
-    /* background-color: #fff; */
-    /* box-shadow: inset 0px 0px 140px 140px #DBA632; */
     width: 100%;
-    /* background-image: url(./images/The-Sun-Source-of-Our-Energy.gif); */
+
     opacity: 1;
     z-index: 3;
 }
 
-.asteroids-menu {
-    /* -webkit-transform: rotate(90deg); */
+.asteroids-floor {
+    /* width: 300%; */
+    -webkit-transform: rotate(180deg);
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+
+    opacity: 1;
+    z-index: 3;
+    transition: 1s ease-in;
+}
+
+.asteroids-floor-launch {
     /* width: 100%; */
-    /* height: 6rem; */
+    -webkit-transform: rotate(180deg) translate(0%, -100%);
+    /* transform: translate(100%, 0%); */
+    /* top: -50%; */
 }
 
 
@@ -540,21 +577,19 @@ main {
     width: 200%;
     opacity: 1;
     z-index: 1;
-    transition: all 2s linear;
+    transition: all 4s ease-in;
 }
 
 .planet-menu {
     width: 200%;
+    transform: translate(-0%, 20%);
+}
+
+.planet-launch {
+    width: 200%;
     transform: translate(-0%, -0%);
 }
 
-
-
-.asteroids-floor {
-    -webkit-transform: rotate(180deg);
-    /* width: 100%; */
-    /* height: 6rem; */
-}
 
 
 .footer {

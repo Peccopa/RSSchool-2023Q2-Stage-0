@@ -7,19 +7,25 @@ const loadBody = document.querySelector('.body');
 const loginBtn = document.querySelector('.login-btn');
 const menuInput = document.querySelector('.menu-input');
 const curtain = document.querySelector('.curtain');
+const gameCard = document.querySelector('.game-card');
 const gameMenu = document.querySelector('.game-menu');
+const resultsMenu = document.querySelector('.results-menu');
 const menuItems = document.querySelectorAll('.gm-item');
-const menuLaunch = document.querySelector('.game-menu-launch');
-const menuResults = document.querySelector('.game-menu-results');
-const menuLeave = document.querySelector('.game-menu-exit');
+const menuLaunchBtn = document.querySelector('.game-menu-launch');
+const menuResultsBtn = document.querySelector('.game-menu-results');
+const menuLeaveBtn = document.querySelector('.game-menu-exit');
+const resultsExitBtn = document.querySelector('.results-exit');
 const currentUser = {};
 const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+const asteroidsFloor = document.querySelector('.asteroids-floor');
 const ship = document.querySelector('.ship');
 const space = document.querySelector('.space');
+const planet = document.querySelector('.planet');
+const tagUl = document.querySelector('.results-ul');
+let tagLi = '';
 let results = [];
 let rocksCount = 0;
-let speedFall = 20;
-let rockInterval = 3500;
+let speedFall = 20; //20
 
 document.addEventListener("DOMContentLoaded", function() {
     ship.src = 'assets/images/ship-menu.png';
@@ -65,7 +71,7 @@ const gameMenuOpened = () => {
             menuClick.play();
         });
     });
-    menuLeave.addEventListener('click', () => {
+    menuLeaveBtn.addEventListener('click', () => {
         // audioOpenCurtain.volume = 0.5;
         audioIntro.play();
         audioOpenCurtain.play();
@@ -113,7 +119,93 @@ const openGameMenu = () => {
         gameMenu.classList.add('game-menu-opened');
     }, 3000);
 
-}
+};
+
+const createResultsList = () => {
+    results = JSON.parse(localStorage.getItem('results'));
+    results.sort((a, b) => parseInt(a.userScore) - parseInt(b.userScore));
+    results.forEach(element => {
+        tagLi = `
+        <li>
+            <p class="pilot-name">${element.userName}</p>
+            <p class="pilot-score">${element.userScore}</p>
+        </li>`;
+        tagUl.insertAdjacentHTML('beforeend', tagLi);
+    });
+
+
+    console.log(tagUl);
+};
+
+createResultsList();
+
+const openMenuResults = () => {
+    let stoneSlide = new Audio(`assets/sounds/stone-sliding.mp3`);
+    stoneSlide.volume = 0.5;
+    menuResultsBtn.addEventListener('click', () => {
+        stoneSlide.play();
+        gameMenu.style.transform = 'perspective(60rem) rotateY(-180deg)';
+        resultsMenu.style.transform = 'perspective(60rem) rotateY(0deg)';
+    });
+    resultsExitBtn.addEventListener('mouseover', () => {
+        let menuClick = new Audio(`assets/sounds/menu-click.mp3`);
+        menuClick.volume = 0.5;
+        menuClick.play();
+    });
+    resultsExitBtn.addEventListener('click', () => {
+        stoneSlide.play();
+        gameMenu.style.transform = 'perspective(60rem) rotateY(0deg)';
+        resultsMenu.style.transform = 'perspective(60rem) rotateY(180deg)';
+    });
+};
+
+openMenuResults();
+
+const launchGame = () => {
+    menuLaunchBtn.addEventListener('click', () => {
+        gameCard.classList.add('game-card-hide');
+        ship.classList.add('ship-launch');
+        ship.src = 'assets/images/ship.gif';
+        asteroidsFloor.classList.add('asteroids-floor-launch');
+        planet.classList.add('planet-launch');
+        setTimeout(() => {
+            ship.classList.remove('ship-launch');
+            ship.classList.remove('ship-menu');
+            ship.classList.add('ship');
+        }, 2000);
+        setTimeout(() => {
+            generateRocks();
+            moveRocks();
+            moveShip();
+            rocketLaunch();
+            rocketHit();
+            moveEarth();
+
+
+        }, 4000);
+
+    });
+};
+
+launchGame();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const rockInterval = 3500;
 
 const generateRocks = () => {
     setInterval(() => {
@@ -126,10 +218,15 @@ const generateRocks = () => {
         rock.style.width = randomInt(20, 60) + 'px';
         rock.style.animation = `rock ${randomInt(1, 10)}s linear infinite`;
         rock.style.backgroundImage = `url(assets/images/rock-${randomInt(1,5)}.png)`;
-        rockInterval > 500 ? rockInterval -= 100 : false;
+        // rockInterval > 500 ? rockInterval -= 1000 : rockInterval = 500;
         rocksCount++;
     }, rockInterval);
 };
+
+
+
+
+
 
 // generateRocks();
 
@@ -142,7 +239,7 @@ const moveRocks = () => {
                 rocks[i].style.top = rockFall + speedFall + 'px'; //20
             };
         };
-        // speedFall++;
+        speedFall = speedFall + 0.1;
     }, 300);
 };
 
@@ -202,9 +299,9 @@ const rocketHit = () => {
                         blast.style.left = rocks[i].style.left;
                         blast.style.right = rocks[i].style.right;
                         blast.style.top = rocks[i].style.top;
-                        // blast.style.top = Number(rocks[i].style.top.substring(0, rocks[i].style.top.length - 2)) - speedFall + 'px';
+                        blast.style.top = Number(rocks[i].style.top.substring(0, rocks[i].style.top.length - 2)) - speedFall + 'px';
                         blast.style.bottom = rocks[i].style.bottom;
-                        console.log(Number(rocks[i].style.top.substring(0, rocks[i].style.top.length - 2)) + speedFall + 'px');
+                        // console.log(Number(rocks[i].style.top.substring(0, rocks[i].style.top.length - 2)) + speedFall + 'px');
                         blast.classList.add('blast');
                         const audioBlast = new Audio(`assets/sounds/exp-${randomInt(1,3)}.mp3`);
                         audioBlast.play();
@@ -221,11 +318,11 @@ const rocketHit = () => {
 
 // rocketHit();
 
-// const moveEarth = () => {
-//     setInterval(() => {
-//         document.querySelector('.planet').style.width = (200 - rocksCount) + '%';
-//     }, 1000);
-// };
+const moveEarth = () => {
+    setInterval(() => {
+        document.querySelector('.planet').style.width = (200 - rocksCount) + '%';
+    }, 1000);
+};
 
 // // moveEarth();
 
