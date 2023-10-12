@@ -1,6 +1,8 @@
 const audioIntro = new Audio(`assets/sounds/intro.mp3`);
 const audioOpenCurtain = new Audio(`assets/sounds/open-curtain.mp3`);
 const audioClick = new Audio(`assets/sounds/click.mp3`);
+const audioStart = new Audio(`assets/sounds/start-2.mp3`);
+const audioAmbient = new Audio(`assets/sounds/ambient-2.mp3`);
 const menuClick = new Audio(`assets/sounds/menu-click.mp3`);
 const userName = document.querySelector('.user-name');
 const loadBody = document.querySelector('.body');
@@ -15,17 +17,24 @@ const menuLaunchBtn = document.querySelector('.game-menu-launch');
 const menuResultsBtn = document.querySelector('.game-menu-results');
 const menuLeaveBtn = document.querySelector('.game-menu-exit');
 const resultsExitBtn = document.querySelector('.results-exit');
+const hitsCounterTop = document.querySelector('.hits-counter-num');
+const missCounterTop = document.querySelector('.miss-counter-num');
 const currentUser = {};
 const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 const asteroidsFloor = document.querySelector('.asteroids-floor');
 const ship = document.querySelector('.ship');
 const space = document.querySelector('.space');
+const deadPlanet = document.querySelector('.dead-planet');
 const planet = document.querySelector('.planet');
 const tagUl = document.querySelector('.results-ul');
 let tagLi = '';
 let results = [];
 let rocksCount = 0;
-let speedFall = 20; //20
+let speedFall = 500; //20
+let rockInterval = 3500;
+let interval;
+let gameScore = 0;
+let missScore = 0;
 
 document.addEventListener("DOMContentLoaded", function() {
     ship.src = 'assets/images/ship-menu.png';
@@ -78,6 +87,8 @@ const gameMenuOpened = () => {
         menuInput.style.background = '#ccc';
         loginBtn.style.color = '#333';
         menuInput.readOnly = false;
+        tagUl.textContent = '';
+        gameScore = 0;
         setTimeout(() => {
             curtain.classList.remove('curtain-opened');
         }, 300);
@@ -94,6 +105,7 @@ const menuLoginInput = () => {
         audioIntro.play();
         setLocalStorage();
         setTimeout(() => {
+
             audioOpenCurtain.volume = 0.3;
             audioOpenCurtain.play();
             curtain.classList.add('curtain-opened');
@@ -106,11 +118,12 @@ const menuLoginInput = () => {
 
 const setLocalStorage = () => {
     localStorage.getItem('results') ? results = JSON.parse(localStorage.getItem('results')) : false;
+    currentUser['userId'] = results.length + 1;
     currentUser['userName'] = String(menuInput.value);
     currentUser['userScore'] = 0;
     results.push(currentUser);
     localStorage.setItem('results', JSON.stringify(results));
-    // console.log(results);
+    createResultsList();
     openGameMenu();
 };
 
@@ -124,6 +137,7 @@ const openGameMenu = () => {
 const createResultsList = () => {
     results = JSON.parse(localStorage.getItem('results'));
     results.sort((a, b) => parseInt(a.userScore) - parseInt(b.userScore));
+    results.reverse();
     results.forEach(element => {
         tagLi = `
         <li>
@@ -132,12 +146,9 @@ const createResultsList = () => {
         </li>`;
         tagUl.insertAdjacentHTML('beforeend', tagLi);
     });
-
-
-    console.log(tagUl);
 };
 
-createResultsList();
+
 
 const openMenuResults = () => {
     let stoneSlide = new Audio(`assets/sounds/stone-sliding.mp3`);
@@ -163,25 +174,49 @@ openMenuResults();
 
 const launchGame = () => {
     menuLaunchBtn.addEventListener('click', () => {
+        audioStart.play();
+        menuLaunchBtn.classList.add('launch-active-btn');
+        setTimeout(() => {
         gameCard.classList.add('game-card-hide');
         ship.classList.add('ship-launch');
         ship.src = 'assets/images/ship.gif';
         asteroidsFloor.classList.add('asteroids-floor-launch');
         planet.classList.add('planet-launch');
+        audioAmbient.volume = .5;
+        audioAmbient.loop = true;
+        audioAmbient.play();
+
+        // tagLi = '';
+        // results = [];
+        rocksCount = 0;
+        speedFall = 500; //20
+        rockInterval = 3500;
+        interval = 0;
+        gameScore = 0;
+        missScore = 0;
+
+        }, 900);
         setTimeout(() => {
+            // deadPlanet.classList.remove('dead-planet-menu');
+            // audioStart.play();
             ship.classList.remove('ship-launch');
             ship.classList.remove('ship-menu');
             ship.classList.add('ship');
+            document.querySelector('.hits-counter').classList.add('opacity');
+            document.querySelector('.miss-counter').classList.add('opacity');
         }, 2000);
         setTimeout(() => {
-            generateRocks();
+            interval = setInterval(generateRocks, rockInterval);
+            // generateRocks();
             moveRocks();
             moveShip();
             rocketLaunch();
             rocketHit();
             moveEarth();
-
-
+            ship.style.transition = 'all 2s ease-out';
+            gameMenu.style.transform = 'perspective(60rem) rotateY(-180deg)';
+            resultsMenu.style.transform = 'perspective(60rem) rotateY(0deg)';
+            menuLaunchBtn.classList.remove('launch-active-btn');
         }, 4000);
 
     });
@@ -204,50 +239,77 @@ launchGame();
 
 
 
-
-const rockInterval = 3500;
-
 const generateRocks = () => {
-    setInterval(() => {
-        let rock = document.createElement('div');
-        space.appendChild(rock);
-        rock.classList.add('rock');
-        rock.classList.add(`rock-${rocksCount}`);
-        rock.style.left = randomInt(30, 450) + 'px';
-        rock.style.height = randomInt(20, 60) + 'px';
-        rock.style.width = randomInt(20, 60) + 'px';
-        rock.style.animation = `rock ${randomInt(1, 10)}s linear infinite`;
-        rock.style.backgroundImage = `url(assets/images/rock-${randomInt(1,5)}.png)`;
-        // rockInterval > 500 ? rockInterval -= 1000 : rockInterval = 500;
-        rocksCount++;
-    }, rockInterval);
+    if(missScore >= 10) {
+        return;
+    };
+    clearInterval(interval);
+    let rock = document.createElement('div');
+    space.appendChild(rock);
+    rock.classList.add('rock');
+    rock.classList.add(`rock-${rocksCount}`);
+    rock.style.left = randomInt(30, 450) + 'px';
+    rock.style.height = randomInt(20, 60) + 'px';
+    rock.style.width = randomInt(20, 60) + 'px';
+    rock.style.animation = `rock ${randomInt(1, 10)}s linear infinite`;
+    rock.style.backgroundImage = `url(assets/images/rock-${randomInt(1,5)}.png)`;
+    rockInterval > 500 ? rockInterval -= 25 : rockInterval = 500;
+    rocksCount++;
+    interval = setInterval(generateRocks, rockInterval);
+
 };
-
-
-
-
 
 
 // generateRocks();
 
 const moveRocks = () => {
+    if(missScore >= 10) {
+        return;
+    };
     setInterval(() => {
+        // if(missScore >= 10) {
+        //     return;
+        // };
         let rocks = document.getElementsByClassName('rock');
         if(rocks) {
             for (let i = 0; i < rocks.length; i++) {
                 let rockFall = parseInt(window.getComputedStyle(rocks[i]).getPropertyValue('top'));
                 rocks[i].style.top = rockFall + speedFall + 'px'; //20
+                if(rockFall > 920) {
+                    rocks[i].parentElement.removeChild(rocks[i]);
+                    missScore++;
+                    missCounterTop.textContent = missScore * 10 + '%';
+                    missCounterTop.classList.add('miss-dawn');
+                    if(missScore >= 10) {
+                        stopGame();
+                    };
+                    setTimeout(() => {
+                        missCounterTop.classList.add('dusk');
+                        missCounterTop.classList.remove('miss-dawn');
+                        // rocks[i].style.opacity = 0;
+                        setTimeout(() => {
+                            missCounterTop.classList.remove('dusk');
+                        }, 1000);
+                    }, 500);
+                };
             };
         };
-        speedFall = speedFall + 0.1;
+        speedFall = speedFall + 0.05;
     }, 300);
+
 };
 
 // moveRocks();
 
 const moveShip = () => {
+    if(missScore >= 10) {
+        return;
+    };
     window.addEventListener('keydown', (e) => {
         let shipPosition = parseInt(window.getComputedStyle(ship).getPropertyValue('left'));
+        if(missScore >= 10) {
+            return;
+        };
         if(e.key == 'ArrowLeft' && shipPosition >= 0) {
             ship.style.left = 36 + 'px';
         } else if(e.key == 'ArrowRight' && shipPosition <= 450) {
@@ -259,19 +321,28 @@ const moveShip = () => {
 // moveShip();
 
 const rocketLaunch = () => {
+    if(missScore >= 10) {
+        return;
+    };
     window.addEventListener('keydown', (e) => {
+        if(missScore >= 10) {
+            return;
+        };
         let rocket = document.querySelector('.rocket');
         if(e.key == ' ' && !rocket) {
             let rocket = document.createElement('div');
             space.appendChild(rocket);
-            rocket.classList.add('rocket');
             const audioShot = new Audio(`assets/sounds/shot-${randomInt(1,3)}.mp3`);
             audioShot.play();
             setInterval(() => {
+                if(missScore >= 10) {
+                    return;
+                };
                 let shipPosition = parseInt(window.getComputedStyle(ship).getPropertyValue('left'));
                 rocket.style.left = shipPosition + 'px';
                 let rocketPosition = parseInt(window.getComputedStyle(rocket).getPropertyValue('bottom'));
                 rocket.style.bottom = rocketPosition + 1 + 'rem';
+                rocket.classList.add('rocket');
             }, 50);
             setTimeout(() => {
                 rocket ? rocket.parentElement.removeChild(rocket): true;
@@ -283,7 +354,13 @@ const rocketLaunch = () => {
 // rocketLaunch();
 
 const rocketHit = () => {
+    if(missScore >= 10) {
+        return;
+    };
     setInterval(() => {
+        if(missScore >= 10) {
+            return;
+        };
         let rocket = document.querySelector('.rocket');
         if(rocket) {
             let rocks = document.getElementsByClassName('rock');
@@ -310,6 +387,21 @@ const rocketHit = () => {
                             blast.parentElement.removeChild(blast);
                         }, 1000);
                         // rocket ? rocket.parentElement.removeChild(rocket): true;
+                        gameScore++;
+                        let baseScore = JSON.parse(localStorage.getItem('results'));
+                        baseScore[results.length - 1].userScore = gameScore;
+                        localStorage.setItem('results', JSON.stringify(baseScore));
+                        hitsCounterTop.textContent = gameScore + '%';
+                        hitsCounterTop.classList.add('hits-dawn');
+                        // hitsCounterTop.classList.add('black');
+                        // hitsCounterTop.style.color = 'black';
+                        setTimeout(() => {
+                            hitsCounterTop.classList.add('dusk');
+                            hitsCounterTop.classList.remove('hits-dawn');
+                            setTimeout(() => {
+                                hitsCounterTop.classList.remove('dusk');
+                            }, 1500);
+                        }, 500);
                     };
                 };
             };
@@ -320,12 +412,29 @@ const rocketHit = () => {
 
 const moveEarth = () => {
     setInterval(() => {
+        if(missScore >= 10) {
+            return;
+        };
         document.querySelector('.planet').style.width = (200 - rocksCount) + '%';
     }, 1000);
 };
 
 // // moveEarth();
 
+const stopGame = () => {
+    let stoneSlide = new Audio(`assets/sounds/stone-sliding.mp3`);
+    gameCard.classList.remove('game-card-hide');
+    stoneSlide.play();
+    setTimeout(() => {
+        audioIntro.play();
+        document.querySelector('.hits-counter').classList.remove('opacity');
+        document.querySelector('.miss-counter').classList.remove('opacity');
+        asteroidsFloor.classList.remove('asteroids-floor-launch');
+        planet.classList.remove('planet-launch');
+        ship.classList.add('ship-menu');
+        ship.style.left = '50%';
+    }, 100);
+};
 
 
 

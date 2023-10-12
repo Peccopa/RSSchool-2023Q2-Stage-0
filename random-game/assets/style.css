@@ -56,12 +56,80 @@ main {
     /* justify-content: center; */
 }
 
+
+
 .header {
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+}
+
+.game-name {
+
+}
+
+.hits-counter,
+.miss-counter {
+    display: inline-block;
+
+    width: 7rem;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    opacity: 0;
+    /* visibility: hidden; */
+    transition: 1.5s ease-in-out;
+    width: 10rem;
+    text-align: center;
+    /* font-size: 1.5rem; */
+
+    /* background-image: url(./images/active-sun.gif); */
+    /* background-size: cover; */
+    /* background-clip: text; */
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+    /* opacity: 1; */
+    /* transition: 1s linear; */
+}
+
+.hits-counter-num,
+.miss-counter-num {
+    display: inline-block;
+    width: 3rem;
+    /* color: #fff; */
+}
+
+
+.hits-dawn {
+    color: rgba(0, 150, 255, 1);
+    /* color: orange; */
+    /* linear-gradient(45deg, rgb(0, 150, 255) 0%, transparent 100%); */
+    /* color: linear-gradient(red 0%, white 100%); */
+    /* transition: 1s linear; */
+    /* opacity: .75; */
+}
+
+.miss-dawn {
+    color: rgba(255, 47, 0, 1);
+    /* transition: 1s ease-in; */
+
+    /* transition: 1s linear; */
+    /* opacity: .75; */
+}
+
+.dusk {
+    color: rgb(0, 0, 0);
+    transition: 1s ease-in;
+}
+
+.hits-counter {
+    /* color: dodgerblue; */
+}
+
+.miss-counter {
+    /* color: orange; */
 }
 
 .curtain {
@@ -426,6 +494,18 @@ main {
     -webkit-text-fill-color: transparent;
 }
 
+.launch-active-btn {
+    transition: all 0s;
+    /* background-image: url(./images/active-sun.gif); */
+    background-image: url(./images/sun-2.gif);
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    pointer-events: none;
+    cursor: default;
+}
+
 .game-menu-footer {
     width: 100%;
     padding: 1rem;
@@ -436,7 +516,7 @@ main {
 .board {
     overflow: hidden;
     height: 100%;
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
     background-color: #000000;
 }
 
@@ -485,23 +565,25 @@ main {
     left: 50%;
     bottom: 0;
     border-radius: 50%;
-    transform: translateX(-50%);
+    /* transform: translateX(-50%); */
+    transform: translate(-50%, -50%);
     width: 15vh;
     /* animation: rock 5s linear; */
-    /* transition: all 2s ease-out; */
-    transition: all 2s ease-in-out;
+    transition: all 5s ease-out;
+    /* transition: all 2s ease-in-out; */
 }
 
 .ship-menu {
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    transition: all 2s ease-in-out;
+    transition: all 7s ease-in-out;
 }
 
 .ship-launch {
     transform: translate(-50%, -0%);
     width: 170%;
-    transition: all 2s ease-in-out;
+    transition: all 5s ease-in-out;
 }
 
 .blast {
@@ -614,7 +696,9 @@ main {
   } */
 
 
-
+.opacity {
+    opacity: 1;
+}
 
 
 
