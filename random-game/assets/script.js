@@ -4,8 +4,6 @@ const audioClick = new Audio(`assets/sounds/click.mp3`);
 const audioStart = new Audio(`assets/sounds/start-2.mp3`);
 const audioAmbient = new Audio(`assets/sounds/ambient-2.mp3`);
 const menuClick = new Audio(`assets/sounds/menu-click.mp3`);
-// const audioMiss1 = new Audio(`assets/sounds/miss-1.mp3`);
-// const audioMiss2 = new Audio(`assets/sounds/miss-2.mp3`);
 const audioMissSound = new Audio(`assets/sounds/miss-3.mp3`);
 const userName = document.querySelector('.user-name');
 const loadBody = document.querySelector('.body');
@@ -33,15 +31,14 @@ const tagUl = document.querySelector('.results-ul');
 let tagLi = '';
 let results = [];
 let rocksCount = 0;
-let speedFall = 300; //20
-let rockInterval = 500;//3500
+let speedFall = 20;
+let rockInterval = 3500;
 let interval;
 let gameScore = 0;
 let missScore = 0;
 let checkFunc = 0;
 
 document.addEventListener("DOMContentLoaded", function() {
-    // ship.src = 'assets/images/ship-menu.png';
     setTimeout(() => {
         loadBody.style.opacity = 1;
     }, 1000);
@@ -59,7 +56,6 @@ const menuLoginBtn = () => {
 };
 
 menuLoginBtn();
-
 
 const menuLoginEnter = (e) => {
     if(e.key === 'Enter' && e.target.value !== '') {
@@ -85,7 +81,6 @@ const gameMenuOpened = () => {
         });
     });
     menuLeaveBtn.addEventListener('click', () => {
-        // audioOpenCurtain.volume = 0.5;
         audioAmbient.loop = false;
         audioAmbient.pause();
         audioAmbient.currentTime = 0;
@@ -111,9 +106,7 @@ const menuLoginInput = () => {
         menuClick.play();
         audioIntro.play();
         createResultsList();
-        // setLocalStorage();
         setTimeout(() => {
-
             audioOpenCurtain.volume = 0.3;
             audioOpenCurtain.play();
             curtain.classList.add('curtain-opened');
@@ -129,17 +122,6 @@ const menuLoginInput = () => {
     };
 };
 
-const setLocalStorage = () => {
-    // localStorage.getItem('results') ? results = JSON.parse(localStorage.getItem('results')) : false;
-    // currentUser['userId'] = results.length + 1;
-    // currentUser['userName'] = String(menuInput.value);
-    // currentUser['userScore'] = 0;
-    // results.push(currentUser);
-    // localStorage.setItem('results', JSON.stringify(results));
-    // createResultsList();
-    // openGameMenu();
-};
-
 const openGameMenu = () => {
     setTimeout(() => {
         gameMenu.classList.add('game-menu-opened');
@@ -147,13 +129,11 @@ const openGameMenu = () => {
         audioAmbient.loop = true;
         audioAmbient.play();
     }, 3000);
-
 };
 
 const createResultsList = () => {
     if(localStorage.getItem('results')) {
         results = JSON.parse(localStorage.getItem('results'));
-        // results = JSON.parse(localStorage.getItem('results'));
         results.sort((a, b) => parseInt(a.userScore) - parseInt(b.userScore));
         results.reverse();
         results.forEach(element => {
@@ -166,8 +146,6 @@ const createResultsList = () => {
         });
     };
 };
-
-
 
 const openMenuResults = () => {
     let stoneSlide = new Audio(`assets/sounds/stone-sliding.mp3`);
@@ -186,7 +164,6 @@ const openMenuResults = () => {
         stoneSlide.play();
         gameMenu.style.transform = 'perspective(60rem) rotateY(0deg)';
         resultsMenu.style.transform = 'perspective(60rem) rotateY(180deg)';
-
         let rocks = document.querySelectorAll('.rock');
         if(rocks) {
             rocks.forEach(element => {
@@ -200,14 +177,9 @@ openMenuResults();
 
 const launchGame = () => {
     menuLaunchBtn.addEventListener('click', () => {
-
-
-
         asteroidsFloor.style.transition = '1s ease-in';
-
         missCounterTop.textContent = '0%';
         hitsCounterTop.textContent = '0%';
-
         localStorage.getItem('results') ? results = JSON.parse(localStorage.getItem('results')) : false;
         currentUser['userId'] = results.length + 1;
         currentUser['userName'] = String(menuInput.value);
@@ -215,7 +187,6 @@ const launchGame = () => {
         results.push(currentUser);
         localStorage.setItem('results', JSON.stringify(results));
         createResultsList();
-
         audioStart.play();
         menuLaunchBtn.classList.add('launch-active-btn');
         setTimeout(() => {
@@ -224,30 +195,14 @@ const launchGame = () => {
         ship.src = 'assets/images/ship.gif';
         asteroidsFloor.classList.add('asteroids-floor-launch');
         planet.classList.add('planet-launch');
-
-
-        // tagLi = '';
-        // results = [];
-        // rocksCount = 0;
-        // speedFall = 500; //20
-        // interval = 0;
         if(missScore > 0) {
             checkFunc++;
-            // localStorage.getItem('results') ? results = JSON.parse(localStorage.getItem('results')) : false;
-            // currentUser['userId'] = results.length + 1;
-            // currentUser['userName'] = String(menuInput.value);
-            // currentUser['userScore'] = 0;
-            // results.push(currentUser);
-            // localStorage.setItem('results', JSON.stringify(results));
             gameScore = 0;
             missScore = 0;
             rockInterval = 3500;
-        }
-
+            };
         }, 900);
         setTimeout(() => {
-            // deadPlanet.classList.remove('dead-planet-menu');
-            // audioStart.play();
             ship.style.transition = 'all 5s ease-out';
             ship.classList.remove('ship-launch');
             ship.classList.remove('ship-menu');
@@ -257,7 +212,6 @@ const launchGame = () => {
         }, 2000);
         setTimeout(() => {
             interval = setInterval(generateRocks, rockInterval);
-            // generateRocks();
             if(checkFunc == 0) {
             moveRocks();
             moveShip();
@@ -270,26 +224,10 @@ const launchGame = () => {
             resultsMenu.style.transform = 'perspective(60rem) rotateY(0deg)';
             menuLaunchBtn.classList.remove('launch-active-btn');
         }, 4000);
-
     });
 };
 
 launchGame();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const generateRocks = () => {
     if(missScore >= 10) {
@@ -308,9 +246,7 @@ const generateRocks = () => {
     rockInterval > 500 ? rockInterval -= 25 : rockInterval = 500;
     rocksCount++;
     interval = setInterval(generateRocks, rockInterval);
-
 };
-
 
 // generateRocks();
 
@@ -319,36 +255,23 @@ const moveRocks = () => {
         return;
     };
     setInterval(() => {
-        // if(missScore >= 10) {
-        //     return;
-        // };
         let rocks = document.getElementsByClassName('rock');
         if(rocks) {
             for (let i = 0; i < rocks.length; i++) {
-
                 let rockFall = parseInt(window.getComputedStyle(rocks[i]).getPropertyValue('top'));
                 rocks[i].style.top = rockFall + speedFall + 'px'; //20
-                // if(missScore >= 10) {
-                    // rocks[i].parentElement.removeChild(rocks[i]);
-                // };
                 if(rockFall > 900 && missScore < 10) {
                     rocks[i].parentElement.removeChild(rocks[i]);
                     missScore++;
                     missCounterTop.textContent = missScore * 10 + '%';
                     missCounterTop.classList.add('miss-dawn');
-
-                    // const audioMiss = new Audio(`assets/sounds/miss-${randomInt(1,3)}.mp3`);
-                    // audioMiss.volume = 0.5;
                     audioMissSound.play();
-
                     if(missScore == 10) {
                         stopGame();
                     };
                     setTimeout(() => {
-
                         missCounterTop.classList.add('dusk');
                         missCounterTop.classList.remove('miss-dawn');
-                        // rocks[i].style.opacity = 0;
                         setTimeout(() => {
                             missCounterTop.classList.remove('dusk');
                         }, 1000);
@@ -358,7 +281,6 @@ const moveRocks = () => {
         };
         speedFall = speedFall + 0.05;
     }, 300);
-
 };
 
 // moveRocks();
@@ -440,7 +362,6 @@ const rocketHit = () => {
                         blast.style.top = rocks[i].style.top;
                         blast.style.top = Number(rocks[i].style.top.substring(0, rocks[i].style.top.length - 2)) - speedFall + 'px';
                         blast.style.bottom = rocks[i].style.bottom;
-                        // console.log(Number(rocks[i].style.top.substring(0, rocks[i].style.top.length - 2)) + speedFall + 'px');
                         blast.classList.add('blast');
                         const audioBlast = new Audio(`assets/sounds/exp-${randomInt(1,3)}.mp3`);
                         audioBlast.play();
@@ -448,15 +369,12 @@ const rocketHit = () => {
                         setTimeout(() => {
                             blast.parentElement.removeChild(blast);
                         }, 1000);
-                        // rocket ? rocket.parentElement.removeChild(rocket): true;
                         gameScore++;
                         let baseScore = JSON.parse(localStorage.getItem('results'));
                         baseScore[results.length - 1].userScore = gameScore;
                         localStorage.setItem('results', JSON.stringify(baseScore));
                         hitsCounterTop.textContent = gameScore + '%';
                         hitsCounterTop.classList.add('hits-dawn');
-                        // hitsCounterTop.classList.add('black');
-                        // hitsCounterTop.style.color = 'black';
                         setTimeout(() => {
                             hitsCounterTop.classList.add('dusk');
                             hitsCounterTop.classList.remove('hits-dawn');
@@ -482,34 +400,26 @@ const moveEarth = () => {
     }, 1000);
 };
 
-// // moveEarth();
+// moveEarth();
 
 const stopGame = () => {
     clearInterval(interval);
-
     tagUl.textContent = '';
-
     createResultsList();
     let stoneSlide = new Audio(`assets/sounds/stone-sliding.mp3`);
     gameCard.classList.remove('game-card-hide');
     asteroidsFloor.classList.remove('asteroids-floor-launch');
-    // asteroidsFloor.style.transition = '1s ease-in';
     stoneSlide.play();
     setTimeout(() => {
         audioIntro.play();
         document.querySelector('.hits-counter').classList.remove('opacity');
         document.querySelector('.miss-counter').classList.remove('opacity');
-
         planet.classList.remove('planet-launch');
         ship.classList.add('ship-menu');
         ship.style.left = '50%';
         speedFall = 20;
     }, 100);
 };
-
-
-
-
 
 console.log(`
 **Требования:**
