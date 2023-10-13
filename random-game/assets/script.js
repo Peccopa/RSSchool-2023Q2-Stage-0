@@ -4,6 +4,9 @@ const audioClick = new Audio(`assets/sounds/click.mp3`);
 const audioStart = new Audio(`assets/sounds/start-2.mp3`);
 const audioAmbient = new Audio(`assets/sounds/ambient-2.mp3`);
 const menuClick = new Audio(`assets/sounds/menu-click.mp3`);
+// const audioMiss1 = new Audio(`assets/sounds/miss-1.mp3`);
+// const audioMiss2 = new Audio(`assets/sounds/miss-2.mp3`);
+const audioMissSound = new Audio(`assets/sounds/miss-3.mp3`);
 const userName = document.querySelector('.user-name');
 const loadBody = document.querySelector('.body');
 const loginBtn = document.querySelector('.login-btn');
@@ -30,15 +33,15 @@ const tagUl = document.querySelector('.results-ul');
 let tagLi = '';
 let results = [];
 let rocksCount = 0;
-let speedFall = 500; //20
-let rockInterval = 3500;
+let speedFall = 300; //20
+let rockInterval = 500;//3500
 let interval;
 let gameScore = 0;
 let missScore = 0;
 let checkFunc = 0;
 
 document.addEventListener("DOMContentLoaded", function() {
-    ship.src = 'assets/images/ship-menu.png';
+    // ship.src = 'assets/images/ship-menu.png';
     setTimeout(() => {
         loadBody.style.opacity = 1;
     }, 1000);
@@ -83,6 +86,9 @@ const gameMenuOpened = () => {
     });
     menuLeaveBtn.addEventListener('click', () => {
         // audioOpenCurtain.volume = 0.5;
+        audioAmbient.loop = false;
+        audioAmbient.pause();
+        audioAmbient.currentTime = 0;
         audioIntro.play();
         audioOpenCurtain.play();
         menuInput.style.background = '#ccc';
@@ -111,6 +117,11 @@ const menuLoginInput = () => {
             audioOpenCurtain.volume = 0.3;
             audioOpenCurtain.play();
             curtain.classList.add('curtain-opened');
+            setTimeout(() => {
+                audioAmbient.volume = .5;
+                audioAmbient.loop = true;
+                audioAmbient.play();
+            }, 15000);
         }, 550);
     } else {
         audioClick.volume = 0.5;
@@ -132,6 +143,9 @@ const setLocalStorage = () => {
 const openGameMenu = () => {
     setTimeout(() => {
         gameMenu.classList.add('game-menu-opened');
+        audioAmbient.volume = .5;
+        audioAmbient.loop = true;
+        audioAmbient.play();
     }, 3000);
 
 };
@@ -172,6 +186,13 @@ const openMenuResults = () => {
         stoneSlide.play();
         gameMenu.style.transform = 'perspective(60rem) rotateY(0deg)';
         resultsMenu.style.transform = 'perspective(60rem) rotateY(180deg)';
+
+        let rocks = document.querySelectorAll('.rock');
+        if(rocks) {
+            rocks.forEach(element => {
+                element.parentElement.removeChild(element);
+            });
+        };
     });
 };
 
@@ -179,6 +200,11 @@ openMenuResults();
 
 const launchGame = () => {
     menuLaunchBtn.addEventListener('click', () => {
+
+
+
+        asteroidsFloor.style.transition = '1s ease-in';
+
         missCounterTop.textContent = '0%';
         hitsCounterTop.textContent = '0%';
 
@@ -198,9 +224,7 @@ const launchGame = () => {
         ship.src = 'assets/images/ship.gif';
         asteroidsFloor.classList.add('asteroids-floor-launch');
         planet.classList.add('planet-launch');
-        audioAmbient.volume = .5;
-        audioAmbient.loop = true;
-        audioAmbient.play();
+
 
         // tagLi = '';
         // results = [];
@@ -301,17 +325,27 @@ const moveRocks = () => {
         let rocks = document.getElementsByClassName('rock');
         if(rocks) {
             for (let i = 0; i < rocks.length; i++) {
+
                 let rockFall = parseInt(window.getComputedStyle(rocks[i]).getPropertyValue('top'));
                 rocks[i].style.top = rockFall + speedFall + 'px'; //20
-                if(rockFall > 920) {
+                // if(missScore >= 10) {
+                    // rocks[i].parentElement.removeChild(rocks[i]);
+                // };
+                if(rockFall > 900 && missScore < 10) {
                     rocks[i].parentElement.removeChild(rocks[i]);
                     missScore++;
                     missCounterTop.textContent = missScore * 10 + '%';
                     missCounterTop.classList.add('miss-dawn');
-                    if(missScore >= 10) {
+
+                    // const audioMiss = new Audio(`assets/sounds/miss-${randomInt(1,3)}.mp3`);
+                    // audioMiss.volume = 0.5;
+                    audioMissSound.play();
+
+                    if(missScore == 10) {
                         stopGame();
                     };
                     setTimeout(() => {
+
                         missCounterTop.classList.add('dusk');
                         missCounterTop.classList.remove('miss-dawn');
                         // rocks[i].style.opacity = 0;
@@ -441,9 +475,10 @@ const rocketHit = () => {
 const moveEarth = () => {
     setInterval(() => {
         if(missScore >= 10) {
+            rocksCount = 0;
             return;
         };
-        document.querySelector('.planet').style.width = (200 - rocksCount) + '%';
+        document.querySelector('.planet').style.width = (200 - (rocksCount / 2)) + '%';
     }, 1000);
 };
 
@@ -451,19 +486,24 @@ const moveEarth = () => {
 
 const stopGame = () => {
     clearInterval(interval);
+
     tagUl.textContent = '';
+
     createResultsList();
     let stoneSlide = new Audio(`assets/sounds/stone-sliding.mp3`);
     gameCard.classList.remove('game-card-hide');
+    asteroidsFloor.classList.remove('asteroids-floor-launch');
+    // asteroidsFloor.style.transition = '1s ease-in';
     stoneSlide.play();
     setTimeout(() => {
         audioIntro.play();
         document.querySelector('.hits-counter').classList.remove('opacity');
         document.querySelector('.miss-counter').classList.remove('opacity');
-        asteroidsFloor.classList.remove('asteroids-floor-launch');
+
         planet.classList.remove('planet-launch');
         ship.classList.add('ship-menu');
         ship.style.left = '50%';
+        speedFall = 20;
     }, 100);
 };
 
