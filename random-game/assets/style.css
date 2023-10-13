@@ -1,0 +1,545 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*, img {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+:root {
+    --main-color-1: #8346ff;
+    --main-color-2: #3f00bc;
+    --main-color-3: #ffc800;
+    --text-color-1: #ffffff;
+    --text-color-2: #000000;
+    --text-color-3: #000000;
+}
+
+html {
+    font-size: 10px;
+    user-select: none;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #191919;
+    transition: .75s ease-in-out;
+}
+
+.page {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 48rem;
+    height: 100%;
+    margin: auto 0;
+    background-image: url(/random-game/assets/images/curtaine.jpg);
+    background-size: contain;
+    border-radius: 1rem 1rem 0rem 0rem;
+}
+
+main {
+    position: relative;
+    flex-grow: 2;
+    width: 100%;
+}
+
+
+
+.header {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hits-counter,
+.miss-counter {
+    display: inline-block;
+    width: 7rem;
+    opacity: 0;
+    transition: 1.5s ease-in-out;
+    width: 10rem;
+    text-align: center;
+}
+
+.hits-counter-num,
+.miss-counter-num {
+    display: inline-block;
+    width: 3rem;
+}
+
+
+.hits-dawn {
+    color: rgba(0, 150, 255, 1);
+}
+
+.miss-dawn {
+    color: rgba(255, 47, 0, 1);
+}
+
+.dusk {
+    color: rgb(0, 0, 0);
+    transition: 1s ease-in;
+}
+
+.curtain {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    border-radius: 1rem;
+    background-image: url(/random-game/assets/images/curtaine.jpg);
+    background-size: contain;
+    box-shadow: 0rem -1rem 1rem 0rem rgba(0, 0, 0, 0.5);
+    transition: 2.9s ease-out;
+    z-index: 4;
+}
+
+.curtain-title h1{
+    padding-top: 3rem;
+    font-size: 4rem;
+}
+
+.curtain-title h2{
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1rem;
+    margin-bottom: 1rem;
+}
+
+.logo-block {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 2;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    width: 75%;
+    opacity: .7;
+}
+
+.input-block {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30rem;
+}
+
+.input-block input {
+    height: 2.4rem;
+    width: 20rem;
+    outline: none;
+    padding: 1rem;
+    background-color: #ccc;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    transition: .3s;
+}
+
+.input-block span {
+    position: absolute;
+    right: 2rem;
+    color: #333;
+    font-size: 1.5rem;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.input-block span:hover {
+    color: #999;
+}
+
+.curtain-layer {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgb(0, 0, 0) 0%, transparent 100%);
+    z-index: -1;
+}
+
+.curtain-opened {
+    transform: translate(0%, 98%);
+}
+
+.curtain-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-top: #ffffff 1px solid;
+    opacity: .3;
+
+}
+
+.curtain-footer a{
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-top: 2rem;
+    color: #ffffff;
+}
+
+.curtain-footer a:hover{
+    opacity: .5;
+}
+
+/*INGAME*/
+
+.game-card {
+    position: absolute;
+    width: 30rem;
+    height: 50rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    background-color: #000000;
+    box-shadow: 0rem -1rem 1rem 0rem rgba(0, 0, 0, 0.5);
+    transition: 1s ease-in;
+}
+
+.game-card-hide {
+    top: 140%;
+}
+
+.game-menu {
+    position: absolute;
+    width: 30rem;
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-image: url(./images/curtaine.jpg);
+    z-index: 3;
+    font-size: 2rem;
+    overflow: hidden;
+    backface-visibility: hidden;
+    transition: transform 1.2s ease-in-out;
+    transform: perspective(60rem) rotateY(0deg);
+}
+
+.results-menu {
+    position: absolute;
+    width: 30rem;
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+    padding: 2rem 2rem 4rem 2rem;
+    background-image: url(./images/curtaine.jpg);
+    z-index: 3;
+    font-size: 1rem;
+    background-size: cover;
+    overflow: hidden;
+    backface-visibility: hidden;
+    transform: perspective(60rem) rotateY(180deg); /*180*/
+    transition: transform 1.2s ease-in-out;
+}
+
+.results-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: rgba(0, 0, 0, 0.7) 1px solid;
+}
+
+.results-exit {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    font-size: 3rem;
+    opacity: .7;
+    cursor: pointer;
+}
+
+.results-exit:hover {
+    background-image: url(./images/active-sun.gif);
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: .7;
+}
+
+.results-title {
+    font-size: 3rem;
+    background-image: url(./images/active-sun.gif);
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.results-empty {
+    width: 3rem;
+}
+
+.results-menu ul {
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    list-style: none;
+    border-bottom: rgba(0, 0, 0, 0.7) 1px solid;
+}
+
+.results-menu ul::-webkit-scrollbar {
+    width: 0;
+}
+
+.results-menu li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1.8rem;
+}
+
+.results-menu li p:last-child {
+    font-size: 1.8rem;
+    opacity: .7;
+}
+
+.game-menu-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-menu-header span {
+    margin: 0;
+}
+
+.game-menu-header img {
+    margin-top: 1rem;
+    width: 30%;
+    opacity: .7;
+}
+
+.gm-items span {
+    color: #191919;
+    margin-right: 1rem;
+    font-size: 3.5rem;
+}
+
+.gm-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.gm-item:hover {
+    background-image: url(./images/active-sun.gif);
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.launch-active-btn {
+    transition: all 0s;
+    background-image: url(./images/active-sun.gif);
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    pointer-events: none;
+    cursor: default;
+}
+
+.game-menu-footer {
+    width: 100%;
+    padding: 1rem;
+    border-top: #000000 1px solid;
+}
+
+.board {
+    overflow: hidden;
+    height: 100%;
+    background-color: #000000;
+}
+
+.space {
+    position: relative;
+    height: 80%;
+}
+
+.rock {
+    position: absolute;
+    left: 50%;
+    top: -5%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url(images/rock-1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    animation: rock 5s linear infinite;
+    transition: all 2s ease-out;
+    z-index: 2;
+}
+
+@keyframes rock {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+.rocket {
+    position: absolute;
+    bottom: .75rem;
+    transform: translateX(-50%);
+    width: 1rem;
+    height: 3rem;
+    background-image: url(./images/rocket-1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    transition: all 2s ease-out;
+    z-index: 2;
+}
+
+.ship {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    border-radius: 50%;
+    transform: translate(-50%, 0%);
+    width: 15vh;
+    transition: all 5s ease-out;
+}
+
+.ship-menu {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    transition: all 7s ease-in-out;
+}
+
+.ship-launch {
+    transform: translate(-50%, -0%);
+    width: 170%;
+    transition: all 5s ease-in-out;
+}
+
+.blast {
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    width: 20rem;
+    height: 20rem;
+    background-image: url(./images/explosion-1.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    z-index: 3;
+}
+
+.system {
+    position: relative;
+}
+
+.dead-planet {
+    position: absolute;
+    top: -30%;
+    left: -10%;
+    transform: translate(-0%, -60%);
+    width: 100%;
+    animation: rock 60s linear infinite;
+    opacity: 1;
+}
+
+.dead-planet-menu {
+    width: 100%;
+    transform: translate(12.5%, -12.5%);
+    animation: none;
+    z-index: 2;
+}
+
+.asteroids-top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 1;
+    z-index: 3;
+}
+
+.asteroids-floor {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 1;
+    z-index: 3;
+    transition: 1s ease-in;
+}
+
+.asteroids-floor-launch {
+    -webkit-transform: rotate(180deg) translate(0%, -100%);
+    transform: rotate(180deg) translate(0%, -100%);
+}
+
+.planet {
+    position: absolute;
+    width: 200%;
+    opacity: 1;
+    z-index: 1;
+    transition: all 4s ease-in;
+}
+
+.planet-menu {
+    width: 200%;
+    transform: translate(-0%, 20%);
+}
+
+.planet-launch {
+    width: 200%;
+    transform: translate(-0%, -0%);
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: transparent;
+}
+
+.opacity {
+    opacity: 1;
+}
+
+@media (max-width: 400px) {
+    .curtain-title h1{
+        font-size: 3.5rem;
+    }
+
+    .curtain-title h2{
+        font-size: 1.5rem;
+    }
+}

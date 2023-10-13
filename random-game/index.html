@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+    <script src="./assets/script.js" defer></script>
+    <title>Random Game</title>
+</head>
+<body class="body" style="opacity: 0;">
+    <div class="page">
+        <header class="header">
+            <h2 class="hits-counter">hits: <span class="hits-counter-num">0%</span></h2>
+            <h2 class="game-name">RSS Commander</h2>
+            <h2 class="miss-counter">miss: <span class="miss-counter-num">0%</span></h2>
+            <div class="curtain">
+                <div class="curtain-layer"></div>
+                <div class="curtain-title">
+                    <h1>RSS Commander</h1>
+                    <h2>THE RANDOM GAME</h2>
+                </div>
+                <div class="logo-block">
+                    <img class="logo" src="./assets/images/w4.png" alt="logo">
+                    <div class="input-block">
+                        <input class="menu-input" type="text" placeholder="Commander ID" autofocus maxlength="24" tabindex="-1">
+                        <span class="material-symbols-outlined login-btn">arrow_forward</span>
+                    </div>
+                </div>
+                <div class="curtain-footer">
+                    <a href="https://github.com/Peccopa" target="_blank" tabindex="-1">
+                        <p>GitHub</p>
+                    </a>
+                    <a href="https://calendar.google.com/calendar/" target="_blank" tabindex="-1">
+                        2023
+                    </a>
+                    <a href="https://rs.school/js-stage0/" target="_blank" tabindex="-1">
+                        <p>RSSchool</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="game-card">
+                <div class="game-menu">
+                    <div class="game-menu-header">
+                        <p>Welcome Commander</p>
+                        <span class="user-name">Bonza</span>
+                        <img src="./assets/images/w4.png" alt="logo">
+                    </div>
+                    <div class="gm-items">
+                        <div class="game-menu-launch gm-item">
+                            <span class="material-symbols-outlined gm-launch">captive_portal</span>
+                            <p>LAUNCH</p>
+                        </div>
+                        <div class="game-menu-results gm-item">
+                            <span class="material-symbols-outlined gm-results">monitoring</span>
+                            <p>RESULTS</p>
+                        </div>
+                        <div class="game-menu-exit gm-item">
+                            <span class="material-symbols-outlined gm-exit">logout</span>
+                            <p>LEAVE</p>
+                        </div>
+                    </div>
+                    <div class="game-menu-footer"></div>
+                </div>
+                <div class="results-menu">
+                    <div class="results-header">
+                        <span class="material-symbols-outlined results-exit">logout</span>
+                        <span class="results-title">RESULTS</span>
+                        <div class="results-empty"></div>
+                    </div>
+                    <ul class="results-ul">
+                    </ul>
+                </div>
+            </div>
+            <div class="board" id="board">
+                <div class="space">
+                    <img class="dead-planet dead-planet-menu" id="dead-planet" src="./assets/images/sun.gif" alt="dead-planet">
+                    <img class="asteroids asteroids-top" src="./assets/images/asteroids.png" alt="asteroids">
+                    <img class="ship ship-menu" id="ship" src="./assets/images/ship.gif" alt="ship">
+                </div>
+                <div class="system">
+                    <img class="planet planet-menu" id="planet" src="./assets/images/planet.gif" alt="planet">
+                    <img class="asteroids asteroids-floor" src="./assets/images/asteroids.png" alt="asteroids">
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
