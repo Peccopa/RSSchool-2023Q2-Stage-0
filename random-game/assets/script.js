@@ -35,6 +35,7 @@ let rockInterval = 3500;
 let interval;
 let gameScore = 0;
 let missScore = 0;
+let checkFunc = 0;
 
 document.addEventListener("DOMContentLoaded", function() {
     ship.src = 'assets/images/ship-menu.png';
@@ -103,7 +104,8 @@ const menuLoginInput = () => {
         menuClick.volume = 0.3;
         menuClick.play();
         audioIntro.play();
-        setLocalStorage();
+        createResultsList();
+        // setLocalStorage();
         setTimeout(() => {
 
             audioOpenCurtain.volume = 0.3;
@@ -117,14 +119,14 @@ const menuLoginInput = () => {
 };
 
 const setLocalStorage = () => {
-    localStorage.getItem('results') ? results = JSON.parse(localStorage.getItem('results')) : false;
-    currentUser['userId'] = results.length + 1;
-    currentUser['userName'] = String(menuInput.value);
-    currentUser['userScore'] = 0;
-    results.push(currentUser);
-    localStorage.setItem('results', JSON.stringify(results));
-    createResultsList();
-    openGameMenu();
+    // localStorage.getItem('results') ? results = JSON.parse(localStorage.getItem('results')) : false;
+    // currentUser['userId'] = results.length + 1;
+    // currentUser['userName'] = String(menuInput.value);
+    // currentUser['userScore'] = 0;
+    // results.push(currentUser);
+    // localStorage.setItem('results', JSON.stringify(results));
+    // createResultsList();
+    // openGameMenu();
 };
 
 const openGameMenu = () => {
@@ -135,17 +137,20 @@ const openGameMenu = () => {
 };
 
 const createResultsList = () => {
-    results = JSON.parse(localStorage.getItem('results'));
-    results.sort((a, b) => parseInt(a.userScore) - parseInt(b.userScore));
-    results.reverse();
-    results.forEach(element => {
-        tagLi = `
-        <li>
-            <p class="pilot-name">${element.userName}</p>
-            <p class="pilot-score">${element.userScore}</p>
-        </li>`;
-        tagUl.insertAdjacentHTML('beforeend', tagLi);
-    });
+    if(localStorage.getItem('results')) {
+        results = JSON.parse(localStorage.getItem('results'));
+        // results = JSON.parse(localStorage.getItem('results'));
+        results.sort((a, b) => parseInt(a.userScore) - parseInt(b.userScore));
+        results.reverse();
+        results.forEach(element => {
+            tagLi = `
+            <li>
+                <p class="pilot-name">${element.userName}</p>
+                <p class="pilot-score">${element.userScore}</p>
+            </li>`;
+            tagUl.insertAdjacentHTML('beforeend', tagLi);
+        });
+    };
 };
 
 
@@ -174,6 +179,17 @@ openMenuResults();
 
 const launchGame = () => {
     menuLaunchBtn.addEventListener('click', () => {
+        missCounterTop.textContent = '0%';
+        hitsCounterTop.textContent = '0%';
+
+        localStorage.getItem('results') ? results = JSON.parse(localStorage.getItem('results')) : false;
+        currentUser['userId'] = results.length + 1;
+        currentUser['userName'] = String(menuInput.value);
+        currentUser['userScore'] = 0;
+        results.push(currentUser);
+        localStorage.setItem('results', JSON.stringify(results));
+        createResultsList();
+
         audioStart.play();
         menuLaunchBtn.classList.add('launch-active-btn');
         setTimeout(() => {
@@ -188,17 +204,27 @@ const launchGame = () => {
 
         // tagLi = '';
         // results = [];
-        rocksCount = 0;
-        speedFall = 500; //20
-        rockInterval = 3500;
-        interval = 0;
-        gameScore = 0;
-        missScore = 0;
+        // rocksCount = 0;
+        // speedFall = 500; //20
+        // interval = 0;
+        if(missScore > 0) {
+            checkFunc++;
+            // localStorage.getItem('results') ? results = JSON.parse(localStorage.getItem('results')) : false;
+            // currentUser['userId'] = results.length + 1;
+            // currentUser['userName'] = String(menuInput.value);
+            // currentUser['userScore'] = 0;
+            // results.push(currentUser);
+            // localStorage.setItem('results', JSON.stringify(results));
+            gameScore = 0;
+            missScore = 0;
+            rockInterval = 3500;
+        }
 
         }, 900);
         setTimeout(() => {
             // deadPlanet.classList.remove('dead-planet-menu');
             // audioStart.play();
+            ship.style.transition = 'all 5s ease-out';
             ship.classList.remove('ship-launch');
             ship.classList.remove('ship-menu');
             ship.classList.add('ship');
@@ -208,11 +234,13 @@ const launchGame = () => {
         setTimeout(() => {
             interval = setInterval(generateRocks, rockInterval);
             // generateRocks();
+            if(checkFunc == 0) {
             moveRocks();
             moveShip();
             rocketLaunch();
             rocketHit();
             moveEarth();
+            };
             ship.style.transition = 'all 2s ease-out';
             gameMenu.style.transform = 'perspective(60rem) rotateY(-180deg)';
             resultsMenu.style.transform = 'perspective(60rem) rotateY(0deg)';
@@ -422,6 +450,9 @@ const moveEarth = () => {
 // // moveEarth();
 
 const stopGame = () => {
+    clearInterval(interval);
+    tagUl.textContent = '';
+    createResultsList();
     let stoneSlide = new Audio(`assets/sounds/stone-sliding.mp3`);
     gameCard.classList.remove('game-card-hide');
     stoneSlide.play();
