@@ -38,7 +38,7 @@ body {
     width: 48rem;
     height: 100%;
     margin: auto 0;
-    background-image: url(./random-game/assets/images/curtain.jpg);
+    background-image: url(./images/curtain.jpg);
     background-size: contain;
     border-radius: 1rem 1rem 0rem 0rem;
 }
