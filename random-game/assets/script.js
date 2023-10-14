@@ -38,10 +38,14 @@ let gameScore = 0;
 let missScore = 0;
 let checkFunc = 0;
 
-document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(() => {
-        loadBody.style.opacity = 1;
-    }, 1000);
+// document.addEventListener("DOMContentLoaded", function() {
+//     setTimeout(() => {
+//         loadBody.style.opacity = 1;
+//     }, 1000);
+// });
+
+window.addEventListener('load', (event) => {
+    loadBody.style.opacity = 1;
 });
 
 //login
