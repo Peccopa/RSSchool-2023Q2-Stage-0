@@ -1,0 +1,256 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.page {
+    font-family: 'Handlee', cursive;
+    width: 100%;
+    max-width:96rem;
+    margin: 0 auto;
+    background-color: black;
+}
+
+input {
+    display: none;
+}
+
+.mems {
+    display: flex;
+    overflow: hidden;
+}
+
+.frame {
+    width: 100%;
+    padding: 1vw 1vw 0 1vw;
+    transition: 1s linear;
+    border-radius: 3vw;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.texts {
+    font-style: italic;
+    width: 27rem;
+    display: flex;
+    overflow: hidden;
+    margin-left: 1vw;
+}
+
+.btns {
+    display: flex;
+    justify-content: end;
+}
+
+.text {
+    width: 27rem;
+    min-width: 27rem;
+    font-size: 2rem;
+    color: #ffa500;
+    text-align: start;
+    line-height: 3;
+    white-space: nowrap;
+    transition: 1s linear;
+}
+
+label {
+    padding: 1vw 1vw 1vw 1vw;
+    cursor: pointer;
+    margin: auto 0;
+}
+
+.div_btn {
+    display: block;
+    background-color: rgb(255, 165, 0);
+    width: 1.8rem;
+    height: 1.8rem;
+    border: .2rem solid #000000;
+    border-radius: 50%;
+    transition: .2s linear;
+}
+
+/*BTN1*/
+
+#btn-1:hover ~ .menu #div-btn-1{
+    background-color: rgb(255, 209, 123);
+}
+
+#btn-1:active  ~ .menu #div-btn-1{
+    background-color: rgb(255, 211, 129);
+    border: 0.2rem solid #fff;
+}
+
+#btn-1:checked ~ .menu #div-btn-1{
+    background-color: rgb(139, 90, 0);
+    border: .2rem solid orange;
+}
+
+#btn-1:checked:hover ~ .menu #div-btn-1{
+    background-color: rgb(76, 50, 0);
+}
+
+#btn-1:checked ~ .mems .frame{
+    transform: translateX(0%);
+}
+
+#btn-1:checked ~ .menu .texts .text{
+    transform: translateX(0%);
+}
+
+/*BTN2*/
+
+#btn-2:hover ~ .menu #div-btn-2{
+    background-color: rgb(255, 209, 123);
+}
+
+#btn-2:active  ~ .menu #div-btn-2{
+    background-color: rgb(255, 211, 129);
+    border: 0.2rem solid #fff;
+}
+
+#btn-2:checked ~ .menu #div-btn-2{
+    background-color: rgb(139, 90, 0);
+    border: .2rem solid orange;
+}
+
+#btn-2:checked:hover ~ .menu #div-btn-2{
+    background-color: rgb(76, 50, 0);
+}
+
+#btn-2:checked ~ .mems .frame{
+    transform: translateX(-100%);
+}
+
+#btn-2:checked ~ .menu .texts .text{
+    transform: translateX(-100%);
+}
+
+/*BTN3*/
+
+#btn-3:hover ~ .menu #div-btn-3{
+    background-color: rgb(255, 209, 123);
+}
+
+#btn-3:active  ~ .menu #div-btn-3{
+    background-color: rgb(255, 211, 129);
+    border: 0.2rem solid #fff;
+}
+
+#btn-3:checked ~ .menu #div-btn-3{
+    background-color: rgb(139, 90, 0);
+    border: .2rem solid orange;
+}
+
+#btn-3:checked:hover ~ .menu #div-btn-3{
+    background-color: rgb(76, 50, 0);
+}
+
+#btn-3:checked ~ .mems .frame{
+    transform: translateX(-200%);
+}
+
+#btn-3:checked ~ .menu .texts .text{
+    transform: translateX(-200%);
+}
+
+/*BTN4*/
+
+#btn-4:hover ~ .menu #div-btn-4{
+    background-color: rgb(255, 209, 123);
+}
+
+#btn-4:active  ~ .menu #div-btn-4{
+    background-color: rgb(255, 211, 129);
+    border: 0.2rem solid #fff;
+}
+
+#btn-4:checked ~ .menu #div-btn-4{
+    background-color: rgb(139, 90, 0);
+    border: .2rem solid orange;
+}
+
+#btn-4:checked:hover ~ .menu #div-btn-4{
+    background-color: rgb(76, 50, 0);
+}
+
+#btn-4:checked ~ .mems .frame{
+    transform: translateX(-300%);
+}
+
+#btn-4:checked ~ .menu .texts .text{
+    transform: translateX(-300%);
+}
+
+/*BTN5*/
+
+#btn-5:hover ~ .menu #div-btn-5{
+    background-color: rgb(255, 209, 123);
+}
+
+#btn-5:active  ~ .menu #div-btn-5{
+    background-color: rgb(255, 211, 129);
+    border: 0.2rem solid #fff;
+}
+
+#btn-5:checked ~ .menu #div-btn-5{
+    background-color: rgb(139, 90, 0);
+    border: .2rem solid orange;
+}
+
+#btn-5:checked:hover ~ .menu #div-btn-5{
+    background-color: rgb(76, 50, 0);
+}
+
+#btn-5:checked ~ .mems .frame{
+    transform: translateX(-400%);
+}
+
+#btn-5:checked ~ .menu .texts .text{
+    transform: translateX(-400%);
+}
+
+/*Media*/
+
+@media screen and (max-width: 639px) {
+    .menu {
+        flex-wrap: wrap-reverse;
+    }
+
+    .texts {
+        width: 27rem;
+    }
+
+    .btns {
+        margin: 6vw auto 0;
+    }
+
+    .text {
+        margin-left: 1vw;
+        font-size: 4vw;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .menu {
+        justify-content: start;
+    }
+
+    .texts {
+        width: 100vw;
+    }
+    .text {
+        min-width: 100vw;
+        font-size: 5vw;
+        width: 100%;
+    }
+}
