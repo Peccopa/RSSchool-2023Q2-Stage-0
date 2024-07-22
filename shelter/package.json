@@ -1,0 +1,17 @@
+{
+  "name": "shelter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "style": "sass --watch src/sass/style.scss src/css/style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.77.8",
+    "webpack": "^5.93.0"
+  }
+}
