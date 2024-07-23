@@ -1,4 +1,15 @@
 // Base
-
+@import './base/variables';
+@import './base/fonts';
 @import './base/normalize';
 
+// Layouts
+@import './layouts/wrapper';
+
+// Sections
+@import './sections/promo';
+@import './sections/about';
+@import './sections/pets';
+@import './sections/help';
+@import './sections/donations';
+@import './sections/footer';
