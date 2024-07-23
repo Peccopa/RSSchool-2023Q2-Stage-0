@@ -1,3 +1,32 @@
 .promo {
   background: $gradient-background-header;
 }
+
+.promo__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+  padding: 30px 40px 0;
+}
+
+.promo__description {
+  font-family: $second-family;
+  font-size: 1.5rem;
+  line-height: 160%;
+  color: $color-dark-s;
+}
+
+.promo-content {
+  // @extend %center-between;
+  display: flex;
+  // align-items: center;
+  justify-content: space-between;
+}
+
+.promo-content__description {
+  padding-top: 163px;
+  display: flex;
+  gap: 42px;
+  flex-direction: column;
+  max-width: 460px;
+}
