@@ -15,14 +15,10 @@
   color: $color-light-xl;
 }
 
-.nav {
-  // display: block;
-  // padding: 7px;
-  // text-align: center;
-}
-
 .nav__list {
-  // width: 100%;
+  margin-bottom: 5px; // adjustment
+  min-width: 442px; // adjustment
+
   display: flex;
   gap: 35px;
 }

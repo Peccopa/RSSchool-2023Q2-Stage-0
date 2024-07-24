@@ -1,0 +1,16 @@
+.about-content {
+  @extend %center-center;
+  padding: 80px 40px 100px;
+}
+
+.about-content__img {
+  margin-right: 120px;
+}
+
+.about-content__description {
+  max-width: 430px;
+  max-height: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
