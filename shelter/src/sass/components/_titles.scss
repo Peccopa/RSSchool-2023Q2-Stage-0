@@ -1,9 +1,10 @@
 .title {
   user-select: none;
-
+  
   font-family: $first-family;
   font-weight: 400;
   letter-spacing: 0.06em;
+  color: $color-dark-l;
 }
 
 .title-h1 {
@@ -22,11 +23,14 @@
 .title-h3 {
   font-size: 3.5rem;
   line-height: 130%;
-  color: $color-dark-l;
 }
 
 .title-h4 {
   font-size: 2rem;
   text-align: center;
-  color: $color-dark-l;
+}
+
+.title-h5 {
+  font-size: 1.5rem;
+  line-height: 110%;
 }

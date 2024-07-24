@@ -1,0 +1,29 @@
+.donation {
+  background: $color-light-l;
+}
+
+.donation-content {
+  padding: 80px 182px 100px;
+  @extend %center-center;
+  gap: 30px;
+}
+
+.donation-content__description {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-number {
+  @extend %center-between;
+  border-radius: 9px;
+  padding: 10px 15px;
+  width: 349px;
+  height: 43px;
+  background: $color-primary;
+  .title-h4 {
+    line-height: 155%;
+  }
+}
+
+

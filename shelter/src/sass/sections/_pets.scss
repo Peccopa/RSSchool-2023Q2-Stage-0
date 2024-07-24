@@ -25,6 +25,8 @@
 
 .slider {
   @extend %center-between;
+  overflow: hidden;
+  margin: 0 12px;
 }
 
 .slider__clip {

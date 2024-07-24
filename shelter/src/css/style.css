@@ -89,13 +89,13 @@
   font-style: italic;
   font-display: swap;
 }
-.logo, .header, .help__item, .help-content, .pet-card, .slider__clip, .slider, .carousel, .pets-content {
+.logo, .header, .card-number, .help__item, .help-content, .pet-card, .slider__clip, .slider, .carousel, .pets-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.help-list, .carousel__btn, .about-content {
+.donation-content, .help-list, .carousel__btn, .about-content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -202,6 +202,11 @@ html {
   cursor: pointer;
 }
 
+.slider {
+  overflow: hidden;
+  margin: 0 12px;
+}
+
 .slider__clip {
   gap: 90px;
 }
@@ -227,6 +232,32 @@ html {
 .help__item {
   flex-direction: column;
   gap: 30px;
+}
+
+.donation {
+  background: #f6f6f6;
+}
+
+.donation-content {
+  padding: 80px 182px 100px;
+  gap: 30px;
+}
+
+.donation-content__description {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-number {
+  border-radius: 9px;
+  padding: 10px 15px;
+  width: 349px;
+  height: 43px;
+  background: #f1cdb3;
+}
+.card-number .title-h4 {
+  line-height: 155%;
 }
 
 .footer {
@@ -278,6 +309,7 @@ html {
   font-family: "Georgia", sans-serif;
   font-weight: 400;
   letter-spacing: 0.06em;
+  color: #545454;
 }
 
 .title-h1 {
@@ -296,13 +328,16 @@ html {
 .title-h3 {
   font-size: 3.5rem;
   line-height: 130%;
-  color: #545454;
 }
 
 .title-h4 {
   font-size: 2rem;
   text-align: center;
-  color: #545454;
+}
+
+.title-h5 {
+  font-size: 1.5rem;
+  line-height: 110%;
 }
 
 .button {
@@ -341,6 +376,13 @@ html {
 
 .about__description {
   color: #4c4c4c;
+}
+
+.donation__description {
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 150%;
+  color: #b2b2b2;
 }
 
 .icon {
@@ -383,6 +425,12 @@ html {
 
 .ico-sleep {
   background: url("/shelter/src/img/ico/9-icon-sleeping-area.svg");
+}
+
+.ico-card {
+  background: url("/shelter/src/img/ico/credit-card.svg");
+  width: 30px;
+  height: 23px;
 }
 
 /*# sourceMappingURL=style.css.map */
