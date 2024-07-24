@@ -1,0 +1,19 @@
+.help-content {
+  padding: 80px 40px 100px;
+  @extend %center-between;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.help-list {
+  @extend %center-center;
+  flex-wrap: wrap;
+  column-gap: 120px;
+  row-gap: 55px
+}
+
+.help__item {
+  @extend %center-between;
+  flex-direction: column;
+  gap: 30px;
+}

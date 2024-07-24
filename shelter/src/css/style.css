@@ -89,13 +89,13 @@
   font-style: italic;
   font-display: swap;
 }
-.logo, .header, .pet-card, .slider__clip, .slider, .carousel, .pets-content {
+.logo, .header, .help__item, .help-content, .pet-card, .slider__clip, .slider, .carousel, .pets-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.carousel__btn, .about-content {
+.help-list, .carousel__btn, .about-content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,6 +212,23 @@ html {
   padding-bottom: 30px;
 }
 
+.help-content {
+  padding: 80px 40px 100px;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.help-list {
+  flex-wrap: wrap;
+  column-gap: 120px;
+  row-gap: 55px;
+}
+
+.help__item {
+  flex-direction: column;
+  gap: 30px;
+}
+
 .footer {
   background: radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%);
 }
@@ -324,6 +341,48 @@ html {
 
 .about__description {
   color: #4c4c4c;
+}
+
+.icon {
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+.ico-food {
+  background: url("/shelter/src/img/ico/1-icon-pet-food.svg");
+}
+
+.ico-transport {
+  background: url("/shelter/src/img/ico/2-icon-transportation.svg");
+}
+
+.ico-toy {
+  background: url("/shelter/src/img/ico/3-icon-toys.svg");
+}
+
+.ico-bowl {
+  background: url("/shelter/src/img/ico/4-icon-bowls-and-cups.svg");
+}
+
+.ico-shampoo {
+  background: url("/shelter/src/img/ico/5-icon-shampoos.svg");
+}
+
+.ico-vitamin {
+  background: url("/shelter/src/img/ico/6-icon-vitamins.svg");
+}
+
+.ico-medicine {
+  background: url("/shelter/src/img/ico/7-icon-medicines.svg");
+}
+
+.ico-collar {
+  background: url("/shelter/src/img/ico/8-icon-collars-leashes.svg");
+}
+
+.ico-sleep {
+  background: url("/shelter/src/img/ico/9-icon-sleeping-area.svg");
 }
 
 /*# sourceMappingURL=style.css.map */
