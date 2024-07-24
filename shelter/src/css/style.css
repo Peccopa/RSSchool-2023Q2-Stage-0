@@ -89,13 +89,13 @@
   font-style: italic;
   font-display: swap;
 }
-.logo, .header {
+.logo, .header, .pet-card, .slider__clip, .slider, .carousel, .pets-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.about-content {
+.carousel__btn, .about-content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,6 +136,10 @@ html {
   margin: auto;
 }
 
+.tac {
+  text-align: center;
+}
+
 .promo {
   background: radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%);
 }
@@ -174,6 +178,38 @@ html {
   display: flex;
   flex-direction: column;
   gap: 25px;
+}
+
+.pets {
+  background: #f6f6f6;
+}
+
+.pets-content {
+  padding: 80px 40px 100px;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.carousel {
+  width: 100%;
+}
+
+.carousel__btn {
+  min-width: 52px;
+  min-height: 52px;
+  border-radius: 100px;
+  border: 2px solid #f1cdb3;
+  cursor: pointer;
+}
+
+.slider__clip {
+  gap: 90px;
+}
+
+.pet-card {
+  flex-direction: column;
+  gap: 30px;
+  padding-bottom: 30px;
 }
 
 .footer {
@@ -221,14 +257,15 @@ html {
 }
 
 .title {
+  user-select: none;
   font-family: "Georgia", sans-serif;
   font-weight: 400;
+  letter-spacing: 0.06em;
 }
 
 .title-h1 {
   font-size: 3.2rem;
   line-height: 110%;
-  letter-spacing: 0.06em;
   color: #f1cdb3;
 }
 
@@ -236,28 +273,46 @@ html {
   font-size: 4.4rem;
   line-height: 130%;
   color: #fff;
+  letter-spacing: 0;
 }
 
 .title-h3 {
   font-size: 3.5rem;
   line-height: 130%;
-  letter-spacing: 0.06em;
+  color: #545454;
+}
+
+.title-h4 {
+  font-size: 2rem;
+  text-align: center;
   color: #545454;
 }
 
 .button {
-  border-radius: 100px;
   width: 207px;
   height: 52px;
+  border-radius: 100px;
   background: #f1cdb3;
+  cursor: pointer;
   font-family: "Georgia", sans-serif;
-  font-size: 17px;
+  font-size: 1.7rem;
   line-height: 130%;
   letter-spacing: 0.06em;
   color: #292929;
 }
 
+.pet-card__button {
+  background: none;
+  border: 2px solid #f1cdb3;
+  width: 187px;
+}
+
+.pets__button {
+  width: 261px;
+}
+
 .description {
+  user-select: none;
   font-family: "Arial", sans-serif;
   font-size: 1.5rem;
   line-height: 160%;

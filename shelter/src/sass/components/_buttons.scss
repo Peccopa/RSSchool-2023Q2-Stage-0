@@ -1,14 +1,27 @@
 .button {
-  border-radius: 100px;
   width: 207px;
   height: 52px;
+
+  border-radius: 100px;
   background: $color-primary;
+  cursor: pointer;
+
   font-family: $first-family;
-  font-size: 17px;
+  font-size: 1.7rem;
   line-height: 130%;
   letter-spacing: 0.06em;
   color: $color-dark-3xl;
 }
 
-.button__promo {
+.promo__button {
+}
+
+.pet-card__button {
+  background: none;
+  border: 2px solid $color-primary;
+  width: 187px;
+}
+
+.pets__button {
+  width: 261px;
 }

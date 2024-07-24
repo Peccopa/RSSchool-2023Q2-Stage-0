@@ -1,12 +1,14 @@
 .title {
+  user-select: none;
+
   font-family: $first-family;
   font-weight: 400;
+  letter-spacing: 0.06em;
 }
 
 .title-h1 {
   font-size: 3.2rem;
   line-height: 110%;
-  letter-spacing: 0.06em;
   color: $color-primary;
 }
 
@@ -14,11 +16,17 @@
   font-size: 4.4rem;
   line-height: 130%;
   color: $color-light-xl;
+  letter-spacing: 0;
 }
 
 .title-h3 {
   font-size: 3.5rem;
   line-height: 130%;
-  letter-spacing: 0.06em;
+  color: $color-dark-l;
+}
+
+.title-h4 {
+  font-size: 2rem;
+  text-align: center;
   color: $color-dark-l;
 }

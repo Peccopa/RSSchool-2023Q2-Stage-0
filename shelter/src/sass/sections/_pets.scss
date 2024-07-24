@@ -1,0 +1,40 @@
+.pets {
+  background: $color-light-l;
+}
+
+.pets-content {
+  padding: 80px 40px 100px;
+  @extend %center-between;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.carousel {
+  @extend %center-between;
+  width: 100%;
+}
+
+.carousel__btn {
+  @extend %center-center;
+  min-width: 52px;
+  min-height: 52px;
+  border-radius: 100px;
+  border: 2px solid $color-primary;
+  cursor: pointer;
+}
+
+.slider {
+  @extend %center-between;
+}
+
+.slider__clip {
+  @extend %center-between;
+  gap: 90px;
+}
+
+.pet-card {
+  @extend %center-between;
+  flex-direction: column;
+  gap: 30px;
+  padding-bottom: 30px;
+}
