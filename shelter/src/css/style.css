@@ -362,6 +362,10 @@ body {
   background: #f1cdb3;
 }
 
+.header_pets {
+  background: #fff;
+}
+
 .footer {
   background: url("../../src/img/footer/footer-bg.png");
   background-position: center;
