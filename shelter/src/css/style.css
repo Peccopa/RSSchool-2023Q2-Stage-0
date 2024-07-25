@@ -113,6 +113,9 @@
 a {
   text-decoration: none;
   color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 li {
@@ -133,6 +136,11 @@ button {
 
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+a {
+  user-select: none;
 }
 
 .wrapper {
@@ -371,6 +379,7 @@ html {
   display: flex;
   column-gap: 20px;
   align-items: center;
+  justify-content: start;
 }
 .footer__link .icon {
   display: block;
