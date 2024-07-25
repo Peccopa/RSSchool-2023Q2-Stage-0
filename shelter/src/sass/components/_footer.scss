@@ -1,0 +1,42 @@
+.footer {
+  background: $gradient-background-footer;
+}
+
+.footer-content {
+  padding: 40px 40px 0;
+  display: flex;
+  justify-content: space-between;
+  .title-h3 {
+    color: $color-light-l;
+  }
+  .title-h4 {
+    color: $color-primary;
+    line-height: 115%;
+    text-align: start;
+  }
+}
+
+.footer-content__links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 234px;
+  margin-top: 16px;
+}
+
+.footer__link {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+  .icon {
+    display: block;
+  }
+}
+
+.footer__contacts {
+  min-width: 278px;
+}
+
+.footer__locations {
+  min-width: 302px;
+}

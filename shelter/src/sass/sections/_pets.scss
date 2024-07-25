@@ -24,13 +24,17 @@
 }
 
 .slider {
-  @extend %center-between;
+  max-width: 990px;
+  max-height: 435px;
+
+  // @extend %center-between;
   overflow: hidden;
   margin: 0 12px;
 }
 
 .slider__clip {
-  @extend %center-between;
+  @extend %center-center;
+  flex-wrap: wrap ;
   gap: 90px;
 }
 
@@ -39,4 +43,8 @@
   flex-direction: column;
   gap: 30px;
   padding-bottom: 30px;
+
+  background: $color-light-s;
+  border-radius: 9px 9px 0 0;
+  overflow: hidden;
 }

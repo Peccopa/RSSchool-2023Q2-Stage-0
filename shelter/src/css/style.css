@@ -89,13 +89,13 @@
   font-style: italic;
   font-display: swap;
 }
-.logo, .header, .card-number, .help__item, .help-content, .pet-card, .slider__clip, .slider, .carousel, .pets-content {
+.logo, .header, .card-number, .help__item, .help-content, .pet-card, .carousel, .pets-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.donation-content, .help-list, .carousel__btn, .about-content {
+.donation-content, .help-list, .slider__clip, .carousel__btn, .about-content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -203,11 +203,14 @@ html {
 }
 
 .slider {
+  max-width: 990px;
+  max-height: 435px;
   overflow: hidden;
   margin: 0 12px;
 }
 
 .slider__clip {
+  flex-wrap: wrap;
   gap: 90px;
 }
 
@@ -215,6 +218,9 @@ html {
   flex-direction: column;
   gap: 30px;
   padding-bottom: 30px;
+  background: #fafafa;
+  border-radius: 9px 9px 0 0;
+  overflow: hidden;
 }
 
 .help-content {
@@ -260,10 +266,6 @@ html {
   line-height: 155%;
 }
 
-.footer {
-  background: radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%);
-}
-
 .logo {
   flex-direction: column;
   height: 60px;
@@ -302,6 +304,49 @@ html {
   width: 100%;
   height: 3px;
   background: #f1cdb3;
+}
+
+.footer {
+  background: radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%);
+}
+
+.footer-content {
+  padding: 40px 40px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-content .title-h3 {
+  color: #f6f6f6;
+}
+.footer-content .title-h4 {
+  color: #f1cdb3;
+  line-height: 115%;
+  text-align: start;
+}
+
+.footer-content__links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 234px;
+  margin-top: 16px;
+}
+
+.footer__link {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+.footer__link .icon {
+  display: block;
+}
+
+.footer__contacts {
+  min-width: 278px;
+}
+
+.footer__locations {
+  min-width: 302px;
 }
 
 .title {
@@ -431,6 +476,24 @@ html {
   background: url("/shelter/src/img/ico/credit-card.svg");
   width: 30px;
   height: 23px;
+}
+
+.ico-email {
+  background: url("/shelter/src/img/ico/icon-email.svg");
+  width: 40px;
+  height: 32px;
+}
+
+.ico-phone {
+  background: url("/shelter/src/img/ico/icon-phone.svg");
+  width: 40px;
+  height: 32px;
+}
+
+.ico-marker {
+  background: url("/shelter/src/img/ico/icon-marker.svg");
+  width: 22px;
+  height: 32px;
 }
 
 /*# sourceMappingURL=style.css.map */
