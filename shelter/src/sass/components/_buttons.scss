@@ -1,4 +1,6 @@
 .button {
+  @extend %transition;
+
   width: 207px;
   height: 52px;
 
@@ -13,7 +15,8 @@
   color: $color-dark-3xl;
 }
 
-.promo__button {
+.promo__button:hover {
+  background: $color-primary-light;
 }
 
 .pet-card__button {
@@ -24,4 +27,8 @@
 
 .pets__button {
   width: 261px;
+}
+
+.pets__button:hover {
+  background: $color-primary-light;
 }

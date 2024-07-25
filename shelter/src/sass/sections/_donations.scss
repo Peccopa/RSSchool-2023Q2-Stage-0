@@ -16,13 +16,18 @@
 
 .card-number {
   @extend %center-between;
+  @extend %transition;
   border-radius: 9px;
   padding: 10px 15px;
   width: 349px;
   height: 43px;
   background: $color-primary;
+  cursor: pointer;
   .title-h4 {
     line-height: 155%;
+  }
+  &:hover {
+    background: $color-primary-light;
   }
 }
 

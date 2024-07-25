@@ -101,6 +101,10 @@
   justify-content: center;
 }
 
+.button, .nav__link, .logo__subtitle, .card-number, .carousel__btn {
+  transition: all 0.3s ease-in-out;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -141,7 +145,10 @@ html {
 }
 
 .promo {
-  background: radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%);
+  background: url("/shelter/src/img/promo/promo-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .promo__wrapper {
@@ -201,6 +208,10 @@ html {
   border: 2px solid #f1cdb3;
   cursor: pointer;
 }
+.carousel__btn:hover {
+  background: #fddcc4;
+  border: 2px solid #fddcc4;
+}
 
 .slider {
   max-width: 990px;
@@ -221,6 +232,11 @@ html {
   background: #fafafa;
   border-radius: 9px 9px 0 0;
   overflow: hidden;
+  cursor: pointer;
+}
+.pet-card:hover .pet-card__button {
+  background: #fddcc4;
+  border-color: #fddcc4;
 }
 
 .help-content {
@@ -261,14 +277,21 @@ html {
   width: 349px;
   height: 43px;
   background: #f1cdb3;
+  cursor: pointer;
 }
 .card-number .title-h4 {
   line-height: 155%;
+}
+.card-number:hover {
+  background: #fddcc4;
 }
 
 .logo {
   flex-direction: column;
   height: 60px;
+}
+.logo:hover .logo__subtitle {
+  color: #fddcc4;
 }
 
 .logo__subtitle {
@@ -297,17 +320,29 @@ html {
   line-height: 160%;
   color: #cdcdcd;
 }
+.nav__link:hover {
+  color: #f1cdb3;
+}
+
+.nav_selected {
+  pointer-events: none;
+}
 
 .nav_selected::after {
   content: "";
   position: absolute;
+  bottom: -3px;
+  left: 0;
   width: 100%;
   height: 3px;
   background: #f1cdb3;
 }
 
 .footer {
-  background: radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%);
+  background: url("/shelter/src/img/footer/footer-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .footer-content {
@@ -398,6 +433,10 @@ html {
   color: #292929;
 }
 
+.promo__button:hover {
+  background: #fddcc4;
+}
+
 .pet-card__button {
   background: none;
   border: 2px solid #f1cdb3;
@@ -406,6 +445,10 @@ html {
 
 .pets__button {
   width: 261px;
+}
+
+.pets__button:hover {
+  background: #fddcc4;
 }
 
 .description {

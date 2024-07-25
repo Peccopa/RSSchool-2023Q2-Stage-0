@@ -16,25 +16,29 @@
 
 .carousel__btn {
   @extend %center-center;
+  @extend %transition;
   min-width: 52px;
   min-height: 52px;
   border-radius: 100px;
   border: 2px solid $color-primary;
   cursor: pointer;
+  &:hover {
+    background: $color-primary-light;
+    border: 2px solid $color-primary-light;
+  }
 }
 
 .slider {
   max-width: 990px;
   max-height: 435px;
 
-  // @extend %center-between;
   overflow: hidden;
   margin: 0 12px;
 }
 
 .slider__clip {
   @extend %center-center;
-  flex-wrap: wrap ;
+  flex-wrap: wrap;
   gap: 90px;
 }
 
@@ -43,8 +47,12 @@
   flex-direction: column;
   gap: 30px;
   padding-bottom: 30px;
-
   background: $color-light-s;
   border-radius: 9px 9px 0 0;
   overflow: hidden;
+  cursor: pointer;
+  &:hover .pet-card__button {
+    background: $color-primary-light;
+    border-color: $color-primary-light;
+  }
 }
