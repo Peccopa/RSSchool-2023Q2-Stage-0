@@ -2,8 +2,8 @@
 
 @font-face {
   font-family: 'Georgia';
-  src: url('../../fonts/georgia/Georgia-Bold.woff2') format('woff2'),
-    url('../../fonts/georgia/Georgia-Bold.woff') format('woff');
+  src: url('../../src/fonts/georgia/Georgia-Bold.woff2') format('woff2'),
+    url('../../src/fonts/georgia/Georgia-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -11,9 +11,9 @@
 
 @font-face {
   font-family: 'Georgia';
-  src: url('../../fonts/georgia/Georgia-BoldItalic.woff2')
+  src: url('../../src/fonts/georgia/Georgia-BoldItalic.woff2')
       format('woff2'),
-    url('../../fonts/georgia/Georgia-BoldItalic.woff') format('woff');
+    url('../../src/fonts/georgia/Georgia-BoldItalic.woff') format('woff');
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -21,8 +21,8 @@
 
 @font-face {
   font-family: 'Georgia';
-  src: url('../../fonts/georgia/Georgia-Italic.woff2') format('woff2'),
-    url('../../fonts/georgia/Georgia-Italic.woff') format('woff');
+  src: url('../../src/fonts/georgia/Georgia-Italic.woff2') format('woff2'),
+    url('../../src/fonts/georgia/Georgia-Italic.woff') format('woff');
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -30,8 +30,8 @@
 
 @font-face {
   font-family: 'Georgia';
-  src: url('../../fonts/georgia/Georgia.woff2') format('woff2'),
-    url('../../fonts/georgia/Georgia.woff') format('woff');
+  src: url('../../src/fonts/georgia/Georgia.woff2') format('woff2'),
+    url('../../src/fonts/georgia/Georgia.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -41,8 +41,8 @@
 
 @font-face {
   font-family: 'Arial';
-  src: url('../../fonts/arial/Arial-ItalicMT.woff2') format('woff2'),
-    url('../../fonts/arial/Arial-ItalicMT.woff') format('woff');
+  src: url('../../src/fonts/arial/Arial-ItalicMT.woff2') format('woff2'),
+    url('../../src/fonts/arial/Arial-ItalicMT.woff') format('woff');
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -50,8 +50,8 @@
 
 @font-face {
   font-family: 'Arial';
-  src: url('../../fonts/arial/ArialMT.woff2') format('woff2'),
-    url('../../fonts/arial/ArialMT.woff') format('woff');
+  src: url('../../src/fonts/arial/ArialMT.woff2') format('woff2'),
+    url('../../src/fonts/arial/ArialMT.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -59,8 +59,8 @@
 
 @font-face {
   font-family: 'Arial';
-  src: url('../../fonts/arial/Arial-BoldMT.woff2') format('woff2'),
-    url('../../fonts/arial/Arial-BoldMT.woff') format('woff');
+  src: url('../../src/fonts/arial/Arial-BoldMT.woff2') format('woff2'),
+    url('../../src/fonts/arial/Arial-BoldMT.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -68,8 +68,8 @@
 
 @font-face {
   font-family: 'Arial';
-  src: url('../../fonts/arial/Arial-BoldItalicMT.woff2') format('woff2'),
-    url('../../fonts/arial/Arial-BoldItalicMT.woff') format('woff');
+  src: url('../../src/fonts/arial/Arial-BoldItalicMT.woff2') format('woff2'),
+    url('../../src/fonts/arial/Arial-BoldItalicMT.woff') format('woff');
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -77,8 +77,8 @@
 
 @font-face {
   font-family: 'Arial';
-  src: url('../../fonts/arial/Arial-Black.woff2') format('woff2'),
-    url('../../fonts/arial/Arial-Black.woff') format('woff');
+  src: url('../../src/fonts/arial/Arial-Black.woff2') format('woff2'),
+    url('../../src/fonts/arial/Arial-Black.woff') format('woff');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -88,8 +88,8 @@
 
 @font-face {
   font-family: 'Arial Narrow';
-  src: url('../../fonts/arial/ArialNarrow.woff2') format('woff2'),
-    url('../../fonts/arial/ArialNarrow.woff') format('woff');
+  src: url('../../src/fonts/arial/ArialNarrow.woff2') format('woff2'),
+    url('../../src/fonts/arial/ArialNarrow.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -97,8 +97,8 @@
 
 @font-face {
   font-family: 'Arial Narrow';
-  src: url('../../fonts/arial/ArialNarrow-Bold.woff2') format('woff2'),
-    url('../../fonts/arial/ArialNarrow-Bold.woff') format('woff');
+  src: url('../../src/fonts/arial/ArialNarrow-Bold.woff2') format('woff2'),
+    url('../../src/fonts/arial/ArialNarrow-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -106,8 +106,8 @@
 
 @font-face {
   font-family: 'Arial Narrow';
-  src: url('../../fonts/arial/ArialNarrow-Italic.woff2') format('woff2'),
-    url('../../fonts/arial/ArialNarrow-Italic.woff') format('woff');
+  src: url('../../src/fonts/arial/ArialNarrow-Italic.woff2') format('woff2'),
+    url('../../src/fonts/arial/ArialNarrow-Italic.woff') format('woff');
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -115,9 +115,9 @@
 
 @font-face {
   font-family: 'Arial Narrow';
-  src: url('../../fonts/arial/ArialNarrow-BoldItalic.woff2')
+  src: url('../../src/fonts/arial/ArialNarrow-BoldItalic.woff2')
       format('woff2'),
-    url('../../fonts/arial/ArialNarrow-BoldItalic.woff') format('woff');
+    url('../../src/fonts/arial/ArialNarrow-BoldItalic.woff') format('woff');
   font-weight: bold;
   font-style: italic;
   font-display: swap;

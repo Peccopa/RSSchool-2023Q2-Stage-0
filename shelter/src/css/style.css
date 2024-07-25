@@ -1,90 +1,90 @@
 @font-face {
   font-family: "Georgia";
-  src: url("../../fonts/georgia/Georgia-Bold.woff2") format("woff2"), url("../../fonts/georgia/Georgia-Bold.woff") format("woff");
+  src: url("../../src/fonts/georgia/Georgia-Bold.woff2") format("woff2"), url("../../src/fonts/georgia/Georgia-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Georgia";
-  src: url("../../fonts/georgia/Georgia-BoldItalic.woff2") format("woff2"), url("../../fonts/georgia/Georgia-BoldItalic.woff") format("woff");
+  src: url("../../src/fonts/georgia/Georgia-BoldItalic.woff2") format("woff2"), url("../../src/fonts/georgia/Georgia-BoldItalic.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Georgia";
-  src: url("../../fonts/georgia/Georgia-Italic.woff2") format("woff2"), url("../../fonts/georgia/Georgia-Italic.woff") format("woff");
+  src: url("../../src/fonts/georgia/Georgia-Italic.woff2") format("woff2"), url("../../src/fonts/georgia/Georgia-Italic.woff") format("woff");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Georgia";
-  src: url("../../fonts/georgia/Georgia.woff2") format("woff2"), url("../../fonts/georgia/Georgia.woff") format("woff");
+  src: url("../../src/fonts/georgia/Georgia.woff2") format("woff2"), url("../../src/fonts/georgia/Georgia.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial";
-  src: url("../../fonts/arial/Arial-ItalicMT.woff2") format("woff2"), url("../../fonts/arial/Arial-ItalicMT.woff") format("woff");
+  src: url("../../src/fonts/arial/Arial-ItalicMT.woff2") format("woff2"), url("../../src/fonts/arial/Arial-ItalicMT.woff") format("woff");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial";
-  src: url("../../fonts/arial/ArialMT.woff2") format("woff2"), url("../../fonts/arial/ArialMT.woff") format("woff");
+  src: url("../../src/fonts/arial/ArialMT.woff2") format("woff2"), url("../../src/fonts/arial/ArialMT.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial";
-  src: url("../../fonts/arial/Arial-BoldMT.woff2") format("woff2"), url("../../fonts/arial/Arial-BoldMT.woff") format("woff");
+  src: url("../../src/fonts/arial/Arial-BoldMT.woff2") format("woff2"), url("../../src/fonts/arial/Arial-BoldMT.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial";
-  src: url("../../fonts/arial/Arial-BoldItalicMT.woff2") format("woff2"), url("../../fonts/arial/Arial-BoldItalicMT.woff") format("woff");
+  src: url("../../src/fonts/arial/Arial-BoldItalicMT.woff2") format("woff2"), url("../../src/fonts/arial/Arial-BoldItalicMT.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial";
-  src: url("../../fonts/arial/Arial-Black.woff2") format("woff2"), url("../../fonts/arial/Arial-Black.woff") format("woff");
+  src: url("../../src/fonts/arial/Arial-Black.woff2") format("woff2"), url("../../src/fonts/arial/Arial-Black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial Narrow";
-  src: url("../../fonts/arial/ArialNarrow.woff2") format("woff2"), url("../../fonts/arial/ArialNarrow.woff") format("woff");
+  src: url("../../src/fonts/arial/ArialNarrow.woff2") format("woff2"), url("../../src/fonts/arial/ArialNarrow.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial Narrow";
-  src: url("../../fonts/arial/ArialNarrow-Bold.woff2") format("woff2"), url("../../fonts/arial/ArialNarrow-Bold.woff") format("woff");
+  src: url("../../src/fonts/arial/ArialNarrow-Bold.woff2") format("woff2"), url("../../src/fonts/arial/ArialNarrow-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial Narrow";
-  src: url("../../fonts/arial/ArialNarrow-Italic.woff2") format("woff2"), url("../../fonts/arial/ArialNarrow-Italic.woff") format("woff");
+  src: url("../../src/fonts/arial/ArialNarrow-Italic.woff2") format("woff2"), url("../../src/fonts/arial/ArialNarrow-Italic.woff") format("woff");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial Narrow";
-  src: url("../../fonts/arial/ArialNarrow-BoldItalic.woff2") format("woff2"), url("../../fonts/arial/ArialNarrow-BoldItalic.woff") format("woff");
+  src: url("../../src/fonts/arial/ArialNarrow-BoldItalic.woff2") format("woff2"), url("../../src/fonts/arial/ArialNarrow-BoldItalic.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -153,7 +153,7 @@ a {
 }
 
 .promo {
-  background: url("../../img/promo/promo-bg.png");
+  background: url("../../src/img/promo/promo-bg.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -347,7 +347,7 @@ a {
 }
 
 .footer {
-  background: url("../../img/footer/footer-bg.png");
+  background: url("../../src/img/footer/footer-bg.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -489,61 +489,61 @@ a {
 }
 
 .ico-food {
-  background: url("../../img/ico/1-icon-pet-food.svg");
+  background: url("../../src/img/ico/1-icon-pet-food.svg");
 }
 
 .ico-transport {
-  background: url("../../img/ico/2-icon-transportation.svg");
+  background: url("../../src/img/ico/2-icon-transportation.svg");
 }
 
 .ico-toy {
-  background: url("../../img/ico/3-icon-toys.svg");
+  background: url("../../src/img/ico/3-icon-toys.svg");
 }
 
 .ico-bowl {
-  background: url("../../img/ico/4-icon-bowls-and-cups.svg");
+  background: url("../../src/img/ico/4-icon-bowls-and-cups.svg");
 }
 
 .ico-shampoo {
-  background: url("../../img/ico/5-icon-shampoos.svg");
+  background: url("../../src/img/ico/5-icon-shampoos.svg");
 }
 
 .ico-vitamin {
-  background: url("../../img/ico/6-icon-vitamins.svg");
+  background: url("../../src/img/ico/6-icon-vitamins.svg");
 }
 
 .ico-medicine {
-  background: url("../../img/ico/7-icon-medicines.svg");
+  background: url("../../src/img/ico/7-icon-medicines.svg");
 }
 
 .ico-collar {
-  background: url("../../img/ico/8-icon-collars-leashes.svg");
+  background: url("../../src/img/ico/8-icon-collars-leashes.svg");
 }
 
 .ico-sleep {
-  background: url("../../img/ico/9-icon-sleeping-area.svg");
+  background: url("../../src/img/ico/9-icon-sleeping-area.svg");
 }
 
 .ico-card {
-  background: url("../../img/ico/credit-card.svg");
+  background: url("../../src/img/ico/credit-card.svg");
   width: 30px;
   height: 23px;
 }
 
 .ico-email {
-  background: url("../../img/ico/icon-email.svg");
+  background: url("../../src/img/ico/icon-email.svg");
   width: 40px;
   height: 32px;
 }
 
 .ico-phone {
-  background: url("../../img/ico/icon-phone.svg");
+  background: url("../../src/img/ico/icon-phone.svg");
   width: 40px;
   height: 32px;
 }
 
 .ico-marker {
-  background: url("../../img/ico/icon-marker.svg");
+  background: url("../../src/img/ico/icon-marker.svg");
   width: 22px;
   height: 32px;
 }
