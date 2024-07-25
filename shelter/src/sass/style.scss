@@ -11,6 +11,8 @@
 // Layouts
 @import './layouts/wrapper';
 @import './layouts/positions';
+@import './layouts/page';
+@import './layouts/body';
 
 // Sections
 @import './sections/promo';
@@ -26,3 +28,4 @@
 @import './components/buttons';
 @import './components/paragraphs';
 @import './components/icons';
+@import './components/loader';

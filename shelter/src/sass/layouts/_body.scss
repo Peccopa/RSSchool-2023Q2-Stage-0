@@ -1,0 +1,4 @@
+body {
+  @extend %transition;
+  background: url('../../src/img/noise_transparent.png'), $gradient-background-header;
+}
