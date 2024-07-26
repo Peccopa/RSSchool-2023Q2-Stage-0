@@ -226,8 +226,8 @@ body {
 }
 
 .carousel__btn {
-  min-width: 52px;
-  min-height: 52px;
+  width: 52px;
+  height: 52px;
   border-radius: 100px;
   border: 2px solid #f1cdb3;
   cursor: pointer;
@@ -265,11 +265,27 @@ body {
 
 .pets-page .carousel {
   flex-direction: column;
-  gap: 45px;
+  gap: 60px;
+}
+.pets-page .carousel__btn_number {
+  background: #f1cdb3;
+  border-color: #f1cdb3;
+  pointer-events: none;
+}
+.pets-page .carousel .pets-arrow {
+  padding: 4px 1px 6px 1px;
+  letter-spacing: 0;
+}
+.pets-page .carousel .inactive-arrow {
+  border-color: #cdcdcd;
+  pointer-events: none;
+}
+.pets-page .carousel .inactive-arrow .pets-arrow {
+  color: #cdcdcd;
 }
 .pets-page .slider {
   max-width: 1200px;
-  max-height: 930px;
+  max-height: 900px;
   margin: 0;
 }
 .pets-page .slider__clip {

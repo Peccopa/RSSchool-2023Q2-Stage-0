@@ -17,8 +17,8 @@
 .carousel__btn {
   @extend %center-center;
   @extend %transition;
-  min-width: 52px;
-  min-height: 52px;
+  width: 52px;
+  height: 52px;
   border-radius: 100px;
   border: 2px solid $color-primary;
   cursor: pointer;
@@ -62,12 +62,27 @@
 .pets-page {
   .carousel {
     flex-direction: column;
-    gap: 45px;
-    // background-color: red;
+    gap: 60px;
+    &__btn_number {
+      background: $color-primary;
+      border-color: $color-primary;
+      pointer-events: none;
+    }
+    .pets-arrow {
+      padding: 4px 1px 6px 1px;
+      letter-spacing: 0;
+    }
+    .inactive-arrow {
+      border-color: $color-dark-s;
+      pointer-events: none;
+      .pets-arrow {
+        color: $color-dark-s;
+      }
+    }
   }
   .slider {
     max-width: 1200px;
-    max-height: 930px;
+    max-height: 900px;
     margin: 0;
   }
   .slider__clip {
