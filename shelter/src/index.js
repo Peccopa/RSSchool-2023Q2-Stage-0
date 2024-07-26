@@ -1,10 +1,21 @@
-console.log('Hello, worm!');
+'use strict';
 
 window.addEventListener('load', (event) => {
-  loadPage();
+  removeLoader();
+
+  const pageUpIco = document.querySelector('.pageup');
+  window.addEventListener('scroll', function () {
+    const scrollPosition = window.scrollY;
+    console.log(scrollPosition);
+    if (scrollPosition > 100) {
+      pageUpIco.classList.remove('invisible');
+    } else {
+      pageUpIco.classList.add('invisible');
+    }
+  });
 });
 
-const loadPage = () => {
+const removeLoader = () => {
   setTimeout(() => {
     document.querySelector('.page').classList.add('opacity-1');
     document.querySelector('.loading').classList.add('opacity-0');

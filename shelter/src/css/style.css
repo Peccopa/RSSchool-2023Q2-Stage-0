@@ -101,7 +101,7 @@
   justify-content: center;
 }
 
-.loading, .button, .pets-header__wrapper .title-h1, .nav__link, .logo__subtitle, .card-number, .carousel__btn, body, .page {
+.loading, .button, .pets-header__wrapper .title-h1, .nav__link, .logo__subtitle, .card-number, .pet-card, .carousel__btn, body, .page {
   transition: all 0.3s ease-in-out;
 }
 
@@ -150,6 +150,19 @@ a {
 
 .tac {
   text-align: center;
+}
+
+.pageup {
+  width: 52px;
+  height: 52px;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+}
+
+.invisible {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .page {
@@ -216,18 +229,20 @@ body {
 }
 
 .pets-content {
-  padding: 80px 40px 100px;
+  padding: 80px 30px 100px 30px;
   flex-direction: column;
-  gap: 60px;
+  gap: 50px;
 }
 
 .carousel {
   width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .carousel__btn {
-  width: 52px;
-  height: 52px;
+  min-width: 52px;
+  min-height: 52px;
   border-radius: 100px;
   border: 2px solid #f1cdb3;
   cursor: pointer;
@@ -238,10 +253,10 @@ body {
 }
 
 .slider {
-  max-width: 990px;
-  max-height: 435px;
+  max-width: 1010px;
+  max-height: 455px;
   overflow: hidden;
-  margin: 0 12px;
+  padding-top: 10px;
 }
 
 .slider__clip {
@@ -262,10 +277,16 @@ body {
   background: #fddcc4;
   border-color: #fddcc4;
 }
+.pet-card:hover {
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 9px 9px 9px 9px;
+}
 
 .pets-page .carousel {
+  padding-right: 0px;
+  padding-left: 0px;
   flex-direction: column;
-  gap: 60px;
+  gap: 50px;
 }
 .pets-page .carousel__btn_number {
   background: #f1cdb3;
@@ -284,9 +305,8 @@ body {
   color: #cdcdcd;
 }
 .pets-page .slider {
-  max-width: 1200px;
-  max-height: 900px;
-  margin: 0;
+  max-width: 1220px;
+  max-height: 920px;
 }
 .pets-page .slider__clip {
   column-gap: 40px;

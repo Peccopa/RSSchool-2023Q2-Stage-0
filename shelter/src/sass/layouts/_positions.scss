@@ -1,3 +1,17 @@
 .tac {
   text-align: center;
 }
+
+.pageup {
+  // @extend %transition;
+  width: 52px;
+  height: 52px;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+}
+
+.invisible {
+  visibility: hidden;
+  opacity: 0;
+}
