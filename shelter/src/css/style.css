@@ -89,7 +89,7 @@
   font-style: italic;
   font-display: swap;
 }
-.logo, .header, .card-number, .help__item, .help-content, .pet-card, .carousel, .pets-content {
+.logo, .header, .card-number, .help__item, .help-content, .pets-page .pets-navigation, .pet-card, .carousel, .pets-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -101,7 +101,7 @@
   justify-content: center;
 }
 
-.loading, .button, .nav__link, .logo__subtitle, .card-number, .carousel__btn, body, .page {
+.loading, .button, .pets-header__wrapper .title-h1, .nav__link, .logo__subtitle, .card-number, .carousel__btn, body, .page {
   transition: all 0.3s ease-in-out;
 }
 
@@ -154,6 +154,10 @@ a {
 
 .page {
   opacity: 0;
+}
+
+.pets-page {
+  background: #fff;
 }
 
 body {
@@ -259,6 +263,23 @@ body {
   border-color: #fddcc4;
 }
 
+.pets-page .carousel {
+  flex-direction: column;
+  gap: 45px;
+}
+.pets-page .slider {
+  max-width: 1200px;
+  max-height: 930px;
+  margin: 0;
+}
+.pets-page .slider__clip {
+  column-gap: 40px;
+  row-gap: 30px;
+}
+.pets-page .pets-navigation {
+  gap: 20px;
+}
+
 .help {
   background: #fff;
 }
@@ -362,8 +383,23 @@ body {
   background: #f1cdb3;
 }
 
-.header_pets {
-  background: #fff;
+.pets-header__wrapper {
+  padding: 30px 40px;
+}
+.pets-header__wrapper .title-h1 {
+  color: #545454;
+}
+.pets-header__wrapper .logo:hover .logo__subtitle, .pets-header__wrapper .logo:hover .title-h1 {
+  color: #292929;
+}
+.pets-header__wrapper .logo__subtitle {
+  color: #292929;
+}
+.pets-header__wrapper .nav__link {
+  color: #545454;
+}
+.pets-header__wrapper .nav__link:hover {
+  color: #292929;
 }
 
 .footer {

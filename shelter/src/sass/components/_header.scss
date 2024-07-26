@@ -58,7 +58,31 @@
   background: $color-primary;
 }
 
-.header_pets {
-  background: $color-light-xl;
+// PETS-PAGE
 
+.pets-header__wrapper {
+  padding: 30px 40px;
+
+  .title-h1 {
+    @extend %transition;
+    color: $color-dark-l;
+  }
+
+  .logo {
+    &:hover .logo__subtitle,
+    &:hover .title-h1 {
+      color: $color-dark-3xl;
+    }
+  }
+
+  .logo__subtitle {
+    color: $color-dark-3xl;
+  }
+
+  .nav__link {
+    color: $color-dark-l;
+    &:hover {
+      color: $color-dark-3xl;
+    }
+  }
 }

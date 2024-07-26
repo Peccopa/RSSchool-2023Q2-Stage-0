@@ -56,3 +56,26 @@
     border-color: $color-primary-light;
   }
 }
+
+// PETS-PAGE
+
+.pets-page {
+  .carousel {
+    flex-direction: column;
+    gap: 45px;
+    // background-color: red;
+  }
+  .slider {
+    max-width: 1200px;
+    max-height: 930px;
+    margin: 0;
+  }
+  .slider__clip {
+    column-gap: 40px;
+    row-gap: 30px;
+  }
+  .pets-navigation {
+    @extend %center-between;
+    gap: 20px;
+  }
+}

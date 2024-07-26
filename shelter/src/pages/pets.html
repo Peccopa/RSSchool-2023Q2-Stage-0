@@ -20,66 +20,224 @@
     <div class="loading">
       <div class="loader"></div>
     </div>
-    <div class="page">
+    <div class="page pets-page">
       <main class="main">
-        <!-- PROMO -->
-        <section class="promo" id="promo">
-          <div class="wrapper promo__wrapper">
-            <header class="header header_pets">
-              <a class="logo" href="./index.html">
-                <h1 class="title title-h1">Cozy House</h1>
-                <p class="logo__subtitle">Shelter for pets in Boston</p>
-              </a>
-              <nav class="nav">
-                <ul class="nav__list">
-                  <li class="nav__item">
-                    <a class="nav__link nav_selected" href="./index.html#about"
-                      >About the shelter</a
-                    >
-                  </li>
-                  <li class="nav__item">
-                    <a class="nav__link" href="./src/pages/pets.html"
-                      >Our pets</a
-                    >
-                  </li>
-                  <li class="nav__item">
-                    <a class="nav__link" href="./index.html#help"
-                      >Help the shelter</a
-                    >
-                  </li>
-                  <li class="nav__item">
-                    <a class="nav__link" href="./index.html#footer">Contacts</a>
-                  </li>
-                </ul>
-              </nav>
-            </header>
-            <div class="promo-content">
-              <div class="promo-content__description">
-                <h2 class="title title-h2">
-                  Not only people<br />need a house
-                </h2>
-                <p class="description promo__description">
-                  We offer to give a chance to a little and nice puppy with an
-                  extremely wide and open heart. He or she will love you more
-                  than anybody else in the world, you will see!
-                </p>
-                <a class="button promo__button" href="./index.html#pets"
-                  >Make a friend</a
-                >
-              </div>
-              <img
-                class="promo-content__img"
-                src="./src/img/promo/start-screen-puppy.png"
-                alt="White-brown puppy"
-              />
-            </div>
-          </div>
-        </section>
-        <!-- FRIENDS -->
-        <section class="friends" id="friends">
+        <!-- HEADER -->
+
+        <div class="wrapper pets-header__wrapper">
+          <header class="header pets-page__header">
+            <a class="logo" href="../../index.html">
+              <h1 class="title title-h1">Cozy House</h1>
+              <p class="logo__subtitle">Shelter for pets in Boston</p>
+            </a>
+            <nav class="nav">
+              <ul class="nav__list">
+                <li class="nav__item">
+                  <a class="nav__link" href="../../index.html#about"
+                    >About the shelter</a
+                  >
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link nav_selected" href="./pets.html"
+                    >Our pets</a
+                  >
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link" href="../../index.html#help"
+                    >Help the shelter</a
+                  >
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link" href="../../index.html#footer"
+                    >Contacts</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </header>
+        </div>
+
+        <!-- PETS -->
+
+        <section class="pets" id="pets">
           <div class="wrapper">
-            <div class="friends-content">
-              
+            <div class="pets-content">
+              <h3 class="title title-h3 tac">
+                Our friends who<br />are looking for a house
+              </h3>
+              <div class="carousel pets-page_carousel">
+                <div class="slider">
+                  <div class="slider__clip">
+                    <div class="pet-card">
+                      <img
+                        src="../img/pets/1-pets-katrine.png"
+                        alt="Gray kitty"
+                      />
+                      <h4 class="title title-h4">Katrine</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                    <div class="pet-card">
+                      <img
+                        src="../img/pets/2-pets-jennifer.png"
+                        alt="White puppy"
+                      />
+                      <h4 class="title title-h4">Jennifer</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                    <div class="pet-card">
+                      <img
+                        src="../img/pets/3-pets-woody.png"
+                        alt="Golden dog"
+                      />
+                      <h4 class="title title-h4">Woody</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                    <div class="pet-card">
+                      <img
+                        src="../img/pets/4-pets-sophia.png"
+                        alt="Black and white puppy"
+                      />
+                      <h4 class="title title-h4">Sophia</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                    <div class="pet-card">
+                      <img src="../img/pets/5-pets-timmy.png" alt="Gray cat" />
+                      <h4 class="title title-h4">Timmy</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                    <div class="pet-card">
+                      <img src="../img/pets/6-pets-charly.png" alt="Sad dog" />
+                      <h4 class="title title-h4">Charly</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                    <div class="pet-card">
+                      <img
+                        src="../img/pets/7-pets-scarlet.png"
+                        alt="Happy puppy"
+                      />
+                      <h4 class="title title-h4">Scarlet</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                    <div class="pet-card">
+                      <img src="../img/pets/8-pets-freddie.png" alt="Sad cat" />
+                      <h4 class="title title-h4">Freddie</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                    <div class="pet-card">
+                      <img
+                        src="../img/pets/1-pets-katrine.png"
+                        alt="Gray kitty"
+                      />
+                      <h4 class="title title-h4">Katrine</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                    <div class="pet-card">
+                      <img
+                        src="../img/pets/2-pets-jennifer.png"
+                        alt="White puppy"
+                      />
+                      <h4 class="title title-h4">Jennifer</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                    <div class="pet-card">
+                      <img
+                        src="../img/pets/3-pets-woody.png"
+                        alt="Golden dog"
+                      />
+                      <h4 class="title title-h4">Woody</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                    <div class="pet-card">
+                      <img
+                        src="../img/pets/4-pets-sophia.png"
+                        alt="Black and white puppy"
+                      />
+                      <h4 class="title title-h4">Sophia</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                    <div class="pet-card">
+                      <img src="../img/pets/5-pets-timmy.png" alt="Gray cat" />
+                      <h4 class="title title-h4">Timmy</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                    <div class="pet-card">
+                      <img src="../img/pets/6-pets-charly.png" alt="Sad dog" />
+                      <h4 class="title title-h4">Charly</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                    <div class="pet-card">
+                      <img
+                        src="../img/pets/7-pets-scarlet.png"
+                        alt="Happy puppy"
+                      />
+                      <h4 class="title title-h4">Scarlet</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                    <div class="pet-card">
+                      <img src="../img/pets/8-pets-freddie.png" alt="Sad cat" />
+                      <h4 class="title title-h4">Freddie</h4>
+                      <button class="button pet-card__button">
+                        Learn more
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pets-navigation">
+                  <div class="carousel__btn">
+                    <svg
+                      width="14"
+                      height="6"
+                      viewBox="0 0 14 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M14 2V4H3V6L0 3L3 0V2H14Z" fill="#292929" />
+                    </svg>
+                  </div>
+                  <div class="carousel__btn">
+                    <svg
+                      width="14"
+                      height="6"
+                      viewBox="0 0 14 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M0 4V2L11 2V0L14 3L11 6V4L0 4Z" fill="#292929" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
