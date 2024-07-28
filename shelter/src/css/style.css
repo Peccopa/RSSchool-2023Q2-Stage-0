@@ -153,6 +153,7 @@ a {
 }
 
 .pageup {
+  transition: all 0.1s ease-in-out;
   width: 52px;
   height: 52px;
   position: fixed;
@@ -163,6 +164,10 @@ a {
 .invisible {
   visibility: hidden;
   opacity: 0;
+}
+
+.inactive {
+  pointer-events: none;
 }
 
 .page {
@@ -229,15 +234,15 @@ body {
 }
 
 .pets-content {
-  padding: 80px 30px 100px 30px;
+  padding: 80px 10px 100px 10px;
   flex-direction: column;
-  gap: 50px;
+  gap: 30px;
 }
 
 .carousel {
   width: 100%;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
 }
 
 .carousel__btn {
@@ -253,10 +258,10 @@ body {
 }
 
 .slider {
-  max-width: 1010px;
-  max-height: 455px;
+  max-width: 1050px;
+  max-height: 495px;
   overflow: hidden;
-  padding-top: 10px;
+  padding-top: 30px;
 }
 
 .slider__clip {
@@ -269,7 +274,7 @@ body {
   gap: 30px;
   padding-bottom: 30px;
   background: #fafafa;
-  border-radius: 9px 9px 0 0;
+  border-radius: 9px 9px 9px 9px;
   overflow: hidden;
   cursor: pointer;
 }
@@ -278,15 +283,14 @@ body {
   border-color: #fddcc4;
 }
 .pet-card:hover {
-  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.3);
-  border-radius: 9px 9px 9px 9px;
+  box-shadow: 0 2px 35px 9px rgba(13, 13, 13, 0.04);
 }
 
 .pets-page .carousel {
   padding-right: 0px;
   padding-left: 0px;
   flex-direction: column;
-  gap: 50px;
+  gap: 35px;
 }
 .pets-page .carousel__btn_number {
   background: #f1cdb3;
@@ -305,8 +309,8 @@ body {
   color: #cdcdcd;
 }
 .pets-page .slider {
-  max-width: 1220px;
-  max-height: 920px;
+  max-width: 1260px;
+  max-height: 955px;
 }
 .pets-page .slider__clip {
   column-gap: 40px;
@@ -331,10 +335,20 @@ body {
   column-gap: 120px;
   row-gap: 55px;
 }
+@media (max-width: 768px) {
+  .help-list {
+    column-gap: 60px;
+  }
+}
 
 .help__item {
   flex-direction: column;
   gap: 30px;
+}
+@media (max-width: 768px) {
+  .help__item {
+    min-width: 170px;
+  }
 }
 
 .donation {
@@ -402,10 +416,11 @@ body {
   color: #cdcdcd;
 }
 .nav__link:hover {
-  color: #f1cdb3;
+  color: #fafafa;
 }
 
 .nav_selected {
+  color: #fafafa;
   pointer-events: none;
 }
 

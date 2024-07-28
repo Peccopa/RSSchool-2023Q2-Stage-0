@@ -1,5 +1,5 @@
 .help {
-  background: $color-light-xl
+  background: $color-light-xl;
 }
 
 .help-content {
@@ -13,11 +13,17 @@
   @extend %center-center;
   flex-wrap: wrap;
   column-gap: 120px;
-  row-gap: 55px
+  row-gap: 55px;
+  @include media-tablet {
+    column-gap: 60px;
+  }
 }
 
 .help__item {
   @extend %center-between;
   flex-direction: column;
   gap: 30px;
+  @include media-tablet {
+    min-width: 170px;
+  }
 }

@@ -40,11 +40,12 @@
   line-height: 160%;
   color: $color-dark-s;
   &:hover {
-    color: $color-primary;
+    color: $color-light-s;
   }
 }
 
 .nav_selected {
+  color: $color-light-s;
   pointer-events: none;
 }
 

@@ -3,7 +3,7 @@
 }
 
 .pageup {
-  // @extend %transition;
+  transition: all .1s ease-in-out;
   width: 52px;
   height: 52px;
   position: fixed;
@@ -14,4 +14,8 @@
 .invisible {
   visibility: hidden;
   opacity: 0;
+}
+
+.inactive {
+  pointer-events: none;
 }
