@@ -6,8 +6,10 @@
   @extend %center-between;
   flex-direction: column;
   height: 60px;
-  &:hover .logo__subtitle {
-    color: $color-primary-light;
+  @media (hover: hover) {
+    &:hover .logo__subtitle {
+      color: $color-primary-light;
+    }
   }
 }
 
@@ -39,8 +41,10 @@
   font-size: 15px;
   line-height: 160%;
   color: $color-dark-s;
-  &:hover {
-    color: $color-light-s;
+  @media (hover: hover) {
+    &:hover {
+      color: $color-light-s;
+    }
   }
 }
 
@@ -62,7 +66,7 @@
 // PETS-PAGE
 
 .pets-header__wrapper {
-  padding: 30px 40px;
+  padding: 30px 30px;
 
   .title-h1 {
     @extend %transition;
@@ -70,9 +74,11 @@
   }
 
   .logo {
-    &:hover .logo__subtitle,
-    &:hover .title-h1 {
-      color: $color-dark-3xl;
+    @media (hover: hover) {
+      &:hover .logo__subtitle,
+      &:hover .title-h1 {
+        color: $color-dark-3xl;
+      }
     }
   }
 
@@ -82,8 +88,10 @@
 
   .nav__link {
     color: $color-dark-l;
-    &:hover {
-      color: $color-dark-3xl;
+    @media (hover: hover) {
+      &:hover {
+        color: $color-dark-3xl;
+      }
     }
   }
 }

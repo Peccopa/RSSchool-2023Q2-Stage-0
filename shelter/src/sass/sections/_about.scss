@@ -5,10 +5,17 @@
 .about-content {
   @extend %center-center;
   padding: 80px 40px 100px;
+  @include media-medium {
+    flex-direction: column-reverse;
+    gap: 80px;
+  }
 }
 
 .about-content__img {
   margin-right: 120px;
+  @include media-medium {
+    margin-right: 0;
+  }
 }
 
 .about-content__description {

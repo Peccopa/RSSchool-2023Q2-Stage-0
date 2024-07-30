@@ -9,6 +9,13 @@
   padding: 40px 40px 0;
   display: flex;
   justify-content: space-between;
+  @include media-medium {
+    padding: 15px 30px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 60px;
+    row-gap: 65px;
+  }
   .title-h3 {
     color: $color-light-l;
   }
@@ -23,7 +30,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-height: 234px;
+  height: 234px;
   margin-top: 16px;
 }
 

@@ -15,8 +15,16 @@
   color: $color-dark-3xl;
 }
 
-.promo__button:hover {
-  background: $color-primary-light;
+.promo__button {
+  @include media-medium {
+    margin: auto;
+  }
+}
+
+@media (hover: hover) {
+  .promo__button:hover {
+    background: $color-primary-light;
+  }
 }
 
 .pet-card__button {
@@ -29,6 +37,8 @@
   width: 261px;
 }
 
-.pets__button:hover {
-  background: $color-primary-light;
+@media (hover: hover) {
+  .pets__button:hover {
+    background: $color-primary-light;
+  }
 }

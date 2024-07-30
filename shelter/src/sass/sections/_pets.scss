@@ -7,6 +7,9 @@
   @extend %center-between;
   flex-direction: column;
   gap: 30px;
+  @include media-medium {
+    padding: 80px 0px 100px;
+  }
 }
 
 .carousel {
@@ -24,9 +27,11 @@
   border-radius: 100px;
   border: 2px solid $color-primary;
   cursor: pointer;
-  &:hover {
-    background: $color-primary-light;
-    border: 2px solid $color-primary-light;
+  @media (hover: hover) {
+    &:hover {
+      background: $color-primary-light;
+      border: 2px solid $color-primary-light;
+    }
   }
 }
 
@@ -42,6 +47,9 @@
   @extend %center-center;
   flex-wrap: wrap;
   gap: 90px;
+  @include media-medium {
+    gap: 40px;
+  }
 }
 
 .pet-card {
@@ -54,18 +62,23 @@
   border-radius: 9px 9px 9px 9px;
   overflow: hidden;
   cursor: pointer;
-  &:hover .pet-card__button {
-    background: $color-primary-light;
-    border-color: $color-primary-light;
-  }
-  &:hover {
-    box-shadow: 0 2px 35px 9px rgba(13, 13, 13, 0.04);
+  @media (hover: hover) {
+    &:hover .pet-card__button {
+      background: $color-primary-light;
+      border-color: $color-primary-light;
+    }
+    &:hover {
+      box-shadow: 0 2px 35px 9px rgba(13, 13, 13, 0.04);
+    }
   }
 }
 
 // PETS-PAGE
 
 .pets-page {
+  .pets-content {
+    padding-bottom: 75px;
+  }
   .carousel {
     padding-right: 0px;
     padding-left: 0px;
@@ -91,8 +104,10 @@
   .slider {
     max-width: 1260px;
     max-height: 955px;
-    // overflow: hidden;
-    // background-color: #ff0000;
+    @include media-medium {
+      max-height: 1370px;
+      padding-top: 0;
+    }
   }
   .slider__clip {
     column-gap: 40px;
