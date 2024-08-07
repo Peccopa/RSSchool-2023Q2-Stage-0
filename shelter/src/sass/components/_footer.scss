@@ -16,6 +16,10 @@
     column-gap: 60px;
     row-gap: 65px;
   }
+  @include media-bigmob {
+    padding: 30px 10px 0;
+    row-gap: 40px;
+  }
   .title-h3 {
     color: $color-light-l;
   }
@@ -32,6 +36,15 @@
   justify-content: space-between;
   height: 234px;
   margin-top: 16px;
+  @include media-bigmob {
+    margin-top: 0;
+  }
+}
+
+.footer-content__img {
+  @include media-bigmob {
+    width: 260px;
+  }
 }
 
 .footer__link {
@@ -45,9 +58,32 @@
 }
 
 .footer__contacts {
-  min-width: 278px;
+  max-width: 280px;
+  @include media-bigmob {
+    width: 278px;
+    height: 208px;
+  }
+  .footer__link {
+    @include media-bigmob {
+      justify-content: center;
+    }
+  }
 }
 
 .footer__locations {
-  min-width: 302px;
+  max-width: 300px;
+  margin-right: 6px;
+  @include media-medium {
+    margin-right: 3px;
+  }
+  @include media-bigmob {
+    width: 300px;
+    height: 222px;
+  }
+  .title-h3 {
+    @include media-bigmob {
+      width: 270px;
+      align-self: center;
+    }
+  }
 }

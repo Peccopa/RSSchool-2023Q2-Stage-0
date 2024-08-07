@@ -35,6 +35,9 @@
 
 .pets__button {
   width: 261px;
+  @include media-bigmob {
+    margin-top: 31px;
+  }
 }
 
 @media (hover: hover) {

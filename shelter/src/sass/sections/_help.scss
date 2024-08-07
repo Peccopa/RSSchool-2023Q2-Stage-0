@@ -7,6 +7,10 @@
   @extend %center-between;
   flex-direction: column;
   gap: 60px;
+  @include media-bigmob {
+    padding: 42px 15px 43px;
+    gap: 43px;
+  }
 }
 
 .help-list {
@@ -17,6 +21,11 @@
   @include media-tablet {
     column-gap: 60px;
   }
+  @include media-bigmob {
+    justify-content: flex-start;
+    column-gap: 30px;
+    row-gap: 30px;
+  }
 }
 
 .help__item {
@@ -25,5 +34,9 @@
   gap: 30px;
   @include media-tablet {
     min-width: 170px;
+  }
+  @include media-bigmob {
+    min-width: 130px;
+    gap: 20px;
   }
 }

@@ -3,12 +3,16 @@
 }
 
 .donation-content {
-  padding: 80px 182px 100px;
+  padding: 80px 10px 100px;
   @extend %center-center;
   gap: 30px;
   @include media-medium {
     flex-direction: column-reverse;
     gap: 60px;
+  }
+  @include media-bigmob {
+    padding: 42px 10px 42px;
+    gap: 42px;
   }
 }
 
@@ -16,9 +20,12 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-
   max-width: 380px;
   max-height: 282px;
+  @include media-bigmob {
+    max-width: 300px;
+    max-height: 281px;
+  }
 }
 
 .card-number {
@@ -30,6 +37,16 @@
   height: 43px;
   background: $color-primary;
   cursor: pointer;
+  @include media-bigmob {
+    margin: auto;
+    width: 281px;
+    height: 41px;
+    .title-h4 {
+      font-size: 1.5rem;
+      line-height: 110%;
+      letter-spacing: 0.06em;
+    }
+  }
   .title-h4 {
     line-height: 155%;
   }
@@ -37,5 +54,12 @@
     @media (hover: hover) {
       background: $color-primary-light;
     }
+  }
+}
+
+.donation-content__img {
+  @include media-bigmob {
+    max-width: 260px;
+    max-height: 135px;
   }
 }

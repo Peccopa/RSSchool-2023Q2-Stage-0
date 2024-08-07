@@ -1,5 +1,8 @@
 .header {
   @extend %center-between;
+  @include media-bigmob {
+    padding: 0 10px;
+  }
 }
 
 .logo {
@@ -19,6 +22,12 @@
   font-size: 1.3rem;
   letter-spacing: 0.1em;
   color: $color-light-xl;
+}
+
+.nav {
+  @media (max-width: calc($tablet-width - 1px)) {
+    display: none;
+  }
 }
 
 .nav__list {
@@ -63,10 +72,40 @@
   background: $color-primary;
 }
 
+.burger {
+  display: none;
+  @extend %transition;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  @media (hover: hover) {
+    &:hover .burger__line {
+      border-color: $color-primary-light;
+    }
+  }
+  @media (max-width: calc($tablet-width - 1px)) {
+    display: flex;
+  }
+}
+
+.burger__line {
+  @extend %transition;
+  width: 100%;
+  border: 1px $color-primary solid;
+}
+
 // PETS-PAGE
 
 .pets-header__wrapper {
-  padding: 30px 30px;
+  padding: 30px 40px;
+  @include media-medium {
+    padding: 30px 30px;
+  }
+  @include media-bigmob {
+    padding: 30px 10px;
+  }
 
   .title-h1 {
     @extend %transition;
@@ -94,4 +133,8 @@
       }
     }
   }
+}
+
+.pets-burger__line {
+  border-color: #000;
 }
