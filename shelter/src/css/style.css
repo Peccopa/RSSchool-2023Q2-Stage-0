@@ -504,9 +504,13 @@ body {
 }
 @media (max-width: 640px) {
   .help-list {
-    justify-content: flex-start;
     column-gap: 30px;
     row-gap: 30px;
+  }
+}
+@media (max-width: 320px) {
+  .help-list {
+    justify-content: flex-start;
   }
 }
 

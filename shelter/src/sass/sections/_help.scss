@@ -22,9 +22,11 @@
     column-gap: 60px;
   }
   @include media-bigmob {
-    justify-content: flex-start;
     column-gap: 30px;
     row-gap: 30px;
+  }
+  @include media-mobile {
+    justify-content: flex-start;
   }
 }
 
