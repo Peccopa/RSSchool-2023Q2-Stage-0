@@ -1,28 +1,26 @@
 'use strict';
 
-window.addEventListener('load', (event) => {
-  removeLoader();
+import { loader } from './js/_loader';
+import { pageup } from './js/_pageup';
+import { burger } from './js/_burger';
+import { layer } from './js/_layer';
 
-  const pageUpIco = document.querySelector('.pageup');
-  window.addEventListener('scroll', function () {
-    const scrollPosition = window.scrollY;
-    if (scrollPosition > 100) {
-      pageUpIco.classList.remove('invisible');
-    } else {
-      pageUpIco.classList.add('invisible');
+window.addEventListener('load', (event) => {
+  loader.removeLoader();
+  if (document.querySelector('.pageup'))
+    window.addEventListener('scroll', pageup.showPageUpIco);
+  burger.menu.addEventListener('click', burger.openBurgerMenu);
+  layer.layer.addEventListener('click', burger.openBurgerMenu);
+  burger.nav.addEventListener('click', (e) => {
+    // if (document.querySelector('.page').offsetWidth + scrollWidth > 768) return;
+    if (
+      document.querySelector('.page').offsetWidth + layer.getScrollWidth() <
+      768
+    ) {
+      if (e.target.hasAttribute('data-link')) burger.openBurgerMenu();
     }
   });
 });
-
-const removeLoader = () => {
-  setTimeout(() => {
-    document.querySelector('.page').classList.add('opacity-1');
-    document.querySelector('.loading').classList.add('opacity-0');
-  }, 500);
-  setTimeout(() => {
-    document.querySelector('.loading').style.display = 'none';
-  }, 1000);
-};
 
 console.log(`
 Oценка за задание 100 баллов.

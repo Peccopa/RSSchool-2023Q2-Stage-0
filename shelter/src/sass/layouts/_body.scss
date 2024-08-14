@@ -1,4 +1,23 @@
 body {
-  @extend %transition;
-  background: url('../../src/img/noise_transparent.png'), $gradient-background-header;
+  // @extend %transition;
+  background: url('../../src/img/noise_transparent.png'),
+    $gradient-background-header;
 }
+
+.hide-scroll {
+  overflow-y: hidden;
+}
+
+// body::-webkit-scrollbar {
+//   width: 17px; /* ширина scrollbar */
+// }
+
+// body::-webkit-scrollbar-track {
+//   background: $color-dark-3xl; /* цвет дорожки */
+// }
+
+// body::-webkit-scrollbar-thumb {
+//   background-color: $color-primary-light; /* цвет плашки */
+//   border-radius: 20px; /* закругления плашки */
+//   border: 3px solid $color-primary; /* padding вокруг плашки */
+// }
