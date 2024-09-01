@@ -48,6 +48,10 @@
 }
 
 .slider {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+
   max-width: 1050px;
   max-height: 495px;
   overflow: hidden;
@@ -59,20 +63,28 @@
 }
 
 .slider__clip {
+  // @extend %transition;
+  // transition: all 2s ease-in-out;
+  position: relative;
+  // left: -100%;
+
   @extend %center-center;
-  flex-wrap: wrap;
-  gap: 90px;
+  // flex-wrap: wrap;
+  gap: 80px;
   @include media-medium {
     gap: 40px;
   }
 }
 
 .pet-card {
+  min-width: 270px;
+
   @extend %transition;
   @extend %center-between;
   flex-direction: column;
   gap: 30px;
-  padding-bottom: 30px;
+  // padding-bottom: 30px;
+  padding-bottom: 60px;
   background: $color-light-s;
   border-radius: 9px 9px 9px 9px;
   overflow: hidden;
@@ -86,6 +98,36 @@
       box-shadow: 0 2px 35px 9px rgba(13, 13, 13, 0.04);
     }
   }
+}
+
+@keyframes move-right {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes move-left {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+.transition-right {
+  // pointer-events: none;
+  animation-name: move-right;
+  animation-duration: 1s;
+}
+
+.transition-left {
+  // pointer-events: none;
+  animation-name: move-left;
+  animation-duration: 1s;
 }
 
 // PETS-PAGE
@@ -146,5 +188,4 @@
       gap: 10px;
     }
   }
-
 }

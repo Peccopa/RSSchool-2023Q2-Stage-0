@@ -132,6 +132,7 @@ button {
 
 * {
   box-sizing: border-box;
+  user-select: none;
 }
 
 html {
@@ -389,8 +390,8 @@ body {
 }
 
 .slider__clip {
-  flex-wrap: wrap;
-  gap: 90px;
+  position: relative;
+  gap: 80px;
 }
 @media (max-width: 960px) {
   .slider__clip {
@@ -399,9 +400,10 @@ body {
 }
 
 .pet-card {
+  min-width: 270px;
   flex-direction: column;
   gap: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 60px;
   background: #fafafa;
   border-radius: 9px 9px 9px 9px;
   overflow: hidden;
@@ -415,6 +417,32 @@ body {
   .pet-card:hover {
     box-shadow: 0 2px 35px 9px rgba(13, 13, 13, 0.04);
   }
+}
+
+@keyframes move-right {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+@keyframes move-left {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 100%;
+  }
+}
+.transition-right {
+  animation-name: move-right;
+  animation-duration: 1s;
+}
+
+.transition-left {
+  animation-name: move-left;
+  animation-duration: 1s;
 }
 
 .pets-page .pets-content {
@@ -690,7 +718,7 @@ body {
 
 .nav_selected {
   color: #fafafa;
-  pointer-events: none;
+  cursor: default;
 }
 
 .nav_selected::after {
@@ -736,13 +764,15 @@ body {
   }
 }
 .pets-header__wrapper .nav_opened .nav__link {
-  color: red;
   color: #cdcdcd;
 }
 @media (hover: hover) {
   .pets-header__wrapper .nav_opened .nav__link:hover {
     color: #fafafa;
   }
+}
+.pets-header__wrapper .nav_opened .nav_selected {
+  color: #fafafa;
 }
 
 .footer {

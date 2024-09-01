@@ -83,7 +83,8 @@
 
 .nav_selected {
   color: $color-light-s;
-  pointer-events: none;
+  // pointer-events: none;
+  cursor: default;
 }
 
 .nav_selected::after {
@@ -133,13 +134,17 @@
       }
     }
   }
+
   .nav_opened .nav__link {
-    color: red;
     color: $color-dark-s;
     @media (hover: hover) {
       &:hover {
         color: $color-light-s;
       }
     }
+  }
+
+  .nav_opened .nav_selected {
+    color: $color-light-s;
   }
 }
