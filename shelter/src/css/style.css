@@ -95,7 +95,7 @@
   justify-content: space-between;
 }
 
-.donation-content, .help-list, .slider__clip, .carousel__btn, .about-content {
+.donation-content, .help-list, .carousel__btn, .about-content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,6 +142,106 @@ html {
 
 a {
   user-select: none;
+}
+
+@media only screen and (min-width: 1251px) {
+  @keyframes move-right {
+    from {
+      left: -1050px;
+    }
+    to {
+      left: -2130px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -1050px;
+    }
+    to {
+      left: 30px;
+    }
+  }
+}
+@media only screen and (min-width: 1131px) and (max-width: 1250px) {
+  @keyframes move-right {
+    from {
+      left: -910px;
+    }
+    to {
+      left: -1840px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -910px;
+    }
+    to {
+      left: 20px;
+    }
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1130px) {
+  @keyframes move-right {
+    from {
+      left: -610px;
+    }
+    to {
+      left: -1230px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -610px;
+    }
+    to {
+      left: 10px;
+    }
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  @keyframes move-right {
+    from {
+      left: -290px;
+    }
+    to {
+      left: -600px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -290px;
+    }
+    to {
+      left: 20px;
+    }
+  }
+}
+@media only screen and (max-width: 480px) {
+  @keyframes move-right {
+    from {
+      left: -310px;
+    }
+    to {
+      left: -620px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -310px;
+    }
+    to {
+      left: 0px;
+    }
+  }
+}
+.transition-right {
+  animation-name: move-right;
+  animation-duration: 0.5s;
+}
+
+.transition-left {
+  animation-name: move-left;
+  animation-duration: 0.5s;
 }
 
 .wrapper {
@@ -352,14 +452,17 @@ body {
 
 .carousel {
   width: 100%;
+  min-width: 320px;
   padding-right: 30px;
   padding-left: 30px;
 }
-@media (max-width: 640px) {
+@media (max-width: 480px) {
   .carousel {
     flex-wrap: wrap;
     justify-content: center;
     column-gap: 80px;
+    padding-right: 25px;
+    padding-left: 25px;
   }
 }
 
@@ -382,20 +485,60 @@ body {
   overflow: hidden;
   padding-top: 30px;
 }
-@media (max-width: 640px) {
+@media (max-width: 1250px) {
   .slider {
+    max-width: 930px;
+  }
+}
+@media (max-width: 1130px) {
+  .slider {
+    max-width: 600px;
+  }
+}
+@media (max-width: 767px) {
+  .slider {
+    max-width: 310px;
+  }
+}
+@media (max-width: 480px) {
+  .slider {
+    max-width: 270px;
+    margin: 0 20px;
     max-height: 485px;
     order: -1;
   }
 }
+@media (max-width: 380px) {
+  .slider {
+    margin: 0;
+  }
+}
 
 .slider__clip {
+  display: flex;
   position: relative;
-  gap: 80px;
+  left: -1050px;
+  gap: 90px;
 }
-@media (max-width: 960px) {
+@media (max-width: 1250px) {
   .slider__clip {
+    left: -910px;
     gap: 40px;
+  }
+}
+@media (max-width: 1130px) {
+  .slider__clip {
+    left: -610px;
+  }
+}
+@media (max-width: 767px) {
+  .slider__clip {
+    left: -290px;
+  }
+}
+@media (max-width: 480px) {
+  .slider__clip {
+    left: -310px;
   }
 }
 
@@ -417,32 +560,6 @@ body {
   .pet-card:hover {
     box-shadow: 0 2px 35px 9px rgba(13, 13, 13, 0.04);
   }
-}
-
-@keyframes move-right {
-  from {
-    left: 0%;
-  }
-  to {
-    left: -100%;
-  }
-}
-@keyframes move-left {
-  from {
-    left: 0%;
-  }
-  to {
-    left: 100%;
-  }
-}
-.transition-right {
-  animation-name: move-right;
-  animation-duration: 1s;
-}
-
-.transition-left {
-  animation-name: move-left;
-  animation-duration: 1s;
 }
 
 .pets-page .pets-content {
@@ -542,7 +659,7 @@ body {
     row-gap: 30px;
   }
 }
-@media (max-width: 320px) {
+@media (max-width: 380px) {
   .help-list {
     justify-content: flex-start;
   }

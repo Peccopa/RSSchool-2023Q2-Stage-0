@@ -1,0 +1,104 @@
+@media only screen and (min-width: 1251px) {
+  @keyframes move-right {
+    from {
+      left: -1050px;
+    }
+    to {
+      left: -2130px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -1050px;
+    }
+    to {
+      left: 30px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1131px) and (max-width: 1250px) {
+  @keyframes move-right {
+    from {
+      left: -910px;
+    }
+    to {
+      left: -1840px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -910px;
+    }
+    to {
+      left: 20px;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1130px) {
+  @keyframes move-right {
+    from {
+      left: -610px;
+    }
+    to {
+      left: -1230px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -610px;
+    }
+    to {
+      left: 10px;
+    }
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  @keyframes move-right {
+    from {
+      left: -290px;
+    }
+    to {
+      left: -600px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -290px;
+    }
+    to {
+      left: 20px;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  @keyframes move-right {
+    from {
+      left: -310px;
+    }
+    to {
+      left: -620px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -310px;
+    }
+    to {
+      left: 0px;
+    }
+  }
+}
+
+.transition-right {
+  animation-name: move-right;
+  animation-duration: 0.5s;
+}
+
+.transition-left {
+  animation-name: move-left;
+  animation-duration: 0.5s;
+}

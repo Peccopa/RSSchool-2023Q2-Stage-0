@@ -12,8 +12,26 @@
   }
 }
 
+@mixin media-midtop {
+  @media (max-width: $midtop-width) {
+    @content;
+  }
+}
+
+@mixin media-lowtop {
+  @media (max-width: $lowtop-width) {
+    @content;
+  }
+}
+
 @mixin media-medium {
   @media (max-width: $medium-width) {
+    @content;
+  }
+}
+
+@mixin media-tablow {
+  @media (max-width: $tablow-width) {
     @content;
   }
 }
@@ -26,6 +44,12 @@
 
 @mixin media-bigmob {
   @media (max-width: $bigmob-width) {
+    @content;
+  }
+}
+
+@mixin media-midmob {
+  @media (max-width: $midmob-width) {
     @content;
   }
 }

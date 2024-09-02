@@ -30,55 +30,7 @@ const loadPage = function (data) {
   burger.nav.addEventListener('click', (e) => burger.link(e));
   carousel.fillFrameClip(data);
   carousel.addCarouselEvents(data);
-  // function addCarouselEvents() {
-  //   carousel.carousel.addEventListener('click', function clickSliderButton(e) {
-  //     carousel.clickOnCarousel(e, data);
-  //     carousel.carousel.removeEventListener('click', clickSliderButton);
-  //   });
-  // }
-  // addCarouselEvents();
-  // carousel.sliderClip.addEventListener('animationend', () => {
-  //   carousel.sliderClip.classList.remove('transition-left');
-  //   carousel.sliderClip.classList.remove('transition-right');
-  //   addCarouselEvents();
-  // });
 };
-
-// const fillCarouselClip = function (data) {
-//   let frameSize = 3;
-//   const mainFrame = [];
-
-//   function getMainFrame(data) {
-//     for (let i = 0; i < frameSize; i += 1) {
-//       let randomNum = randomInt(0, data.length - 1);
-//       if (!mainFrame.includes(randomNum)) {
-//         mainFrame.push(randomNum);
-//       } else {
-//         i -= 1;
-//       }
-//     }
-//     return mainFrame;
-//   }
-
-//   function getNextFrame(data) {
-//     const nextFrame = [];
-//     for (let i = 0; i < frameSize; i += 1) {
-//       let randomNum = randomInt(0, data.length - 1);
-//       if (!nextFrame.includes(randomNum) && !mainFrame.includes(randomNum)) {
-//         nextFrame.push(randomNum);
-//       } else {
-//         i -= 1;
-//       }
-//     }
-//     return nextFrame;
-//   }
-
-//   getMainFrame(data).forEach((e) => {
-//     new PetCard(data[e]).generatePetCardMid(
-//       document.querySelector('.slider__clip')
-//     );
-//   });
-// };
 
 // console.log(`
 // Oценка за задание 100 баллов.

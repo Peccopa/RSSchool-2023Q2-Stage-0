@@ -19,12 +19,15 @@
 .carousel {
   @extend %center-between;
   width: 100%;
+  min-width: 320px;
   padding-right: 30px;
   padding-left: 30px;
-  @include media-bigmob {
+  @include media-midmob {
     flex-wrap: wrap;
     justify-content: center;
     column-gap: 80px;
+    padding-right: 25px;
+    padding-left: 25px;
   }
 }
 
@@ -56,23 +59,51 @@
   max-height: 495px;
   overflow: hidden;
   padding-top: 30px;
-  @include media-bigmob {
+  @include media-midtop {
+    max-width: 930px;
+  }
+  @include media-lowtop {
+    max-width: 600px;
+  }
+  @include media-tablow {
+    max-width: 310px;
+  }
+  @include media-midmob {
+    max-width: 270px;
+    margin: 0 20px;
+
     max-height: 485px;
     order: -1;
+  }
+  @include media-mobile {
+    margin: 0;
   }
 }
 
 .slider__clip {
+  // margin: 0 40px;
+  // margin-left: 40px;
   // @extend %transition;
   // transition: all 2s ease-in-out;
-  position: relative;
-  // left: -100%;
-
-  @extend %center-center;
+  // left: 0px;
+  // @extend %center-center;
   // flex-wrap: wrap;
-  gap: 80px;
-  @include media-medium {
+  display: flex;
+  position: relative;
+  left: -1050px;
+  gap: 90px;
+  @include media-midtop {
+    left: -910px;
     gap: 40px;
+  }
+  @include media-lowtop {
+    left: -610px;
+  }
+  @include media-tablow {
+    left: -290px;
+  }
+  @include media-midmob {
+    left: -310px;
   }
 }
 
@@ -86,6 +117,9 @@
   // padding-bottom: 30px;
   padding-bottom: 60px;
   background: $color-light-s;
+
+  // background-color: aquamarine;
+
   border-radius: 9px 9px 9px 9px;
   overflow: hidden;
   cursor: pointer;
@@ -98,36 +132,6 @@
       box-shadow: 0 2px 35px 9px rgba(13, 13, 13, 0.04);
     }
   }
-}
-
-@keyframes move-right {
-  from {
-    left: 0%;
-  }
-  to {
-    left: -100%;
-  }
-}
-
-@keyframes move-left {
-  from {
-    left: 0%;
-  }
-  to {
-    left: 100%;
-  }
-}
-
-.transition-right {
-  // pointer-events: none;
-  animation-name: move-right;
-  animation-duration: 1s;
-}
-
-.transition-left {
-  // pointer-events: none;
-  animation-name: move-left;
-  animation-duration: 1s;
 }
 
 // PETS-PAGE

@@ -5,17 +5,76 @@ export const carousel = {
   sliderClip: document.querySelector('.slider__clip'),
   frameClip: [[], [], []],
   data: [],
+  currentFramePackSize: 0,
+  resizeFramePackSize: 0,
 
   framePackSize() {
-    // if (window.innerWidth < 1200 && window.innerWidth > 960) return 2;
-    // if (window.innerWidth < 960) return 1;
-    return 3;
+    if (window.innerWidth > 1131) {
+      return (this.currentFramePackSize = 3);
+    }
+    if (window.innerWidth < 1131 && window.innerWidth > 767) {
+      return (this.currentFramePackSize = 2);
+    }
+    if (window.innerWidth <= 767) {
+      return (this.currentFramePackSize = 1);
+    }
   },
 
-  addCarouselEvents(data) {
-    this.data = data;
+  screenCheckSize() {
+    if (window.innerWidth > 1131) {
+      carousel.resizeFramePackSize = 3;
+    }
+    if (window.innerWidth < 1131 && window.innerWidth > 767) {
+      carousel.resizeFramePackSize = 2;
+    }
+    if (window.innerWidth <= 767) {
+      carousel.resizeFramePackSize = 1;
+    }
+    if (carousel.resizeFramePackSize !== carousel.currentFramePackSize)
+      carousel.screenResize();
+  },
+
+  screenResize() {
+    if (carousel.resizeFramePackSize > carousel.currentFramePackSize) {
+      carousel.addFrames(this.data);
+    }
+    if (carousel.resizeFramePackSize < carousel.currentFramePackSize) {
+      carousel.removeFrames(this.data);
+    }
+    this.framePackSize();
+  },
+
+  addFrames(data) {
+    for (let i = 0; i < this.frameClip.length; i += 1) {
+      let randomNum = this.randomInt(0, data.length - 1);
+      if (
+        this.frameClip[i].includes(randomNum) ||
+        this.frameClip[i - 1]?.includes(randomNum) ||
+        this.frameClip[i + 1]?.includes(randomNum)
+      ) {
+        i -= 1;
+      } else {
+        this.frameClip[i].push(randomNum);
+      }
+    }
+    this.sliderClip.replaceChildren();
+    this.frameClip.flat().forEach((e) => {
+      new PetCard(data[e]).generatePetCardMid(this.sliderClip, 'after');
+    });
+  },
+
+  removeFrames() {
+    this.frameClip.forEach((e) => {
+      e.pop();
+      this.sliderClip.removeChild(this.sliderClip.lastChild);
+    });
+  },
+
+  addCarouselEvents(pets) {
+    this.data = pets;
     this.carousel.addEventListener('click', this.clickSliderButton);
     this.sliderClip.addEventListener('animationend', this.sliderAnimationEnd);
+    window.addEventListener('resize', this.screenCheckSize);
   },
 
   clickSliderButton(e) {
@@ -48,7 +107,7 @@ export const carousel = {
       carousel.carousel.removeEventListener(
         'click',
         carousel.clickSliderButton
-      )
+      );
     }
   },
 
@@ -97,7 +156,6 @@ export const carousel = {
   getLeftFramePack(data) {
     this.frameClip.pop();
     this.frameClip.unshift([]);
-    console.log('test');
     for (let i = 0; i < this.framePackSize(); i += 1) {
       let randomNum = this.randomInt(0, data.length - 1);
       if (
