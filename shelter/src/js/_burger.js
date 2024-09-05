@@ -4,7 +4,10 @@ export const burger = {
   menu: document.querySelector('.burger'),
   nav: document.querySelector('.nav'),
   openBurgerMenu() {
-    if (!burger.menu.classList.contains('burger_opened')) {
+    if (
+      !burger.menu.classList.contains('burger_opened') &&
+      !layer.layer.classList.contains('layer_on')
+    ) {
       burger.menu.classList.add('burger_opened');
       burger.nav.classList.add('nav_opened');
       layer.showLayer();
@@ -31,4 +34,3 @@ export const burger = {
     }
   },
 };
-

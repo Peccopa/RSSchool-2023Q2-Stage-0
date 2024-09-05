@@ -30,6 +30,8 @@ const loadPage = function (data) {
   burger.nav.addEventListener('click', (e) => burger.link(e));
   carousel.fillFrameClip(data);
   carousel.addCarouselEvents(data);
+  carousel.mouseScreen();
+  carousel.touchScreen();
 };
 
 // console.log(`

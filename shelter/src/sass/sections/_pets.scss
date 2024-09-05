@@ -114,11 +114,11 @@
   @extend %center-between;
   flex-direction: column;
   gap: 30px;
-  // padding-bottom: 30px;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  // padding-bottom: 60px;
   background: $color-light-s;
 
-  // background-color: aquamarine;
 
   border-radius: 9px 9px 9px 9px;
   overflow: hidden;
@@ -132,6 +132,11 @@
       box-shadow: 0 2px 35px 9px rgba(13, 13, 13, 0.04);
     }
   }
+}
+
+.pet-card__img {
+  width: 270px;
+  height: 270px;
 }
 
 // PETS-PAGE

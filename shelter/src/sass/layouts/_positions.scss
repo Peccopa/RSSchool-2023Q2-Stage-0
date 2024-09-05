@@ -3,7 +3,8 @@
 }
 
 .pageup {
-  transition: all 0.1s ease-in-out;
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
   width: 52px;
   height: 52px;
   position: fixed;
@@ -26,6 +27,11 @@
 .invisible {
   visibility: hidden;
   opacity: 0;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 .inactive {
