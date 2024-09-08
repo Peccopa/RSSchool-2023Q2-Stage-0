@@ -25,10 +25,13 @@ export const layer = {
         }, 500);
       }
       if (window.scrollY > 100) {
-        this.pageUpIco.style.right = `30px`;
-        this.pageUpIco.classList.remove('invisible');
+        this.showPageUpIco();
       }
     }
+  },
+  showPageUpIco() {
+    this.pageUpIco.style.right = `30px`;
+    this.pageUpIco.classList.remove('invisible');
   },
   getScrollWidth() {
     let div = document.createElement('div');

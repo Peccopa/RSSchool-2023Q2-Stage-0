@@ -3,13 +3,26 @@ import { layer } from './_layer';
 export const burger = {
   menu: document.querySelector('.burger'),
   nav: document.querySelector('.nav'),
+  modal: document.querySelector('.modal-window'),
   openBurgerMenu() {
     if (
       !burger.menu.classList.contains('burger_opened') &&
-      !layer.layer.classList.contains('layer_on')
+      !layer.layer.classList.contains('layer_on') &&
+      window.innerWidth < 768
     ) {
       burger.menu.classList.add('burger_opened');
       burger.nav.classList.add('nav_opened');
+      window.scrollTo(0, 0);
+      layer.showLayer();
+    } else if (
+      window.innerWidth >= 768 &&
+      !document.body.classList.contains('hide-scroll')
+    ) {
+      window.scrollTo(0, 0);
+    } else if (
+      window.innerWidth >= 768 &&
+      document.body.classList.contains('hide-scroll')
+    ) {
       layer.showLayer();
     } else {
       burger.menu.classList.remove('burger_opened');
@@ -32,5 +45,6 @@ export const burger = {
     ) {
       if (e.target.hasAttribute('data-link')) burger.openBurgerMenu();
     }
+    layer.showPageUpIco();
   },
 };

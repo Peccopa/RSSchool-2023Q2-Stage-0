@@ -90,6 +90,9 @@
   // flex-wrap: wrap;
   display: flex;
   position: relative;
+
+  z-index: 1;
+
   left: -1050px;
   gap: 90px;
   @include media-midtop {
@@ -109,6 +112,7 @@
 
 .pet-card {
   min-width: 270px;
+  max-height: 435px;
 
   @extend %transition;
   @extend %center-between;
@@ -118,7 +122,6 @@
   margin-bottom: 30px;
   // padding-bottom: 60px;
   background: $color-light-s;
-
 
   border-radius: 9px 9px 9px 9px;
   overflow: hidden;
@@ -158,6 +161,13 @@
     padding-left: 0px;
     flex-direction: column;
     gap: 35px;
+    @include media-midmob {
+      flex-wrap: nowrap;
+      justify-content: center;
+      column-gap: 80px;
+      padding-right: 25px;
+      padding-left: 25px;
+    }
     &__btn_number {
       background: $color-primary;
       border-color: $color-primary;
@@ -184,10 +194,40 @@
     }
   }
   .slider__clip {
+    position: static;
+    transition: opacity .2s ease-in-out;
+    // transition: all 2s ease-in-out;
+    opacity: 1;
+    // min-height: 930px;
+    // @extend %center-center;
+    // flex-wrap: wrap;
+    // column-gap: 40px;
+    // row-gap: 0px;
+
+    display: grid;
+    grid-template-columns: 270px 270px 270px 270px;
+    grid-template-rows: auto;
     column-gap: 40px;
-    row-gap: 30px;
+    row-gap: 0px;
+    @include media-midtop {
+      // 1250!!!
+      grid-template-columns: 270px 270px 270px;
+      grid-template-rows: auto;
+    }
     @include media-medium {
-      row-gap: 31px;
+      // 960
+      // min-height: 1394px;
+      grid-template-columns: 270px 270px;
+      grid-template-rows: auto;
+    }
+    @include media-bigmob {
+      // 640!!!
+      grid-template-columns: 270px;
+      grid-template-rows: auto;
+    }
+
+    @include media-medium {
+      // row-gap: 31px;
     }
   }
   .pets-navigation {

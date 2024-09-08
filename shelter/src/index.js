@@ -5,6 +5,7 @@ import { pageup } from './js/_pageup';
 import { burger } from './js/_burger';
 import { layer } from './js/_layer';
 import { carousel } from './js/_carousel';
+import { pagination } from './js/_pagination';
 
 window.addEventListener('load', (event) => {
   const url = document.querySelector('.pets-page')
@@ -23,15 +24,29 @@ window.addEventListener('load', (event) => {
 });
 
 const loadPage = function (data) {
+  const page = window.location.pathname.split('/').pop();
   loader.removeLoader();
   window.addEventListener('scroll', pageup.showPageUpIco);
   burger.menu.addEventListener('click', burger.openBurgerMenu);
   layer.layer.addEventListener('click', burger.openBurgerMenu);
   burger.nav.addEventListener('click', (e) => burger.link(e));
-  carousel.fillFrameClip(data);
-  carousel.addCarouselEvents(data);
-  carousel.mouseScreen();
-  carousel.touchScreen();
+  document.addEventListener('keyup', (e) => {
+    if (e.key === 'Escape') {
+      burger.openBurgerMenu();
+    }
+  });
+  if (page === 'index.html') {
+    carousel.fillFrameClip(data);
+    carousel.addCarouselEvents(data);
+    carousel.mouseScreen();
+    carousel.touchScreen();
+  } else {
+    pagination.getDataForPagination(data);
+    pagination.cardsNumber = pagination.getNumberOfCardsPerPage();
+    pagination.getQueueForPagination();
+    pagination.getPaginationCards();
+    pagination.addPaginationEvents();
+  }
 };
 
 // console.log(`

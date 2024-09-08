@@ -3,11 +3,13 @@
 }
 
 .help-content {
+  scroll-margin-top: -450px;
   padding: 80px 40px 100px;
   @extend %center-between;
   flex-direction: column;
   gap: 60px;
   @include media-bigmob {
+    scroll-margin-top: -500px;
     padding: 42px 15px 43px;
     gap: 43px;
   }
