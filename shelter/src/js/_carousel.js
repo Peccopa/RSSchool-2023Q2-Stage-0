@@ -101,15 +101,6 @@ export const carousel = {
     layer.showLayer();
     this.modalWindow = new PetCard(card);
     this.modalWindow.generateModalWindow();
-    // alert('create card');
-    // new PetCard(card).generatePetCardMid(
-    //   document.querySelector('.page'),
-    //   'after'
-    // );
-    // this.data
-    // const currentCard = e.target.childNodes[1].textContent;
-    // console.log(card);
-    // console.log(this.data[1].img);
   },
 
   clickOnCarousel(e) {

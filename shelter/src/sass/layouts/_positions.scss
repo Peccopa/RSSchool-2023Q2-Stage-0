@@ -11,14 +11,10 @@
   bottom: 40px;
   right: 40px;
   @include media-medium {
-    // width: 40px;
-    // height: 40px;
     bottom: 30px;
     right: 30px;
   }
   @include media-bigmob {
-    // width: 40px;
-    // height: 40px;
     bottom: 15px;
     right: 15px;
   }

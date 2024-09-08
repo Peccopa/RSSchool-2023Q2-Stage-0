@@ -32,11 +32,11 @@ export const pagination = {
   getQueueForPagination() {
     let count = 0;
     const queue = [];
-    while (count < this.data.length / 8) {
+    while (count < this.data.length / 4) {
       const arr = [];
-      for (let i = 0; i < 8; i += 1) {
+      for (let i = 0; i < 4; i += 1) {
         let randomNum = carousel.randomInt(0, 7);
-        if (arr.includes(randomNum)) {
+        if (arr.includes(randomNum) || queue[count - 1]?.includes(randomNum)) {
           i -= 1;
         } else {
           arr.push(randomNum);
@@ -45,50 +45,10 @@ export const pagination = {
       queue.push(arr);
       count += 1;
     }
-    console.log(queue);
     this.queue = queue.flat();
+    const testArray = this.queue.map((e) => this.data[e].name);
+    console.log(testArray);
   },
-
-  // getQueueForPagination() {
-  //   let count = 0;
-  //   const queue = [];
-  //   while (count < this.data.length / 3) {
-  //     const arr = [];
-  //     for (let i = 0; i < 3; i += 1) {
-  //       let randomNum = carousel.randomInt(0, 7);
-  //       if (arr.includes(randomNum) || queue[count - 1]?.includes(randomNum)) {
-  //         i -= 1;
-  //       } else {
-  //         arr.push(randomNum);
-  //       }
-  //     }
-  //     queue.push(arr);
-  //     count += 1;
-  //   }
-  //   console.log(queue);
-
-  //   this.queue = queue.flat();
-  // },
-
-  // getQueueForPagination() {
-  //   let count = 0;
-  //   while (count < Math.ceil(this.data.length / this.cardsNumber)) {
-  //     const arr = [];
-
-  //     for (let i = 0; i < this.cardsNumber; i += 1) {
-  //       if (this.queue.length + i === this.data.length) break;
-  //       let randomNum = carousel.randomInt(0, 7);
-  //       if (!arr.includes(randomNum)) {
-  //         arr.push(randomNum);
-  //       } else {
-  //         i -= 1;
-  //       }
-  //     }
-  //     this.queue = this.queue.concat(arr);
-  //     count += 1;
-  //   }
-  //   console.log(this.queue);
-  // },
 
   getNumberOfCardsPerPage() {
     const screenWidth = window.innerWidth;
@@ -100,75 +60,44 @@ export const pagination = {
   addPaginationEvents() {
     this.touchScreen();
     this.mouseScreen();
-    // window.addEventListener('resize', this.resizePaginationCards);
+    window.addEventListener('resize', this.resizeCardList);
     this.petsNavigation.addEventListener('click', this.clickOnPetsNavigation);
     this.carousel.addEventListener('click', this.clickOnPetsCard);
   },
 
-  getPaginationCards(min = 0, max = 0) {
-    for (
-      let i = this.pageNumber * this.cardsNumber - this.cardsNumber + min;
-      i < this.cardsNumber * this.pageNumber + max;
-      i += 1
-    ) {
-      new PetCard(this.data[this.queue[i]]).generatePetCardMid(
-        document.querySelector('.slider__clip'),
-        'after'
-      );
+  resizeCardList(e) {
+    const resizeCardNumbers = pagination.getNumberOfCardsPerPage();
+    // ADD CARDS
+    if (resizeCardNumbers > pagination.cardsNumber) {
+      if (resizeCardNumbers === 6) {
+        pagination.pageNumber = Math.ceil(pagination.pageNumber / 2);
+        pagination.paginationNumber.textContent = pagination.pageNumber;
+        pagination.createCardList();
+        pagination.cardsNumber = resizeCardNumbers;
+      }
+      if (resizeCardNumbers === 8) {
+        pagination.pageNumber = Math.ceil(pagination.pageNumber / 1.5);
+        pagination.paginationNumber.textContent = pagination.pageNumber;
+        pagination.createCardList();
+        pagination.cardsNumber = resizeCardNumbers;
+      }
+    }
+    // REMOVE CARDS
+    if (resizeCardNumbers < pagination.cardsNumber) {
+      if (resizeCardNumbers === 6) {
+        pagination.pageNumber = Math.floor((pagination.pageNumber / 3) * 4);
+        pagination.paginationNumber.textContent = pagination.pageNumber;
+        pagination.createCardList();
+        pagination.cardsNumber = resizeCardNumbers;
+      }
+      if (resizeCardNumbers === 3) {
+        if (pagination.pageNumber > 1) pagination.pageNumber *= 2;
+        pagination.paginationNumber.textContent = pagination.pageNumber;
+        pagination.createCardList();
+        pagination.cardsNumber = resizeCardNumbers;
+      }
     }
   },
-
-  // resizePaginationCards() {
-  //   const resizeCardNumbers = pagination.getNumberOfCardsPerPage();
-  //   if (resizeCardNumbers > pagination.cardsNumber) {
-  //     if (resizeCardNumbers === 6) {
-  //       pagination.pageNumber = Math.ceil(pagination.pageNumber / 2);
-  //       pagination.paginationNumber.textContent = pagination.pageNumber;
-  //       pagination.checkNavButtons();
-
-  //       pagination.getPaginationCards(3, 3);
-  //       pagination.cardsNumber = resizeCardNumbers;
-  //     }
-  //     if (resizeCardNumbers === 8) {
-  //       pagination.pageNumber = Math.ceil(pagination.pageNumber / 1.5);
-  //       pagination.paginationNumber.textContent = pagination.pageNumber;
-  //       pagination.checkNavButtons();
-
-  //       pagination.getPaginationCards(6, 2);
-  //       pagination.cardsNumber = resizeCardNumbers;
-  //     }
-  //   }
-  //   if (resizeCardNumbers < pagination.cardsNumber) {
-  //     if (resizeCardNumbers === 6) {
-  //       pagination.pageNumber = Math.ceil((pagination.pageNumber / 3) * 4);
-  //       pagination.paginationNumber.textContent = pagination.pageNumber;
-  //       pagination.checkNavButtons();
-  //       for (
-  //         let i = 0;
-  //         i < pagination.cardsNumber - resizeCardNumbers;
-  //         i += 1
-  //       ) {
-  //         document.querySelector('.slider__clip').lastChild.remove();
-  //       }
-  //       pagination.cardsNumber = resizeCardNumbers;
-  //     }
-  //   }
-  //   if (resizeCardNumbers < pagination.cardsNumber) {
-  //     if (resizeCardNumbers === 3) {
-  //       pagination.pageNumber = Math.ceil((pagination.pageNumber * 2));
-  //       pagination.paginationNumber.textContent = pagination.pageNumber;
-  //       pagination.checkNavButtons();
-  //       for (
-  //         let i = 0;
-  //         i < pagination.cardsNumber - resizeCardNumbers;
-  //         i += 1
-  //       ) {
-  //         document.querySelector('.slider__clip').lastChild.remove();
-  //       }
-  //       pagination.cardsNumber = resizeCardNumbers;
-  //     }
-  //   }
-  // },
 
   clickOnPetsNavigation(e) {
     if (e.target.classList.contains('pag-min-right')) pagination.pagMinRight();
@@ -197,22 +126,6 @@ export const pagination = {
     }
   },
 
-  pagMinRight() {
-    if (this.pageNumber * this.cardsNumber < this.queue.length) {
-      this.pageNumber += 1;
-      this.paginationNumber.textContent = this.pageNumber;
-      this.createCardList();
-    }
-  },
-
-  pagMinLeft() {
-    if (this.pageNumber * this.cardsNumber > this.cardsNumber) {
-      this.pageNumber -= 1;
-      this.paginationNumber.textContent = this.pageNumber;
-      this.createCardList();
-    }
-  },
-
   createCardList() {
     this.petsNavigation.removeEventListener(
       'click',
@@ -238,6 +151,22 @@ export const pagination = {
       document.querySelector('.slider__clip').style.opacity = 1;
       this.petsNavigation.addEventListener('click', this.clickOnPetsNavigation);
     }, 300);
+  },
+
+  pagMinRight() {
+    if (this.pageNumber * this.cardsNumber < this.queue.length) {
+      this.pageNumber += 1;
+      this.paginationNumber.textContent = this.pageNumber;
+      this.createCardList();
+    }
+  },
+
+  pagMinLeft() {
+    if (this.pageNumber * this.cardsNumber > this.cardsNumber) {
+      this.pageNumber -= 1;
+      this.paginationNumber.textContent = this.pageNumber;
+      this.createCardList();
+    }
   },
 
   pagMaxRight() {
@@ -306,7 +235,9 @@ export const pagination = {
 
   clickOnPetsCard(e) {
     if (e.target.classList.contains('pet-card'))
-      pagination.showPetCardModal(e.target.childNodes[0].attributes.src.nodeValue);
+      pagination.showPetCardModal(
+        e.target.childNodes[0].attributes.src.nodeValue
+      );
     if (e.target.parentElement.classList.contains('pet-card'))
       pagination.showPetCardModal(
         e.target.parentNode.childNodes[0].attributes.src.nodeValue
