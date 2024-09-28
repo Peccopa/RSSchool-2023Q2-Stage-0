@@ -1,235 +1,311 @@
 //variables
 const player = document.querySelector('.player'),
-tagUl = player.querySelector('ul');
-trackList = player.querySelector('.playlist'),
-trackListOpen = player.querySelector('#open_list'),
-trackListClose = player.querySelector('#close'),
-trackArtist = player.querySelector('.artist'),
-trackName = player.querySelector('.name'),
-trackAudio = player.querySelector('.audio'),
-trackImage = player.querySelector('.image'),
-layer = player.querySelector('.layer'),
-playPauseBtn = player.querySelector('.play-pause'),
-playPauseView = playPauseBtn.querySelector('span'),
-prevBtn = player.querySelector('#prev'),
-nextBtn = player.querySelector('#next'),
-volumeOffBtn = player.querySelector('#volume_off'),
-volumeOnBtn = player.querySelector('#volume_on'),
-volumeBar = player.querySelector('.volume-bar'),
-volumeArea = player.querySelector('.volume-area'),
-progressBar = player.querySelector('.progress-bar'),
-progressArea = player.querySelector('.progress-area'),
-repeatBtn = player.querySelector('#repeat_list');
+  tagUl = player.querySelector('ul'), //;
+  trackList = player.querySelector('.playlist'),
+  trackListOpen = player.querySelector('#open_list'),
+  trackListClose = player.querySelector('#close'),
+  trackArtist = player.querySelector('.artist'),
+  trackName = player.querySelector('.name'),
+  trackAudio = player.querySelector('.audio'),
+  trackImage = player.querySelector('.image'),
+  layer = player.querySelector('.layer'),
+  playPauseBtn = player.querySelector('.play-pause'),
+  playPauseView = playPauseBtn.querySelector('span'),
+  prevBtn = player.querySelector('#prev'),
+  nextBtn = player.querySelector('#next'),
+  volumeOffBtn = player.querySelector('#volume_off'),
+  volumeOnBtn = player.querySelector('#volume_on'),
+  volumeBar = player.querySelector('.volume-bar'),
+  volumeArea = player.querySelector('.volume-area'),
+  progressBar = player.querySelector('.progress-bar'),
+  progressArea = player.querySelector('.progress-area'),
+  repeatBtn = player.querySelector('#repeat_list'),
+  topBar = player.querySelector('.top-bar');
 //trackindex
 let trackIndex = 0;
 //load track
 window.addEventListener('load', () => {
-    loadTracks(trackIndex);
-    playingNow();
+  loadTracks(trackIndex);
+  playingNow();
 });
 
 function loadTracks(indexNumber) {
-    trackArtist.textContent = playlist[indexNumber].artist;
-    trackName.textContent = playlist[indexNumber].name;
-    trackAudio.src = `./assets/playlist/audio/${playlist[indexNumber].img}.mp3`;
-    trackImage.src = `./assets/playlist/img/${playlist[indexNumber].img}.png`;
-};
+  trackArtist.textContent = playlist[indexNumber].artist;
+  trackName.textContent = playlist[indexNumber].name;
+  trackAudio.src = playlist[indexNumber].src;
+  trackImage.src = `./assets/playlist/img/${playlist[indexNumber].img}.png`;
+}
 //play track
-function playTrack () {
-    layer.style.opacity = 1;
-    playPauseView.innerText = 'pause';
-    player.classList.add('paused');
-    trackAudio.play();
-    playingNow();
+function playTrack() {
+  layer.style.opacity = 1;
+  playPauseView.innerText = 'pause';
+  player.classList.add('paused');
+  trackAudio.play();
+  playingNow();
 }
 //pause track
-function pauseTrack () {
-    layer.style.opacity = 0;
-    playPauseView.innerText = 'play_arrow';
-    player.classList.remove('paused');
-    trackAudio.pause();
+function pauseTrack() {
+  layer.style.opacity = 0;
+  playPauseView.innerText = 'play_arrow';
+  player.classList.remove('paused');
+  trackAudio.pause();
 }
 //next track
-function nextTrack () {
-    progressBar.style.width = 0;
-    trackIndex++;
-    trackIndex > playlist.length - 1 ? trackIndex = 0 : true;
-    loadTracks(trackIndex);
-    playTrack();
-};
+function nextTrack() {
+  progressBar.style.width = 0;
+  trackIndex++;
+  trackIndex > playlist.length - 1 ? (trackIndex = 0) : true;
+  loadTracks(trackIndex);
+  playTrack();
+}
 //prev track
-function prevTrack () {
-    progressBar.style.width = 0;
-    trackIndex--;
-    trackIndex < 0 ? trackIndex = playlist.length - 1 : true;
-    loadTracks(trackIndex);
-    playTrack();
-};
+function prevTrack() {
+  progressBar.style.width = 0;
+  trackIndex--;
+  trackIndex < 0 ? (trackIndex = playlist.length - 1) : true;
+  loadTracks(trackIndex);
+  playTrack();
+}
 //play or not bnt
 playPauseBtn.addEventListener('click', () => {
-    const isTrackPaused = player.classList.contains('paused');
-    isTrackPaused ? pauseTrack() : playTrack();
-    // playingNow();
+  const isTrackPaused = player.classList.contains('paused');
+  isTrackPaused ? pauseTrack() : playTrack();
+  // playingNow();
 });
 //next track
 nextBtn.addEventListener('click', () => {
-    nextTrack();
-    // playingNow();
+  nextTrack();
+  // playingNow();
 });
 //prev track
 prevBtn.addEventListener('click', () => {
-    prevTrack();
-    // playingNow();
+  prevTrack();
+  // playingNow();
 });
 //progress bar
 trackAudio.addEventListener('timeupdate', (e) => {
-    const currentTime = (e.target.currentTime);
-    const duration = (e.target.duration);
-    let progressWidth = ((currentTime)/ duration) * 100;
-    progressBar.style.width = `${progressWidth}%`;
-    if (duration < 10 && progressWidth < 100) {
-        progressBar.style.width = `${progressWidth + 7.5}%`;
-    };
-    trackAudio.addEventListener('loadeddata', () => {
-        //total time
-        let totalMin = Math.floor((trackAudio.duration) / 60);
-        let totalSec = Math.floor((trackAudio.duration) % 60);
-        totalSec < 10 ? totalSec = `0${totalSec}` : false;
-        player.querySelector('.bar-duration').textContent = `${totalMin}:${totalSec}`;
-    });
-    //current time
-    let currentMin = Math.floor((trackAudio.currentTime) / 60);
-    let currentSec = Math.floor((trackAudio.currentTime) % 60);
-    currentSec < 10 ? currentSec = `0${currentSec}` : false;
-    player.querySelector('.bar-current').textContent = `${currentMin}:${currentSec}`;
+  const currentTime = e.target.currentTime;
+  const duration = e.target.duration;
+  let progressWidth = (currentTime / duration) * 100;
+  progressBar.style.width = `${progressWidth}%`;
+  if (duration < 10 && progressWidth < 100) {
+    progressBar.style.width = `${progressWidth + 7.5}%`;
+  }
+  trackAudio.addEventListener('loadeddata', () => {
+    //total time
+    let totalMin = Math.floor(trackAudio.duration / 60);
+    let totalSec = Math.floor(trackAudio.duration % 60);
+    totalSec < 10 ? (totalSec = `0${totalSec}`) : false;
+    player.querySelector(
+      '.bar-duration'
+    ).textContent = `${totalMin}:${totalSec}`;
+  });
+  //current time
+  let currentMin = Math.floor(trackAudio.currentTime / 60);
+  let currentSec = Math.floor(trackAudio.currentTime % 60);
+  currentSec < 10 ? (currentSec = `0${currentSec}`) : false;
+  player.querySelector(
+    '.bar-current'
+  ).textContent = `${currentMin}:${currentSec}`;
 });
 //progress bar click
-progressArea.addEventListener('click', (mouseClick) => {
-    trackAudio.currentTime = mouseClick.offsetX / progressArea.clientWidth * trackAudio.duration;
-    playTrack();
+function checkProgress(mouseClick) {
+  trackAudio.currentTime =
+    (mouseClick.offsetX / progressArea.clientWidth) * trackAudio.duration;
+  playTrack();
+}
+progressArea.addEventListener('mousedown', (mouseClick) => {
+  checkProgress(mouseClick);
+  progressArea.addEventListener('mousemove', checkProgress);
 });
 //volume butns
 volumeOffBtn.addEventListener('click', () => {
-    volumeBar.style.width = 0 + 'px';
-    trackAudio.volume = 0;
-    volumeOffBtn.style.opacity = '.3';
-    volumeOnBtn.style.opacity = '1';
+  volumeBar.style.width = 0 + 'px';
+  trackAudio.volume = 0;
+  volumeOffBtn.style.opacity = '.3';
+  volumeOnBtn.style.opacity = '1';
 });
 volumeOnBtn.addEventListener('click', () => {
-    volumeBar.style.width = volumeArea.clientWidth + 'px';
+  volumeBar.style.width = volumeArea.clientWidth + 'px';
+  trackAudio.volume = 1;
+  volumeOnBtn.style.opacity = '.3';
+  volumeOffBtn.style.opacity = '1';
+});
+
+// volume bar move
+function checkVolume(mouseClick) {
+  if (mouseClick.offsetX >= 133) {
     trackAudio.volume = 1;
-    volumeOnBtn.style.opacity = '.3';
+    volumeBar.style.width = 140 + 'px';
+    volumeOnBtn.style.opacity = '0.3';
     volumeOffBtn.style.opacity = '1';
-});
-//volume bar click
-volumeArea.addEventListener('click', (mouseClick) => {
-    trackAudio.volume = (Math.ceil((mouseClick.offsetX / volumeArea.clientWidth) * 10) / 10);
-    volumeBar.style.width = mouseClick.offsetX + 'px';
-    volumeOffBtn.style.opacity = '1';
+  } else if (mouseClick.offsetX <= 7) {
+    trackAudio.volume = 0;
+    volumeBar.style.width = 0 + 'px';
     volumeOnBtn.style.opacity = '1';
+    volumeOffBtn.style.opacity = '0.3';
+  } else {
+    trackAudio.volume = Number(
+      mouseClick.offsetX / volumeArea.clientWidth
+    ).toFixed(1);
+    volumeBar.style.width = volumeArea.clientWidth * trackAudio.volume + 'px';
+    volumeOnBtn.style.opacity = '1';
+    volumeOffBtn.style.opacity = '1';
+  }
+}
+
+volumeArea.addEventListener('mousedown', (mouseClick) => {
+  checkVolume(mouseClick);
+  volumeArea.addEventListener('mousemove', checkVolume);
 });
+
+document.addEventListener('mouseup', () => {
+  volumeArea.removeEventListener('mousemove', checkVolume);
+  progressArea.removeEventListener('mousemove', checkProgress);
+});
+
 //click on image
 trackImage.addEventListener('click', () => {
-    const isTrackPaused = player.classList.contains('paused');
-    isTrackPaused ? pauseTrack() : playTrack();
+  const isTrackPaused = player.classList.contains('paused');
+  isTrackPaused ? pauseTrack() : playTrack();
 });
+
 //click on repeat btn
 repeatBtn.addEventListener('click', () => {
-    let getTextRepeat = repeatBtn.textContent;
-    switch(getTextRepeat) {
-        case 'repeat':
-            repeatBtn.textContent = 'repeat_one';
-            repeatBtn.title = 'Track looped';
-            break;
-        case 'repeat_one':
-            repeatBtn.textContent = 'shuffle';
-            repeatBtn.title = 'Playback shuffle';
-            break;
-        case 'shuffle':
-            repeatBtn.textContent = 'repeat';
-            repeatBtn.title = 'Playlist looped';
-            break;
-    };
+  let getTextRepeat = repeatBtn.textContent;
+  switch (getTextRepeat) {
+    case 'repeat':
+      repeatBtn.textContent = 'repeat_one';
+      repeatBtn.title = 'Track looped';
+      break;
+    case 'repeat_one':
+      repeatBtn.textContent = 'shuffle';
+      repeatBtn.title = 'Playback shuffle';
+      break;
+    case 'shuffle':
+      repeatBtn.textContent = 'repeat';
+      repeatBtn.title = 'Playlist looped';
+      break;
+  }
 });
+
 //track ended
 trackAudio.addEventListener('ended', () => {
-    let getTextRepeat = repeatBtn.textContent;
-    switch(getTextRepeat) {
-        case 'repeat':
-            nextTrack();
-            break;
-        case 'repeat_one':
-            trackAudio.currentTime = 0;
-            loadTracks(trackIndex);
-            playTrack();
-            break;
-        case 'shuffle':
-            let random = Math.floor(Math.random() * playlist.length);
-            do {
-                random = Math.floor(Math.random() * playlist.length);
-            } while (trackIndex === random);
-            trackIndex = random;
-            loadTracks(trackIndex);
-            playTrack();
-            playingNow();
-            break;
-    };
+  let getTextRepeat = repeatBtn.textContent;
+  switch (getTextRepeat) {
+    case 'repeat':
+      nextTrack();
+      break;
+    case 'repeat_one':
+      trackAudio.currentTime = 0;
+      loadTracks(trackIndex);
+      playTrack();
+      break;
+    case 'shuffle':
+      let random = Math.floor(Math.random() * playlist.length);
+      do {
+        random = Math.floor(Math.random() * playlist.length);
+      } while (trackIndex === random);
+      trackIndex = random;
+      loadTracks(trackIndex);
+      playTrack();
+      playingNow();
+      break;
+  }
 });
+
 //open tracklist
 trackListOpen.addEventListener('click', () => {
-    trackList.classList.toggle('open');
+  trackList.classList.toggle('open');
 });
 trackListClose.addEventListener('click', () => {
-    trackList.classList.toggle('open');
+  trackList.classList.toggle('open');
 });
+
 //create playlist
-for (let i = 0; i < playlist.length; i++) {
+function createPlaylist(playlistArray) {
+  for (let i = 0; i < playlistArray.length; i++) {
     let tagLi = `<li li-index="${i}">
-                    <div class="pl-row">
-                        <p class="pl-artist">${playlist[i].name}</p>
-                        <p class="pl-name">${playlist[i].artist}</p>
-                    </div>
-                    <audio class="${playlist[i].src}" src="./assets/playlist/audio/${playlist[i].src}.mp3"></audio>
-                    <span class="duration" id="${playlist[i].src}">00:00</span>
-                </li>
-                <div class="pl-border"></div>`;
+        <div class="pl-row">
+        <p class="pl-artist">${playlistArray[i].name}</p>
+        <p class="pl-name">${playlistArray[i].artist}</p>
+        </div>
+        <audio class="track-${i}" src="${playlistArray[i].src}"></audio>
+        <span class="duration" id="track-${i}">00:00</span>
+        </li>
+        <div class="pl-border"></div>`;
     tagUl.insertAdjacentHTML('beforeend', tagLi);
-//get duration
-    let trackLiTag = tagUl.querySelector(`.${playlist[i].src}`);
-    let trackLiDuration = tagUl.querySelector(`#${playlist[i].src}`);
+    //get duration
+    let trackLiTag = tagUl.querySelector(`.track-${i}`);
+    let trackLiDuration = tagUl.querySelector(`#track-${i}`);
     trackLiTag.addEventListener('loadeddata', () => {
-        let totalMin = Math.floor((trackLiTag.duration) / 60);
-        let totalSec = Math.floor((trackLiTag.duration) % 60);
-        totalSec < 10 ? totalSec = `0${totalSec}` : false;
-        trackLiDuration.textContent = `${totalMin}:${totalSec}`;
-        trackLiDuration.setAttribute('t-duration', `${totalMin}:${totalSec}`);
+      let totalMin = Math.floor(trackLiTag.duration / 60);
+      let totalSec = Math.floor(trackLiTag.duration % 60);
+      totalSec < 10 ? (totalSec = `0${totalSec}`) : false;
+      trackLiDuration.textContent = `${totalMin}:${totalSec}`;
+      trackLiDuration.setAttribute('t-duration', `${totalMin}:${totalSec}`);
     });
+  }
 }
+
+createPlaylist(playlist);
+
 //add active playlist
-const allTagsLi = tagUl.querySelectorAll('li');
-function playingNow () {
-    for (let i = 0; i < allTagsLi.length; i++) {
-        let audioTag = allTagsLi[i].querySelector('.duration');
-        if(allTagsLi[i].classList.contains('playing')) {
-            allTagsLi[i].classList.remove('playing');
-            let addDuration = audioTag.getAttribute('t-duration');
-            audioTag.textContent = addDuration;
-        }
-        if(allTagsLi[i].getAttribute('li-index') == trackIndex) {
-            allTagsLi[i].classList.add('playing');
-            audioTag.textContent = 'Playing';
-        }
-        allTagsLi[i].setAttribute('onclick', 'clicked(this)');
+let allTagsLi = tagUl.querySelectorAll('li');
+function playingNow() {
+  for (let i = 0; i < allTagsLi.length; i++) {
+    let audioTag = allTagsLi[i].querySelector('.duration');
+    if (allTagsLi[i].classList.contains('playing')) {
+      allTagsLi[i].classList.remove('playing');
+      let addDuration = audioTag.getAttribute('t-duration');
+      audioTag.textContent = addDuration;
     }
+    if (allTagsLi[i].getAttribute('li-index') == trackIndex) {
+      allTagsLi[i].classList.add('playing');
+      audioTag.textContent = 'Playing';
+    }
+    allTagsLi[i].setAttribute('onclick', 'clicked(this)');
+  }
 }
 
 function clicked(e) {
-    let getLiIndex = e.getAttribute('li-index');
-    trackIndex = getLiIndex;
-    loadTracks(trackIndex);
-    playTrack();
-    playingNow();
+  let getLiIndex = e.getAttribute('li-index');
+  trackIndex = getLiIndex;
+  loadTracks(trackIndex);
+  playTrack();
+  playingNow();
 }
+
+// add audio files
+document.querySelector('.input-add-file').addEventListener('change', (e) => {
+  const files = e.target.files;
+  const countFiles = files.length;
+  if (!countFiles) {
+    alert('Файл не выбран!');
+    return;
+  }
+  const selectedFile = files[0];
+  if (!/^audio/.test(selectedFile.type)) {
+    alert('Выбранный файл не является звуковым файлом!');
+    return;
+  }
+  const reader = new FileReader();
+  reader.readAsDataURL(selectedFile);
+  reader.addEventListener('load', (e) => {
+    const newTrack = {
+      name: selectedFile.name.split('.')[0],
+      // artist: 'Unknown',
+      artist: '',
+      img: 'default',
+      src: `${e.target.result}`,
+    };
+    playlist.push(newTrack);
+    document.querySelector('.playlist ul').innerHTML = '';
+    createPlaylist(playlist);
+    allTagsLi = tagUl.querySelectorAll('li');
+    playingNow();
+  });
+});
 
 console.log(`
 **Требования:**
