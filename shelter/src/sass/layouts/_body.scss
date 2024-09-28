@@ -1,0 +1,8 @@
+body {
+  background: url('../../src/img/noise_transparent.png'),
+    $gradient-background-header;
+}
+
+.hide-scroll {
+  overflow-y: hidden;
+}

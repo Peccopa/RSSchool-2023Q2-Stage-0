@@ -1,0 +1,39 @@
+$gradient-background-header: radial-gradient(
+  100% 215.42% at 0% 0%,
+  #5b483a 0%,
+  #262425 100%
+);
+
+$gradient-background-footer: radial-gradient(
+  110.67% 538.64% at 5.73% 50%,
+  #513d2f 0%,
+  #1a1a1c 100%
+);
+
+$color-primary: #f1cdb3;
+$color-primary-light: #fddcc4;
+
+$color-light-xl: #fff;
+$color-light-l: #f6f6f6;
+$color-light-s: #fafafa;
+
+$color-dark-s: #cdcdcd;
+$color-dark-m: #b2b2b2;
+$color-dark-l: #545454;
+$color-dark-xl: #4c4c4c;
+$color-dark-2xl: #444;
+$color-dark-3xl: #292929;
+$color-dark-max: #000000;
+
+$first-family: 'Georgia', sans-serif;
+$second-family: 'Arial', sans-serif;
+
+$laptop-width: 1280px;
+$midtop-width: 1250px;
+$lowtop-width: 1130px;
+$medium-width: 960px;
+$tablet-width: 768px;
+$tablow-width: 767px;
+$bigmob-width: 640px;
+$midmob-width: 480px;
+$mobile-width: 380px;

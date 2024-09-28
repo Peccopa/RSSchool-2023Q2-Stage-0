@@ -1,0 +1,35 @@
+.tac {
+  text-align: center;
+}
+
+.pageup {
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+  width: 52px;
+  height: 52px;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  @include media-medium {
+    bottom: 30px;
+    right: 30px;
+  }
+  @include media-bigmob {
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+.invisible {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.inactive {
+  pointer-events: none;
+}

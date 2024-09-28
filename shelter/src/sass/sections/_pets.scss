@@ -1,0 +1,208 @@
+.pets {
+  background: $color-light-l;
+}
+
+.pets-content {
+  padding: 80px 10px 100px 10px;
+  @extend %center-between;
+  flex-direction: column;
+  gap: 30px;
+  @include media-medium {
+    padding: 80px 0px 100px;
+  }
+  @include media-bigmob {
+    padding: 43px 0px 42px;
+    gap: 11px;
+  }
+}
+
+.carousel {
+  @extend %center-between;
+  width: 100%;
+  min-width: 320px;
+  padding-right: 30px;
+  padding-left: 30px;
+  @include media-midmob {
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 80px;
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+}
+
+.carousel__btn {
+  @extend %center-center;
+  @extend %transition;
+  min-width: 52px;
+  min-height: 52px;
+  border-radius: 100px;
+  border: 2px solid $color-primary;
+  cursor: pointer;
+  @media (hover: hover) {
+    &:hover {
+      background: $color-primary-light;
+      border: 2px solid $color-primary-light;
+    }
+  }
+}
+
+.slider {
+  max-width: 1050px;
+  max-height: 495px;
+  overflow: hidden;
+  padding-top: 30px;
+  @include media-midtop {
+    max-width: 930px;
+  }
+  @include media-lowtop {
+    max-width: 600px;
+  }
+  @include media-tablow {
+    max-width: 310px;
+  }
+  @include media-midmob {
+    max-width: 270px;
+    margin: 0 20px;
+
+    max-height: 485px;
+    order: -1;
+  }
+  @include media-mobile {
+    margin: 0;
+  }
+}
+
+.slider__clip {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  left: -1050px;
+  gap: 90px;
+  @include media-midtop {
+    left: -910px;
+    gap: 40px;
+  }
+  @include media-lowtop {
+    left: -610px;
+  }
+  @include media-tablow {
+    left: -290px;
+  }
+  @include media-midmob {
+    left: -310px;
+  }
+}
+
+.pet-card {
+  min-width: 270px;
+  max-height: 435px;
+
+  @extend %transition;
+  @extend %center-between;
+  flex-direction: column;
+  gap: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  background: $color-light-s;
+
+  border-radius: 9px 9px 9px 9px;
+  overflow: hidden;
+  cursor: pointer;
+  @media (hover: hover) {
+    &:hover .pet-card__button {
+      background: $color-primary-light;
+      border-color: $color-primary-light;
+    }
+    &:hover {
+      box-shadow: 0 2px 35px 9px rgba(13, 13, 13, 0.04);
+    }
+  }
+}
+
+.pet-card__img {
+  width: 270px;
+  height: 270px;
+}
+
+// PETS-PAGE
+
+.pets-page {
+  .pets-content {
+    padding-bottom: 99px;
+    @include media-medium {
+      padding-bottom: 74px;
+    }
+    @include media-bigmob {
+      padding-bottom: 74px;
+      gap: 40px;
+      padding-bottom: 44px;
+    }
+  }
+  .carousel {
+    padding-right: 0px;
+    padding-left: 0px;
+    flex-direction: column;
+    gap: 35px;
+    @include media-midmob {
+      flex-wrap: nowrap;
+      justify-content: center;
+      column-gap: 80px;
+      padding-right: 25px;
+      padding-left: 25px;
+    }
+    &__btn_number {
+      background: $color-primary;
+      border-color: $color-primary;
+      pointer-events: none;
+    }
+    .pets-arrow {
+      padding: 4px 1px 6px 1px;
+      letter-spacing: 0;
+    }
+    .inactive-arrow {
+      border-color: $color-dark-s;
+      pointer-events: none;
+      .pets-arrow {
+        color: $color-dark-s;
+      }
+    }
+  }
+  .slider {
+    max-width: 1260px;
+    max-height: 955px;
+    @include media-medium {
+      max-height: 1370px;
+      padding-top: 0;
+    }
+  }
+  .slider__clip {
+    position: static;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 1;
+    display: grid;
+    grid-template-columns: 270px 270px 270px 270px;
+    grid-template-rows: auto;
+    column-gap: 40px;
+    row-gap: 0px;
+    @include media-midtop {
+      grid-template-columns: 270px 270px 270px;
+      grid-template-rows: auto;
+    }
+    @include media-medium {
+      grid-template-columns: 270px 270px;
+      grid-template-rows: auto;
+    }
+    @include media-bigmob {
+      grid-template-columns: 270px;
+      grid-template-rows: auto;
+    }
+  }
+  .pets-navigation {
+    @extend %center-between;
+    gap: 20px;
+    @include media-bigmob {
+      gap: 10px;
+    }
+  }
+}

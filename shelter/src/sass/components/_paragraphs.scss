@@ -1,0 +1,34 @@
+.description {
+  user-select: none;
+
+  font-family: $second-family;
+  font-size: 1.5rem;
+  line-height: 160%;
+}
+
+.promo__description {
+  color: $color-dark-s;
+  @include media-bigmob {
+    text-align: center;
+    width: 300px;
+  }
+}
+
+.about__description {
+  color: $color-dark-xl;
+  @include media-bigmob {
+    width: 270px;
+    text-align: justify;
+  }
+}
+
+.donation__description {
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 150%;
+  color: $color-dark-m;
+  @include media-bigmob {
+    text-align: justify;
+    max-width: 280px;
+  }
+}

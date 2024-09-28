@@ -1,3 +1,12 @@
+## [rsschool: shelter](https://github.com/Peccopa/RSSchool-2023Q2-Stage-0/tree/shelter)
+[<img src="https://peccopa.github.io/RSSchool-2023Q2-Stage-0/shelter/shelter.gif">](https://peccopa.github.io/RSSchool-2023Q2-Stage-0/shelter/)
+>Responsive design, modal window,  
+>favicon, carousel, 
+- https://peccopa.github.io/RSSchool-2023Q2-Stage-0/shelter/
+- ***JAVASCRIPT, CSS(SASS), HTML(BEM)***
+- *modules, classes, JSON*
+- *Webpack, Figma(Pixso), PixelPerfect*
+___
 ## [rsschool: random-game](https://github.com/Peccopa/RSSchool-2023Q2-Stage-0/tree/random-game)
 [<img src="https://peccopa.github.io/RSSchool-2023Q2-Stage-0/random-game/random-game.jpg">](https://peccopa.github.io/RSSchool-2023Q2-Stage-0/random-game/)
 >Start game/end, score window, ~~preloader~~  

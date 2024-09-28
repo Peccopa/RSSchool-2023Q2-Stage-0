@@ -1,0 +1,47 @@
+.button {
+  @extend %transition;
+
+  width: 207px;
+  height: 52px;
+
+  border-radius: 100px;
+  background: $color-primary;
+  cursor: pointer;
+
+  font-family: $first-family;
+  font-size: 1.7rem;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: $color-dark-3xl;
+}
+
+.promo__button {
+  @include media-medium {
+    margin: auto;
+  }
+}
+
+@media (hover: hover) {
+  .promo__button:hover {
+    background: $color-primary-light;
+  }
+}
+
+.pet-card__button {
+  background: none;
+  border: 2px solid $color-primary;
+  width: 187px;
+}
+
+.pets__button {
+  width: 261px;
+  @include media-bigmob {
+    margin-top: 31px;
+  }
+}
+
+@media (hover: hover) {
+  .pets__button:hover {
+    background: $color-primary-light;
+  }
+}

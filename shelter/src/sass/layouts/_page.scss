@@ -1,0 +1,10 @@
+.page {
+  @extend %transition;
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.pets-page {
+  background: $color-light-xl;
+}

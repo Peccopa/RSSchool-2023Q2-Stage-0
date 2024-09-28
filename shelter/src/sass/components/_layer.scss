@@ -1,0 +1,14 @@
+.layer {
+  @extend %transition;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(41, 41, 41, 0);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.layer_on {
+  background: rgba(41, 41, 41, 0.6);
+  pointer-events: all;
+}

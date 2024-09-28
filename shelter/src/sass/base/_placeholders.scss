@@ -1,0 +1,15 @@
+%center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+%center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%transition {
+  transition: all 0.3s ease-in-out;
+}

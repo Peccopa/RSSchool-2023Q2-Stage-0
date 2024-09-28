@@ -1,0 +1,59 @@
+.icon {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-position: center;
+  background-size: cover;
+  @include media-bigmob {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.ico-food {
+  background-image: url('../../src/img/ico/1-icon-pet-food.svg');
+}
+.ico-transport {
+  background-image: url('../../src/img/ico/2-icon-transportation.svg');
+}
+.ico-toy {
+  background-image: url('../../src/img/ico/3-icon-toys.svg');
+}
+.ico-bowl {
+  background-image: url('../../src/img/ico/4-icon-bowls-and-cups.svg');
+}
+.ico-shampoo {
+  background-image: url('../../src/img/ico/5-icon-shampoos.svg');
+}
+.ico-vitamin {
+  background-image: url('../../src/img/ico/6-icon-vitamins.svg');
+}
+.ico-medicine {
+  background-image: url('../../src/img/ico/7-icon-medicines.svg');
+}
+.ico-collar {
+  background-image: url('../../src/img/ico/8-icon-collars-leashes.svg');
+}
+.ico-sleep {
+  background-image: url('../../src/img/ico/9-icon-sleeping-area.svg');
+}
+.ico-card {
+  background-image: url('../../src/img/ico/credit-card.svg');
+  width: 30px;
+  height: 23px;
+}
+.ico-email {
+  background-image: url('../../src/img/ico/icon-email.svg');
+  width: 40px;
+  height: 32px;
+}
+.ico-phone {
+  background-image: url('../../src/img/ico/icon-phone.svg');
+  width: 40px;
+  height: 32px;
+}
+.ico-marker {
+  background-image: url('../../src/img/ico/icon-marker.svg');
+  width: 22px;
+  height: 32px;
+}
